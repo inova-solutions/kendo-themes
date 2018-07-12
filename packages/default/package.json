@@ -23,6 +23,7 @@
     "api-check": "npm run api && git diff --exit-code --quiet -- docs/ || (echo -e '\\033[0;31mERROR: API docs are out of date' && exit 1)",
     "start": "webpack-dev-server --hot --inline",
     "build": "webpack --optimize-minimize --bail",
+    "buildinova": "node build/build-inova-themes.js",
     "watch": "webpack --watch",
     "embed-assets": "node build/embed-assets.js",
     "test": "npm run lint && npm run build && npm run api-check && npm run twbs-compat",

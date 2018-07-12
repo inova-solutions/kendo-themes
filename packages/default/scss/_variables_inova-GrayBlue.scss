@@ -1,0 +1,62 @@
+@import 'mixins/core/config-maps';
+@import 'mixins/colors';
+@import '_variables_inovacolors';
+
+//Common
+$base-theme: Default;
+$border-radius: 2px;
+$skin-name: inova-gray-pink;
+$accent: $inova-blue;
+$accent-contrast: contrast-wcag($accent);
+$info: #3e80ed;
+$success: #5ec232;
+$warning: #fdce3e;
+$error: #d51923;
+$text-color: #656565;
+$bg-color: #ffffff;
+$base-text: #656565;
+$base-bg: #f6f6f6;
+$base-border: rgba(black, 0.08);
+$base-gradient: $base-bg, darken($base-bg, 2%);
+$hovered-text: #656565;
+$hovered-bg: #ededed;
+$hovered-border: rgba(black, 0.15);
+$hovered-gradient: $hovered-bg, darken($hovered-bg, 2%);
+$selected-text: #ffffff;
+$selected-bg: $accent;
+$selected-border: rgba(black, 0.1);
+$selected-gradient: none;
+
+//Buttons
+$button-text: $base-text;
+$button-bg: $base-bg;
+$button-border: $base-border;
+$button-gradient: $base-gradient;
+$button-hovered-text: $hovered-text;
+$button-hovered-bg: $hovered-bg;
+$button-hovered-border: $hovered-border;
+$button-hovered-gradient: $hovered-gradient;
+$button-pressed-text: $button-text;
+$button-pressed-bg: $button-bg;
+$button-pressed-border: $button-border;
+$button-pressed-gradient: none;
+$button-focused-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.06);
+
+//Charts
+$series-a: $accent;
+$series-b: #ffd246;
+$series-c: #78d237;
+$series-d: #28b4c8;
+$series-e: #2d73f5;
+$series-f: #aa46be;
+$chart-major-lines: rgba(0, 0, 0, 0.08);
+$chart-minor-lines: rgba(0, 0, 0, 0.04);
+
+//Fonts
+$font-size: 12.5px;
+$font-family: inherit;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Roboto Mono',
+    'Ubuntu Mono', 'Lucida Console', 'Courier New', monospace;
+$line-height: (20 / 14);
+
+@import '_variables_original';
