@@ -16,15 +16,15 @@ $text-color: #333333;
 $bg-color: #ffffff;
 $base-text: #333333;
 $base-bg: #f4f2ee;
-$base-border: rgba(black, 0.08);
+$base-border: rgba(black, 0.12);
 $base-gradient: $base-bg, darken($base-bg, 2%);
 $hovered-text: #333333;
 $hovered-bg: #efebe6;
-$hovered-border: rgba(black, 0.15);
+$hovered-border: rgba(black, 0.19);
 $hovered-gradient: $hovered-bg, darken($hovered-bg, 2%);
 $selected-text: #ffffff;
 $selected-bg: $accent;
-$selected-border: rgba(black, 0.1);
+$selected-border: rgba(black, 0.14);
 $selected-gradient: none;
 
 //Buttons
