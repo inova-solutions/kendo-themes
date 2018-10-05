@@ -21,8 +21,5 @@ themes.forEach(theme => {
     stdio: 'inherit'
   });
   fs.unlinkSync(tmpPath);
-  fs.renameSync(
-    `${distPath}/all.css`,
-    `${distPath}/kendo.custom2.${theme}.css`
-  );
+  fs.renameSync(`${distPath}/all.css`, `${distPath}/kendo.custom.${theme}.css`);
 });
