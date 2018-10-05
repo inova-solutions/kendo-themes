@@ -1,16 +1,3 @@
-$grid-alt-bg: transparent !default;
-$grid-chrome-text: rgba(0, 0, 0, .54) !default;
-$grid-sorted-bg: rgba(0, 0, 0, .04) !default;
-$grid-text: rgba(0, 0, 0, .87) !default;
-$grid-sorting-indicator-text: $grid-chrome-text !default;
-$grid-selected-bg: rgba(0, 0, 0, .07) !default;
-$grid-grouping-row-bg: transparent !default;
-$grid-selected-text: #000 !default;
-$grid-selected-cell-text: $grid-selected-text !default;
-$grid-selected-cell-bg: $grid-sorted-bg !default;
-$grid-filter-cell-padding-x: $grid-cell-padding-x !default;
-$grid-filter-cell-padding-y: $grid-cell-padding-y !default;
-
 @import "~@progress/kendo-theme-default/scss/grid/theme";
 
 @include exports ('grid/theme/material') {
@@ -30,6 +17,33 @@ $grid-filter-cell-padding-y: $grid-cell-padding-y !default;
             border-bottom: $grid-edit-cell-border;
             background-color: $grid-edit-cell-bg;
             box-shadow: $grid-edit-cell-shadow;
+        }
+
+        // Hover, Focused state
+        tbody tr:hover,
+        td.k-state-focused,
+        th.k-state-focused {
+            background-color: $grid-hovered-bg;
+        }
+        th,
+        td {
+            border-left-color: transparent;
+        }
+
+        &[dir="rtl"],
+        .k-rtl & {
+
+            th,
+            td {
+                border-right-color: transparent;
+            }
+
+            .k-grid-header {
+
+                thead > tr:not(:only-child) > th {
+                    border-right-color: $grid-border;
+                }
+            }
         }
     }
 
@@ -58,6 +72,10 @@ $grid-filter-cell-padding-y: $grid-cell-padding-y !default;
                 box-shadow: none;
             }
         }
+
+        thead > tr:not(:only-child) > th {
+            border-left-color: $grid-border;
+        }
     }
     .k-grouping-header .k-group-indicator {
         background-color: $grid-selected-bg;
@@ -66,7 +84,7 @@ $grid-filter-cell-padding-y: $grid-cell-padding-y !default;
             color: $grid-text;
 
             .k-icon {
-                color: $grid-chrome-text;
+                color: $grid-header-text;
             }
         }
     }
@@ -115,33 +133,12 @@ $grid-filter-cell-padding-y: $grid-cell-padding-y !default;
     }
 
     .k-grid-edit-row > td {
-        $text-field-border-width: 2px;
-        $text-field-radius: $text-field-border-width + 1px;
-        $text-field-padding: (2 * $grid-cell-padding-x / 3);
 
         > .k-textbox,
         > .k-input.k-textbox,
         > .k-textarea,
         > .k-widget {
             background-color: $text-field-bg;
-            border-radius: $text-field-radius;
-            margin-left: -$text-field-padding;
-            margin-right: -$text-field-padding;
-        }
-
-        > .k-textbox,
-        > .k-textarea,
-        > .k-autocomplete,
-        > .k-dateinput-wrap,
-        > .k-dropdown-wrap,
-        > .k-picker-wrap,
-        > .k-multiselect-wrap,
-        > .k-numerictextbox > .k-numeric-wrap {
-            font-size: $font-size;
-            border-radius: $text-field-radius;
-            border-width: 0 0 $text-field-border-width;
-            padding-left: $text-field-padding;
-            padding-right: $text-field-padding;
         }
     }
 

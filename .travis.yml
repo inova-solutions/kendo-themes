@@ -16,7 +16,9 @@ node_js:
   - '8'
 
 before_install:
-  - printf "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> ~/.npmrc
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> ~/.npmrc; fi'
+  - sudo apt-get update
+  - sudo apt-get install -y firefox
 
 before_script:
   - lerna bootstrap --concurrency=1

@@ -3,6 +3,88 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.57.0"></a>
+# [2.57.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@2.56.0...@progress/kendo-theme-default@2.57.0) (2018-10-01)
+
+
+### Bug Fixes
+
+* **grid:** Multi-column headers missing rtl border ([5efe3e8](https://github.com/telerik/kendo-themes/commit/5efe3e8))
+
+
+### Features
+
+* **notification:** add angular notification rtl styles ([126ccbe](https://github.com/telerik/kendo-themes/commit/126ccbe))
+
+
+
+
+<a name="2.56.0"></a>
+# 2.56.0 (2018-09-11)
+
+
+### Bug Fixes
+
+* **animations:** react animation position and display properties ([9541ba7](https://github.com/telerik/kendo-themes/commit/9541ba7))
+* **colorpicker:** ensure input in colorpicker has correct background color ([60b10cd](https://github.com/telerik/kendo-themes/commit/60b10cd))
+* improve form variables in accordance to material design ([dcb5a44](https://github.com/telerik/kendo-themes/commit/dcb5a44))
+* **colorpicker:** update colorpicker layout to better match material theme ([6181275](https://github.com/telerik/kendo-themes/commit/6181275))
+* **combobox:** incorrect styling when importing styles separately ([16da3d5](https://github.com/telerik/kendo-themes/commit/16da3d5))
+* **editor:** remove pointer-events none from create table popup ([4457c6f](https://github.com/telerik/kendo-themes/commit/4457c6f))
+* **focus:** grid, treelist, and calendar focus styles ([01eb3f6](https://github.com/telerik/kendo-themes/commit/01eb3f6))
+* **multiselect:** incorrect styling when importing styles separately ([e5ea1ed](https://github.com/telerik/kendo-themes/commit/e5ea1ed))
+* **notification:** angular closable notification spacing ([994a74c](https://github.com/telerik/kendo-themes/commit/994a74c))
+* **tooltip:** incorrect styling when importing styles separately ([#304](https://github.com/telerik/kendo-themes/issues/304)) ([f78ff85](https://github.com/telerik/kendo-themes/commit/f78ff85))
+
+
+### Features
+
+* **spreadsheet:** add Material theme ([#275](https://github.com/telerik/kendo-themes/issues/275)) ([043d7ed](https://github.com/telerik/kendo-themes/commit/043d7ed))
+* add Material theme for editor ([c4d6daa](https://github.com/telerik/kendo-themes/commit/c4d6daa))
+* add Material theme for gantt ([f38a7ad](https://github.com/telerik/kendo-themes/commit/f38a7ad))
+* add Material theme for scheduler ([2e0c352](https://github.com/telerik/kendo-themes/commit/2e0c352))
+* add themes for dropdowngrid ([d4171f0](https://github.com/telerik/kendo-themes/commit/d4171f0))
+
+
+
+
+<a name="2.55.0"></a>
+# 2.55.0 (2018-08-22)
+
+
+### Bug Fixes
+
+* **buttons:** remove box-shadow of active outline buttons ([#238](https://github.com/telerik/kendo-themes/issues/238)) ([ff5708f](https://github.com/telerik/kendo-themes/commit/ff5708f)), closes [telerik/kendo-themes#237](https://github.com/telerik/kendo-themes/issues/237)
+* **dateinput:** remove double shadow in datepicker ([9f37318](https://github.com/telerik/kendo-themes/commit/9f37318))
+* **popup:** layout styles for bootstrap theme ([308d099](https://github.com/telerik/kendo-themes/commit/308d099))
+* **progressbar:** use repeating gradient for indeterminate state ([d16368c](https://github.com/telerik/kendo-themes/commit/d16368c))
+* **radiobuttons:** checked radio button is misaligned in RTL ([e53ec98](https://github.com/telerik/kendo-themes/commit/e53ec98))
+* **tooltip:** Angular tooltip not having box shadow ([e56e2b4](https://github.com/telerik/kendo-themes/commit/e56e2b4))
+* **tooltip:** content overflowing and not filling its space ([fe3cd28](https://github.com/telerik/kendo-themes/commit/fe3cd28))
+
+
+### Features
+
+* **icons:** allow icon font to be loaded from URL ([#250](https://github.com/telerik/kendo-themes/issues/250)) ([464cdcf](https://github.com/telerik/kendo-themes/commit/464cdcf))
+* **progressbar:** add Progressbar for Material theme ([1de6d19](https://github.com/telerik/kendo-themes/commit/1de6d19))
+
+
+
+
+<a name="2.54.1"></a>
+## [2.54.1](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@2.54.0...@progress/kendo-theme-default@2.54.1) (2018-07-24)
+
+
+### Bug Fixes
+
+* **chat:** selected card shadow is trimmed on OSX ([#215](https://github.com/telerik/kendo-themes/issues/215)) ([fc38a6c](https://github.com/telerik/kendo-themes/commit/fc38a6c))
+* **dialog:** dialog title cuts off letters ([1192d16](https://github.com/telerik/kendo-themes/commit/1192d16)), closes [telerik/kendo-theme-default#871](https://github.com/telerik/kendo-theme-default/issues/871)
+* **spreadsheet:** improve rendering of selected cell ([94d5dd0](https://github.com/telerik/kendo-themes/commit/94d5dd0))
+* improve performance in IE11 ([6ce81f1](https://github.com/telerik/kendo-themes/commit/6ce81f1)), closes [telerik/kendo-themes#227](https://github.com/telerik/kendo-themes/issues/227)
+
+
+
+
 <a name="2.54.0"></a>
 # [2.54.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@2.53.2...@progress/kendo-theme-default@2.54.0) (2018-06-18)
 

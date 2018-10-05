@@ -20,19 +20,16 @@ $forms-invalid-color: inherit !default;
         border-width: 0 0 $input-border-width;
         border-color: $input-border;
         background-color: transparent;
-        font-size: $font-size-lg;
         position: relative;
 
         .k-input {
-            // matches button-inner-height, due to font-size-lg
-            height: add-two( 2 * $button-padding-y, 1.75em );
             color: $input-text;
         }
 
         .k-select {
-            opacity: $icon-opacity;
             border-width: 0;
             font-size: $font-size;
+            opacity: $icon-opacity;
         }
 
         // Hover
@@ -63,12 +60,9 @@ $forms-invalid-color: inherit !default;
     }
 
     // Expanded
-    .k-state-border-down .k-select .k-icon {
+    .k-state-border-up .k-select .k-i-arrow-60-down,
+    .k-state-border-down .k-select .k-i-arrow-60-down {
         transform: rotate(180deg);
-    }
-
-    .k-autocomplete .k-input {
-        height: 1.5em;
     }
 
     .k-picker-wrap > .k-dateinput {

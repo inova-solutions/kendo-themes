@@ -10,21 +10,22 @@
 // Data management
 @import "pager";
 @import "grid";
-//@import "spreadsheet";
-//@import "pivotgrid";
-//@import "treelist";
+@import "spreadsheet";
+@import "pivotgrid";
+@import "treelist";
 @import "scrollview";
 @import "listview";
 
 
 // Editors
 @import "autocomplete";
-//@import "colorpicker";
+@import "colorpicker";
 @import "combobox";
 @import "datetime";
+@import "dropdowngrid";
 @import "dropdownlist";
 @import "dropdowntree";
-//@import "editor";
+@import "editor";
 @import "input";
 @import "multiselect";
 @import "numerictextbox";
@@ -38,20 +39,20 @@
 
 // Dataviz
 @import "dataviz";
-//@import "map";
+@import "map";
 
 // Barcodes
-//@import "barcode";
-//@import "qrcode";
+@import "barcode";
+@import "qrcode";
 
 // Scheduling
 @import "calendar";
-//@import "gantt";
-//@import "scheduler";
+@import "gantt";
+@import "scheduler";
 
 
 // Media
-//@import "mediaplayer";
+@import "mediaplayer";
 
 
 // Layout
@@ -73,7 +74,7 @@
 
 
 // Interactivity & UX
-//@import "progressbar";
+@import "progressbar";
 //@import "scroller";
 
 

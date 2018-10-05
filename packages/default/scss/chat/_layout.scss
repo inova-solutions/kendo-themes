@@ -334,6 +334,7 @@ $message-group-spacing: calc( #{$chat-avatar-size} + #{$chat-avatar-spacing} );
         flex: 0 0 auto;
         width: 100%;
         box-sizing: content-box;
+        padding-bottom: 3px; // prevents trimming of card shadows on OSX (0-width scrollbar)
 
         > .k-card-deck {
             // hide scrollbar
@@ -351,6 +352,7 @@ $message-group-spacing: calc( #{$chat-avatar-size} + #{$chat-avatar-spacing} );
         flex-wrap: nowrap;
         align-items: stretch;
         flex: 0 0 auto;
+        padding-bottom: 5px; // accommodate for focused box shadow on OSX
 
         .k-card {
             flex: 0 0 auto;
@@ -404,6 +406,62 @@ $message-group-spacing: calc( #{$chat-avatar-size} + #{$chat-avatar-spacing} );
                 opacity: 1;
             }
         }
+
+    }
+
+}
+
+
+
+
+@include exports( "chat/toolbar/layout" ) {
+
+    .k-chat .k-toolbar-box {
+        padding: $chat-toolbar-padding-y $chat-toolbar-padding-x;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        position: relative;
+        flex: 0 0 auto;
+
+        .k-button-list {
+            // Needed for native scrolling. Will uncoment when it's implemented.
+            // margin-bottom: -20px;
+            // padding-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            overflow: hidden;
+            // overflow-x: auto;
+            scroll-behavior: smooth;
+
+            .k-button + .k-button {
+                margin-left: $chat-toolbar-spacing;
+                flex-shrink: 0;
+            }
+        }
+
+
+        .k-scroll-button {
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .k-scroll-button-left {
+            left: 0;
+        }
+        .k-scroll-button-right {
+            right: 0;
+        }
+
+        .k-button {
+            border-width: 0;
+            color: inherit;
+            background: none;
+            flex-shrink: 0;
+        }
+
 
     }
 

@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.14.1"></a>
+## [2.14.1](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@2.14.0...@progress/kendo-theme-bootstrap@2.14.1) (2018-10-01)
+
+
+### Bug Fixes
+
+* correct a typo in variable name ([0b1938c](https://github.com/telerik/kendo-themes/commit/0b1938c))
+
+
+
+
+<a name="2.14.0"></a>
+# 2.14.0 (2018-09-11)
+
+
+### Bug Fixes
+
+* **combobox:** incorrect styling when importing styles separately ([16da3d5](https://github.com/telerik/kendo-themes/commit/16da3d5))
+* **multiselect:** incorrect styling when importing styles separately ([e5ea1ed](https://github.com/telerik/kendo-themes/commit/e5ea1ed))
+* **tooltip:** incorrect styling when importing styles separately ([#304](https://github.com/telerik/kendo-themes/issues/304)) ([f78ff85](https://github.com/telerik/kendo-themes/commit/f78ff85))
+* improve form variables in accordance to material design ([dcb5a44](https://github.com/telerik/kendo-themes/commit/dcb5a44))
+
+
+### Features
+
+* add themes for dropdowngrid ([d4171f0](https://github.com/telerik/kendo-themes/commit/d4171f0))
+* **spreadsheet:** add Material theme ([#275](https://github.com/telerik/kendo-themes/issues/275)) ([043d7ed](https://github.com/telerik/kendo-themes/commit/043d7ed))
+
+
+
+
+<a name="2.13.8"></a>
+## 2.13.8 (2018-08-22)
+
+
+### Bug Fixes
+
+* **buttons:** remove box-shadow of active outline buttons ([#238](https://github.com/telerik/kendo-themes/issues/238)) ([ff5708f](https://github.com/telerik/kendo-themes/commit/ff5708f)), closes [telerik/kendo-themes#237](https://github.com/telerik/kendo-themes/issues/237)
+* relax Bootstrap framework version requirement ([08a15b3](https://github.com/telerik/kendo-themes/commit/08a15b3))
+* **progressbar:** use repeating gradient for indeterminate state ([d16368c](https://github.com/telerik/kendo-themes/commit/d16368c))
+
+
+
+
+<a name="2.13.7"></a>
+## [2.13.7](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@2.13.6...@progress/kendo-theme-bootstrap@2.13.7) (2018-07-24)
+
+
+
+
+**Note:** Version bump only for package @progress/kendo-theme-bootstrap
+
 <a name="2.13.6"></a>
 ## [2.13.6](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@2.13.5...@progress/kendo-theme-bootstrap@2.13.6) (2018-06-18)
 
