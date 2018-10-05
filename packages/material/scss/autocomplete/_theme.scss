@@ -1,14 +1,13 @@
 @include exports("autocomplete/theme") {
+
     .k-autocomplete {
         .k-input {
-            // compensates for font-size-lg on inputs
-            height: 1.5em;
             color: $input-text;
         }
 
         &.k-state-focused {
-            border-color: $input-focused-border;
+            @include appearance( focused-input );
         }
     }
-}
 
+}

@@ -93,25 +93,57 @@ $popup-padding-y: 0 !default;
 $header-padding-x: $padding-x !default;
 $header-padding-y: $padding-y * 2 !default;
 
+
+// Forms
 $form-line-height: $line-height !default;
 $form-line-height-em: $form-line-height * 1em !default;
+$form-line-height-sm: $line-height-sm !default;
 
+
+// Buttons
 $button-border-width: 1px !default;
+$button-border-radius: $border-radius !default;
+
 $button-padding-x: $padding-x !default;
 $button-padding-y: $padding-y !default;
+$button-line-height: $form-line-height !default;
+
 $button-padding-x-sm: $button-padding-x / 2 !default;
 $button-padding-y-sm: $button-padding-y / 2 !default;
-$button-calc-size: #{$form-line-height-em} + #{$button-padding-y * 2} + 2px;
-$button-inner-calc-size: #{$form-line-height-em} + #{$button-padding-y * 2};
+$button-line-height-sm: $form-line-height-sm !default;
+
+$button-inner-calc-size: #{$button-line-height * 1em} + #{$button-padding-y * 2};
+$button-calc-size: #{$button-inner-calc-size} + 2px;
+
+
+// Inputs
+$input-default-width: 12.4em !default;
+$input-font-size: $font-size !default;
 
 $input-border-width: 1px !default;
 $input-border-radius: $border-radius !default;
+
 $input-padding-x: $padding-x !default;
 $input-padding-y: $padding-y !default;
+$input-line-height: $form-line-height !default;
+
 $input-padding-x-sm: $input-padding-x / 2 !default;
 $input-padding-y-sm: $input-padding-y / 2 !default;
-$input-calc-size: #{$form-line-height-em} + #{$input-padding-y * 2} + 2px;
-$input-inner-calc-size: #{$form-line-height-em} + #{$input-padding-y * 2};
+$input-line-height-sm: $form-line-height-sm !default;
+
+$input-inner-calc-size: #{$input-line-height * 1em} + #{$input-padding-y * 2};
+$input-calc-size: #{$input-inner-calc-size} + 2px;
+
+
+// Pickers
+$picker-button-border-width: 0 !default;
+$picker-button-padding-x: $button-padding-y !default;
+$picker-button-padding-y: $button-padding-y !default;
+
+
+// Toolbar
+$toolbar-border-width: 1px !default;
+$toolbar-border-radius: 0 !default;
 
 /// The horizontal padding of the container.
 /// @group toolbar
@@ -120,9 +152,18 @@ $toolbar-padding-x: $padding-x !default;
 /// The vertical padding of the container.
 /// @group toolbar
 $toolbar-padding-y: $padding-x !default;
+$toolbar-line-height: $line-height !default;
+
+$toolbar-spacing: $toolbar-padding-x !default;
+
+$toolbar-button-border-width: $button-border-width !default;
+$toolbar-button-border-radius: 0 !default;
+
 $toolbar-button-padding-x: $button-padding-x !default;
 $toolbar-button-padding-y: $button-padding-y !default;
-$toolbar-button-calc-size: #{$form-line-height-em} + #{$toolbar-button-padding-y * 2} + #{$button-border-width * 2};
+$toolbar-button-line-height: $button-line-height !default;
+
+$toolbar-button-calc-size: #{$toolbar-button-line-height * 1em} + #{$toolbar-button-padding-y * 2} + #{$toolbar-button-border-width * 2} !default;
 $toolbar-inner-calc-size: #{$toolbar-button-calc-size} + #{$toolbar-padding-y * 2} !default;
 
 $list-item-padding-x: $padding-x !default;
@@ -141,8 +182,6 @@ $window-inner-padding-x: 16px !default;
 $window-inner-padding-y: 16px !default;
 $window-titlebar-padding-x: 16px !default;
 $window-titlebar-padding-y: 12px !default;
-
-$progressbar-height: 22px !default;
 
 $zindex-popup: 1;
 $zindex-window: 2;
@@ -344,8 +383,6 @@ $toolbar-gradient: null !default;
 
 
 // Input
-$input-default-width: 12.4em !default;
-
 $input-text: $panel-text !default;
 $input-bg: $panel-bg !default;
 $input-border: $button-border !default;
@@ -397,7 +434,69 @@ $list-item-selected-bg: $selected-bg !default;
 $list-item-focused-shadow: inset 0 0 0 2px rgba(0, 0, 0, .13) !default;
 
 
+// Grid
+$grid-padding-x: $cell-padding-x !default;
+$grid-padding-y: $cell-padding-y !default;
+
+$grid-header-padding-x: $grid-padding-x !default;
+$grid-header-padding-y: $grid-padding-y !default;
+
+$grid-footer-padding-x: $grid-header-padding-x !default;
+$grid-footer-padding-y: $grid-header-padding-y !default;
+
+$grid-grouping-header-padding-x: $grid-padding-y !default;
+$grid-grouping-header-padding-y: $grid-grouping-header-padding-x !default;
+
+$grid-filter-cell-padding-x: $grid-padding-y !default;
+$grid-filter-cell-padding-y: $grid-filter-cell-padding-x !default;
+
+$grid-toolbar-padding-x: $grid-padding-y !default;
+$grid-toolbar-padding-y: $grid-toolbar-padding-x !default;
+$grid-toolbar-button-spacing: ($grid-toolbar-padding-y / 2) !default;
+
+$grid-cell-padding-x: $grid-padding-x !default;
+$grid-cell-padding-y: $grid-padding-y !default;
+$grid-cell-horizontal-border-width: 0 !default;
+$grid-cell-vertical-border-width: 1px !default;
+
+$grid-bg: $panel-bg !default;
+$grid-text: $panel-text !default;
+$grid-border: $panel-border !default;
+
+$grid-header-bg: $header-bg !default;
+$grid-header-text: $header-text !default;
+$grid-header-border: $grid-border !default;
+$grid-header-gradient: $header-gradient !default;
+
+/// The background of alternating rows.
+/// Set to transparent to remove the row stripes.
+/// @group grid
+$grid-alt-bg: rgba( contrast-wcag( $grid-bg ), .04 ) !default;
+$grid-alt-text: $grid-text !default;
+$grid-alt-border: $grid-border !default;
+
+$grid-hovered-bg: darken($grid-bg, 7%) !default;
+$grid-hovered-text: $grid-text !default;
+$grid-hovered-border: $grid-border !default;
+
+$grid-selected-bg: rgba($selected-bg, .25) !default;
+$grid-selected-text: $grid-text !default;
+$grid-selected-border: $grid-border !default;
+
+$grid-grouping-row-bg: darken($grid-bg, 7%) !default;
+$grid-grouping-row-text: $grid-text !default;
+
+$grid-sorted-bg: rgba( contrast-wcag( $grid-bg ), .02 ) !default;
+$grid-sorting-indicator-text: $accent !default;
+
+$grid-focused-shadow: $list-item-focused-shadow !default;
+
+
 // Notification
+$notification-padding-x: 8px !default;
+$notification-padding-y: 4px !default;
+$notification-border-width: 1px !default;
+
 $notification-info-border: $info !default;
 $notification-info-bg: $info !default;
 $notification-info-text: contrast-wcag( $notification-info-bg ) !default;
@@ -457,6 +556,11 @@ $icon-size: 16px;
 $icon-size-lg: 32px;
 $icon-spacing: 4px !default;
 
+/// The URL to the icon font that will be used by the theme
+/// The default value of `null` embeds the package font with a `data:` URL
+/// @group icons
+$icon-font-url: null !default;
+
 // Disabled mixin variables
 $disabled-filter: grayscale(.1) !default;
 $disabled-opacity: .6 !default;
@@ -501,7 +605,6 @@ $card-deck-scroll-button-radius: 0 !default;
 $card-deck-scroll-button-offset: -$button-border-width !default;
 
 
-
 // Chat
 $chat-padding-x: 16px !default;
 $chat-padding-y: 16px !default;
@@ -527,6 +630,10 @@ $chat-avatar-spacing: $chat-item-spacing-x !default;
 $chat-message-box-padding-x: $chat-padding-x !default;
 $chat-message-box-padding-y: 10px !default;
 
+$chat-toolbar-padding-x: $chat-padding-x !default;
+$chat-toolbar-padding-y: 10px !default;
+$chat-toolbar-spacing: 20px !default;
+
 $chat-quick-reply-padding-x: 12px !default;
 $chat-quick-reply-padding-y: 8px !default;
 $chat-quick-reply-spacing: 8px !default;
@@ -545,9 +652,51 @@ $chat-alt-bubble-bg: $accent !default;
 $chat-alt-bubble-text: $accent-contrast !default;
 $chat-alt-bubble-border: $chat-alt-bubble-bg !default;
 
+
+// Mediaplayer
+$mediaplayer-bg: $panel-bg !default;
+$mediaplayer-text: $panel-text !default;
+$mediaplayer-border: $panel-border !default;
+
+$mediaplayer-titlebar-padding-x: $header-padding-x !default;
+$mediaplayer-titlebar-padding-y: $header-padding-y !default;
+$mediaplayer-titlebar-bg: false !default;
+$mediaplayer-titlebar-text: $mediaplayer-bg !default;
+$mediaplayer-titlebar-border: false !default;
+$mediaplayer-titlebar-gradient: rgba( $mediaplayer-text, .7 ), rgba( $mediaplayer-text, 0 ) !default;
+
+$mediaplayer-toolbar-padding-x: $toolbar-padding-x !default;
+$mediaplayer-toolbar-padding-y: $toolbar-padding-y !default;
+$mediaplayer-toolbar-spacing: $padding-x !default;
+$mediaplayer-toolbar-bg: rgba( $toolbar-bg, .85 ) !default;
+$mediaplayer-toolbar-text: $toolbar-text !default;
+
+
 // Tooltip
 $tooltip-bg: $accent !default;
 $tooltip-color: contrast-wcag($tooltip-bg) !default;
+
+
+// Progressbar
+$progressbar-height: 22px !default;
+$progressbar-animation-timing: 1s linear infinite !default;
+
+$progressbar-bg: $base-bg !default;
+$progressbar-text: $base-text !default;
+$progressbar-border: $base-border !default;
+$progressbar-gradient: false !default;
+
+$progressbar-fill-bg: $accent !default;
+$progressbar-fill-text: contrast-wcag( $progressbar-fill-bg ) !default;
+$progressbar-fill-border: darken( $progressbar-fill-bg, 4% ) !default;
+$progressbar-fill-gradient: rgba( adjust-hue( $progressbar-fill-bg, 14), 0 ), rgba( adjust-hue( $progressbar-fill-bg, 14), .2 ) !default;
+
+$progressbar-indeterminate-bg: $progressbar-bg !default;
+$progressbar-indeterminate-text: $progressbar-text !default;
+$progressbar-indeterminate-border: $progressbar-border !default;
+$progressbar-indeterminate-gradient: false !default;
+
+$progressbar-chunk-border: $bg-color !default;
 
 
 // Config maps

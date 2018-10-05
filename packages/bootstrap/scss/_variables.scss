@@ -144,24 +144,57 @@ $popup-padding-y: $dropdown-padding-y !default;
 $header-padding-x: $card-spacer-x !default;
 $header-padding-y: $card-spacer-y !default;
 
+
+// Forms
 $form-line-height: $input-btn-line-height !default;
 $form-line-height-em: $form-line-height * 1em !default;
+$form-line-height-sm: $line-height-sm !default;
+
+
+// Buttons
+$button-border-width: $btn-border-width !default;
+$button-border-radius: $border-radius !default;
 
 $button-padding-x: $btn-padding-x !default;
 $button-padding-y: $btn-padding-y !default;
+$button-line-height: $btn-line-height !default;
+
 $button-padding-x-sm: $btn-padding-x-sm !default;
 $button-padding-y-sm: $btn-padding-y-sm !default;
-$button-calc-size: #{$form-line-height-em} + #{$button-padding-y * 2} + 2px;
-$button-inner-calc-size: #{$form-line-height-em} + #{$button-padding-y * 2};
+$button-line-height-sm: $btn-line-height-sm !default;
+
+$button-inner-calc-size: #{$button-line-height * 1em} + #{$button-padding-y * 2};
+$button-calc-size: #{$button-inner-calc-size} + 2px;
+
+
+// Inputs
+$input-default-width: 12.4em !default;
+$input-font-size: $font-size !default;
 
 $input-border-width: $input-border-width !default;
 $input-border-radius: $input-border-radius !default;
+
 $input-padding-x: $input-padding-x !default;
 $input-padding-y: $input-padding-y !default;
+$input-line-height: $input-line-height !default;
+
 $input-padding-x-sm: $input-padding-x-sm !default;
 $input-padding-y-sm: $input-padding-y-sm !default;
-$input-calc-size: #{$form-line-height-em} + #{$input-padding-y * 2} + 2px;
-$input-inner-calc-size: #{$form-line-height-em} + #{$input-padding-y * 2};
+$input-line-height-sm: $input-line-height-sm !default;
+
+$input-inner-calc-size: #{$input-line-height * 1em} + #{$input-padding-y * 2};
+$input-calc-size: #{$input-inner-calc-size} + 2px;
+
+
+// Pickers
+$picker-button-border-width: 1px !default;
+$picker-button-padding-x: $button-padding-y !default;
+$picker-button-padding-y: $button-padding-y !default;
+
+
+// Toolbar
+$toolbar-border-width: 1px !default;
+$toolbar-border-radius: 0 !default;
 
 /// The horizontal padding of the container.
 /// @group toolbar
@@ -170,10 +203,19 @@ $toolbar-padding-x: $table-cell-padding / 2 !default;
 /// The vertical padding of the container.
 /// @group toolbar
 $toolbar-padding-y: $table-cell-padding / 2 !default;
+$toolbar-line-height: $line-height !default;
+
+$toolbar-spacing: $toolbar-padding-x !default;
+
+$toolbar-button-border-width: $button-border-width !default;
+$toolbar-button-border-radius: $button-border-radius !default;
 
 $toolbar-button-padding-x: $button-padding-x !default;
 $toolbar-button-padding-y: $button-padding-y !default;
-$toolbar-inner-calc-size: #{$button-calc-size} + #{$toolbar-padding-y * 2} !default;
+$toolbar-button-line-height: $button-line-height !default;
+
+$toolbar-button-calc-size: #{$toolbar-button-line-height * 1em} + #{$toolbar-button-padding-y * 2} + #{$toolbar-button-border-width * 2};
+$toolbar-inner-calc-size: #{$toolbar-button-calc-size} + #{$toolbar-padding-y * 2} !default;
 
 $list-item-padding-x: $dropdown-item-padding-x !default;
 $list-item-padding-y: 3px !default;
@@ -191,8 +233,6 @@ $window-inner-padding-x: $modal-inner-padding !default;
 $window-inner-padding-y: $modal-inner-padding !default;
 $window-titlebar-padding-x: $modal-header-padding !default;
 $window-titlebar-padding-y: $modal-header-padding !default;
-
-$progressbar-height: $progress-height !default;
 
 $zindex-popup: 1;
 $zindex-window: 2;
@@ -243,9 +283,9 @@ $gradient-rainbow: #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000
 
 
 // Component
-$componet-bg: $component-bg !default;
-$componet-text: $component-color !default;
-$componet-border: $component-border-color !default;
+$component-bg: $component-bg !default;
+$component-text: $component-color !default;
+$component-border: $component-border-color !default;
 
 
 // Widget
@@ -439,9 +479,38 @@ $tab-item-selected-border: $nav-tabs-link-active-border-color !default;
 
 
 // Grid
+$grid-padding-x: $cell-padding-x !default;
+$grid-padding-y: $cell-padding-y !default;
+
+$grid-header-padding-x: $grid-padding-x !default;
+$grid-header-padding-y: $grid-padding-y !default;
+
+$grid-footer-padding-x: $grid-header-padding-x !default;
+$grid-footer-padding-y: $grid-header-padding-y !default;
+
+$grid-grouping-header-padding-x: ($grid-padding-y / 2) !default;
+$grid-grouping-header-padding-y: $grid-grouping-header-padding-x !default;
+
+$grid-filter-cell-padding-x: $grid-padding-y !default;
+$grid-filter-cell-padding-y: $grid-filter-cell-padding-x !default;
+
+$grid-toolbar-padding-x: ($grid-padding-y / 2) !default;
+$grid-toolbar-padding-y: $grid-toolbar-padding-x !default;
+$grid-toolbar-button-spacing: $grid-toolbar-padding-y !default;
+
+$grid-cell-padding-x: $grid-padding-x !default;
+$grid-cell-padding-y: $grid-padding-y !default;
+$grid-cell-horizontal-border-width: 0 !default;
+$grid-cell-vertical-border-width: 1px !default;
+
 $grid-bg: $table-bg !default;
 $grid-text: $table-color !default;
 $grid-border: $table-border-color !default;
+
+$grid-header-bg: $header-bg !default;
+$grid-header-text: $header-text !default;
+$grid-header-border: $header-border !default;
+$grid-header-gradient: $header-gradient !default;
 
 $grid-alt-text: $grid-text !default;
 $grid-alt-bg: rgba( $grid-alt-text, .03) !default;
@@ -451,9 +520,17 @@ $grid-hovered-text: $grid-text !default;
 $grid-hovered-bg: rgba( $grid-hovered-text, .065) !default;
 $grid-hovered-border: $grid-border !default;
 
-$grid-header-bg: $header-bg !default;
-$grid-header-text: $header-text !default;
-$grid-header-border: $header-border !default;
+$grid-selected-bg: rgba($selected-bg, .25) !default;
+$grid-selected-text: $grid-text !default;
+$grid-selected-border: $grid-border !default;
+
+$grid-grouping-row-bg: darken($grid-bg, 7%) !default;
+$grid-grouping-row-text: $grid-text !default;
+
+$grid-sorted-bg: rgba( contrast-wcag( $grid-bg ), .02 ) !default;
+$grid-sorting-indicator-text: $accent !default;
+
+$grid-focused-shadow: inset 0 0 0 2px rgba( 0, 0, 0, .08) !default;
 
 
 //Pager
@@ -470,6 +547,10 @@ $pager-selected-bg: $pagination-active-bg !default;
 $pager-selected-border: $pagination-active-border-color !default;
 
 // Notification
+$notification-padding-x: $alert-padding-x !default;
+$notification-padding-y: $alert-padding-y !default;
+$notification-border-width: $alert-border-width !default;
+
 $notification-info-bg: color-level($info, 10) !default;
 $notification-info-text: color-level($info, -6) !default;
 $notification-info-border: color-level($info, 9) !default;
@@ -492,18 +573,6 @@ $window-border: $modal-content-border-color !default;
 $window-titlebar-text: $modal-header-color !default;
 $window-titlebar-bg: $modal-header-bg !default;
 $window-titlebar-border: $modal-header-border-color !default;
-
-
-// Progress
-$progress-bg: $progress-bg !default;
-$progress-text: $progress-color !default;
-$progress-border: transparent !default;
-$progress-gradient: false !default;
-
-$progress-fill-bg:  $progress-bar-bg !default;
-$progress-fill-text: $progress-bar-color !default;
-$progress-fill-border: transparent !default;
-$progress-fill-gradient: false !default;
 
 
 // Chart
@@ -618,6 +687,10 @@ $chat-avatar-spacing: $chat-item-spacing-x !default;
 $chat-message-box-padding-x: $chat-padding-x !default;
 $chat-message-box-padding-y: 10px !default;
 
+$chat-toolbar-padding-x: $chat-padding-x !default;
+$chat-toolbar-padding-y: 10px !default;
+$chat-toolbar-spacing: 20px !default;
+
 $chat-quick-reply-padding-x: 12px !default;
 $chat-quick-reply-padding-y: 8px !default;
 $chat-quick-reply-spacing: 8px !default;
@@ -636,9 +709,51 @@ $chat-alt-bubble-bg: $accent !default;
 $chat-alt-bubble-text: $accent-contrast !default;
 $chat-alt-bubble-border: $chat-alt-bubble-bg !default;
 
+
+// Mediaplayer
+$mediaplayer-bg: $panel-bg !default;
+$mediaplayer-text: $panel-text !default;
+$mediaplayer-border: $panel-border !default;
+
+$mediaplayer-titlebar-padding-x: $header-padding-x !default;
+$mediaplayer-titlebar-padding-y: $header-padding-y !default;
+$mediaplayer-titlebar-bg: false !default;
+$mediaplayer-titlebar-text: $mediaplayer-bg !default;
+$mediaplayer-titlebar-border: false !default;
+$mediaplayer-titlebar-gradient: rgba( $mediaplayer-text, .7 ), rgba( $mediaplayer-text, 0 ) !default;
+
+$mediaplayer-toolbar-padding-x: $toolbar-padding-x !default;
+$mediaplayer-toolbar-padding-y: $toolbar-padding-y !default;
+$mediaplayer-toolbar-spacing: $padding-x !default;
+$mediaplayer-toolbar-bg: rgba( $toolbar-bg, .85 ) !default;
+$mediaplayer-toolbar-text: $toolbar-text !default;
+
+
 // Tooltip
 $tooltip-bg: $tooltip-bg !default;
-$tooltip-color: contrast-wcag($tooltip-bg) !default;
+$tooltip-text: contrast-wcag($tooltip-bg) !default;
+
+
+// Progressbar
+$progressbar-height: $progress-height !default;
+$progressbar-animation-timing: $progress-bar-animation-timing !default;
+
+$progressbar-bg: $progress-bg !default;
+$progressbar-text: $progress-color !default;
+$progressbar-border: transparent !default;
+$progressbar-gradient: false !default;
+
+$progressbar-fill-bg:  $progress-bar-bg !default;
+$progressbar-fill-text: $progress-bar-color !default;
+$progressbar-fill-border: transparent !default;
+$progressbar-fill-gradient: false !default;
+
+$progressbar-indeterminate-bg: $progressbar-bg !default;
+$progressbar-indeterminate-text: $progressbar-text !default;
+$progressbar-indeterminate-border: $progressbar-border !default;
+$progressbar-indeterminate-gradient: false !default;
+
+$progressbar-chunk-border: $bg-color !default;
 
 
 // Config maps

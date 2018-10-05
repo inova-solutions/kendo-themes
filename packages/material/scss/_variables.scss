@@ -116,32 +116,61 @@ $popup-padding-y: 8px !default;
 $header-padding-x: $padding-x * 1.5 !default;
 $header-padding-y: $padding-y * 5 !default;
 
+
+// Forms
 $form-line-height: $line-height !default;
 $form-line-height-em: $form-line-height * 1em !default;
+$form-line-height-sm: $line-height-sm !default;
 
+
+// Buttons
 $button-border-width: 0 !default;
+$button-border-radius: $border-radius !default;
+
 $button-padding-x: $padding-x !default;
-$button-padding-y: $padding-y !default;
+$button-padding-y: 8px !default;
+$button-line-height: (20 / 14) !default;
+
 $button-padding-x-sm: $button-padding-x / 2 !default;
 $button-padding-y-sm: $button-padding-y / 2 !default;
-$button-calc-size: #{$form-line-height-em} + #{$button-padding-y * 2} + 2px;
-$button-inner-calc-size: #{$form-line-height-em} + #{$button-padding-y * 2};
+$button-line-height-sm: $form-line-height-sm !default;
 
+$button-inner-calc-size: #{$button-line-height * 1em} + #{$button-padding-y * 2};
+$button-calc-size: #{$button-inner-calc-size} + #{$button-border-width * 2};
+
+
+// Inputs
 $input-default-width: 200px !default;
+$input-font-size: $font-size-lg !default;
 
 $input-border-width: 1px !default;
 $input-border-radius: 0 !default;
+
 $input-padding-x: 0 !default;
-$input-padding-y: 6px !default;
+$input-padding-y: 8px !default;
+$input-line-height: 1.125 !default;
+
 $input-padding-x-sm: $input-padding-x / 2 !default;
 $input-padding-y-sm: $input-padding-y / 2 !default;
-$input-calc-size: #{$form-line-height-em} + #{$input-padding-y * 2} + 2px;
-$input-inner-calc-size: #{$form-line-height-em} + #{$input-padding-y * 2};
+$input-line-height-sm: $form-line-height-sm !default;
+
+$input-inner-calc-size: #{$input-line-height * 1em} + #{$input-padding-y * 2};
+$input-calc-size: #{input-inner-calc-size} + 2px;
 
 $textarea-padding-x: 10px !default;
 $textarea-padding-y: 15px !default;
 $textarea-floating-label-padding: 25px !default;
 
+
+// Pickers
+$picker-button-border-width: 0 !default;
+$picker-button-padding-x: ($button-padding-y / 2) !default;
+$picker-button-padding-y: $button-padding-y !default;
+
+
+// Toolbar
+$toolbar-border-width: 0 !default;
+$toolbar-border-radius: 0 !default;
 /// The horizontal padding of the container.
 /// @group toolbar
 $toolbar-padding-x: 0 !default;
@@ -149,9 +178,18 @@ $toolbar-padding-x: 0 !default;
 /// The vertical padding of the container.
 /// @group toolbar
 $toolbar-padding-y: 0 !default;
+$toolbar-line-height: $button-line-height !default;
+
+$toolbar-spacing: $toolbar-padding-x !default;
+
+$toolbar-button-border-width: $button-border-width !default;
+$toolbar-button-border-radius: 0 !default;
+
 $toolbar-button-padding-x: $button-padding-x !default;
-$toolbar-button-padding-y: $padding-y * 2.5 !default;
-$toolbar-button-calc-size: #{$form-line-height-em} + #{$toolbar-button-padding-y * 2} + #{$button-border-width * 2};
+$toolbar-button-padding-y: 14px !default;
+$toolbar-button-line-height: $button-line-height !default;
+
+$toolbar-button-calc-size: #{$toolbar-button-line-height * 1em} + #{$toolbar-button-padding-y * 2} + #{$toolbar-button-border-width * 2} !default;
 $toolbar-inner-calc-size: #{$toolbar-button-calc-size} + #{$toolbar-padding-y * 2} !default;
 
 $list-item-padding-x: $padding-x * 1.5 !default;
@@ -161,8 +199,8 @@ $nav-item-margin: 2px !default;
 $nav-item-padding-x: $padding-x !default;
 $nav-item-padding-y: $padding-y !default;
 
-$cell-padding-x: 12px !default;
-$cell-padding-y: 8px !default;
+$cell-padding-x: 24px !default;
+$cell-padding-y: 10px !default;
 $cell-padding: 8px !default;
 // $cell-padding-sm: $table-sm-cell-padding !default;
 
@@ -170,8 +208,6 @@ $window-inner-padding-x: 24px !default;
 $window-inner-padding-y: 24px !default;
 $window-titlebar-padding-x: 24px !default;
 $window-titlebar-padding-y: 24px !default;
-
-$progressbar-height: 22px;
 
 $zindex-popup: 1;
 $zindex-window: 2;
@@ -241,6 +277,8 @@ $warning: #ffc000 !default;
 $success: #37b400 !default;
 /// The color for informational messages and states.
 $info: #3f51b5 !default;
+
+$color-level-step: 8% !default;
 
 $invalid-border-color: rgba($error, .5) !default;
 
@@ -432,6 +470,80 @@ $list-item-selected-bg: $list-item-bg !default;
 $list-item-focused-shadow: none !default;
 
 
+// Grid
+$grid-padding-x: $cell-padding-x !default;
+$grid-padding-y: $cell-padding-y !default;
+
+$grid-header-padding-x: $grid-padding-x !default;
+$grid-header-padding-y: 16px !default;
+
+$grid-footer-padding-x: $grid-header-padding-x !default;
+$grid-footer-padding-y: $grid-header-padding-y !default;
+
+$grid-grouping-header-padding-x: 14px !default;
+$grid-grouping-header-padding-y: $grid-grouping-header-padding-x !default;
+
+$grid-filter-cell-padding-x: $grid-padding-x !default;
+$grid-filter-cell-padding-y: $grid-padding-y !default;
+
+$grid-toolbar-padding-x: 14px !default;
+$grid-toolbar-padding-y: $grid-toolbar-padding-x !default;
+$grid-toolbar-button-spacing: 8px !default;
+
+$grid-cell-padding-x: $grid-padding-x !default;
+$grid-cell-padding-y: $grid-padding-y !default;
+$grid-cell-horizontal-border-width: 1px !default;
+$grid-cell-vertical-border-width: 1px !default;
+
+$grid-bg: $panel-bg !default;
+$grid-text: rgba(0, 0, 0, .87) !default;
+$grid-border: rgba( black, .12 ) !default;
+
+$grid-header-bg: $header-bg !default;
+$grid-header-text: rgba(0, 0, 0, .54) !default;
+$grid-header-border: $grid-border !default;
+$grid-header-gradient: $header-gradient !default;
+
+$grid-alt-bg: transparent !default;
+$grid-alt-text: $grid-text !default;
+$grid-alt-border: $grid-border !default;
+
+$grid-hovered-bg: rgba( contrast-wcag( $grid-bg ), .07 ) !default;
+$grid-hovered-text: $grid-text !default;
+$grid-hovered-border: $grid-border !default;
+
+$grid-selected-bg: rgba( contrast-wcag( $grid-bg ), .04 ) !default;
+$grid-selected-text: #000000 !default;
+$grid-selected-border: $grid-border !default;
+
+$grid-grouping-row-bg: transparent !default;
+$grid-grouping-row-text: $grid-text !default;
+
+$grid-sorted-bg: rgba( contrast-wcag( $grid-bg ), .04 ) !default;
+$grid-sorting-indicator-text: $grid-header-text !default;
+
+$grid-focused-shadow: $list-item-focused-shadow !default;
+
+
+// Notification
+$notification-padding-x: 16px !default;
+$notification-padding-y: 14px !default;
+$notification-border-width: 0 !default;
+
+$notification-info-border: $info !default;
+$notification-info-bg: $info !default;
+$notification-info-text: contrast-wcag( $notification-info-bg ) !default;
+$notification-success-border: $success !default;
+$notification-success-bg: $success !default;
+$notification-success-text: contrast-wcag( $notification-success-bg ) !default;
+$notification-warning-border: $warning !default;
+$notification-warning-bg: $warning !default;
+$notification-warning-text: contrast-wcag( $notification-warning-bg ) !default;
+$notification-error-border: $error !default;
+$notification-error-bg: $error !default;
+$notification-error-text: contrast-wcag( $notification-error-bg ) !default;
+
+
 // Link
 $link-text: $secondary !default;
 $link-hover-text: desaturate(darken($secondary, 5), 25) !default;
@@ -525,6 +637,7 @@ $card-actions-border-width: 0 !default;
 $card-deck-scroll-button-radius: 50% !default;
 $card-deck-scroll-button-offset: $card-deck-gap / 2 !default;
 
+
 // Chat
 $chat-padding-x: 16px !default;
 $chat-padding-y: 16px !default;
@@ -550,6 +663,10 @@ $chat-avatar-spacing: $chat-item-spacing-x !default;
 $chat-message-box-padding-x: $chat-padding-x !default;
 $chat-message-box-padding-y: 10px !default;
 
+$chat-toolbar-padding-x: $chat-padding-x !default;
+$chat-toolbar-padding-y: 10px !default;
+$chat-toolbar-spacing: 20px !default;
+
 $chat-quick-reply-padding-x: 12px !default;
 $chat-quick-reply-padding-y: 8px !default;
 $chat-quick-reply-spacing: 8px !default;
@@ -568,9 +685,50 @@ $chat-alt-bubble-bg: $accent !default;
 $chat-alt-bubble-text: $accent-contrast !default;
 $chat-alt-bubble-border: $chat-alt-bubble-bg !default;
 
+
+// Mediaplayer
+$mediaplayer-bg: $panel-bg !default;
+$mediaplayer-text: $panel-text !default;
+$mediaplayer-border: $panel-border !default;
+
+$mediaplayer-titlebar-padding-x: $header-padding-x !default;
+$mediaplayer-titlebar-padding-y: $header-padding-y !default;
+$mediaplayer-titlebar-bg: false !default;
+$mediaplayer-titlebar-text: $mediaplayer-bg !default;
+$mediaplayer-titlebar-border: false !default;
+$mediaplayer-titlebar-gradient: rgba( $mediaplayer-text, .7 ), rgba( $mediaplayer-text, 0 ) !default;
+
+$mediaplayer-toolbar-padding-x: $toolbar-padding-x !default;
+$mediaplayer-toolbar-padding-y: $toolbar-padding-y !default;
+$mediaplayer-toolbar-spacing: $padding-x !default;
+$mediaplayer-toolbar-bg: rgba( $toolbar-bg, .85 ) !default;
+$mediaplayer-toolbar-text: $toolbar-text !default;
+
+
 // Tooltip
 $tooltip-bg: #616161 !default;
-$tooltip-color: contrast-wcag($tooltip-bg) !default;
+$tooltip-text: contrast-wcag($tooltip-bg) !default;
+
+
+// Progressbar
+$progressbar-height: 5px !default;
+
+$progressbar-bg: color-level( $accent, 9 ) !default;
+$progressbar-text: $text-color !default;
+$progressbar-border: transparent !default;
+$progressbar-gradient: false !default;
+
+$progressbar-fill-bg:  $accent !default;
+$progressbar-fill-text: $progressbar-text !default;
+$progressbar-fill-border: transparent !default;
+$progressbar-fill-gradient: false !default;
+
+$progressbar-indeterminate-bg: $progressbar-bg !default;
+$progressbar-indeterminate-text: $progressbar-text !default;
+$progressbar-indeterminate-border: $progressbar-border !default;
+$progressbar-indeterminate-gradient: false !default;
+
+$progressbar-chunk-border: $bg-color !default;
 
 
 // Config maps

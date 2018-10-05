@@ -1,31 +1,25 @@
 $grid-hierarchy-col-width: 32px !default;
 $grid-form-component-vertical-align: bottom !default;
-$grid-cell-horizontal-border-width: 1px !default;
-$grid-cell-vertical-border-width: 0 !default;
 // TODO: perhaps these should be the values for cell-padding-x/-y
-$grid-cell-padding-x: 24px !default;
-$grid-cell-padding-y: 10px !default;
-$grid-header-cell-padding-y: 16px !default;
-$grid-filter-cell-padding-x: $grid-cell-padding-x !default;
-$grid-filter-cell-padding-y: $grid-cell-padding-y !default;
-$grid-filter-input-text-indent: 0 !default;
 $grid-grouping-row-border-top: 0 !default;
 $grid-group-footer-border-y: 0 !default;
 $grid-group-footer-second-cell-border: 0 !default;
 $edit-cell-input-space: 0 !default;
-$grid-header-first-border: 0 !default;
+$grid-header-first-border: 1px !default;
 $grid-sorted-icon-spacing: 4px !default;
 $grid-header-menu-icon-spacing: 14px !default;
-$grid-grouping-header-padding-x: 14px !default;
-$grid-grouping-header-padding-y: 14px !default;
 $grid-group-indicator-border-radius: add-two( $font-size, $button-padding-y) !default;
 $grid-group-indicator-gap: 8px !default;
+$grid-header-font-size: 12px !default;
 
 @import "~@progress/kendo-theme-default/scss/grid/layout";
 
 @include exports ('grid/layout/material') {
-    $grid-header-font-size: 12px !default;
     $grouping-dropclue-height: add-two( 2 * $font-size, 2 * $padding-y) !default;
+
+    $text-field-border-width: 2px;
+    $text-field-radius: $text-field-border-width + 1px;
+    $text-field-padding: (2 * $grid-cell-padding-x / 3);
 
     .k-grid {
         .k-checkbox-label,
@@ -33,26 +27,29 @@ $grid-group-indicator-gap: 8px !default;
             line-height: normal;
         }
 
-        .k-edit-cell,
-        .k-grid-edit-row {
-            .k-input {
-                font-size: $font-size;
-            }
-        }
-
         .k-button,
         .k-button:active {
             box-shadow: none;
         }
+
+        &[dir="rtl"],
+        .k-rtl & {
+
+            th {
+                border-width: 0 $grid-cell-vertical-border-width 1px 0;
+            }
+
+            td {
+                border-width: 0 $grid-cell-vertical-border-width $grid-cell-horizontal-border-width 0;
+            }
+        }
     }
 
     .k-grid-header {
+        font-size: $grid-header-font-size;
+
         th {
             font-weight: 700;
-        }
-
-        .k-header:not(.k-widget) {
-            font-size: $grid-header-font-size;
         }
 
         .k-grid-filter {
@@ -118,5 +115,61 @@ $grid-group-indicator-gap: 8px !default;
     .k-reorder-cue {
         margin-left: -1px;
         width: 2px;
+    }
+
+    .k-edit-cell,
+    .k-grid-edit-row > td {
+
+        > .k-textbox,
+        > .k-input.k-textbox,
+        > .k-textarea,
+        > .k-widget {
+            border-radius: $text-field-radius;
+            margin-left: -$text-field-padding;
+            margin-right: -$text-field-padding;
+        }
+    }
+    .k-edit-cell,
+    .k-grid-edit-row {
+
+        .k-autocomplete,
+        .k-combobox,
+        .k-dateinput,
+        .k-datepicker,
+        .k-datetimepicker,
+        .k-dropdown,
+        .k-dropdowntree,
+        .k-maskedtextbox,
+        .k-multiselect,
+        .k-numerictextbox,
+        .k-timepicker,
+        .k-textbox,
+        .k-textbox.k-input {
+            font-size: $font-size;
+            line-height: $button-line-height;
+        }
+
+        .k-textbox,
+        .k-textbox.k-input,
+        .k-textarea,
+        .k-autocomplete,
+        .k-dateinput-wrap,
+        .k-dropdown-wrap,
+        .k-picker-wrap,
+        .k-multiselect-wrap,
+        .k-numeric-wrap {
+            border-radius: $text-field-radius;
+            border-width: 0 0 $text-field-border-width;
+            padding-left: $text-field-padding;
+            padding-right: $text-field-padding;
+
+            .k-input {
+                height: add-three( $button-line-height * 1em, $button-padding-y * 2, -$text-field-border-width );
+            }
+        }
+        .k-textbox,
+        .k-textbox.k-input, {
+            height: button-size();
+        }
     }
 }

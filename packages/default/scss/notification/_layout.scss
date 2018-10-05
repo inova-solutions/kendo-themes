@@ -1,31 +1,53 @@
 @include exports("notification/layout") {
 
-    $alert-padding-y: 1em !default;
-    $alert-padding-x: 1em !default;
+    $notification-padding-end: calc(#{$notification-padding-x} + #{$icon-size} + #{$icon-spacing}) !default;
 
     // Base
-    .k-notification {
-        padding: 0;
-        @include border-radius();
+    .k-notification-group {
+        position: fixed;
+        display: inline-flex;
+        flex-wrap: wrap;
+        max-height: 100%;
+        flex-direction: column-reverse;
     }
+
+    .k-notification-container {
+        margin: ($notification-padding-y / 2) 0;
+        display: inline-flex;
+        vertical-align: top;
+
+        &-animating {
+            overflow: hidden;
+        }
+    }
+
+    .k-notification {
+        @include border-radius();
+        padding: 0;
+        border-width: $notification-border-width;
+        border-style: solid;
+    }
+
     .k-notification-wrap {
+        padding: $notification-padding-y $notification-padding-x;
+        padding-right: $notification-padding-end;
         font-size: $font-size-sm;
-        padding: $alert-padding-y calc(#{$alert-padding-x} + #{$icon-size} + #{$icon-spacing}) $alert-padding-y $alert-padding-x;
         white-space: nowrap;
         cursor: default;
         position: relative;
         line-height: $line-height-em;
 
         > .k-icon {
-            margin-right: $padding-x;
+            margin-right: $notification-padding-x;
             vertical-align: middle;
         }
 
         > .k-i-close {
             margin: 0;
             position: absolute;
-            top: $alert-padding-y;
-            right: $alert-padding-x;
+            top: $notification-padding-y;
+            right: $notification-padding-x;
+            cursor: pointer;
             font-size: inherit;
             line-height: inherit;
 
@@ -33,10 +55,31 @@
                 font-size: $icon-size;
             }
         }
+
+        > .k-notification-content {
+            display: inline-block;
+            vertical-align: top;
+        }
     }
 
+    // refactor when https://github.com/telerik/kendo-themes/issues/298 is done
+    .k-notification-group .k-notification-wrap {
+        padding-right: $notification-padding-x;
+    }
+
+    .k-notification-closable > .k-notification-wrap {
+        padding-right: $notification-padding-end;
+    }
+
+    // RTL
+    &[dir='rtl'] .k-notification-wrap,
     .k-rtl .k-notification-wrap {
-        padding: $alert-padding-y $alert-padding-x $alert-padding-y calc(#{$alert-padding-x} + #{$icon-size} + #{$icon-spacing});
+        padding-left: $notification-padding-end;
+        padding-right: $notification-padding-x;
+
+        > .k-notification-content {
+            padding-right: $notification-padding-x;
+        }
 
         > .k-icon {
             margin-right: 0;
@@ -46,7 +89,20 @@
         > .k-i-close {
             margin: 0;
             right: auto;
-            left: $alert-padding-x;
+            left: $notification-padding-x;
+        }
+    }
+
+    .k-notification-container {
+        &[dir='rtl'] {
+            .k-notification-wrap {
+                padding-left: $notification-padding-x;
+            }
+
+            .k-notification-closable > .k-notification-wrap {
+                padding-left: $notification-padding-end;
+                padding-right: $notification-padding-x;
+            }
         }
     }
 }

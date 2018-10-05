@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Panelbar</title>
-
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="../../packages/default/dist/all.css" />
     <link rel="stylesheet" href="assets/styles.css" />
     <script src="assets/scripts.js"></script>
@@ -11,10 +11,10 @@
         #test-area {
             max-width: 600px;
             display: grid;
-            grid-gap: 25px 25px;
+            grid-gap: 20px 20px;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
         }
+        #test-area::after { display: none; }
     </style>
 </head>
 <body>

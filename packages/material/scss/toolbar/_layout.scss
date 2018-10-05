@@ -1,6 +1,5 @@
 $toolbar-button-spacer: 1px !default;
 $toolbar-shadow: $button-shadow !default;
-$toolbar-border-width: 0 !default;
 
 @import "~@progress/kendo-theme-default/scss/toolbar/layout";
 
@@ -17,6 +16,9 @@ $toolbar-border-width: 0 !default;
         .k-button {
             &::before {
                 display: block;
+            }
+            &::after {
+                display: none;
             }
         }
 
@@ -56,6 +58,11 @@ $toolbar-border-width: 0 !default;
         }
 
         // Dropdowns and Inputs
+        .k-widget {
+            border-width: 0;
+            font: inherit;
+            text-transform: uppercase;
+        }
         // TODO unselect if necessary after the design for inputs in toolbar is completed
         //.k-autocomplete,
         //.k-dateinput-wrap,
@@ -64,12 +71,10 @@ $toolbar-border-width: 0 !default;
         .k-picker-wrap,
         .k-dropdown-wrap {
             border-width: 0;
-            font-size: inherit;
-            text-transform: uppercase;
 
             .k-input {
-                height: auto;
                 padding: $toolbar-button-padding-y $toolbar-button-padding-x;
+                height: calc( #{$toolbar-inner-calc-size} );
             }
 
             .k-select {
@@ -77,13 +82,17 @@ $toolbar-border-width: 0 !default;
                 opacity: $icon-opacity;
             }
         }
-
-        .k-picker-wrap {
+        .k-colorpicker .k-selected-color {
+            margin-top: $toolbar-button-padding-y;
+            margin-bottom: $toolbar-button-padding-y;
+        }
+        .k-colorpicker .k-tool-icon {
+            padding-top: $toolbar-button-padding-y;
+            padding-bottom: $toolbar-button-padding-y;
+            height: calc( #{$toolbar-inner-calc-size} );
 
             .k-selected-color {
-                padding: 0 $button-padding-x-sm;
-                height: calc(#{$toolbar-inner-calc-size});
-                line-height: calc(#{$toolbar-inner-calc-size});
+                margin: 0 0 12px;
             }
         }
     }
