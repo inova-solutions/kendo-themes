@@ -1,0 +1,43 @@
+@import '_variables_inova-DarkBlue';
+$theme-dark-blue: $theme;
+@import '_variables_inova-DarkPink';
+$theme-dark-pink: $theme;
+@import '_variables_inova-GrayBlue';
+$theme-gray-blue: $theme;
+@import '_variables_inova-GrayPink';
+$theme-gray-pink: $theme;
+@import '_variables_inova-OliveBlue';
+$theme-olive-blue: $theme;
+@import '_variables_inova-OlivePink';
+$theme-olive-pink: $theme;
+
+$themes: (
+    dark-blue: $theme-dark-blue,
+    dark-pink: $theme-dark-pink,
+    gray-blue: $theme-gray-blue,
+    gray-pink: $theme-gray-pink,
+    olive-blue: $theme-olive-blue,
+    olive-pink: $theme-olive-pink
+);
+
+@mixin themify() {
+    @each $theme, $map in $themes {
+        .theme-#{$theme} & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge(
+                    $theme-map,
+                    (
+                        $key: $value
+                    )
+                ) !global;
+            }
+            @content;
+            $theme-map: null !global;
+        }
+    }
+}
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}
