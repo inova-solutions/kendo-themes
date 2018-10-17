@@ -1,7 +1,9 @@
 const execSync = require('child_process').execSync;
-var ncp = require('ncp').ncp;
-var fs = require('fs-extra');
+const ncp = require('ncp').ncp;
+const fs = require('fs-extra');
+const sass = require('node-sass');
 const distPath = `dist`;
+let allScss = '';
 const themes = [
   'OlivePink',
   'OliveBlue',
@@ -38,6 +40,10 @@ themes.forEach(theme => {
   fs.removeSync(`${distPath}/${theme}`);
   fs.mkdirSync(`${distPath}/${theme}`);
   fs.renameSync(`${distPath}/all.css`, `${distPath}/${theme}/all.css`);
+  //todo: evtl. ohne Prefix für olive-pink, da default
+  allScss += `.theme-${theme.toLowerCase()} {
+    ${fs.readFileSync(`${distPath}/${theme}/all.css`).toString()}
+  }`;
 
   // todo: copy scss dir
   let origThemeVarsContent = fs.readFileSync(origThemeVars).toString();
@@ -48,18 +54,25 @@ themes.forEach(theme => {
   fs.writeFileSync(`${distPath}/${theme}/variables.scss`, origThemeVarsContent);
 });
 
+//Create css with all themes
+const allCss = sass.renderSync({
+  data: allScss
+}).css;
+fs.writeFileSync(`${distPath}/all.css`, allCss);
+
+//Copy Package json to dist
+fs.copyFileSync(`build/inova-themes-package.json`, `${distPath}/package.json`);
+
 //scss Files nach dist kopieren
 fs.removeSync(`${distPath}/common`);
 fs.mkdirSync(`${distPath}/common`);
 fs.mkdirSync(`${distPath}/common/scss`);
 ncp(`scss`, `${distPath}/common/scss`, function(err) {
+  //Create global themify
+  fs.writeFileSync(
+    `${distPath}/themify.scss`,
+    `@import 'common/scss/themify';`
+  );
+
   console.log('Build Successful');
 });
-
-//Create global themify
-fs.writeFileSync(`${distPath}/themify.scss`, `@import 'common/scss/themify';`);
-
-//Copy Package json to dist
-fs.copyFileSync(`build/inova-themes-package.json`, `${distPath}/package.json`);
-
-//Publish Package
