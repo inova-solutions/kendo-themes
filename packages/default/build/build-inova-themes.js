@@ -5,74 +5,77 @@ const sass = require('node-sass');
 const distPath = `dist`;
 let allScss = '';
 const themes = [
-  'OlivePink',
-  'OliveBlue',
-  'GrayPink',
-  'GrayBlue',
-  'DarkPink',
-  'DarkBlue'
+    'OlivePink',
+    'OliveBlue',
+    'GrayPink',
+    'GrayBlue',
+    'DarkPink',
+    'DarkBlue'
 ];
 
+/**
+ * The file /scss/variables.css is used by kendo to define the variables per theme.
+ * For each theme rename _variables_inova-<theme>.scss to _variables.scss and start
+ * npm run build
+ */
 themes.forEach(theme => {
-  console.log('\x1b[45m\x1b[37m', `Building Theme '${theme}'`, '\x1b[0m');
-  const origThemeVars = `scss\\_variables_inova-${theme}.scss`;
-  const tmpThemeVars = `scss\\_variables.scss`;
-  const distThemeVars = `${distPath}/kendo.custom.${theme}.css`;
+    console.log('\x1b[45m\x1b[37m', `Building Theme '${theme}'`, '\x1b[0m');
 
-  //process.env.npm_package_main = `dist/kendo-${theme}.css`;
+    const origThemeVars = `scss\\_variables_inova-${theme}.scss`;
+    const tmpThemeVars = `scss\\_variables.scss`;
 
-  //Clear existing Temp file
-  execSync(`if exist ${tmpThemeVars} del /S/Q ${tmpThemeVars}`);
+    //rename theme file and start build
+    fs.removeSync(tmpThemeVars);
+    fs.copyFileSync(origThemeVars, tmpThemeVars);
+    execSync(`npm run build`, {
+        stdio: 'inherit'
+    });
 
-  //Copy scss for theme to tmpPath
-  fs.copyFileSync(origThemeVars, tmpThemeVars);
+    //delete unnecessary files
+    fs.unlinkSync(tmpThemeVars);
+    fs.unlinkSync(`${distPath}/all.js`);
 
-  //Execute Build
-  execSync(`npm run build`, {
-    stdio: 'inherit'
-  });
+    //move generated css to theme output directory
+    fs.removeSync(`${distPath}/${theme}`);
+    fs.mkdirSync(`${distPath}/${theme}`);
+    fs.renameSync(`${distPath}/all.css`, `${distPath}/${theme}/all.css`);
 
-  //Delete Unneccesary Files
-  fs.unlinkSync(tmpThemeVars);
-  fs.unlinkSync(`${distPath}/all.js`);
+    //wrap themes with a css class .theme-<themename> and concatenate all
+    allScss += `.theme-${theme.toLowerCase()} {
+      ${fs.readFileSync(`${distPath}/${theme}/all.css`).toString()}
+    }`;
 
-  //Rename and move generated css to theme dir
-  fs.removeSync(`${distPath}/${theme}`);
-  fs.mkdirSync(`${distPath}/${theme}`);
-  fs.renameSync(`${distPath}/all.css`, `${distPath}/${theme}/all.css`);
-  //todo: evtl. ohne Prefix für olive-pink, da default
-  allScss += `.theme-${theme.toLowerCase()} {
-    ${fs.readFileSync(`${distPath}/${theme}/all.css`).toString()}
-  }`;
-
-  // todo: copy scss dir
-  let origThemeVarsContent = fs.readFileSync(origThemeVars).toString();
-  origThemeVarsContent = origThemeVarsContent.replace(
-    /@import '/g,
-    "@import '../common/scss/"
-  );
-  fs.writeFileSync(`${distPath}/${theme}/variables.scss`, origThemeVarsContent);
+    //create variables.scss per theme
+    let origThemeVarsContent = fs.readFileSync(origThemeVars).toString();
+    origThemeVarsContent = origThemeVarsContent.replace(
+        /@import '/g,
+        "@import '../common/scss/"
+    );
+    fs.writeFileSync(
+        `${distPath}/${theme}/variables.scss`,
+        origThemeVarsContent
+    );
 });
 
-//Create css with all themes
+//compile css with all themes
 const allCss = sass.renderSync({
-  data: allScss
+    data: allScss
 }).css;
 fs.writeFileSync(`${distPath}/all.css`, allCss);
 
-//Copy Package json to dist
+//create package.json
 fs.copyFileSync(`build/inova-themes-package.json`, `${distPath}/package.json`);
 
-//scss Files nach dist kopieren
+//copy all scss files to dist
 fs.removeSync(`${distPath}/common`);
 fs.mkdirSync(`${distPath}/common`);
 fs.mkdirSync(`${distPath}/common/scss`);
 ncp(`scss`, `${distPath}/common/scss`, function(err) {
-  //Create global themify
-  fs.writeFileSync(
-    `${distPath}/themify.scss`,
-    `@import 'common/scss/themify';`
-  );
+    //Create shortcut to themify.scss
+    fs.writeFileSync(
+        `${distPath}/themify.scss`,
+        `@import 'common/scss/themify';`
+    );
 
-  console.log('Build Successful');
+    console.log('\n', '\x1b[42m\x1b[37m', `Build Successful!`, '\x1b[0m');
 });
