@@ -33,7 +33,6 @@ themes.forEach(theme => {
 
     //delete unnecessary files
     fs.unlinkSync(tmpThemeVars);
-    fs.unlinkSync(`${distPath}/all.js`);
 
     //move generated css to theme output directory
     fs.removeSync(`${distPath}/${theme}`);
@@ -70,7 +69,7 @@ fs.copyFileSync(`build/inova-themes-package.json`, `${distPath}/package.json`);
 fs.removeSync(`${distPath}/common`);
 fs.mkdirSync(`${distPath}/common`);
 fs.mkdirSync(`${distPath}/common/scss`);
-ncp(`scss`, `${distPath}/common/scss`, function(err) {
+ncp(`scss`, `${distPath}/common/scss`, function (err) {
     //Create shortcut to themify.scss
     fs.writeFileSync(
         `${distPath}/themify.scss`,

@@ -32,6 +32,9 @@
   "devDependencies": {
     "@progress/kendo-theme-tasks": "^0.1.0",
     "bootstrap": "4.0.0",
-    "handlebars": "^4.0.10"
-  }
+    "gulp-eslint": "^5.0.0",
+    "handlebars": "^4.0.10",
+    "ncp": "^2.0.0"
+  },
+  "dependencies": {}
 }
