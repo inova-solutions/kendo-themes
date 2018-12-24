@@ -1,5 +1,7 @@
 @import "~@progress/kendo-theme-default/scss/mixins/core/config-maps";
+@import "~@progress/kendo-theme-default/scss/mixins/core/math";
 @import "~@progress/kendo-theme-default/scss/mixins/colors";
+@import "common/material/themeing";
 
 
 // Options
@@ -15,28 +17,51 @@ $spacer-x: $spacer !default;
 $spacer-y: $spacer !default;
 
 
+// Apply material theme, as early as possible
+$primary-palette-name: indigo !default;
+$secondary-palette-name: pink !default;
+$theme-type: light !default; // light or dark
+
+$primary-palette: material-palette($primary-palette-name) !default;
+$secondary-palette: material-palette($secondary-palette-name, A200, A100, A400) !default;
+
+$theme: material-theme(
+    $primary-palette,
+    $secondary-palette,
+    $theme-type
+) !default;
+
+
+// Color settings
+$is-dark-theme: map-get($theme, is-dark);
+$color-level-step: 8% !default;
+
+
 // Shadows
 
+/// Color of shadows
+/// @group shadows
+$elevation: map-get( $theme, elevation );
 /// Shadow for switch.
 /// Equivalent to material elevation 1.
 /// @group shadows
-$box-shadow-depth-1: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12) !default;
+$box-shadow-depth-1: 0 2px 1px -1px rgba( $elevation, .2 ), 0 1px 1px 0 rgba( $elevation, .14 ), 0 1px 3px 0 rgba( $elevation, .12 ) !default;
 /// Shadow for resting state of button, card and other widgets.
 /// Equivalent to material elevation 2.
 /// @group shadows
-$box-shadow-depth-2: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12) !default;
+$box-shadow-depth-2: 0 3px 1px -2px rgba( $elevation, .2 ), 0 2px 2px 0 rgba( $elevation, .14 ), 0 1px 5px 0 rgba( $elevation, .12 ) !default;
 /// Shadow for menu, popups and raised state of button and card.
 /// Equivalent to material elevation 8.
 /// @group shadows
-$box-shadow-depth-3: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12) !default;
+$box-shadow-depth-3: 0 5px 5px -3px rgba( $elevation, .2 ), 0 8px 10px 1px rgba( $elevation, .14 ), 0 3px 14px 2px rgba( $elevation, .12 ) !default;
 /// Shadow for drawers and other overlaying elements.
 /// Equivalent to material elevation 16.
 /// @group shadows
-$box-shadow-depth-4: 0 8px 10px -5px rgba(0, 0, 0, .2), 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12) !default;
+$box-shadow-depth-4: 0 8px 10px -5px rgba( $elevation, .2 ), 0 16px 24px 2px rgba( $elevation, .14 ), 0 6px 30px 5px rgba( $elevation, .12 ) !default;
 /// Shadow for window and dialog.
 /// Equivalent to material elevation 24.
 /// @group shadows
-$box-shadow-depth-5: 0 11px 15px -7px rgba(0, 0, 0, .2), 0 24px 38px 3px rgba(0, 0, 0, .14), 0 9px 46px 8px rgba(0, 0, 0, .12) !default;
+$box-shadow-depth-5: 0 11px 15px -7px rgba( $elevation, .2 ), 0 24px 38px 3px rgba( $elevation, .14 ), 0 9px 46px 8px rgba( $elevation, .12 ) !default;
 
 
 // Fonts
@@ -204,11 +229,6 @@ $cell-padding-y: 10px !default;
 $cell-padding: 8px !default;
 // $cell-padding-sm: $table-sm-cell-padding !default;
 
-$window-inner-padding-x: 24px !default;
-$window-inner-padding-y: 24px !default;
-$window-titlebar-padding-x: 24px !default;
-$window-titlebar-padding-y: 24px !default;
-
 $zindex-popup: 1;
 $zindex-window: 2;
 
@@ -218,54 +238,72 @@ $rgba-transparent: rgba( 0, 0, 0, 0 );
 // Theme colors
 /// The color that focuses the user attention.
 /// Used for primary buttons and for elements of primary importance across the theme.
-$primary: #3f51b5 !default;
-$accent: $primary;
+$primary: material-color($primary-palette, default) !default;
+$primary-darker: material-color($primary-palette, darker) !default;
+$primary-lighter: material-color($primary-palette, lighter) !default;
 
 /// The color used along with the primary color denoted by $primary.
 /// Used to provide contrast between the background and foreground colors.
-$primary-contrast: #ffffff !default;
-$accent-contrast: $primary-contrast;
+$primary-contrast: material-color($primary-palette, default-contrast) !default;
 
-/// The secondary (accent) color of the theme.
-$secondary: #ff4081 !default;
+/// The secondary color of the theme.
+$secondary: material-color($secondary-palette, default) !default;
+$secondary-darker: material-color($secondary-palette, darker) !default;
+$secondary-lighter: material-color($secondary-palette, lighter) !default;
 
 /// The color used along with the secondary color denoted by $secondary.
 /// Used to provide contrast between the background and foreground colors.
-$secondary-contrast: #ffffff !default;
+$secondary-contrast: material-color($secondary-palette, default-contrast) !default;
+
+// Aliases for backwards compatibility
+$accent: $primary;
+$accent-contrast: $primary-contrast;
+
+
+$body-bg: map-get($theme, body-bg) !default;
+$body-text: map-get($theme, body-text) !default;
+$app-bg: $body-bg !default;
+$app-text: $body-text !default;
+
+
+$component-bg: map-get($theme, component-bg);
+$component-text: map-get($theme, component-text);
+$component-border: map-get($theme, component-border);
+
 
 $text-color: rgba(black, .87) !default;
 $bg-color: #ffffff !default;
 $border-color: rgba( black, .12 ) !default;
 
 /// The text color of the components' chrome area.
-$base-text: rgb(0, 0, 0) !default;
+$base-text: if($theme-type == dark, white, black) !default;
 /// The background of the components' chrome area.
-$base-bg: #fff !default;
+$base-bg: if($theme-type == dark, black, white) !default;
 
-$base-border: rgba( black, .08 ) !default;
+$base-border: rgba( if($theme-type == dark, white, black), .08 ) !default;
 /// The gradient background of the components' chrome area.
-$base-gradient: $base-bg, darken( $base-bg, 2% ) !default;
+$base-gradient: null !default;
 
 /// The text color of hovered items.
 $hovered-text: $base-text !default;
 /// The background of hovered items.
-$hovered-bg: rgba( black, .07) !default;
+$hovered-bg: rgba( if($theme-type == dark, white, black), .07) !default;
 /// The border color of hovered items.
-$hovered-border: rgba( black, .15 ) !default;
+$hovered-border: rgba( if($theme-type == dark, white, black), .15 ) !default;
 /// The gradient background of hovered items.
-$hovered-gradient: $hovered-bg, darken( $hovered-bg, 2% ) !default;
+$hovered-gradient: null !default;
 
-/// The text color of selected items.
-$selected-text: $accent-contrast !default;
 /// The background of selected items.
-$selected-bg: $accent !default;
+$selected-bg: $secondary !default;
+/// The text color of selected items.
+$selected-text: $secondary-contrast !default;
 /// The border color of selected items.
-$selected-border: rgba( black, .1 ) !default;
+$selected-border: rgba( if($theme-type == dark, white, black), .1 ) !default;
 /// The gradient background of selected items.
-$selected-gradient: none !default;
+$selected-gradient: null !default;
 
+$selected-hover-bg: try-shade( $selected-bg ) !default;
 $selected-hover-color: $selected-text !default;
-$selected-hover-bg: mix( $selected-bg, black, 92) !default;
 
 $transition: background-color .2s ease !default;
 
@@ -278,9 +316,7 @@ $success: #37b400 !default;
 /// The color for informational messages and states.
 $info: #3f51b5 !default;
 
-$color-level-step: 8% !default;
-
-$invalid-border-color: rgba($error, .5) !default;
+$invalid-border: rgba($error, .5) !default;
 
 $gradient-transparent-to-black: rgba( black, 0), black;
 $gradient-transparent-to-white: rgba( white, 0), white;
@@ -290,82 +326,82 @@ $gradient-white-to-transparent: white, rgba( white, 0);
 $gradient-rainbow: #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000;
 
 // Widget
-$widget-text: $text-color !default;
-$widget-bg: $bg-color !default;
-$widget-border: rgba( black, .08 ) !default;
+$widget-bg: $component-bg !default;
+$widget-text: $component-text !default;
+$widget-border: $component-border !default;
 
 
 // Panel
-$panel-text: $widget-text !default;
-$panel-bg: $widget-bg !default;
-$panel-border: rgba( black, .08 ) !default;
+$panel-bg: $component-bg !default;
+$panel-text: $component-text !default;
+$panel-border: $component-border !default;
 
 
 // Popup
-$popup-text: $base-text !default;
-$popup-bg: lighten($base-bg, 1%) !default;
-$popup-border: $base-border !default;
-$popup-shadow: 0 3px 3px -2px rgba(0, 0, 0, .02), 0 3px 4px 0 rgba(0, 0, 0, .14), 0 1px 8px 0 rgba(0, 0, 0, .12) !default;
+$popup-bg: $component-bg !default;
+$popup-text: $component-text !default;
+$popup-border: $component-border !default;
+$popup-shadow: 0 2px 4px -1px rgba( $elevation, .2 ), 0 4px 5px 0 rgba( $elevation, .14 ), 0 1px 10px 0 rgba( $elevation , .12 ) !default;
 
 // Header
-$header-text: $base-text !default;
 $header-bg: $base-bg !default;
+$header-text: $base-text !default;
 $header-border: $base-border !default;
 $header-gradient: null !default;
 
-$header-hovered-text: $hovered-text !default;
 $header-hovered-bg: $hovered-bg !default;
+$header-hovered-text: $hovered-text !default;
 $header-hovered-border: $hovered-border !default;
 $header-hovered-gradient: null !default;
 
-$header-selected-text: $selected-text !default;
 $header-selected-bg: $selected-bg !default;
+$header-selected-text: $selected-text !default;
 $header-selected-border: $selected-border !default;
 $header-selected-gradient: null !default;
 
 
 // Button
-/// The text color of the buttons.
-/// @group buttons
-$button-text: $base-text !default;
-
 /// The background of the buttons.
 /// @group buttons
 $button-bg: $base-bg !default;
 
+/// The text color of the buttons.
+/// @group buttons
+$button-text: $base-text !default;
+
 /// The border color of the buttons.
 /// @group buttons
-$button-border: $base-border !default;
+$button-border: $button-bg !default;
 
 /// The background gradient of the buttons.
 /// @group buttons
-$button-gradient: $base-gradient !default;
-$button-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12) !default;
-
-/// The text color of hovered buttons.
-/// @group buttons
-$button-hovered-text: $button-text !default;
+$button-gradient: null !default;
+$button-shadow: $box-shadow-depth-2 !default;
 
 /// The background of hovered buttons.
 /// @group buttons
-$button-hovered-bg: mix( $button-text, $button-bg, 12%) !default;
+$button-hovered-bg: true-mix( $button-text, $button-bg, 12%) !default;
+
+/// The text color of hovered buttons.
+/// @group buttons
+$button-hovered-text: null !default;
 
 /// The border color of hovered buttons.
 /// @group buttons
-$button-hovered-border: $hovered-border !default;
+$button-hovered-border: $button-hovered-bg !default;
 
 /// The background gradient of hovered buttons.
 /// @group buttons
-$button-hovered-gradient: $hovered-gradient !default;
+$button-hovered-gradient: null !default;
 $button-hovered-shadow: null !default;
-
-/// The text color of pressed buttons.
-/// @group buttons
-$button-pressed-text: $button-text !default;
 
 /// The background color of pressed buttons.
 /// @group buttons
-$button-pressed-bg: mix( $button-text, $button-bg, 12%) !default;
+$button-pressed-bg: true-mix( $button-text, $button-bg, 12%) !default;
+
+/// The text color of pressed buttons.
+/// @group buttons
+$button-pressed-text: null !default;
 
 /// The border color of pressed buttons.
 /// @group buttons
@@ -373,32 +409,32 @@ $button-pressed-border: $button-pressed-bg !default;
 
 /// The background gradient of pressed buttons.
 /// @group buttons
-$button-pressed-gradient: none !default;
-$button-pressed-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12) !default;
+$button-pressed-gradient: null !default;
+$button-pressed-shadow: $box-shadow-depth-3 !default;
 
 /// The shadow of focused buttons.
 /// @group buttons
-$button-focused-shadow: $button-shadow !default;
+$button-focused-shadow: null !default;
 
 
 // Primary button
-$primary-button-text: rgba(255, 255, 255, .87) !default;
-$primary-button-bg: $accent !default;
+$primary-button-bg: $primary !default;
+$primary-button-text: $primary-contrast !default;
 $primary-button-border: $primary-button-bg !default;
-$primary-button-gradient: rgba( adjust-hue( $primary-button-bg, 14), 0 ), rgba( adjust-hue( $primary-button-bg, 14), .2 ) !default;
+$primary-button-gradient: null !default;
 
-$primary-button-hovered-text: $primary-button-text !default;
-$primary-button-hovered-bg: mix( $primary-button-text, $primary-button-bg, 12%) !default;
+$primary-button-hovered-bg: true-mix( $primary-button-text, $primary-button-bg, 12%) !default;
+$primary-button-hovered-text: null !default;
 $primary-button-hovered-border: $primary-button-hovered-bg !default;
-$primary-button-hovered-gradient: rgba( adjust-hue( $primary-button-hovered-bg, 14), 0 ), rgba( adjust-hue( $primary-button-hovered-bg, 14), .2 ) !default;
+$primary-button-hovered-gradient: null !default;
 
-$primary-button-pressed-text: $primary-button-text !default;
 $primary-button-pressed-bg: $primary-button-bg !default;
+$primary-button-pressed-text: null !default;
 $primary-button-pressed-border: $primary-button-pressed-bg !default;
-$primary-button-pressed-gradient: rgba( adjust-hue( $primary-button-pressed-bg, 14), .2 ), rgba( adjust-hue( $primary-button-pressed-bg, 14), 0 ) !default;
-$primary-button-pressed-shadow: 0 2px 2px 0 rgba(0, 0, 0, .06) !default;
+$primary-button-pressed-gradient: null !default;
+$primary-button-pressed-shadow: null !default;
 
-$primary-button-focused-shadow: 0 3px 4px 0 rgba($accent, .4) !default;
+$primary-button-focused-shadow: null !default;
 
 $flat-button-hover-opacity: .12 !default;
 $flat-button-focused-opacity: .12 !default;
@@ -406,14 +442,14 @@ $flat-button-active-opacity: .16 !default;
 $flat-button-selected-opacity: .22 !default;
 
 // Action buttons
-$action-button-text: rgba( $accent, .87 ) !default;
-$action-button-hovered-bg: rgba( $accent, .12 ) !default;
-$action-button-pressed-bg: rgba( $accent, .16 ) !default;
+$action-button-text: rgba( $primary, .87 ) !default;
+$action-button-hovered-bg: rgba( $primary, .12 ) !default;
+$action-button-pressed-bg: rgba( $primary, .16 ) !default;
 $action-button-cancel-bg: rgba( black, .12 ) !default;
 
 // Toolbar
+$toolbar-bg: try-shade($button-bg, .5) !default;
 $toolbar-text: $button-text !default;
-$toolbar-bg: darken($button-bg, 4) !default;
 $toolbar-border: $toolbar-bg !default;
 $toolbar-gradient: null !default;
 
@@ -423,51 +459,105 @@ $icon-hovered-opacity: .87;
 $icon-focused-opacity: .87;
 
 // Input
-$input-text: $panel-text !default;
-$input-bg: $panel-bg !default;
-$input-border: rgba( black, .42 ) !default;
+$input-bg: null !default;
+$input-text: $component-text !default;
+$input-border: rgba( $component-border, if($theme-type == dark, 0.7, 0.42) ) !default;
 $input-shadow: null !default;
 
-$input-hovered-text: $input-text !default;
-$input-hovered-bg: $input-bg !default;
-$input-hovered-border: rgba( black, .87 ) !default;
+$input-hovered-bg: null !default;
+$input-hovered-text: null !default;
+$input-hovered-border: $input-text !default;
 $input-hovered-shadow: null !default;
 
-$input-focused-text: $input-text !default;
-$input-focused-bg: $input-bg !default;
-$input-focused-border: $accent !default;
-$input-focused-shadow: none !default;
+$input-focused-bg: null !default;
+$input-focused-text: null !default;
+$input-focused-border: $primary !default;
+$input-focused-shadow: null !default;
 
 $input-disabled-bg: rgb(189, 189, 189) !default;
 
 // Node
-$node-text: $base-text !default;
 $node-bg: $base-bg !default;
+$node-text: $base-text !default;
 $node-border: $base-border !default;
 $node-gradient: null !default;
 
-$node-hovered-text: $hovered-text !default;
 $node-hovered-bg: $hovered-bg !default;
+$node-hovered-text: $hovered-text !default;
 $node-hovered-border: $hovered-border !default;
 $node-hovered-gradient: null !default;
 
-$node-selected-text: $selected-text !default;
 $node-selected-bg: $selected-bg !default;
+$node-selected-text: $selected-text !default;
 $node-selected-border: $selected-border !default;
 $node-selected-gradient: null !default;
 
 
 // List
-$list-item-text: $text-color !default;
 $list-item-bg: $popup-bg !default;
+$list-item-text: $popup-text !default;
 
-$list-item-hovered-text: $hovered-text !default;
 $list-item-hovered-bg: $hovered-bg !default;
+$list-item-hovered-text: $hovered-text !default;
 
-$list-item-selected-text: $secondary !default;
 $list-item-selected-bg: $list-item-bg !default;
+$list-item-selected-text: $secondary !default;
 
-$list-item-focused-shadow: none !default;
+$list-item-focused-shadow: null !default;
+
+
+// Tabstrip
+$tabstrip-wrapper-padding-x: 0 !default;
+$tabstrip-wrapper-padding-y: 0 !default;
+$tabstrip-wrapper-border-width: 0 !default;
+
+$tabstrip-line-height: (20 / 14) !default;
+$tabstrip-border-width: 1px !default;
+
+$tabstrip-item-padding-x: 24px !default;
+$tabstrip-item-padding-y: 14px !default;
+$tabstrip-item-border-width: 0 !default;
+$tabstrip-item-border-radius: 0 !default;
+$tabstrip-item-gap: 0 !default;
+
+$tabstrip-content-padding-x: $tabstrip-item-padding-x !default;
+$tabstrip-content-padding-y: $tabstrip-item-padding-y !default;
+$tabstrip-content-border-width: 0 !default;
+
+$tabstrip-wrapper-bg: null !default;
+$tabstrip-wrapper-text: null !default;
+$tabstrip-wrapper-border: null !default;
+
+/// Component background. Set to `transparent` to blend the component with the page.
+/// @group tabstrip
+$tabstrip-bg: null !default;
+/// Component text color. Set to `inherit` to blend the component with the page.
+/// @group tabstrip
+$tabstrip-text: inherit !default;
+$tabstrip-border: $component-border !default;
+
+$tabstrip-item-bg: null !default;
+$tabstrip-item-text: inherit !default;
+$tabstrip-item-border: null !default;
+
+$tabstrip-item-hovered-bg: null !default;
+$tabstrip-item-hovered-text: inherit !default;
+$tabstrip-item-hovered-border: null !default;
+
+$tabstrip-item-selected-bg: null !default;
+$tabstrip-item-selected-text: inherit !default;
+$tabstrip-item-selected-border: null !default;
+
+$tabstrip-item-focused-shadow: $list-item-focused-shadow !default;
+
+$tabstrip-content-bg: transparent !default;
+$tabstrip-content-text: inherit !default;
+$tabstrip-content-border: transparent !default;
+
+$tabstrip-indicator-size: 2px !default;
+/// Active tab indicator color. Set to `currentColor` to use the text color
+/// @group tabstrip
+$tabstrip-indicator-color: $primary !default;
 
 
 // Grid
@@ -495,18 +585,19 @@ $grid-cell-padding-y: $grid-padding-y !default;
 $grid-cell-horizontal-border-width: 1px !default;
 $grid-cell-vertical-border-width: 1px !default;
 
-$grid-bg: $panel-bg !default;
-$grid-text: rgba(0, 0, 0, .87) !default;
-$grid-border: rgba( black, .12 ) !default;
+$grid-bg: $component-bg !default;
+$grid-text: $component-text !default;
+$grid-border: $component-border !default;
 
-$grid-header-bg: $header-bg !default;
-$grid-header-text: rgba(0, 0, 0, .54) !default;
+$grid-header-bg: transparent !default;
+$grid-header-text: if($theme-type == dark, $light-secondary-text, $dark-secondary-text) !default;
 $grid-header-border: $grid-border !default;
-$grid-header-gradient: $header-gradient !default;
+$grid-header-gradient: null !default;
 
+// ZHEKOV TODO: we need this, so k-alt won't override it. When we remove k-alt, we can make this null.
 $grid-alt-bg: transparent !default;
-$grid-alt-text: $grid-text !default;
-$grid-alt-border: $grid-border !default;
+$grid-alt-text: null !default;
+$grid-alt-border: null !default;
 
 $grid-hovered-bg: rgba( contrast-wcag( $grid-bg ), .07 ) !default;
 $grid-hovered-text: $grid-text !default;
@@ -523,6 +614,86 @@ $grid-sorted-bg: rgba( contrast-wcag( $grid-bg ), .04 ) !default;
 $grid-sorting-indicator-text: $grid-header-text !default;
 
 $grid-focused-shadow: $list-item-focused-shadow !default;
+
+$grid-group-drag-clue-bg: try-shade( $base-bg, 1 ) !default;
+$grid-group-drag-clue-text: $base-text !default;
+
+$grid-command-cell-button-spacing: .16em !default;
+
+// Treeview
+$treeview-padding-x: 0 !default;
+$treeview-padding-y: 0 !default;
+$treeview-line-height: (20 / 14) !default;
+
+$treeview-indent: 16px !default;
+
+$treeview-item-padding-x: 8px !default;
+$treeview-item-padding-y: 6px !default;
+$treeview-item-border-width: 0 !default;
+$treeview-item-border-radius: 0 !default;
+
+$treeview-bg: null !default;
+$treeview-text: $component-text !default;
+$treeview-border: null !default;
+
+$treeview-item-hovered-bg: rgba( $treeview-text, .07 ) !default;
+$treeview-item-hovered-text: null !default;
+$treeview-item-hovered-border: null !default;
+$treeview-item-hovered-gradient: null !default;
+
+$treeview-item-selected-bg: null !default;
+$treeview-item-selected-text: $selected-bg !default;
+$treeview-item-selected-border: null !default;
+$treeview-item-selected-gradient: null !default;
+
+$treeview-item-focused-shadow: null !default;
+$treeview-item-selected-focused-shadow: null !default;
+
+
+// Panelbar
+$panelbar-padding-x: 0 !default;
+$panelbar-padding-y: 0 !default;
+$panelbar-line-height: (20 / 14) !default;
+$panelbar-border-width: 1px !default;
+
+$panelbar-header-padding-x: 24px !default;
+$panelbar-header-padding-y: 12px !default;
+
+$panelbar-item-padding-x: $panelbar-header-padding-x !default;
+$panelbar-item-padding-y: 6px !default;
+
+$panelbar-bg: $component-bg !default;
+$panelbar-text: $component-text !default;
+$panelbar-border: $component-border !default;
+
+$panelbar-header-bg: null !default;
+$panelbar-header-text: null !default;
+$panelbar-header-border: null !default;
+$panelbar-header-gradient: null !default;
+
+$panelbar-header-hovered-bg: try-shade($panelbar-bg) !default;
+$panelbar-header-hovered-text: null !default;
+$panelbar-header-hovered-border: null !default;
+$panelbar-header-hovered-gradient: null !default;
+
+$panelbar-header-selected-bg: null !default;
+$panelbar-header-selected-text: $secondary !default;
+$panelbar-header-selected-border: null !default;
+$panelbar-header-selected-gradient: null !default;
+
+$panelbar-header-focused-shadow: null !default;
+
+$panelbar-item-hovered-bg: try-shade($panelbar-bg) !default;
+$panelbar-item-hovered-text: null !default;
+$panelbar-item-hovered-border: null !default;
+$panelbar-item-hovered-gradient: null !default;
+
+$panelbar-item-selected-bg: null !default;
+$panelbar-item-selected-text: $secondary !default;
+$panelbar-item-selected-border: null !default;
+$panelbar-item-selected-gradient: null !default;
+
+$panelbar-item-focused-shadow: null !default;
 
 
 // Notification
@@ -579,7 +750,7 @@ $chart-font-size-sm: 11px !default;
 $chart-font-size-md: 12px !default;
 $chart-font-size-lg: 16px !default;
 
-$chart-inactive: rgba( $text-color, .5 ) !default;
+$chart-inactive: rgba( $component-text, .5 ) !default;
 /// The color of the Chart grid lines (major).
 /// @group charts
 $chart-major-lines: rgba(0, 0, 0, .08) !default;
@@ -590,17 +761,49 @@ $chart-minor-lines: rgba(0, 0, 0, .04) !default;
 $chart-area-opacity: .8 !default;
 
 // Icons
-$icon-size: 24px;
-$icon-size-lg: 32px;
+$icon-size: 16px !default;
+$icon-size-lg: 32px !default;
 $icon-spacing: 4px !default;
+
+/// The URL to the icon font that will be used by the theme
+/// The default value of `null` embeds the package font with a `data:` URL
+/// @group icons
+$icon-font-url: null !default;
 
 // Disabled mixin variables
 $disabled-filter: grayscale(.1) !default;
 $disabled-opacity: .6 !default;
 
+
 // Pager
 $pager-padding-x: 8px !default;
 $pager-padding-y: 10px !default;
+
+$pager-bg: $component-bg !default;
+$pager-text: if($theme-type == dark, $light-secondary-text, $dark-secondary-text) !default;
+$pager-border: null !default;
+
+$pager-item-bg: null !default;
+$pager-item-text: null !default;
+$pager-item-border: null !default;
+
+$pager-item-hovered-bg: $list-item-hovered-bg !default;
+$pager-item-hovered-text: $list-item-hovered-text !default;
+$pager-item-hovered-border: null !default;
+
+$pager-number-bg: null !default;
+$pager-number-text: $component-text !default;
+$pager-number-border: null !default;
+
+$pager-number-hovered-bg: $list-item-hovered-bg !default;
+$pager-number-hovered-text: $list-item-hovered-text !default;
+$pager-number-hovered-border: null !default;
+
+$pager-number-selected-bg: $primary !default;
+$pager-number-selected-text: $primary-contrast !default;
+$pager-number-selected-border: null !default;
+
+
 
 
 // Card
@@ -613,16 +816,16 @@ $card-box-focused-shadow: $box-shadow-depth-3 !default;
 
 $card-deck-gap: 16px !default;
 
-$card-bg: $panel-bg !default;
-$card-text: $panel-text !default;
-$card-border: $panel-border !default;
+$card-bg: $component-bg !default;
+$card-text: $component-text !default;
+$card-border: $component-border !default;
 
 $card-header-padding-x: $card-padding-x !default;
 $card-header-padding-y: $card-padding-y !default;
 $card-header-border-width: 0 !default;
-$card-header-bg: false !default;
-$card-header-text: false !default;
-$card-header-border: false !default;
+$card-header-bg: null !default;
+$card-header-text: null !default;
+$card-header-border: null !default;
 
 $card-body-padding-x: $card-padding-x !default;
 $card-body-padding-y: $card-padding-y !default;
@@ -636,6 +839,93 @@ $card-actions-border-width: 0 !default;
 
 $card-deck-scroll-button-radius: 50% !default;
 $card-deck-scroll-button-offset: $card-deck-gap / 2 !default;
+
+
+// Calendar
+$calendar-border-width: 1px !default;
+$calendar-font-size: $font-size !default;
+$calendar-line-height: (20 / 14) !default;
+
+$calendar-header-padding-x: $padding-x !default;
+$calendar-header-padding-y: ($padding-y * 2) !default;
+$calendar-header-padding-x-sm: 0 !default;
+$calendar-header-padding-y-sm: $calendar-header-padding-y !default;
+$calendar-header-border-width: 0 !default;
+
+$calendar-content-padding-x: $calendar-header-padding-x;
+$calendar-content-padding-y: $calendar-header-padding-y;
+
+$calendar-cell-padding-x: .75em !default;
+$calendar-cell-padding-y: $calendar-cell-padding-x !default;
+$calendar-cell-line-height: $calendar-line-height !default;
+$calendar-cell-size-px: 40px !default;
+$calendar-cell-size: ($calendar-cell-size-px / $font-size) * 1em !default;
+$calendar-cell-border-radius: 100px !default;
+
+$calendar-header-cell-padding-x: 0 !default;
+$calendar-header-cell-padding-y: ($calendar-cell-padding-y / 2) !default;
+$calendar-header-cell-font-size: inherit !default;
+$calendar-header-cell-line-height: 2 !default;
+
+$calendar-header-height: 2em !default;
+
+$calendar-navigation-width: 5em !default;
+$calendar-navigation-item-height: 2em !default;
+
+$calendar-view-width: 7 * $calendar-cell-size !default;
+$calendar-view-height: add-two(
+    8 * $calendar-cell-size,
+    $calendar-header-height
+) !default;
+
+$calendar-bg: $component-bg !default;
+$calendar-text: $component-text !default;
+$calendar-border: $component-border !default;
+
+$calendar-header-bg: null !default;
+$calendar-header-text: $header-text !default;
+$calendar-header-border: $header-border !default;
+$calendar-header-gradient: null !default;
+$calendar-header-shadow: null !default;
+
+$calendar-header-cell-text: $calendar-header-text !default;
+$calendar-header-cell-opacity: .38 !default;
+
+$calendar-navigation-bg: true-mix( $calendar-text, $calendar-bg, 3) !default;
+$calendar-navigation-text: $calendar-text !default;
+$calendar-navigation-border: $calendar-border !default;
+
+$calendar-today-nav-text: $link-text !default;
+$calendar-today-nav-hovered-text: $link-hover-text !default;
+
+$calendar-weekend-text: inherit !default;
+$calendar-weekend-bg: transparent !default;
+$calendar-weekend-opacity: 1 !default;
+
+$calendar-week-number-bg: $calendar-header-bg !default;
+$calendar-week-number-text: $calendar-header-text !default;
+$calendar-week-number-opacity: $calendar-header-cell-opacity !default;
+
+$calendar-other-month-opacity: 1 !default;
+
+$calendar-cell-hovered-bg: $node-hovered-bg !default;
+$calendar-cell-hovered-text: $node-hovered-text !default;
+$calendar-cell-hovered-border: $node-hovered-border !default;
+
+$calendar-cell-selected-bg: $primary !default;
+$calendar-cell-selected-text: $primary-contrast !default;
+$calendar-cell-selected-border: $calendar-cell-selected-bg !default;
+
+$calendar-cell-focused-shadow: $list-item-focused-shadow !default;
+$calendar-cell-selected-focus-shadow: $calendar-cell-focused-shadow !default;
+
+
+// Multiview Calendar
+$multiviewcalendar-button-style: detached !default;
+$multiviewcalendar-button-size: 40px !default;
+$multiviewcalendar-gap: ($calendar-content-padding-x * 2) !default;
+$multiviewcalendar-content-padding-x: ($multiviewcalendar-gap / 2);
+$multiviewcalendar-content-padding-y: $calendar-content-padding-y;
 
 
 // Chat
@@ -673,29 +963,29 @@ $chat-quick-reply-spacing: 8px !default;
 $chat-quick-reply-line-height: $chat-bubble-line-height !default;
 
 
-$chat-bg: #f5f5f5 !default;
-$chat-text: $panel-text !default;
-$chat-border: $panel-border !default;
+$chat-bg: $app-bg !default;
+$chat-text: $component-text !default;
+$chat-border: $component-border !default;
 
-$chat-bubble-bg: $panel-bg !default;
-$chat-bubble-text: $panel-text !default;
+$chat-bubble-bg: $component-bg !default;
+$chat-bubble-text: $component-text !default;
 $chat-bubble-border: $chat-bubble-bg !default;
 
-$chat-alt-bubble-bg: $accent !default;
-$chat-alt-bubble-text: $accent-contrast !default;
+$chat-alt-bubble-bg: $primary !default;
+$chat-alt-bubble-text: $primary-contrast !default;
 $chat-alt-bubble-border: $chat-alt-bubble-bg !default;
 
 
 // Mediaplayer
-$mediaplayer-bg: $panel-bg !default;
-$mediaplayer-text: $panel-text !default;
-$mediaplayer-border: $panel-border !default;
+$mediaplayer-bg: $component-bg !default;
+$mediaplayer-text: $component-text !default;
+$mediaplayer-border: $component-border !default;
 
 $mediaplayer-titlebar-padding-x: $header-padding-x !default;
 $mediaplayer-titlebar-padding-y: $header-padding-y !default;
-$mediaplayer-titlebar-bg: false !default;
+$mediaplayer-titlebar-bg: null !default;
 $mediaplayer-titlebar-text: $mediaplayer-bg !default;
-$mediaplayer-titlebar-border: false !default;
+$mediaplayer-titlebar-border: null !default;
 $mediaplayer-titlebar-gradient: rgba( $mediaplayer-text, .7 ), rgba( $mediaplayer-text, 0 ) !default;
 
 $mediaplayer-toolbar-padding-x: $toolbar-padding-x !default;
@@ -706,29 +996,57 @@ $mediaplayer-toolbar-text: $toolbar-text !default;
 
 
 // Tooltip
-$tooltip-bg: #616161 !default;
-$tooltip-text: contrast-wcag($tooltip-bg) !default;
+$tooltip-bg: material-color( grey, 700, .9 ) !default;
+$tooltip-text: contrast-wcag( $tooltip-bg ) !default;
 
 
 // Progressbar
 $progressbar-height: 5px !default;
 
-$progressbar-bg: color-level( $accent, 9 ) !default;
-$progressbar-text: $text-color !default;
-$progressbar-border: transparent !default;
-$progressbar-gradient: false !default;
+$progressbar-bg: material-color( $primary-palette, lighter ) !default;
+$progressbar-text: material-contrast( $primary-palette, lighter ) !default;
+$progressbar-border: null !default;
+$progressbar-gradient: null !default;
 
-$progressbar-fill-bg:  $accent !default;
-$progressbar-fill-text: $progressbar-text !default;
-$progressbar-fill-border: transparent !default;
-$progressbar-fill-gradient: false !default;
+$progressbar-fill-bg:  material-color( $primary-palette, default ) !default;
+$progressbar-fill-text: material-contrast( $primary-palette, default ) !default;
+$progressbar-fill-border: null !default;
+$progressbar-fill-gradient: null !default;
 
 $progressbar-indeterminate-bg: $progressbar-bg !default;
 $progressbar-indeterminate-text: $progressbar-text !default;
 $progressbar-indeterminate-border: $progressbar-border !default;
-$progressbar-indeterminate-gradient: false !default;
+$progressbar-indeterminate-gradient: null !default;
 
 $progressbar-chunk-border: $bg-color !default;
+
+
+
+// Window
+$window-border-width: 0 !default;
+$window-border-radius: 4px !default;
+
+$window-titlebar-padding-x: 24px !default;
+$window-titlebar-padding-y: 24px !default;
+$window-titlebar-border-width: 0 !default;
+$window-titlebar-border-style: solid !default;
+
+$window-title-font-size: 20px !default;
+$window-title-line-height: 1.4 !default;
+
+$window-inner-padding-x: 24px !default;
+$window-inner-padding-y: 24px !default;
+
+$window-bg: $component-bg !default;
+$window-text: $component-text !default;
+$window-border: null !default;
+
+$window-titlebar-bg: null !default;
+$window-titlebar-text: null !default;
+$window-titlebar-border: null !default;
+
+$window-shadow: $box-shadow-depth-4 !default;
+$window-focused-shadow: $box-shadow-depth-5 !default;
 
 
 // Config maps
@@ -752,5 +1070,3 @@ $typography-config: map-merge((
     card-subtitle: map-get($typography-config, body)
 ), $typography-config);
 // sass-lint:enable indentation
-
-@import "~@progress/kendo-theme-default/scss/variables";

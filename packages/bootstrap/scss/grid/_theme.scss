@@ -18,15 +18,16 @@
         }
 
         // Hover state
-        tbody tr:hover {
+        tbody tr:hover,
+        tbody tr.k-state-hover {
             color: $grid-hovered-text;
             background-color: $grid-hovered-bg;
         }
 
         // Selected state
-        tr.k-state-selected,
         th.k-state-selected,
-        td.k-state-selected {
+        td.k-state-selected,
+        tr.k-state-selected > td {
             color: $grid-selected-text;
             background-color: $grid-selected-bg;
         }

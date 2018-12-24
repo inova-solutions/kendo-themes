@@ -1,7 +1,4 @@
 @include exports("pager/theme") {
-    $pager-form-line-height-em: $form-line-height * 1em !default;
-    $pager-button-padding-y: .5em !default;
-    $pager-buttons-size: calc(#{$pager-form-line-height-em} + 2px) !default; /// icon button size + 2px border (top and bottom)
 
     // Theme
     .k-pager-wrap {
@@ -40,14 +37,6 @@
             @include border-radius( $border-radius );
         }
 
-        .k-link,
-        .k-state-selected {
-            padding: $pager-button-padding-y;
-            width: $pager-buttons-size;
-            height: $pager-buttons-size;
-            line-height: $pager-buttons-size;
-        }
-
         .k-dropdown .k-dropdown-wrap {
             color: $body-color;
             background-color: $pager-bg;
@@ -57,6 +46,26 @@
                 background-color: $pager-hover-bg;
             }
         }
+
+        .k-rtl &,
+        &[dir="rtl"],
+        [dir="rtl"] & {
+            .k-pager-first {
+                @include border-right-radius-only();
+            }
+            .k-pager-last {
+                @include border-left-radius-only();
+            }
+
+            // Spacing
+            .k-pager-nav + .k-pager-nav,
+            .k-pager-nav + .k-pager-numbers,
+            .k-pager-numbers + .k-pager-nav,
+            .k-pager-numbers .k-current-page ~ li + li {
+                margin-right: -1px;
+                margin-left: 0;
+            }
+        }
     }
     .k-pager-numbers {
 
@@ -64,14 +73,11 @@
         .k-state-selected:hover {
             border-width: 1px;
             border-style: solid;
-            background-color: $pager-selected-bg;
             border-color: $pager-selected-border;
+            color: $pager-selected-text;
+            background-color: $pager-selected-bg;
             z-index: 2;
             cursor: default;
-
-            &.k-link {
-                color: $pager-selected-text;
-            }
         }
 
     }

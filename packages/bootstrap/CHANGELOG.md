@@ -3,6 +3,85 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.17.1"></a>
+## [2.17.1](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@2.17.0...@progress/kendo-theme-bootstrap@2.17.1) (2018-12-07)
+
+
+### Bug Fixes
+
+* **material:** improve window appearance in dark themes ([ad56d1e](https://github.com/telerik/kendo-themes/commit/ad56d1e))
+* **pager:** expose and use pager variables ([a09f6f4](https://github.com/telerik/kendo-themes/commit/a09f6f4))
+* **scrollview:** revert regression rendering changes ([398412c](https://github.com/telerik/kendo-themes/commit/398412c))
+
+
+
+
+<a name="2.17.0"></a>
+# [2.17.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@2.16.0...@progress/kendo-theme-bootstrap@2.17.0) (2018-11-22)
+
+
+### Bug Fixes
+
+* **grid:** non-scrollable grid command buttons margins ([43e18ba](https://github.com/telerik/kendo-themes/commit/43e18ba)), closes [#426](https://github.com/telerik/kendo-themes/issues/426)
+
+
+### Features
+
+* **grid:** add hover + selected rows styles ([7dde502](https://github.com/telerik/kendo-themes/commit/7dde502))
+
+
+
+
+<a name="2.16.0"></a>
+# [2.16.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@2.15.0...@progress/kendo-theme-bootstrap@2.16.0) (2018-11-09)
+
+
+### Bug Fixes
+
+* **scheduler:** adaptive view switcher background ([41bdb94](https://github.com/telerik/kendo-themes/commit/41bdb94))
+* **scheduler:** use :hover for buttons ([e296270](https://github.com/telerik/kendo-themes/commit/e296270))
+
+
+### Features
+
+* add kendo-theme-tasks ([61bda89](https://github.com/telerik/kendo-themes/commit/61bda89))
+
+
+
+
+<a name="2.15.0"></a>
+# [2.15.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@2.14.3...@progress/kendo-theme-bootstrap@2.15.0) (2018-10-31)
+
+
+### Features
+
+* **multiviewcalendar:** add multiviewcalendar for kendo-jquery ([9761e30](https://github.com/telerik/kendo-themes/commit/9761e30))
+
+
+
+
+<a name="2.14.3"></a>
+## [2.14.3](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@2.14.2...@progress/kendo-theme-bootstrap@2.14.3) (2018-10-29)
+
+
+
+
+**Note:** Version bump only for package @progress/kendo-theme-bootstrap
+
+<a name="2.14.2"></a>
+## 2.14.2 (2018-10-16)
+
+
+### Bug Fixes
+
+* **inputs:** apply invalid state only trough class name instead of pseudo class ([4e0c8a2](https://github.com/telerik/kendo-themes/commit/4e0c8a2))
+* **pager:** font-size and alignment corrections ([d44c8dd](https://github.com/telerik/kendo-themes/commit/d44c8dd))
+* **pager:** use correct border radius in first / last links when in rtl ([ec3d97d](https://github.com/telerik/kendo-themes/commit/ec3d97d))
+* **tabstrip:** extract tabstrip variables and use correct values ([699be9c](https://github.com/telerik/kendo-themes/commit/699be9c))
+
+
+
+
 <a name="2.14.1"></a>
 ## [2.14.1](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@2.14.0...@progress/kendo-theme-bootstrap@2.14.1) (2018-10-01)
 

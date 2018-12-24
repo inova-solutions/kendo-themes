@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="k-typography">
+<html lang="en" class="k-typography k-no-animations">
 <head>
     <title>QRCode</title>
     <meta charset="utf-8" />
@@ -7,14 +7,13 @@
     <link rel="stylesheet" href="assets/styles.css" />
     <script src="assets/scripts.js"></script>
 </head>
-
 <body>
 
-    <div id="test-area">
+    <div id="test-area" class="grid">
 
-        <div class="section">
-            <div id="qrMail" data-role="qrcode" class="k-qrcode">
-                <div data-role="surface" style="position: relative; width: 120px; height: 120px;">
+        <section>
+            <div id="qrMail" class="k-qrcode">
+                <div style="position: relative; width: 120px; height: 120px;">
                     <svg style="width: 100%; height: 100%; overflow: hidden; left: 0px; top: -0.15625px;" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <defs></defs>
@@ -26,11 +25,11 @@
                     </svg>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <div id="qrUrl" data-role="qrcode" class="k-qrcode">
-                <div data-role="surface" style="position: relative; width: 120px; height: 120px;">
+        <section>
+            <div id="qrUrl" class="k-qrcode">
+                <div style="position: relative; width: 120px; height: 120px;">
                     <svg style="width: 100%; height: 100%; overflow: hidden; left: -0.875px; top: -0.15625px;" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <defs></defs>
@@ -42,11 +41,11 @@
                     </svg>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <div id="qrTelephone" data-role="qrcode" class="k-qrcode">
-                <div data-role="surface" style="position: relative; width: 120px; height: 120px;">
+        <section>
+            <div id="qrTelephone" class="k-qrcode">
+                <div style="position: relative; width: 120px; height: 120px;">
                     <svg style="width: 100%; height: 100%; overflow: hidden; left: -0.75px; top: -0.15625px;" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <defs></defs>
@@ -58,11 +57,11 @@
                     </svg>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <div id="qrGeoLocation" data-role="qrcode" class="k-qrcode">
-                <div data-role="surface" style="position: relative; width: 120px; height: 120px;">
+        <section>
+            <div id="qrGeoLocation" class="k-qrcode">
+                <div style="position: relative; width: 120px; height: 120px;">
                     <svg style="width: 100%; height: 100%; overflow: hidden; left: -0.625px; top: -0.15625px;" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <defs></defs>
@@ -74,10 +73,9 @@
                     </svg>
                 </div>
             </div>
-        </div>
+        </section>
 
     </div>
 
 </body>
-
 </html>

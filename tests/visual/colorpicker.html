@@ -9,12 +9,8 @@
 
     <style>
         #test-area {
-            max-width: 1024px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
         }
-        #test-area::after { display: none; }
 
         .k-colorpicker,
         .k-colorpalette {
@@ -25,16 +21,15 @@
         }
     </style>
 </head>
-
 <body>
 
-    <div id="test-area">
+    <div id="test-area" class="grid">
 
         <section>
             <div class="k-widget k-colorpalette">
-                <table class="k-palette k-reset" role="presentation">
+                <table class="k-palette k-reset">
                     <tbody>
-                        <tr role="row">
+                        <tr>
                             <td class="k-item" style="background-color:#000000"></td>
                             <td class="k-item k-state-hover" style="background-color:#1a1a1a"></td>
                             <td class="k-item k-state-focused" style="background-color:#333333"></td>
@@ -57,7 +52,7 @@
             <div class="k-widget k-colorpalette">
                 <table class="k-palette k-reset">
                     <tbody>
-                        <tr role="row">
+                        <tr>
                             <td class="k-item" style="background-color:#000000"></td>
                             <td class="k-item" style="background-color:#7f7f7f"></td>
                             <td class="k-item" style="background-color:#880015"></td>
@@ -69,7 +64,7 @@
                             <td class="k-item" style="background-color:#3f48cc"></td>
                             <td class="k-item" style="background-color:#a349a4"></td>
                         </tr>
-                        <tr role="row">
+                        <tr>
                             <td class="k-item" style="background-color:#ffffff"></td>
                             <td class="k-item" style="background-color:#c3c3c3"></td>
                             <td class="k-item" style="background-color:#b97a57"></td>
@@ -131,7 +126,7 @@
                     <div class="k-slider-wrap">
                         <div class="k-slider-track" style="width: 100%">
                             <div class="k-slider-selection" style="width: 66px;"><!-- --></div>
-                            <a href="#" class="k-draghandle"style="left: 59px;">Drag</a>
+                            <a class="k-draghandle"style="left: 59px;">Drag</a>
                         </div>
                         <input class="k-hue-slider" style="display: none;" />
                     </div>
@@ -140,7 +135,7 @@
                     <div class="k-slider-wrap">
                         <div class="k-slider-track" style="width: 100%;">
                             <div class="k-slider-selection" style="width: 66px;"><!-- --></div>
-                            <a href="#" class="k-draghandle"style="left: 59px;">Drag</a>
+                            <a class="k-draghandle"style="left: 59px;">Drag</a>
                         </div>
                         <input class="k-transparency-slider" style="display: none;" />
                     </div>
@@ -165,7 +160,7 @@
                     <div class="k-slider-wrap">
                         <div class="k-slider-track" style="width: 100%;">
                             <div class="k-slider-selection" style="width: 66px;"><!-- --></div>
-                            <a href="#" class="k-draghandle"style="left: 59px;">Drag</a>
+                            <a class="k-draghandle"style="left: 59px;">Drag</a>
                         </div>
                         <input class="k-hue-slider" style="display: none;" />
                     </div>

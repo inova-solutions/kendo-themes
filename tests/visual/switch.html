@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="k-typography k-no-animations">
 <head>
     <title>Switch</title>
     <meta charset="utf-8" />
@@ -14,26 +14,23 @@
 
         #test-area {
             max-width: 600px;
-            display: grid;
-            grid-gap: 20px 20px;
             grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr 1fr;
         }
     </style>
 </head>
 <body>
-    <div id="test-area">
+    <div id="test-area" class="grid">
         <span></span>
         <span>On</span>
         <span>Off</span>
 
         <span>Normal</span>
         <section>
-            <kendo-switch dir="ltr" class="k-widget k-switch ng-valid k-switch-on" aria-checked="true">
+            <kendo-switch dir="ltr" class="k-widget k-switch ng-valid k-switch-on">
                 <span class="k-switch-wrapper">
                     <span class="k-switch-background"></span>
                 </span>
-                <span class="k-switch-container" id="819bf999-dd93-f739-ef02-e19fb6323932" tabindex="0">
+                <span class="k-switch-container" id="819bf999-dd93-f739-ef02-e19fb6323932">
                     <span class="k-switch-handle" style="transform: translateX(30px); transition: all 200ms ease-out;">
                         <span class="k-switch-label-on">On</span>
                         <span class="k-switch-label-off">Off</span>
@@ -54,7 +51,7 @@
                 <span class="k-switch-wrapper">
                     <span class="k-switch-background"></span>
                 </span>
-                <span class="k-switch-container" id="9fb2a045-fc52-2ad1-8fe9-4e6c8f5692fb" tabindex="0">
+                <span class="k-switch-container" id="9fb2a045-fc52-2ad1-8fe9-4e6c8f5692fb">
                     <span class="k-switch-handle" style="transform: translateX(0px); transition: all 200ms ease-out;">
                         <span class="k-switch-label-on">On</span>
                         <span class="k-switch-label-off">Off</span>
@@ -74,7 +71,7 @@
 
         <span>Disabled</span>
         <section>
-            <kendo-switch dir="ltr" aria-disabled="true" class="k-widget k-switch k-state-disabled k-switch-on" aria-checked="true">
+            <kendo-switch dir="ltr" class="k-widget k-switch k-state-disabled k-switch-on">
                 <span class="k-switch-wrapper">
                     <span class="k-switch-background"></span>
                 </span>
@@ -95,11 +92,11 @@
             </kendo-switch>
         </section>
         <section>
-            <kendo-switch dir="ltr" aria-disabled="true" class="k-widget k-switch k-switch-off k-state-disabled">
+            <kendo-switch dir="ltr" class="k-widget k-switch k-switch-off k-state-disabled">
                 <span class="k-switch-wrapper">
                     <span class="k-switch-background"></span>
                 </span>
-                <span class="k-switch-container" kendodraggable="" id="813024b1-0a63-a92c-affc-24895eb6965a">
+                <span class="k-switch-container" id="813024b1-0a63-a92c-affc-24895eb6965a">
                     <span class="k-switch-handle" style="transform: translateX(0px); transition: none;">
                         <span class="k-switch-label-on">ON</span>
                         <span class="k-switch-label-off">OFF</span>
@@ -110,11 +107,11 @@
 
         <span>Readonly</span>
         <section>
-            <kendo-switch dir="ltr" aria-readonly="true" class="k-widget k-switch ng-pristine ng-valid k-switch-on" aria-checked="true">
+            <kendo-switch dir="ltr" class="k-widget k-switch ng-pristine ng-valid k-switch-on">
                 <span class="k-switch-wrapper">
                     <span class="k-switch-background"></span>
                 </span>
-                <span class="k-switch-container" kendodraggable="" id="a85610fd-a64d-6596-aadd-43181af16ff9" tabindex="0">
+                <span class="k-switch-container" id="a85610fd-a64d-6596-aadd-43181af16ff9">
                     <span class="k-switch-handle" style="transform: translateX(30px); transition: none;">
                         <span class="k-switch-label-on">ON</span>
                         <span class="k-switch-label-off">OFF</span>
@@ -131,11 +128,11 @@
             </kendo-switch>
         </section>
         <section>
-            <kendo-switch dir="ltr" aria-readonly="true" class="k-widget k-switch k-switch-off">
+            <kendo-switch dir="ltr" class="k-widget k-switch k-switch-off">
                     <span class="k-switch-wrapper">
                         <span class="k-switch-background"></span>
                     </span>
-                    <span class="k-switch-container" kendodraggable="" id="6ceddc6b-9a57-9a71-51e8-9f8361c12aee" tabindex="0">
+                    <span class="k-switch-container" id="6ceddc6b-9a57-9a71-51e8-9f8361c12aee">
                         <span class="k-switch-handle" style="transform: translateX(0px); transition: none;">
                             <span class="k-switch-label-on">ON</span>
                             <span class="k-switch-label-off">OFF</span>
@@ -154,11 +151,11 @@
 
         <span>Localized</span>
         <section>
-            <kendo-switch class="k-widget k-switch ng-pristine ng-valid k-switch-on" aria-checked="true">
+            <kendo-switch class="k-widget k-switch ng-pristine ng-valid k-switch-on">
                 <span class="k-switch-wrapper">
                     <span class="k-switch-background"></span>
                 </span>
-                <span class="k-switch-container" kendodraggable="" id="a85610fd-a64d-6596-aadd-43181af16ff9" tabindex="0">
+                <span class="k-switch-container" id="a85610fd-a64d-6596-aadd-43181af16ff9">
                     <span class="k-switch-handle" style="transform: translateX(30px); transition: none;">
                         <span class="k-switch-label-on">Immer</span>
                         <span class="k-switch-label-off">Nimmer</span>
@@ -179,7 +176,7 @@
                     <span class="k-switch-wrapper">
                         <span class="k-switch-background"></span>
                     </span>
-                    <span class="k-switch-container" kendodraggable="" id="6ceddc6b-9a57-9a71-51e8-9f8361c12aee" tabindex="0">
+                    <span class="k-switch-container" id="6ceddc6b-9a57-9a71-51e8-9f8361c12aee">
                         <span class="k-switch-handle" style="transform: translateX(0px); transition: none;">
                             <span class="k-switch-label-on">Immer</span>
                             <span class="k-switch-label-off">Nimmer</span>
@@ -198,11 +195,11 @@
 
         <span>RTL</span>
         <section>
-            <kendo-switch dir="rtl" class="k-widget k-switch ng-pristine ng-valid k-switch-on" aria-checked="true">
+            <kendo-switch dir="rtl" class="k-widget k-switch ng-pristine ng-valid k-switch-on">
                 <span class="k-switch-wrapper">
                     <span class="k-switch-background"></span>
                 </span>
-                <span class="k-switch-container" kendodraggable="" id="a85610fd-a64d-6596-aadd-43181af16ff9" tabindex="0">
+                <span class="k-switch-container" id="a85610fd-a64d-6596-aadd-43181af16ff9">
                     <span class="k-switch-handle" style="transform: translateX(0px); transition: none;">
                         <span class="k-switch-label-on">ON</span>
                         <span class="k-switch-label-off">OFF</span>
@@ -223,7 +220,7 @@
                     <span class="k-switch-wrapper">
                         <span class="k-switch-background"></span>
                     </span>
-                    <span class="k-switch-container" kendodraggable="" id="6ceddc6b-9a57-9a71-51e8-9f8361c12aee" tabindex="0">
+                    <span class="k-switch-container" id="6ceddc6b-9a57-9a71-51e8-9f8361c12aee">
                         <span class="k-switch-handle" style="transform: translateX(30px); transition: none;">
                             <span class="k-switch-label-on">ON</span>
                             <span class="k-switch-label-off">OFF</span>

@@ -3,6 +3,110 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.5.2"></a>
+## [1.5.2](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-material@1.5.1...@progress/kendo-theme-material@1.5.2) (2018-12-07)
+
+
+### Bug Fixes
+
+* **material:** add body and app colors; use material colors for component variables ([3f0fe8a](https://github.com/telerik/kendo-themes/commit/3f0fe8a))
+* **material:** ensure button, toolbar and pager look ok in dark themes ([d885bc5](https://github.com/telerik/kendo-themes/commit/d885bc5))
+* **material:** improve grid, treelist and pivot appearance in dark themes ([95326fe](https://github.com/telerik/kendo-themes/commit/95326fe))
+* **material:** improve window appearance in dark themes ([ad56d1e](https://github.com/telerik/kendo-themes/commit/ad56d1e))
+* **material:** introduce component variables ([2848ebb](https://github.com/telerik/kendo-themes/commit/2848ebb))
+* **material:** material-color functions works quirkly with strings that are valid colors ([742d676](https://github.com/telerik/kendo-themes/commit/742d676))
+* **material:** use app- and component- variables for chat styling ([84d1f87](https://github.com/telerik/kendo-themes/commit/84d1f87))
+* **material:** use conditional lighter or darker background for toolbar ([23f821a](https://github.com/telerik/kendo-themes/commit/23f821a))
+* **material:** use conditional opacity for input border ([73a119e](https://github.com/telerik/kendo-themes/commit/73a119e))
+* **material:** use conditionally lighter or darker background for grid drag clue ([f14daef](https://github.com/telerik/kendo-themes/commit/f14daef))
+* **material:** use correct background color for tooltip ([4c8a4b9](https://github.com/telerik/kendo-themes/commit/4c8a4b9))
+* **material:** use correct colors for progressbar ([02e036a](https://github.com/telerik/kendo-themes/commit/02e036a))
+* **material:** use material elevation 4 for popup shadow ([2bfff0d](https://github.com/telerik/kendo-themes/commit/2bfff0d))
+* **material:** use material elevation variable to control shadows ([cc9cc73](https://github.com/telerik/kendo-themes/commit/cc9cc73))
+* **material:** use primary and secondary pallettes to populate primary and secondary color ([ab1de51](https://github.com/telerik/kendo-themes/commit/ab1de51))
+* **pager:** expose and use pager variables ([a09f6f4](https://github.com/telerik/kendo-themes/commit/a09f6f4))
+* **scrollview:** revert regression rendering changes ([398412c](https://github.com/telerik/kendo-themes/commit/398412c))
+
+
+### Reverts
+
+* **material:** use transpernt instead of null value for grid-bg to avoid cascade override ([eed58ba](https://github.com/telerik/kendo-themes/commit/eed58ba))
+
+
+
+
+<a name="1.5.1"></a>
+## [1.5.1](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-material@1.5.0...@progress/kendo-theme-material@1.5.1) (2018-11-22)
+
+
+### Bug Fixes
+
+* **grid:** non-scrollable grid command buttons margins ([43e18ba](https://github.com/telerik/kendo-themes/commit/43e18ba)), closes [#426](https://github.com/telerik/kendo-themes/issues/426)
+
+
+
+
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-material@1.4.0...@progress/kendo-theme-material@1.5.0) (2018-11-09)
+
+
+### Bug Fixes
+
+* **material:** use correct color for calendar selected-focused cell ([a170123](https://github.com/telerik/kendo-themes/commit/a170123))
+* **material:** use correct color for panelbar root item border ([ecb638e](https://github.com/telerik/kendo-themes/commit/ecb638e))
+* **material:** use correct colors for button ([caa7857](https://github.com/telerik/kendo-themes/commit/caa7857))
+* **material:** use correct shadows for button ([57e4116](https://github.com/telerik/kendo-themes/commit/57e4116))
+* **material:** use null value for gradients ([29e561c](https://github.com/telerik/kendo-themes/commit/29e561c))
+* **scheduler:** adaptive view switcher background ([41bdb94](https://github.com/telerik/kendo-themes/commit/41bdb94))
+
+
+### Features
+
+* add kendo-theme-tasks ([61bda89](https://github.com/telerik/kendo-themes/commit/61bda89))
+
+
+
+
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-material@1.3.3...@progress/kendo-theme-material@1.4.0) (2018-10-31)
+
+
+### Bug Fixes
+
+* **filtermenu:** scope arrow rotation on expanded ([0131da0](https://github.com/telerik/kendo-themes/commit/0131da0)), closes [#375](https://github.com/telerik/kendo-themes/issues/375)
+
+
+### Features
+
+* **multiviewcalendar:** add multiviewcalendar for kendo-jquery ([9761e30](https://github.com/telerik/kendo-themes/commit/9761e30))
+
+
+
+
+<a name="1.3.3"></a>
+## [1.3.3](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-material@1.3.2...@progress/kendo-theme-material@1.3.3) (2018-10-29)
+
+
+
+
+**Note:** Version bump only for package @progress/kendo-theme-material
+
+<a name="1.3.2"></a>
+## 1.3.2 (2018-10-16)
+
+
+### Bug Fixes
+
+* **dropdowns:** misalignments in editable row of grid for Material Theme ([172bd3d](https://github.com/telerik/kendo-themes/commit/172bd3d)), closes [telerik/kendo-themes#351](https://github.com/telerik/kendo-themes/issues/351)
+* **grid:** drag and drop clues improvements ([06c6dbe](https://github.com/telerik/kendo-themes/commit/06c6dbe))
+* **inputs:** apply invalid state only trough class name instead of pseudo class ([4e0c8a2](https://github.com/telerik/kendo-themes/commit/4e0c8a2))
+* **multiselect:** increase close button hit area ([520d731](https://github.com/telerik/kendo-themes/commit/520d731))
+* **pager:** font-size and alignment corrections ([d44c8dd](https://github.com/telerik/kendo-themes/commit/d44c8dd))
+* **tabstrip:** extract tabstrip variables and use correct values ([699be9c](https://github.com/telerik/kendo-themes/commit/699be9c))
+
+
+
+
 <a name="1.3.1"></a>
 ## [1.3.1](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-material@1.3.0...@progress/kendo-theme-material@1.3.1) (2018-10-01)
 

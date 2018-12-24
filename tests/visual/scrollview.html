@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="k-typography">
+<html lang="en" class="k-typography k-no-animations">
 <head>
     <title>ScrollView</title>
     <meta charset="utf-8" />
@@ -7,31 +7,26 @@
     <link rel="stylesheet" href="assets/styles.css" />
     <script src="assets/scripts.js"></script>
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <style>
-        body {
-            font-size: 14px;
-            font-family: Roboto, Arial, sans-serif;
-        }
     </style>
 </head>
 <body>
 
-    <div class="test-area">
-        <kendo-scrollview class="k-widget k-scrollview-wrap" style="width: 400px; height: 300px;" tabindex="1">
+    <div id="test-area" class="grid">
+        <kendo-scrollview class="k-widget k-scrollview-wrap" style="width: 400px; height: 300px;">
             <ul class="k-scrollview">
-                <li style="height: 300px; transform: translateX(-100%); width: 100%;" aria-hidden="true">
+                <li style="height: 300px; transform: translateX(-100%); width: 100%;">
                     <!-- template -->
                     <div style="width: 100%; height: 100%; background: #333;"></div>
 
                 </li><!--
-                --><li style="height: 300px; transform: translateX(0%); width: 100%;" aria-hidden="false">
+                --><li style="height: 300px; transform: translateX(0%); width: 100%;">
 
                     <!-- template -->
                     <div style="width: 100%; height: 100%; background: #333;"></div>
 
                 </li><!--
-                --><li style="height: 300px; transform: translateX(100%); width: 100%;" aria-hidden="true">
+                --><li style="height: 300px; transform: translateX(100%); width: 100%;">
 
                     <!-- template -->
                     <div style="width: 100%; height: 100%; background: #333;"></div>
@@ -39,10 +34,10 @@
                 </li>
             </ul>
             <div class="k-scrollview-elements" style="height: 300px;">
-                <a aria-label="previous" class="k-scrollview-prev">
+                <a class="k-scrollview-prev">
                     <span class="k-icon k-i-arrowhead-w"></span>
                 </a>
-                <a aria-label="next" class="k-scrollview-next">
+                <a class="k-scrollview-next">
                     <span class="k-icon k-i-arrowhead-e"></span>
                 </a>
                 <kendo-scrollview-pager>
@@ -54,26 +49,24 @@
                 </kendo-scrollview-pager>
             </div>
         </kendo-scrollview>
-    </div>
-    <div class="test-area" style="margin-top: 25px;">
 
         <!-- TODO: the items do not need all the hard-coded sizes, can be handled by theme layout -->
         <!-- TODO: the hit area of the pager can be increased by using padding instead of margins and moving the circles in generated content-->
 
-        <kendo-scrollview class="k-widget k-scrollview-wrap" style="width: 400px; height: 300px;" tabindex="1">
+        <kendo-scrollview class="k-widget k-scrollview-wrap" style="width: 400px; height: 300px;">
             <ul class="k-scrollview">
-                <li style="height: 300px; transform: translateX(-100%); width: 100%;" aria-hidden="true">
+                <li style="height: 300px; transform: translateX(-100%); width: 100%;">
                     <!-- template -->
                     <div style="width: 100%; height: 100%; background: #fff;"></div>
 
                 </li><!--
-                --><li style="height: 300px; transform: translateX(0%); width: 100%;" aria-hidden="false">
+                --><li style="height: 300px; transform: translateX(0%); width: 100%;">
 
                     <!-- template -->
                     <div style="width: 100%; height: 100%; background: #fff;"></div>
 
                 </li><!--
-                --><li style="height: 300px; transform: translateX(100%); width: 100%;" aria-hidden="true">
+                --><li style="height: 300px; transform: translateX(100%); width: 100%;">
 
                     <!-- template -->
                     <div style="width: 100%; height: 100%; background: #fff;"></div>
@@ -81,10 +74,10 @@
                 </li>
             </ul>
             <div class="k-scrollview-elements" style="height: 300px;">
-                <a aria-label="previous" class="k-scrollview-prev">
+                <a class="k-scrollview-prev">
                     <span class="k-icon k-i-arrowhead-w"></span>
                 </a>
-                <a aria-label="next" class="k-scrollview-next">
+                <a class="k-scrollview-next">
                     <span class="k-icon k-i-arrowhead-e"></span>
                 </a>
                 <kendo-scrollview-pager>
