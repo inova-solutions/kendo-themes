@@ -16,29 +16,39 @@
     .k-grid-header-locked,
     .k-filter-row > td,
     .k-filter-row > th {
-        border-color: $grid-header-border;
+        @include fill( $border: $grid-header-border );
     }
 
     .k-grid-header,
     .k-grid-toolbar,
     .k-grouping-header,
     .k-grid-add-row,
-    .k-grid-footer,
+    .k-grid-footer {
+        @include fill(
+            $color: $grid-header-text,
+            $bg: $grid-header-bg
+        );
+    }
+
     .k-drag-clue {
-        color: $grid-header-text;
-        background-color: $grid-header-bg;
+        @include fill(
+            $color: $grid-group-drag-clue-text,
+            $bg: $grid-group-drag-clue-bg
+        );
     }
 
     .k-grid-content {
         // setting this background color resolves glitches in iOS
-        background-color: $bg-color;
+        @include fill($bg: $grid-bg );
     }
 
     .k-group-footer td,
     .k-grouping-row td,
     tbody .k-group-cell {
-        color: $grid-grouping-row-text;
-        background-color: $grid-grouping-row-bg;
+        @include fill(
+            $color: $grid-grouping-row-text,
+            $bg: $grid-grouping-row-bg
+        );
     }
 
     .k-grid-footer td,
@@ -67,16 +77,26 @@
             background-clip: border-box;
         }
 
+        // Alt row
         tr.k-alt {
             background-color: $grid-alt-bg;
         }
 
-        tr.k-state-selected,
-        td.k-state-selected {
+        // Hover state
+        tbody tr:hover,
+        tbody tr.k-state-hover {
+            color: $grid-hovered-text;
+            background-color: $grid-hovered-bg;
+        }
+
+        // Selected state
+        td.k-state-selected,
+        tr.k-state-selected > td {
             color: $grid-selected-text;
             background-color: $grid-selected-bg;
         }
 
+        // Focused state
         td.k-state-focused,
         th.k-state-focused {
             box-shadow: $grid-focused-shadow;

@@ -1,114 +1,116 @@
 <!doctype html>
-<html lang="en" class="k-typography">
+<html lang="en" class="k-typography k-no-animations">
 <head>
     <title>Grid</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../packages/default/dist/all.css" />
     <link rel="stylesheet" href="assets/styles.css" />
     <script src="assets/scripts.js"></script>
+
+    <style>
+    </style>
 </head>
 <body>
 
-    <div id="test-area">
+    <div id="test-area" class="grid">
 
-        <div class="section">
-
-        <kendo-grid class="k-widget k-grid k-grid-no-scrollbar" style="width: 480px;">
-            <div class="k-grid-aria-root" role="grid">
-                <div class="k-grid-header" role="presentation"> <!-- add padding-left or -right for scrollbar width-->
-                    <div class="k-grid-header-wrap" role="presentation">
-                        <table role="presentation">
-                            <colgroup role="presentation">
-                                <col style="width: 100px;" />
-                                <col />
-                            </colgroup>
-                            <thead role="presentation">
-                                <tr role="row">
-                                    <th role="columnheader" class="k-header">
-                                        100px
-                                    </th>
-                                    <th role="columnheader" class="k-header">
-                                        no width
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                </div>
-
-                <kendo-grid-list class="k-grid-container" role="presentation">
-                    <div class="k-grid-content k-virtual-content" role="presentation" tabindex="-1">
-                        <div role="presentation">
-                            <table class="k-grid-table" role="presentation">
-                                <colgroup role="presentation">
+        <section>
+            <kendo-grid class="k-widget k-grid k-grid-no-scrollbar" style="width: 480px;">
+                <div class="k-grid-aria-root">
+                    <div class="k-grid-header"> <!-- add padding-left or -right for scrollbar width-->
+                        <div class="k-grid-header-wrap">
+                            <table>
+                                <colgroup>
                                     <col style="width: 100px;" />
                                     <col />
                                 </colgroup>
-                                <tbody role="presentation">
-                                    <tr role="row">
-                                        <td role="gridcell">
-                                            1
-                                        </td>
-                                        <td role="gridcell">
-                                            Row
-                                        </td>
-                                    </tr>
-                                    <tr class="k-alt" role="row">
-                                        <td>
-                                            2
-                                        </td>
-                                        <td>
-                                            Alt row
-                                        </td>
-                                    </tr>
+                                <thead>
                                     <tr>
-                                        <td>
-                                            3
-                                        </td>
-                                        <td>
-                                            This text continues to the end of the grid to test overflow behavior of row contents, as well as line height and vertical alignment.
-                                        </td>
+                                        <th class="k-header">
+                                            100px
+                                        </th>
+                                        <th class="k-header">
+                                            no width
+                                        </th>
                                     </tr>
-                                </tbody>
+                                </thead>
                             </table>
                         </div>
-                        <div class="k-height-container" role="presentation">
-                            <div style="height: 0px;"></div> <!-- set height to scroll height (virtual scrolling) -->
-                        </div>
                     </div>
-                </kendo-grid-list>
-            </div>
-        </kendo-grid>
 
-        </div>
+                    <kendo-grid-list class="k-grid-container">
+                        <div class="k-grid-content k-virtual-content">
+                            <div>
+                                <table class="k-grid-table">
+                                    <colgroup>
+                                        <col style="width: 100px;" />
+                                        <col />
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                Row
+                                            </td>
+                                        </tr>
+                                        <tr class="k-alt">
+                                            <td>
+                                                2
+                                            </td>
+                                            <td>
+                                                Alt row
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                3
+                                            </td>
+                                            <td>
+                                                This text continues to the end of the grid to test overflow behavior of row contents, as well as line height and vertical alignment.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="k-height-container">
+                                <div style="height: 0px;"></div> <!-- set height to scroll height (virtual scrolling) -->
+                            </div>
+                        </div>
+                    </kendo-grid-list>
+                </div>
+            </kendo-grid>
+        </section>
 
-        <div class="section">
+        <section>
             <!-- filter row, checkbox selection -->
             <kendo-grid class="k-widget k-grid k-grid-no-scrollbar" style="width: 800px;">
-                <div class="k-grid-aria-root" role="grid">
-                    <div class="k-grid-header" role="presentation">
-                        <div class="k-grid-header-wrap" role="presentation">
-                            <table role="presentation">
-                                <colgroup role="presentation">
+                <div class="k-grid-aria-root">
+                    <div class="k-grid-header">
+                        <div class="k-grid-header-wrap">
+                            <table>
+                                <colgroup>
                                     <col style="width: 68px;">
                                     <col>
                                     <col>
                                     <col>
                                 </colgroup>
-                                <thead role="presentation">
+                                <thead>
                                     <tr>
-                                        <th role="columnheader" class="k-header">
+                                        <th class="k-header">
                                         </th>
-                                        <th role="columnheader" class="k-header">
+                                        <th class="k-header">
                                             Text column
                                         </th>
-                                        <th role="columnheader" class="k-header">
+                                        <th class="k-header">
                                             Date column
                                         </th>
-                                        <th role="columnheader" class="k-header">
+                                        <th class="k-header">
                                             Numeric column
                                         </th>
                                     </tr>
+
                                     <tr class="k-filter-row">
                                         <td>
                                         </td>
@@ -118,16 +120,16 @@
                                                     <input class="k-textbox" value="Cha" />
                                                     <kendo-grid-filter-cell-operators class="k-filtercell-operator">
                                                         <kendo-dropdownlist class="k-dropdown-operator k-widget k-dropdown k-header" iconclass="k-i-filter" textfield="text" valuefield="value">
-                                                            <span role="listbox" unselectable="on" class="k-dropdown-wrap k-state-default" id="4c85079f-efb7-49ba-bbf3-52655c86fd98" dir="ltr" readonly="false" tabindex="0">
-                                                                <span unselectable="on" class="k-input">
+                                                            <span class="k-dropdown-wrap k-state-default" id="4c85079f-efb7-49ba-bbf3-52655c86fd98" dir="ltr" readonly="false">
+                                                                <span class="k-input">
                                                                     Is equal to
                                                                 </span>
-                                                                <span unselectable="on" class="k-select">
+                                                                <span class="k-select">
                                                                     <span class="k-i-filter k-icon"></span>
                                                                 </span>
                                                             </span>
                                                         </kendo-dropdownlist>
-                                                        <button class="k-button k-button-icon" title="Clear">
+                                                        <button class="k-button k-button-icon">
                                                             <span class="k-icon k-i-filter-clear"></span>
                                                         </button>
                                                     </kendo-grid-filter-cell-operators>
@@ -137,30 +139,30 @@
                                         <td>
                                             <kendo-grid-date-filter-cell class="k-filtercell">
                                                 <kendo-grid-filter-wrapper-cell class="k-filtercell-wrapper">
-                                                    <kendo-datepicker kendofilterinput="" class="k-widget k-datepicker k-header">
+                                                    <kendo-datepicker class="k-widget k-datepicker k-header">
                                                         <span class="k-picker-wrap k-state-default">
                                                             <kendo-dateinput class="k-widget k-dateinput">
                                                                 <span class="k-dateinput-wrap">
-                                                                    <input autocapitalize="off" autocomplete="off" autocorrect="off" class="k-input" role="spinbutton" spellcheck="false" id="b08c0bb2-3a6e-4d53-a699-863b31f961fb" title="" tabindex="0" value="01/01/2001" />
+                                                                    <input autocapitalize="off" autocorrect="off" class="k-input" spellcheck="false" id="b08c0bb2-3a6e-4d53-a699-863b31f961fb" value="01/01/2001" />
                                                                 </span>
                                                             </kendo-dateinput>
-                                                            <span class="k-select" role="button" title="Toggle calendar">
+                                                            <span class="k-select">
                                                                 <span class="k-icon k-i-calendar"></span>
                                                             </span>
                                                         </span>
                                                     </kendo-datepicker>
                                                     <kendo-grid-filter-cell-operators class="k-filtercell-operator">
                                                         <kendo-dropdownlist class="k-dropdown-operator k-widget k-dropdown k-header" iconclass="k-i-filter" textfield="text" valuefield="value">
-                                                            <span role="listbox" unselectable="on" class="k-dropdown-wrap k-state-default" id="a08714c4-8784-4c09-a3f9-dca9b364ad97" dir="ltr" readonly="false" tabindex="0">
-                                                                <span unselectable="on" class="k-input">
+                                                            <span class="k-dropdown-wrap k-state-default" id="a08714c4-8784-4c09-a3f9-dca9b364ad97" dir="ltr" readonly="false">
+                                                                <span class="k-input">
                                                                     Is after or equal to
                                                                 </span>
-                                                                <span unselectable="on" class="k-select">
+                                                                <span class="k-select">
                                                                     <span class="k-i-filter k-icon"></span>
                                                                 </span>
                                                             </span>
                                                         </kendo-dropdownlist>
-                                                        <button class="k-button k-button-icon" title="Clear">
+                                                        <button class="k-button k-button-icon">
                                                             <span class="k-icon k-i-filter-clear"></span>
                                                         </button>
                                                     </kendo-grid-filter-cell-operators>
@@ -170,14 +172,14 @@
                                         <td>
                                             <kendo-grid-numeric-filter-cell class="k-filtercell">
                                                 <kendo-grid-filter-wrapper-cell class="k-filtercell-wrapper">
-                                                    <kendo-numerictextbox kendofilterinput="" dir="ltr" class="k-widget k-numerictextbox">
+                                                    <kendo-numerictextbox dir="ltr" class="k-widget k-numerictextbox">
                                                         <span class="k-numeric-wrap">
-                                                            <input autocomplete="off" autocorrect="off" class="k-input k-formatted-value" role="spinbutton" id="714b77a5-cec8-3370-be49-6ea55a89921c" title="" tabindex="0" value="1" />
+                                                            <input autocorrect="off" class="k-input k-formatted-value" id="714b77a5-cec8-3370-be49-6ea55a89921c" value="1" />
                                                             <span class="k-select">
-                                                                <span class="k-link k-link-increase" title="Increase value">
+                                                                <span class="k-link k-link-increase">
                                                                     <span class="k-icon k-i-arrow-n"></span>
                                                                 </span>
-                                                                <span class="k-link k-link-decrease" title="Decrease value">
+                                                                <span class="k-link k-link-decrease">
                                                                     <span class="k-icon k-i-arrow-s"></span>
                                                                 </span>
                                                             </span>
@@ -185,16 +187,16 @@
                                                     </kendo-numerictextbox>
                                                     <kendo-grid-filter-cell-operators class="k-filtercell-operator">
                                                         <kendo-dropdownlist class="k-dropdown-operator k-widget k-dropdown k-header" iconclass="k-i-filter" textfield="text" valuefield="value">
-                                                            <span role="listbox" unselectable="on" class="k-dropdown-wrap k-state-default" id="0d7a44ea-c77d-4f78-845c-019160be8a85" dir="ltr" readonly="false" tabindex="0">
-                                                                <span unselectable="on" class="k-input">
+                                                            <span class="k-dropdown-wrap k-state-default" id="0d7a44ea-c77d-4f78-845c-019160be8a85" dir="ltr" readonly="false">
+                                                                <span class="k-input">
                                                                     Is equal to
                                                                 </span>
-                                                                <span unselectable="on" class="k-select">
+                                                                <span class="k-select">
                                                                     <span class="k-i-filter k-icon"></span>
                                                                 </span>
                                                             </span>
                                                         </kendo-dropdownlist>
-                                                        <button class="k-button k-button-icon" title="Clear">
+                                                        <button class="k-button k-button-icon">
                                                             <span class="k-icon k-i-filter-clear"></span>
                                                         </button>
                                                     </kendo-grid-filter-cell-operators>
@@ -206,72 +208,72 @@
                             </table>
                         </div>
                     </div>
-                    <kendo-grid-list class="k-grid-container" role="presentation">
-                        <div class="k-grid-content k-virtual-content" role="presentation" tabindex="-1">
-                            <div role="presentation">
-                                <table class="k-grid-table" role="presentation" style="transform: translateY(0px);">
-                                    <colgroup role="presentation">
+                    <kendo-grid-list class="k-grid-container">
+                        <div class="k-grid-content k-virtual-content">
+                            <div>
+                                <table class="k-grid-table" style="transform: translateY(0px);">
+                                    <colgroup>
                                         <col style="width: 68px;"><col><col><col>
                                     </colgroup>
-                                    <tbody role="presentation">
-                                        <tr class="k-state-selected" role="row">
-                                            <td role="gridcell">
+                                    <tbody>
+                                        <tr class="k-state-selected">
+                                            <td>
                                                 <input class="k-checkbox" id="k-grid0-checkbox0" type="checkbox" checked />
                                                 <label class="k-checkbox-label" for="k-grid0-checkbox0"></label>
-                                            </td><td role="gridcell">
+                                            </td><td>
                                                 Chai
-                                            </td><td role="gridcell">
-                                            </td><td role="gridcell">
+                                            </td><td>
+                                            </td><td>
                                                 $18.00
                                             </td>
                                         </tr>
-                                        <tr class="k-state-selected k-alt" role="row">
-                                            <td role="gridcell">
+                                        <tr class="k-state-selected k-alt">
+                                            <td>
                                                 <input class="k-checkbox" id="k-grid0-checkbox1" type="checkbox" checked />
                                                 <label class="k-checkbox-label" for="k-grid0-checkbox1"></label>
-                                            </td><td role="gridcell">
+                                            </td><td>
                                                 Chang
-                                            </td><td role="gridcell">
-                                            </td><td role="gridcell">
+                                            </td><td>
+                                            </td><td>
                                                 $19.00
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="k-height-container" role="presentation">
+                            <div class="k-height-container">
                                 <div style="height: 0px;"></div>
                             </div>
                         </div>
                     </kendo-grid-list>
                 </div>
             </kendo-grid>
-        </div>
+        </section>
 
-        <div class="section">
+        <section>
             <!-- filter row, checkbox selection -->
             <kendo-grid class="k-widget k-grid k-grid-no-scrollbar" style="width: 800px;" dir="rtl">
-                <div class="k-grid-aria-root" role="grid">
-                    <div class="k-grid-header" role="presentation">
-                        <div class="k-grid-header-wrap" role="presentation">
-                            <table role="presentation">
-                                <colgroup role="presentation">
+                <div class="k-grid-aria-root">
+                    <div class="k-grid-header">
+                        <div class="k-grid-header-wrap">
+                            <table>
+                                <colgroup>
                                     <col style="width: 68px;">
                                     <col>
                                     <col>
                                     <col>
                                 </colgroup>
-                                <thead role="presentation">
+                                <thead>
                                     <tr>
-                                        <th role="columnheader" class="k-header">
+                                        <th class="k-header">
                                         </th>
-                                        <th role="columnheader" class="k-header">
+                                        <th class="k-header">
                                             Text column
                                         </th>
-                                        <th role="columnheader" class="k-header">
+                                        <th class="k-header">
                                             Date column
                                         </th>
-                                        <th role="columnheader" class="k-header">
+                                        <th class="k-header">
                                             Numeric column
                                         </th>
                                     </tr>
@@ -284,16 +286,16 @@
                                                     <input class="k-textbox" value="Cha" />
                                                     <kendo-grid-filter-cell-operators class="k-filtercell-operator">
                                                         <kendo-dropdownlist class="k-dropdown-operator k-widget k-dropdown k-header" iconclass="k-i-filter" textfield="text" valuefield="value">
-                                                            <span role="listbox" unselectable="on" class="k-dropdown-wrap k-state-default" id="4c85079f-efb7-49ba-bbf3-52655c86fd98" dir="rtl" readonly="false" tabindex="0">
-                                                                <span unselectable="on" class="k-input">
+                                                            <span class="k-dropdown-wrap k-state-default" id="4c85079f-efb7-49ba-bbf3-52655c86fd98" dir="rtl" readonly="false">
+                                                                <span class="k-input">
                                                                     Is equal to
                                                                 </span>
-                                                                <span unselectable="on" class="k-select">
+                                                                <span class="k-select">
                                                                     <span class="k-i-filter k-icon"></span>
                                                                 </span>
                                                             </span>
                                                         </kendo-dropdownlist>
-                                                        <button class="k-button k-button-icon" title="Clear">
+                                                        <button class="k-button k-button-icon">
                                                             <span class="k-icon k-i-filter-clear"></span>
                                                         </button>
                                                     </kendo-grid-filter-cell-operators>
@@ -307,26 +309,26 @@
                                                         <span class="k-picker-wrap k-state-default">
                                                             <kendo-dateinput class="k-widget k-dateinput">
                                                                 <span class="k-dateinput-wrap">
-                                                                    <input autocapitalize="off" autocomplete="off" autocorrect="off" class="k-input" role="spinbutton" spellcheck="false" id="b08c0bb2-3a6e-4d53-a699-863b31f961fb" title="" tabindex="0" value="01/01/2001" />
+                                                                    <input autocapitalize="off" autocorrect="off" class="k-input" spellcheck="false" id="b08c0bb2-3a6e-4d53-a699-863b31f961fb" value="01/01/2001" />
                                                                 </span>
                                                             </kendo-dateinput>
-                                                            <span class="k-select" role="button" title="Toggle calendar">
+                                                            <span class="k-select">
                                                                 <span class="k-icon k-i-calendar"></span>
                                                             </span>
                                                         </span>
                                                     </kendo-datepicker>
                                                     <kendo-grid-filter-cell-operators class="k-filtercell-operator">
                                                         <kendo-dropdownlist class="k-dropdown-operator k-widget k-dropdown k-header" iconclass="k-i-filter" textfield="text" valuefield="value">
-                                                            <span role="listbox" unselectable="on" class="k-dropdown-wrap k-state-default" id="a08714c4-8784-4c09-a3f9-dca9b364ad97" dir="rtl" readonly="false" tabindex="0">
-                                                                <span unselectable="on" class="k-input">
+                                                            <span class="k-dropdown-wrap k-state-default" id="a08714c4-8784-4c09-a3f9-dca9b364ad97" dir="rtl" readonly="false">
+                                                                <span class="k-input">
                                                                     Is after or equal to
                                                                 </span>
-                                                                <span unselectable="on" class="k-select">
+                                                                <span class="k-select">
                                                                     <span class="k-i-filter k-icon"></span>
                                                                 </span>
                                                             </span>
                                                         </kendo-dropdownlist>
-                                                        <button class="k-button k-button-icon" title="Clear">
+                                                        <button class="k-button k-button-icon">
                                                             <span class="k-icon k-i-filter-clear"></span>
                                                         </button>
                                                     </kendo-grid-filter-cell-operators>
@@ -336,14 +338,14 @@
                                         <td>
                                             <kendo-grid-numeric-filter-cell class="k-filtercell">
                                                 <kendo-grid-filter-wrapper-cell class="k-filtercell-wrapper">
-                                                    <kendo-numerictextbox kendofilterinput="" dir="rtl" class="k-widget k-numerictextbox">
+                                                    <kendo-numerictextbox dir="rtl" class="k-widget k-numerictextbox">
                                                         <span class="k-numeric-wrap">
-                                                            <input autocomplete="off" autocorrect="off" class="k-input k-formatted-value" role="spinbutton" id="714b77a5-cec8-3370-be49-6ea55a89921c" title="" tabindex="0" value="1" />
+                                                            <input autocorrect="off" class="k-input k-formatted-value" id="714b77a5-cec8-3370-be49-6ea55a89921c" value="1" />
                                                             <span class="k-select">
-                                                                <span class="k-link k-link-increase" title="Increase value">
+                                                                <span class="k-link k-link-increase">
                                                                     <span class="k-icon k-i-arrow-n"></span>
                                                                 </span>
-                                                                <span class="k-link k-link-decrease" title="Decrease value">
+                                                                <span class="k-link k-link-decrease">
                                                                     <span class="k-icon k-i-arrow-s"></span>
                                                                 </span>
                                                             </span>
@@ -351,16 +353,16 @@
                                                     </kendo-numerictextbox>
                                                     <kendo-grid-filter-cell-operators class="k-filtercell-operator">
                                                         <kendo-dropdownlist class="k-dropdown-operator k-widget k-dropdown k-header" iconclass="k-i-filter" textfield="text" valuefield="value">
-                                                            <span role="listbox" unselectable="on" class="k-dropdown-wrap k-state-default" id="0d7a44ea-c77d-4f78-845c-019160be8a85" dir="rtl" readonly="false" tabindex="0">
-                                                                <span unselectable="on" class="k-input">
+                                                            <span class="k-dropdown-wrap k-state-default" id="0d7a44ea-c77d-4f78-845c-019160be8a85" dir="rtl" readonly="false">
+                                                                <span class="k-input">
                                                                     Is equal to
                                                                 </span>
-                                                                <span unselectable="on" class="k-select">
+                                                                <span class="k-select">
                                                                     <span class="k-i-filter k-icon"></span>
                                                                 </span>
                                                             </span>
                                                         </kendo-dropdownlist>
-                                                        <button class="k-button k-button-icon" title="Clear">
+                                                        <button class="k-button k-button-icon">
                                                             <span class="k-icon k-i-filter-clear"></span>
                                                         </button>
                                                     </kendo-grid-filter-cell-operators>
@@ -372,102 +374,103 @@
                             </table>
                         </div>
                     </div>
-                    <kendo-grid-list class="k-grid-container" role="presentation">
-                        <div class="k-grid-content k-virtual-content" role="presentation" tabindex="-1">
-                            <div role="presentation">
-                                <table class="k-grid-table" role="presentation" style="transform: translateY(0px);">
-                                    <colgroup role="presentation">
+                    <kendo-grid-list class="k-grid-container">
+                        <div class="k-grid-content k-virtual-content">
+                            <div>
+                                <table class="k-grid-table" style="transform: translateY(0px);">
+                                    <colgroup>
                                         <col style="width: 68px;"><col><col><col>
                                     </colgroup>
-                                    <tbody role="presentation">
-                                        <tr class="k-state-selected" role="row">
-                                            <td role="gridcell">
+                                    <tbody>
+                                        <tr class="k-state-selected">
+                                            <td>
                                                 <input class="k-checkbox" id="k-grid0-checkbox0" type="checkbox" checked />
                                                 <label class="k-checkbox-label" for="k-grid0-checkbox0"></label>
-                                            </td><td role="gridcell">
+                                            </td><td>
                                                 Chai
-                                            </td><td role="gridcell">
-                                            </td><td role="gridcell">
+                                            </td><td>
+                                            </td><td>
                                                 $18.00
                                             </td>
                                         </tr>
-                                        <tr class="k-state-selected k-alt" role="row">
-                                            <td role="gridcell">
+                                        <tr class="k-state-selected k-alt">
+                                            <td>
                                                 <input class="k-checkbox" id="k-grid0-checkbox1" type="checkbox" checked />
                                                 <label class="k-checkbox-label" for="k-grid0-checkbox1"></label>
-                                            </td><td role="gridcell">
+                                            </td><td>
                                                 Chang
-                                            </td><td role="gridcell">
-                                            </td><td role="gridcell">
+                                            </td><td>
+                                            </td><td>
                                                 $19.00
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="k-height-container" role="presentation">
+                            <div class="k-height-container">
                                 <div style="height: 0px;"></div>
                             </div>
                         </div>
                     </kendo-grid-list>
                 </div>
             </kendo-grid>
-        </div>
-        <div class="section">
+        </section>
+
+        <section>
             <!-- fixed height, hierarchy, filter menu, sort icon -->
             <kendo-grid style="height: 250px; width: 800px;" class="k-widget k-grid k-grid-no-scrollbar">
-                <div class="k-grid-aria-root" role="grid">
-                    <div class="k-grid-header" role="presentation">
-                        <div class="k-grid-header-wrap" role="presentation">
-                            <table role="presentation">
-                                <colgroup role="presentation">
+                <div class="k-grid-aria-root">
+                    <div class="k-grid-header">
+                        <div class="k-grid-header-wrap">
+                            <table>
+                                <colgroup>
                                     <col class="k-hierarchy-col">
                                     <col><col><col><col>
                                 </colgroup>
-                                <thead role="presentation" _nghost-c1="">
-                                    <tr role="row">
-                                        <th role="presentation" class="k-hierarchy-cell k-header">
+                                <thead _nghost-c1="">
+                                    <tr>
+                                        <th class="k-hierarchy-cell k-header">
                                         </th>
-                                        <th role="columnheader" class="k-header k-filterable">
+                                        <th class="k-header k-filterable">
                                             <kendo-grid-filter-menu>
-                                                <a href="#" class="k-grid-filter" title="Filter">
+                                                <a class="k-grid-filter">
                                                     <span class="k-icon k-i-filter"></span>
                                                 </a>
                                             </kendo-grid-filter-menu>
-                                            <a class="k-link" href="#" tabindex="-1">
+                                            <a class="k-link">
                                                 Default
                                                 <span></span>
                                             </a>
                                         </th>
-                                        <th role="columnheader" class="k-header k-filterable">
+                                        <th class="k-header k-filterable">
                                             <kendo-grid-filter-menu>
-                                                <a href="#" class="k-grid-filter" title="Filter">
+                                                <a class="k-grid-filter">
                                                     <span class="k-icon k-i-filter"></span>
                                                 </a>
                                             </kendo-grid-filter-menu>
-                                            <a class="k-link" href="#" tabindex="-1">
+                                            <a class="k-link">
                                                 Hover
                                                 <span></span>
                                             </a>
                                         </th>
-                                        <th role="columnheader" class="k-header k-filterable">
+                                        <th class="k-header k-filterable">
                                             <kendo-grid-filter-menu>
-                                                <a href="#" class="k-grid-filter" title="Filter">
+                                                <a class="k-grid-filter">
                                                     <span class="k-icon k-i-filter"></span>
                                                 </a>
                                             </kendo-grid-filter-menu>
-                                            <a class="k-link" href="#" tabindex="-1">
+                                            <a class="k-link">
                                                 Focus
                                                 <span></span>
                                             </a>
                                         </th>
-                                        <th role="columnheader" class="k-header k-filterable k-sorted">
+                                        <th class="k-header k-filterable k-sorted">
                                             <kendo-grid-filter-menu>
-                                                <a href="#" class="k-grid-filter" title="Filter">
+                                                <a class="k-grid-filter">
                                                     <span class="k-icon k-i-filter"></span>
                                                 </a>
                                             </kendo-grid-filter-menu>
-                                            <a class="k-link" href="#" tabindex="-1" style="">
+                                            <a class="k-link">
                                                 Sorted
                                                 <span class="k-icon k-i-sort-asc-sm"></span>
                                             </a>
@@ -477,26 +480,26 @@
                             </table>
                         </div>
                     </div>
-                    <kendo-grid-list class="k-grid-container" role="presentation">
-                        <div class="k-grid-content k-virtual-content" role="presentation" tabindex="-1">
-                            <div role="presentation">
-                                <table class="k-grid-table" role="presentation" style="transform: translateY(0px);">
-                                    <colgroup role="presentation">
+                    <kendo-grid-list class="k-grid-container">
+                        <div class="k-grid-content k-virtual-content">
+                            <div>
+                                <table class="k-grid-table" style="transform: translateY(0px);">
+                                    <colgroup>
                                         <col class="k-hierarchy-col">
                                         <col><col><col><col>
                                     </colgroup>
-                                    <tbody role="presentation">
-                                        <tr class="k-master-row" role="row">
+                                    <tbody>
+                                        <tr class="k-master-row">
                                             <td class="k-hierarchy-cell">
-                                                <a class="k-icon k-minus" href="#" tabindex="-1"></a>
+                                                <a class="k-icon k-minus"></a>
                                             </td>
-                                            <td role="gridcell">
+                                            <td>
                                                 1
-                                            </td><td role="gridcell">
+                                            </td><td>
                                                 Text
-                                            </td><td role="gridcell">
+                                            </td><td>
                                                 Text
-                                            </td><td role="gridcell">
+                                            </td><td>
                                                 Text
                                             </td>
                                         </tr>
@@ -509,87 +512,87 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr class="k-alt k-master-row" role="row">
+                                        <tr class="k-alt k-master-row">
                                             <td class="k-hierarchy-cell">
-                                                <a class="k-icon k-plus" href="#" tabindex="-1"></a>
+                                                <a class="k-icon k-plus"></a>
                                             </td>
-                                            <td role="gridcell">
+                                            <td>
                                                 2
-                                            </td><td role="gridcell">
+                                            </td><td>
                                                 Text
-                                            </td><td role="gridcell">
+                                            </td><td>
                                                 Text
-                                            </td><td role="gridcell">
+                                            </td><td>
                                                 Text
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="k-height-container" role="presentation">
-                                <div style=""></div>
+                            <div class="k-height-container">
+                                <div></div>
                             </div>
                         </div>
                     </kendo-grid-list>
                 </div>
             </kendo-grid>
-        </div>
+        </section>
 
-        <div class="section">
+        <section>
             <!-- RTL grid like the one above -->
             <kendo-grid style="height: 250px; width: 800px;" class="k-widget k-grid k-grid-no-scrollbar" dir="rtl">
-                <div class="k-grid-aria-root" role="grid">
-                    <div class="k-grid-header" role="presentation">
-                        <div class="k-grid-header-wrap" role="presentation">
-                            <table role="presentation">
-                                <colgroup role="presentation">
+                <div class="k-grid-aria-root">
+                    <div class="k-grid-header">
+                        <div class="k-grid-header-wrap">
+                            <table>
+                                <colgroup>
                                     <col class="k-hierarchy-col">
                                     <col><col><col><col>
                                 </colgroup>
-                                <thead role="presentation" _nghost-c1="">
-                                    <tr role="row">
-                                        <th role="presentation" class="k-hierarchy-cell k-header">
+                                <thead _nghost-c1="">
+                                    <tr>
+                                        <th class="k-hierarchy-cell k-header">
                                         </th>
-                                        <th role="columnheader" class="k-header k-filterable">
+                                        <th class="k-header k-filterable">
                                             <kendo-grid-filter-menu>
-                                                <a href="#" class="k-grid-filter" title="Filter">
+                                                <a class="k-grid-filter">
                                                     <span class="k-icon k-i-filter"></span>
                                                 </a>
                                             </kendo-grid-filter-menu>
-                                            <a class="k-link" href="#" tabindex="-1">
+                                            <a class="k-link">
                                                 Default
                                                 <span></span>
                                             </a>
                                         </th>
-                                        <th role="columnheader" class="k-header k-filterable">
+                                        <th class="k-header k-filterable">
                                             <kendo-grid-filter-menu>
-                                                <a href="#" class="k-grid-filter" title="Filter">
+                                                <a class="k-grid-filter">
                                                     <span class="k-icon k-i-filter"></span>
                                                 </a>
                                             </kendo-grid-filter-menu>
-                                            <a class="k-link" href="#" tabindex="-1">
+                                            <a class="k-link">
                                                 Hover
                                                 <span></span>
                                             </a>
                                         </th>
-                                        <th role="columnheader" class="k-header k-filterable">
+                                        <th class="k-header k-filterable">
                                             <kendo-grid-filter-menu>
-                                                <a href="#" class="k-grid-filter" title="Filter">
+                                                <a class="k-grid-filter">
                                                     <span class="k-icon k-i-filter"></span>
                                                 </a>
                                             </kendo-grid-filter-menu>
-                                            <a class="k-link" href="#" tabindex="-1">
+                                            <a class="k-link">
                                                 Focus
                                                 <span></span>
                                             </a>
                                         </th>
-                                        <th role="columnheader" class="k-header k-filterable k-sorted">
+                                        <th class="k-header k-filterable k-sorted">
                                             <kendo-grid-filter-menu>
-                                                <a href="#" class="k-grid-filter" title="Filter">
+                                                <a class="k-grid-filter">
                                                     <span class="k-icon k-i-filter"></span>
                                                 </a>
                                             </kendo-grid-filter-menu>
-                                            <a class="k-link" href="#" tabindex="-1" style="">
+                                            <a class="k-link">
                                                 Sorted
                                                 <span class="k-icon k-i-sort-asc-sm"></span>
                                             </a>
@@ -599,26 +602,26 @@
                             </table>
                         </div>
                     </div>
-                    <kendo-grid-list class="k-grid-container" role="presentation">
-                        <div class="k-grid-content k-virtual-content" role="presentation" tabindex="-1">
-                            <div role="presentation">
-                                <table class="k-grid-table" role="presentation" style="transform: translateY(0px);">
-                                    <colgroup role="presentation">
+                    <kendo-grid-list class="k-grid-container">
+                        <div class="k-grid-content k-virtual-content">
+                            <div>
+                                <table class="k-grid-table" style="transform: translateY(0px);">
+                                    <colgroup>
                                         <col class="k-hierarchy-col">
                                         <col><col><col><col>
                                     </colgroup>
-                                    <tbody role="presentation">
-                                        <tr class="k-master-row" role="row">
+                                    <tbody>
+                                        <tr class="k-master-row">
                                             <td class="k-hierarchy-cell">
-                                                <a class="k-icon k-minus" href="#" tabindex="-1"></a>
+                                                <a class="k-icon k-minus"></a>
                                             </td>
-                                            <td role="gridcell">
+                                            <td>
                                                 1
-                                            </td><td role="gridcell">
+                                            </td><td>
                                                 Text
-                                            </td><td role="gridcell">
+                                            </td><td>
                                                 Text
-                                            </td><td role="gridcell">
+                                            </td><td>
                                                 Text
                                             </td>
                                         </tr>
@@ -631,31 +634,32 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr class="k-alt k-master-row" role="row">
+                                        <tr class="k-alt k-master-row">
                                             <td class="k-hierarchy-cell">
-                                                <a class="k-icon k-plus" href="#" tabindex="-1"></a>
+                                                <a class="k-icon k-plus"></a>
                                             </td>
-                                            <td role="gridcell">
+                                            <td>
                                                 2
-                                            </td><td role="gridcell">
+                                            </td><td>
                                                 Text
-                                            </td><td role="gridcell">
+                                            </td><td>
                                                 Text
-                                            </td><td role="gridcell">
+                                            </td><td>
                                                 Text
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="k-height-container" role="presentation">
-                                <div style=""></div>
+                            <div class="k-height-container">
+                                <div></div>
                             </div>
                         </div>
                     </kendo-grid-list>
                 </div>
             </kendo-grid>
-        </div>
+        </section>
+
     </div>
 
 </body>

@@ -51,13 +51,14 @@ $scheduler-event-text: #fff !default;
         .k-nav-next {
             @include appearance( button );
 
-            &.k-state-hover { @include appearance( hovered-button ); }
+            &:hover { @include appearance( hovered-button ); }
         }
     }
 
 
     // View switcher
     .k-scheduler-views {
+        &.k-state-expanded { background-color: $base-bg; }
 
         li {
             @include appearance( button );
@@ -69,7 +70,7 @@ $scheduler-event-text: #fff !default;
                 background-clip: border-box;
             }
 
-            &.k-state-hover { @include appearance( hovered-button ); }
+            &:hover { @include appearance( hovered-button ); }
             &.k-state-selected { @include fill( $selected-text, $selected-bg, $selected-border, none ); }
         }
     }
@@ -88,7 +89,7 @@ $scheduler-event-text: #fff !default;
                 background-clip: border-box;
             }
 
-            &.k-state-hover { @include appearance( hovered-button ); }
+            &:hover { @include appearance( hovered-button ); }
         }
     }
 
@@ -97,6 +98,10 @@ $scheduler-event-text: #fff !default;
     .k-scheduler-content {}
     .k-nonwork-hour {
         background-color: mix( $panel-text, $panel-bg, 3% );
+    }
+
+    .k-scheduler-layout td.k-state-selected {
+        background-color: rgba($selected-bg, .25);
     }
 
 
@@ -122,6 +127,13 @@ $scheduler-event-text: #fff !default;
     .k-scheduler-marquee::before,
     .k-scheduler-marquee::after {
         border-color: $primary-button-border;
+    }
+
+    // Edit dialog
+    .k-scheduler-edit-dialog {
+        .k-dialog-buttongroup {
+            border-color: $border-color;
+        }
     }
 
 }
@@ -152,10 +164,14 @@ $scheduler-event-text: #fff !default;
     // Agenda view
     .k-scheduler-agendaview {
 
-        tr.k-state-hover {
+        tr.k-state-hover,
+        .k-scheduler-content tr:hover {
             @include appearance( hovered-node );
         }
-        tr.k-state-hover .k-scheduler-datecolumn {
+
+        tr.k-state-hover .k-scheduler-datecolumn,
+        tr:hover .k-scheduler-datecolumn,
+        tr:hover .k-scheduler-groupcolumn {
             @include appearance( panel );
         }
     }

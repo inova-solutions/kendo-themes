@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="k-typography">
+<html lang="en" class="k-typography k-no-animations">
 <head>
     <title>Grid Column Menu</title>
     <meta charset="utf-8" />
@@ -9,10 +9,7 @@
 
     <style>
         #test-area {
-            display: grid;
-            grid-gap: 20px;
-            max-width: 900px;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
         }
 
         .k-animation-container,
@@ -23,7 +20,78 @@
 </head>
 <body>
 
-    <div id="test-area">
+    <div id="test-area" class="grid">
+
+        <div class="section">
+            <kendo-popup class="k-animation-container k-animation-container-shown">
+                <div class="k-popup">
+                    <span class="k-column-chooser-title">Columns</span>
+                    <kendo-grid-columnlist class="k-column-list-wrapper">
+                        <div class="k-column-list">
+                            <label class="k-column-list-item">
+                                <input class="k-checkbox" type="checkbox">
+                                <span class="k-checkbox-label">Column name</span>
+                            </label><label class="k-column-list-item">
+                                <input class="k-checkbox" type="checkbox">
+                                <span class="k-checkbox-label">Column name</span>
+                            </label><label class="k-column-list-item">
+                                <input class="k-checkbox" type="checkbox">
+                                <span class="k-checkbox-label">Column name</span>
+                            </label><label class="k-column-list-item">
+                                <input class="k-checkbox" type="checkbox">
+                                <span class="k-checkbox-label">Column name</span>
+                            </label>
+                        </div>
+                        <div class="k-action-buttons">
+                            <button class="k-button">Reset</button>
+                            <button class="k-button k-primary">Apply</button>
+                        </div>
+                    </kendo-grid-columnlist>
+                </div>
+            </kendo-popup>
+        </div>
+
+        <div class="section">
+            <div class="k-animation-container" style="overflow: visible; display: block;">
+                <form  class="k-filter-menu k-popup k-group k-reset k-state-border-up">
+                    <div>
+                        <div class="k-filter-help-text">Show items with value that:</div>
+                        <span class="k-widget k-dropdown k-header">
+                            <span class="k-dropdown-wrap k-state-default">
+                                <span class="k-input">Is equal to</span>
+                                <span class="k-select">
+                                    <span class="k-icon k-i-arrow-60-down"></span>
+                                </span>
+                            </span>
+                        </span>
+                        <span class="k-widget k-numerictextbox">
+                            <span class="k-numeric-wrap k-state-default">
+                                <input type="text" class="k-formatted-value k-input">
+                                <span class="k-select">
+                                    <span class="k-link k-link-increase">
+                                        <span class="k-icon k-i-arrow-60-up"></span>
+                                    </span>
+                                    <span class="k-link k-link-decrease">
+                                        <span class="k-icon k-i-arrow-60-down"></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </span>
+                        <span class="k-widget k-dropdown k-header k-filter-and">
+                            <span class="k-dropdown-wrap k-state-default">
+                                <span class="k-input">And</span>
+                                <span class="k-select">
+                                    <span class="k-icon k-i-arrow-60-down"></span>
+                                </span>
+                            </span>
+                        </span>
+                        <div>
+                            <button type="submit" class="k-button k-primary">Filter</button><button type="reset" class="k-button">Clear</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 
         <div class="section">
             <kendo-popup class="k-animation-container k-animation-container-shown">
@@ -66,17 +134,17 @@
                             </div>
                             <div class="k-columnmenu-item-content ng-trigger ng-trigger-state" style="overflow: hidden; display: block;">
                                 <kendo-grid-filter-menu-container>
-                                    <form class="k-filter-menu k-group k-reset k-state-border-up ng-untouched ng-pristine ng-valid" novalidate="" _lpchecked="1">
+                                    <form class="k-filter-menu k-group k-reset k-state-border-up ng-untouched ng-pristine ng-valid" _lpchecked="1">
                                         <div class="k-filter-menu-container">
                                             <kendo-grid-string-filter-menu>
                                                 <kendo-grid-string-filter-menu-input>
                                                     <kendo-grid-filter-menu-input-wrapper>
                                                         <kendo-dropdownlist class="k-widget k-dropdown k-header">
-                                                            <span role="listbox" unselectable="on" class="k-dropdown-wrap k-state-default"  dir="ltr" readonly="false" tabindex="0" aria-disabled="false" aria-readonly="false" aria-haspopup="true" aria-expanded="false">
-                                                                <span unselectable="on" class="k-input">
+                                                            <span class="k-dropdown-wrap k-state-default"  dir="ltr" readonly="false">
+                                                                <span class="k-input">
                                                                     Contains
                                                                 </span>
-                                                                <span unselectable="on" class="k-select">
+                                                                <span class="k-select">
                                                                     <span class="k-i-arrow-s k-icon"></span>
                                                                 </span>
                                                             </span>
@@ -85,11 +153,11 @@
                                                     </kendo-grid-filter-menu-input-wrapper>
                                                 </kendo-grid-string-filter-menu-input>
                                                 <kendo-dropdownlist class="k-filter-and k-widget k-dropdown k-header" textfield="text" valuefield="value">
-                                                    <span role="listbox" unselectable="on" class="k-dropdown-wrap k-state-default" id="b1f54a11-7e6f-48e8-9586-94f56a1f5a8d" dir="ltr" readonly="false" tabindex="0" aria-disabled="false" aria-readonly="false" aria-haspopup="true" aria-expanded="false" aria-owns="397eced5-01d0-4e0c-bb54-bf8e20bdf196" aria-activedescendant="b21151ea-1967-492e-9371-700263c00304-undefined">
-                                                        <span unselectable="on" class="k-input">
+                                                    <span class="k-dropdown-wrap k-state-default" id="b1f54a11-7e6f-48e8-9586-94f56a1f5a8d" dir="ltr" readonly="false">
+                                                        <span class="k-input">
                                                             And
                                                         </span>
-                                                        <span unselectable="on" class="k-select">
+                                                        <span class="k-select">
                                                             <span class="k-i-arrow-s k-icon"></span>
                                                         </span>
                                                     </span>
@@ -97,11 +165,11 @@
                                                 <kendo-grid-string-filter-menu-input>
                                                     <kendo-grid-filter-menu-input-wrapper>
                                                         <kendo-dropdownlist textfield="text" valuefield="value" class="k-widget k-dropdown k-header">
-                                                            <span role="listbox" unselectable="on" class="k-dropdown-wrap k-state-default" id="bf5e6a02-49ee-4c47-ae5f-159b44c24552" dir="ltr" readonly="false" tabindex="0" aria-disabled="false" aria-readonly="false" aria-haspopup="true" aria-expanded="false" aria-owns="06c5a9af-ece0-4a9e-b21d-1082e87d2205" aria-activedescendant="e9d91025-fefc-451c-b881-ea74047c69e9-undefined">
-                                                                <span unselectable="on" class="k-input">
+                                                            <span class="k-dropdown-wrap k-state-default" id="bf5e6a02-49ee-4c47-ae5f-159b44c24552" dir="ltr" readonly="false">
+                                                                <span class="k-input">
                                                                     Contains
                                                                 </span>
-                                                                <span unselectable="on" class="k-select">
+                                                                <span class="k-select">
                                                                     <span class="k-i-arrow-s k-icon"></span>
                                                                 </span>
                                                             </span>
@@ -112,7 +180,7 @@
                                             </kendo-grid-string-filter-menu>
                                             <div class="k-columnmenu-actions">
                                                 <button class="k-button" type="reset">Clear</button>
-                                                <button class="k-button k-primary" disabled="">Filter</button>
+                                                <button class="k-button k-primary" disabled>Filter</button>
                                             </div>
                                         </div>
                                     </form>
@@ -204,34 +272,6 @@
             </kendo-popup>
         </div>
 
-        <div class="section">
-            <kendo-popup class="k-animation-container k-animation-container-shown">
-                <div class="k-popup">
-                    <span class="k-column-chooser-title">Columns</span>
-                    <kendo-grid-columnlist class="k-column-list-wrapper">
-                        <div class="k-column-list">
-                            <label class="k-column-list-item">
-                                <input class="k-checkbox" type="checkbox">
-                                <span class="k-checkbox-label">Column name</span>
-                            </label><label class="k-column-list-item">
-                                <input class="k-checkbox" type="checkbox">
-                                <span class="k-checkbox-label">Column name</span>
-                            </label><label class="k-column-list-item">
-                                <input class="k-checkbox" type="checkbox">
-                                <span class="k-checkbox-label">Column name</span>
-                            </label><label class="k-column-list-item">
-                                <input class="k-checkbox" type="checkbox">
-                                <span class="k-checkbox-label">Column name</span>
-                            </label>
-                        </div>
-                        <div class="k-action-buttons">
-                            <button class="k-button">Reset</button>
-                            <button class="k-button k-primary">Apply</button>
-                        </div>
-                    </kendo-grid-columnlist>
-                </div>
-            </kendo-popup>
-        </div>
     </div>
 
 </body>

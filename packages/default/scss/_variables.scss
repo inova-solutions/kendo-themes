@@ -1,4 +1,5 @@
 @import "mixins/core/config-maps";
+@import "mixins/core/math";
 @import "mixins/colors";
 
 
@@ -177,11 +178,6 @@ $cell-padding-x: 12px !default;
 $cell-padding-y: 8px !default;
 $cell-padding: 8px !default;
 // $cell-padding-sm: $table-sm-cell-padding !default;
-
-$window-inner-padding-x: 16px !default;
-$window-inner-padding-y: 16px !default;
-$window-titlebar-padding-x: 16px !default;
-$window-titlebar-padding-y: 12px !default;
 
 $zindex-popup: 1;
 $zindex-window: 2;
@@ -371,7 +367,7 @@ $primary-button-pressed-shadow: 0 2px 2px 0 rgba(0, 0, 0, .06) !default;
 $primary-button-focused-shadow: 0 3px 4px 0 rgba($accent, .4) !default;
 
 $flat-button-hover-opacity: .08 !default;
-$flat-button-focused-opacity: false !default;
+$flat-button-focused-opacity: null !default;
 $flat-button-active-opacity: .16 !default;
 $flat-button-selected-opacity: .2 !default;
 
@@ -434,6 +430,54 @@ $list-item-selected-bg: $selected-bg !default;
 $list-item-focused-shadow: inset 0 0 0 2px rgba(0, 0, 0, .13) !default;
 
 
+// Tabstrip
+$tabstrip-wrapper-padding-x: 0 !default;
+$tabstrip-wrapper-padding-y: 0 !default;
+$tabstrip-wrapper-border-width: 0 !default;
+
+$tabstrip-line-height: $line-height !default;
+$tabstrip-border-width: 1px !default;
+
+$tabstrip-item-padding-x: $nav-item-padding-x !default;
+$tabstrip-item-padding-y: $nav-item-padding-y !default;
+$tabstrip-item-border-width: 1px !default;
+$tabstrip-item-border-radius: $border-radius !default;
+$tabstrip-item-gap: $nav-item-margin !default;
+
+$tabstrip-content-padding-x: $tabstrip-item-padding-x !default;
+$tabstrip-content-padding-y: $tabstrip-item-padding-y !default;
+$tabstrip-content-border-width: 1px !default;
+
+$tabstrip-wrapper-bg: null !default;
+$tabstrip-wrapper-text: null !default;
+$tabstrip-wrapper-border: null !default;
+
+$tabstrip-bg: null !default;
+$tabstrip-text: $panel-text !default;
+$tabstrip-border: $panel-border !default;
+
+$tabstrip-item-bg: null !default;
+$tabstrip-item-text: $link-text !default;
+$tabstrip-item-border: null !default;
+
+$tabstrip-item-hovered-bg: null !default;
+$tabstrip-item-hovered-text: $link-hover-text !default;
+$tabstrip-item-hovered-border: null !default;
+
+$tabstrip-item-selected-bg: $panel-bg !default;
+$tabstrip-item-selected-text: $panel-text !default;
+$tabstrip-item-selected-border: $panel-border !default;
+
+$tabstrip-item-focused-shadow: $list-item-focused-shadow !default;
+
+$tabstrip-content-bg: $panel-bg !default;
+$tabstrip-content-text: $panel-text !default;
+$tabstrip-content-border: $panel-border !default;
+
+$tabstrip-indicator-size: null !default;
+$tabstrip-indicator-color: null !default;
+
+
 // Grid
 $grid-padding-x: $cell-padding-x !default;
 $grid-padding-y: $cell-padding-y !default;
@@ -468,6 +512,9 @@ $grid-header-text: $header-text !default;
 $grid-header-border: $grid-border !default;
 $grid-header-gradient: $header-gradient !default;
 
+$grid-group-drag-clue-bg: $grid-header-bg !default;
+$grid-group-drag-clue-text: $grid-header-text !default;
+
 /// The background of alternating rows.
 /// Set to transparent to remove the row stripes.
 /// @group grid
@@ -490,6 +537,83 @@ $grid-sorted-bg: rgba( contrast-wcag( $grid-bg ), .02 ) !default;
 $grid-sorting-indicator-text: $accent !default;
 
 $grid-focused-shadow: $list-item-focused-shadow !default;
+
+$grid-command-cell-button-spacing: .16em !default;
+
+// Treeview
+$treeview-padding-x: 0 !default;
+$treeview-padding-y: 0 !default;
+$treeview-line-height: $form-line-height !default;
+
+$treeview-indent: 16px !default;
+
+$treeview-item-padding-x: $button-padding-x !default;
+$treeview-item-padding-y: $button-padding-y !default;
+$treeview-item-border-width: 0 !default;
+$treeview-item-border-radius: 0 !default;
+
+$treeview-bg: null !default;
+$treeview-text: $widget-text !default;
+$treeview-border: null !default;
+
+$treeview-item-hovered-text: $hovered-text !default;
+$treeview-item-hovered-bg: $hovered-bg !default;
+$treeview-item-hovered-border: null !default;
+$treeview-item-hovered-gradient: null !default;
+
+$treeview-item-selected-text: $selected-text !default;
+$treeview-item-selected-bg: $selected-bg !default;
+$treeview-item-selected-border: null !default;
+$treeview-item-selected-gradient: null !default;
+
+$treeview-item-focused-shadow: $focused-shadow !default;
+$treeview-item-selected-focused-shadow: null !default;
+
+
+// Panelbar
+$panelbar-padding-x: 0 !default;
+$panelbar-padding-y: 0 !default;
+$panelbar-line-height: $line-height !default;
+$panelbar-border-width: 1px !default;
+
+$panelbar-header-padding-x: $header-padding-x !default;
+$panelbar-header-padding-y: $header-padding-y !default;
+
+$panelbar-item-padding-x: $list-item-padding-x !default;
+$panelbar-item-padding-y: $list-item-padding-y !default;
+
+$panelbar-bg: $base-bg !default;
+$panelbar-text: $base-text !default;
+$panelbar-border: $base-border !default;
+
+$panelbar-header-bg: $panel-bg !default;
+$panelbar-header-text: $link-text !default;
+$panelbar-header-border: null !default;
+$panelbar-header-gradient: null !default;
+
+$panelbar-header-hovered-bg: shade($panelbar-header-bg) !default;
+$panelbar-header-hovered-text: $link-hover-text !default;
+$panelbar-header-hovered-border: null !default;
+$panelbar-header-hovered-gradient: null !default;
+
+$panelbar-header-selected-bg: $selected-bg !default;
+$panelbar-header-selected-text: $selected-text !default;
+$panelbar-header-selected-border: null !default;
+$panelbar-header-selected-gradient: null !default;
+
+$panelbar-header-focused-shadow: $list-item-focused-shadow !default;
+
+$panelbar-item-hovered-bg: shade($panelbar-bg) !default;
+$panelbar-item-hovered-text: null !default;
+$panelbar-item-hovered-border: null !default;
+$panelbar-item-hovered-gradient: null !default;
+
+$panelbar-item-selected-bg: $selected-bg !default;
+$panelbar-item-selected-text: $selected-text !default;
+$panelbar-item-selected-border: null !default;
+$panelbar-item-selected-gradient: null !default;
+
+$panelbar-item-focused-shadow: $list-item-focused-shadow !default;
 
 
 // Notification
@@ -552,8 +676,8 @@ $chart-minor-lines: rgba(0, 0, 0, .04) !default;
 $chart-area-opacity: .8 !default;
 
 // Icons
-$icon-size: 16px;
-$icon-size-lg: 32px;
+$icon-size: 16px !default;
+$icon-size-lg: 32px !default;
 $icon-spacing: 4px !default;
 
 /// The URL to the icon font that will be used by the theme
@@ -569,13 +693,37 @@ $disabled-opacity: .6 !default;
 $pager-padding-x: $toolbar-padding-x !default;
 $pager-padding-y: $toolbar-padding-y !default;
 
+$pager-bg: $header-bg !default;
+$pager-text: $header-text !default;
+$pager-border: null !default;
+
+$pager-item-bg: null !default;
+$pager-item-text: null !default;
+$pager-item-border: null !default;
+
+$pager-item-hovered-bg: $list-item-hovered-bg !default;
+$pager-item-hovered-text: $list-item-hovered-text !default;
+$pager-item-hovered-border: null !default;
+
+$pager-number-bg: null !default;
+$pager-number-text: $accent !default;
+$pager-number-border: null !default;
+
+$pager-number-hovered-bg: $list-item-hovered-text !default;
+$pager-number-hovered-text: $accent !default;
+$pager-number-hovered-border: null !default;
+
+$pager-number-selected-bg: $selected-bg !default;
+$pager-number-selected-text: $selected-text !default;
+$pager-number-selected-border: null !default;
+
 
 // Card
 $card-padding-x: 16px !default;
 $card-padding-y: 12px !default;
 $card-border-width: 1px !default;
 $card-border-radius: 4px !default;
-$card-box-shadow: false !default;
+$card-box-shadow: null !default;
 $card-box-focused-shadow: 0 0 4px 0 rgba(0, 0, 0, .3) !default;
 
 $card-deck-gap: 16px !default;
@@ -603,6 +751,93 @@ $card-actions-border-width: 1px !default;
 
 $card-deck-scroll-button-radius: 0 !default;
 $card-deck-scroll-button-offset: -$button-border-width !default;
+
+
+// Calendar
+$calendar-border-width: 1px !default;
+$calendar-font-size: $font-size !default;
+$calendar-line-height: $line-height !default;
+
+$calendar-header-padding-x: ($padding-x * 2) !default;
+$calendar-header-padding-y: ($padding-y * 2) !default;
+$calendar-header-padding-x-sm: ($calendar-header-padding-y / 2) !default;
+$calendar-header-padding-y-sm: $calendar-header-padding-x-sm !default;
+$calendar-header-border-width: 1px !default;
+
+$calendar-content-padding-x: $calendar-header-padding-x;
+$calendar-content-padding-y: $calendar-header-padding-y;
+
+$calendar-cell-padding-x: .5em !default;
+$calendar-cell-padding-y: $calendar-cell-padding-x !default;
+$calendar-cell-line-height: $calendar-line-height !default;
+$calendar-cell-size-px: 34px !default;
+$calendar-cell-size: ($calendar-cell-size-px / $font-size) * 1em !default;
+$calendar-cell-border-radius: $border-radius !default;
+
+$calendar-header-cell-padding-x: 0 !default;
+$calendar-header-cell-padding-y: ($calendar-cell-padding-y / 2) !default;
+$calendar-header-cell-font-size: $font-size-sm !default;
+$calendar-header-cell-line-height: 2 !default;
+
+$calendar-header-height: 2em !default;
+
+$calendar-navigation-width: 5em !default;
+$calendar-navigation-item-height: 2em !default;
+
+$calendar-view-width: 7 * $calendar-cell-size !default;
+$calendar-view-height: add-two(
+    8 * $calendar-cell-size,
+    $calendar-header-height
+) !default;
+
+$calendar-bg: $widget-bg !default;
+$calendar-text: $widget-text !default;
+$calendar-border: $widget-border !default;
+
+$calendar-header-bg: $header-bg !default;
+$calendar-header-text: $header-text !default;
+$calendar-header-border: $header-border !default;
+$calendar-header-gradient: $header-gradient !default;
+$calendar-header-shadow: 0 1px 3px 1px rgba(black, .1) !default;
+
+$calendar-header-cell-text: $calendar-header-text !default;
+$calendar-header-cell-opacity: $disabled-opacity !default;
+
+$calendar-navigation-bg: $calendar-header-bg !default;
+$calendar-navigation-text: $calendar-header-text !default;
+$calendar-navigation-border: $calendar-header-border !default;
+
+$calendar-today-nav-text: $link-text !default;
+$calendar-today-nav-hovered-text: $link-hover-text !default;
+
+$calendar-weekend-text: inherit !default;
+$calendar-weekend-bg: transparent !default;
+$calendar-weekend-opacity: 1 !default;
+
+$calendar-week-number-bg: $calendar-header-bg !default;
+$calendar-week-number-text: $calendar-header-text !default;
+$calendar-week-number-opacity: $calendar-header-cell-opacity !default;
+
+$calendar-other-month-opacity: $calendar-header-cell-opacity !default;
+
+$calendar-cell-hovered-bg: $node-hovered-bg !default;
+$calendar-cell-hovered-text: $node-hovered-text !default;
+$calendar-cell-hovered-border: $node-hovered-border !default;
+
+$calendar-cell-selected-bg: $node-selected-bg !default;
+$calendar-cell-selected-text: $node-selected-text !default;
+$calendar-cell-selected-border: $node-selected-border !default;
+
+$calendar-cell-focused-shadow: $list-item-focused-shadow !default;
+$calendar-cell-selected-focus-shadow: $calendar-cell-focused-shadow !default;
+
+
+// Multiview Calendar
+$multiviewcalendar-button-style: stretched !default;
+$multiviewcalendar-button-size: 44px !default;
+$multiviewcalendar-gap: ($calendar-content-padding-x * 2) !default;
+$multiviewcalendar-content-padding-x: ($multiviewcalendar-gap / 2);
+$multiviewcalendar-content-padding-y: $calendar-content-padding-y;
 
 
 // Chat
@@ -660,9 +895,9 @@ $mediaplayer-border: $panel-border !default;
 
 $mediaplayer-titlebar-padding-x: $header-padding-x !default;
 $mediaplayer-titlebar-padding-y: $header-padding-y !default;
-$mediaplayer-titlebar-bg: false !default;
+$mediaplayer-titlebar-bg: null !default;
 $mediaplayer-titlebar-text: $mediaplayer-bg !default;
-$mediaplayer-titlebar-border: false !default;
+$mediaplayer-titlebar-border: null !default;
 $mediaplayer-titlebar-gradient: rgba( $mediaplayer-text, .7 ), rgba( $mediaplayer-text, 0 ) !default;
 
 $mediaplayer-toolbar-padding-x: $toolbar-padding-x !default;
@@ -674,7 +909,7 @@ $mediaplayer-toolbar-text: $toolbar-text !default;
 
 // Tooltip
 $tooltip-bg: $accent !default;
-$tooltip-color: contrast-wcag($tooltip-bg) !default;
+$tooltip-text: contrast-wcag($tooltip-bg) !default;
 
 
 // Progressbar
@@ -684,7 +919,7 @@ $progressbar-animation-timing: 1s linear infinite !default;
 $progressbar-bg: $base-bg !default;
 $progressbar-text: $base-text !default;
 $progressbar-border: $base-border !default;
-$progressbar-gradient: false !default;
+$progressbar-gradient: null !default;
 
 $progressbar-fill-bg: $accent !default;
 $progressbar-fill-text: contrast-wcag( $progressbar-fill-bg ) !default;
@@ -694,9 +929,37 @@ $progressbar-fill-gradient: rgba( adjust-hue( $progressbar-fill-bg, 14), 0 ), rg
 $progressbar-indeterminate-bg: $progressbar-bg !default;
 $progressbar-indeterminate-text: $progressbar-text !default;
 $progressbar-indeterminate-border: $progressbar-border !default;
-$progressbar-indeterminate-gradient: false !default;
+$progressbar-indeterminate-gradient: null !default;
 
 $progressbar-chunk-border: $bg-color !default;
+
+
+
+// Window
+$window-border-width: 0 !default;
+$window-border-radius: 0 !default;
+
+$window-titlebar-padding-x: 16px !default;
+$window-titlebar-padding-y: 12px !default;
+$window-titlebar-border-width: 0 0 1px !default;
+$window-titlebar-border-style: solid !default;
+
+$window-title-font-size: $font-size-lg !default;
+$window-title-line-height: 1.3 !default;
+
+$window-inner-padding-x: 16px !default;
+$window-inner-padding-y: 16px !default;
+
+$window-bg: $panel-bg !default;
+$window-text: $panel-text !default;
+$window-border: rgba(0, 0, 0, .08) !default;
+
+$window-titlebar-bg: $header-bg !default;
+$window-titlebar-text: $header-text !default;
+$window-titlebar-border: inherit !default;
+
+$window-shadow: 0 3px 3px 0 rgba(0, 0, 0, .06) !default;
+$window-focused-shadow: 1px 1px 7px 1px rgba(0, 0, 0, .3) !default;
 
 
 // Config maps

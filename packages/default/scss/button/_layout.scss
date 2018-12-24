@@ -103,6 +103,7 @@
         margin: 0;
         padding: 0;
         list-style: none;
+        outline: 0;
         white-space: nowrap;
         display: inline-flex;
         flex-direction: row;
@@ -159,7 +160,7 @@
 
         .k-button {
             display: inline-block;
-            flex: 1 1 0;
+            flex: 1 1 auto;
             overflow: hidden;
             text-overflow: ellipsis;
 
@@ -376,6 +377,16 @@
             @include disabled-legacy-ie;
         }
 
+    }
+
+    .k-ie9,
+    .k-ie10,
+    .k-ie11 {
+
+        .k-button,
+        .k-button-group {
+            display: inline-block;
+        }
     }
 
 }

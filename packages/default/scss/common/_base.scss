@@ -1,5 +1,14 @@
 $widget-border-width: 1px !default;
 
+@include exports( "common/asp-fallback-class" ) {
+
+    .k-theme-test-class,
+    .k-common-test-class {
+        opacity: 0;
+    }
+
+}
+
 @include exports( "common/layout" ) {
 
     // Layout
@@ -103,14 +112,6 @@ $widget-border-width: 1px !default;
     // Panels
     .k-content {
         @include appearance( panel );
-    }
-
-
-    // Selected state
-    .k-state-selected {
-        color: $selected-text;
-        background-color: $selected-bg;
-        border-color: $selected-border;
     }
 
 }

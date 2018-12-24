@@ -12,11 +12,13 @@ $grid-group-indicator-border-radius: add-two( $font-size, $button-padding-y) !de
 $grid-group-indicator-gap: 8px !default;
 $grid-header-font-size: 12px !default;
 
+$grid-group-dropclue-height: add-two( 2 * $font-size, 2 * $padding-y) !default;
+$grid-group-dropclue-top: calc( ( #{button-size()} + 2 * #{$grid-grouping-header-padding-y} - #{$grid-group-dropclue-height} ) / 2) !default;
+$grid-group-drag-clue-opacity: .9 !default;
+
 @import "~@progress/kendo-theme-default/scss/grid/layout";
 
 @include exports ('grid/layout/material') {
-    $grouping-dropclue-height: add-two( 2 * $font-size, 2 * $padding-y) !default;
-
     $text-field-border-width: 2px;
     $text-field-radius: $text-field-border-width + 1px;
     $text-field-padding: (2 * $grid-cell-padding-x / 3);
@@ -91,7 +93,8 @@ $grid-header-font-size: 12px !default;
 
     .k-grouping-dropclue {
         width: 0;
-        height: $grouping-dropclue-height;
+        height: $grid-group-dropclue-height;
+        top: $grid-group-dropclue-top;
         border-style: solid;
         border-width: 0 2px 0 0;
 
@@ -167,6 +170,66 @@ $grid-header-font-size: 12px !default;
                 height: add-three( $button-line-height * 1em, $button-padding-y * 2, -$text-field-border-width );
             }
         }
+
+        .k-multiselect-wrap {
+            .k-button {
+                margin-top: $padding-y * 2;
+            }
+            > .k-clear-value {
+                right: $padding-y * 2;
+            }
+        }
+
+        .k-dropdown-wrap {
+            > .k-clear-value {
+                right: $padding-y * 6;
+                padding: 0 $padding-y;
+            }
+        }
+
+        .k-dropdown-wrap,
+        .k-numeric-wrap,
+        .k-dateinput-wrap,
+        .k-picker-wrap {
+            padding-right: $padding-y;
+        }
+
+        .k-dropdown,
+        .k-combobox,
+        .k-autocomplete,
+        .k-multiselect,
+        .k-datepicker,
+        .k-timepicker,
+        .k-datetimepicker,
+        .k-dateinput,
+        .k-numerictextbox {
+            &[dir="rtl"],
+            .k-rtl & {
+                .k-dropdown-wrap,
+                .k-multiselect-wrap,
+                .k-picker-wrap,
+                .k-dateinput-wrap,
+                .k-numeric-wrap {
+                    padding-left: $padding-y;
+                    padding-right: $text-field-padding;
+                }
+
+                .k-dropdown-wrap {
+                    > .k-clear-value {
+                        right: auto;
+                        left: $padding-y * 6;
+                    }
+                }
+
+                .k-multiselect-wrap {
+                    > .k-clear-value {
+                        right: auto;
+                        left: $padding-y * 2;
+                    }
+                }
+            }
+        }
+
         .k-textbox,
         .k-textbox.k-input, {
             height: button-size();
