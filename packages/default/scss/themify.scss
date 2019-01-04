@@ -41,3 +41,89 @@ $themes: (
 @function themed($key) {
     @return map-get($theme-map, $key);
 }
+
+$dummy: #ffffff;
+
+body {
+    --k-accent: $dummy;
+    --k-accent-contrast: $dummy;
+    --k-info: $dummy;
+    --k-success: $dummy;
+    --k-warning: $dummy;
+    --k-error: $dummy;
+    --k-text-color: $dummy;
+    --k-bg-color: $dummy;
+    --k-base-text: $dummy;
+    --k-base-bg: $dummy;
+    --k-base-border: $dummy;
+    --k-base-gradient: $dummy;
+    --k-hovered-text: $dummy;
+    --k-hovered-bg: $dummy;
+    --k-hovered-border: $dummy;
+    --k-hovered-gradient: $dummy;
+    --k-selected-text: $dummy;
+    --k-selected-bg: $dummy;
+    --k-selected-border: $dummy;
+    --inovaPink: $dummy;
+    --inovaBlue: $dummy;
+    --inovaOliv: $dummy;
+    --inovaOlivMedium: $dummy;
+    --inovaOlivLight: $dummy;
+    --colorAccent: $dummy;
+    --colorBorder: $dummy;
+    --color1: $dummy;
+    --color2: $dummy;
+    --color3: $dummy;
+    --colorFont: $dummy;
+    --colorIcon1: $dummy;
+    --colorIcon2: $dummy;
+    --colorWidgetInset: $dummy;
+    --colorError: $dummy;
+    --colorWarning: $dummy;
+    --colorSuccess: $dummy;
+    --colorInfo: $dummy;
+}
+
+$variables: (
+    --k-accent:           var(--k-accent           ),
+    --k-accent-contrast:  var(--k-accent-contrast  ),
+    --k-info:             var(--k-info             ),
+    --k-success:          var(--k-success          ),
+    --k-warning:          var(--k-warning          ),
+    --k-error:            var(--k-error            ),
+    --k-text-color:       var(--k-text-color       ),
+    --k-bg-color:         var(--k-bg-color         ),
+    --k-base-text:        var(--k-base-text        ),
+    --k-base-bg:          var(--k-base-bg          ),
+    --k-base-border:      var(--k-base-border      ),
+    --k-base-gradient:    var(--k-base-gradient    ),
+    --k-hovered-text:     var(--k-hovered-text     ),
+    --k-hovered-bg:       var(--k-hovered-bg       ),
+    --k-hovered-border:   var(--k-hovered-border   ),
+    --k-hovered-gradient: var(--k-hovered-gradient ),
+    --k-selected-text:    var(--k-selected-text    ),
+    --k-selected-bg:      var(--k-selected-bg      ),
+    --k-selected-border:  var(--k-selected-border  ),
+    --inovaPink:          var(--inovaPink          ),
+    --inovaBlue:          var(--inovaBlue          ),
+    --inovaOliv:          var(--inovaOliv          ),
+    --inovaOlivMedium:    var(--inovaOlivMedium    ),
+    --inovaOlivLight:     var(--inovaOlivLight     ),
+    --colorAccent:        var(--colorAccent        ),
+    --colorBorder:        var(--colorBorder        ),
+    --color1:             var(--color1             ),
+    --color2:             var(--color2             ),
+    --color3:             var(--color3             ),
+    --colorFont:          var(--colorFont          ),
+    --colorIcon1:         var(--colorIcon1         ),
+    --colorIcon2:         var(--colorIcon2         ),
+    --colorWidgetInset:   var(--colorWidgetInset   ),
+    --colorError:         var(--colorError         ),
+    --colorWarning:       var(--colorWarning       ),
+    --colorSuccess:       var(--colorSuccess       ),
+    --colorInfo:          var(--colorInfo          )
+);
+
+@function var($variable) {
+    @return map-get($variables, $variable);
+}

@@ -65,6 +65,9 @@ fs.writeFileSync(`${distPath}/all.css`, allCss);
 //create package.json
 fs.copyFileSync(`build/inova-themes-package.json`, `${distPath}/package.json`);
 
+//copy InovaTheme js to dist
+fs.copyFileSync(`scripts/InovaTheme.js`, `${distPath}/InovaTheme.js`);
+
 //copy all scss files to dist
 fs.removeSync(`${distPath}/common`);
 fs.mkdirSync(`${distPath}/common`);
