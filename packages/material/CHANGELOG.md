@@ -3,6 +3,117 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.3.1"></a>
+## [2.3.1](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-material@2.3.0...@progress/kendo-theme-material@2.3.1) (2019-02-19)
+
+
+### Bug Fixes
+
+* **editor:** decreased table cells spacing in material theme ([ac0e956](https://github.com/telerik/kendo-themes/commit/ac0e956))
+* **gantt:** improve focused toolbar item styles ([1c2d77f](https://github.com/telerik/kendo-themes/commit/1c2d77f))
+* **grid:** focused state styles of items in grid header ([5d4d910](https://github.com/telerik/kendo-themes/commit/5d4d910))
+* **scheduler:** improve scheduler event styles ([a37e948](https://github.com/telerik/kendo-themes/commit/a37e948))
+
+
+
+
+<a name="2.3.0"></a>
+# 2.3.0 (2019-02-14)
+
+
+### Bug Fixes
+
+* vertical misaligned components within a kendo-textbox-container ([3dba163](https://github.com/telerik/kendo-themes/commit/3dba163))
+* **editor:** selected table cells styles ([3e9bc58](https://github.com/telerik/kendo-themes/commit/3e9bc58))
+* **grid:** improve styles for column settings menu ([6f5ba27](https://github.com/telerik/kendo-themes/commit/6f5ba27))
+* **input:** edge specific style for inputs in flex container ([2e80be3](https://github.com/telerik/kendo-themes/commit/2e80be3))
+* **pivotgrid:** bottom border on collapsed items ([23e00f5](https://github.com/telerik/kendo-themes/commit/23e00f5))
+* **scheduler:** columns layout in material theme ([20b31c9](https://github.com/telerik/kendo-themes/commit/20b31c9))
+* **scheduler:** header items focus state styles ([7516d9c](https://github.com/telerik/kendo-themes/commit/7516d9c))
+* **scheduler:** incorrect inverse color for event title [#168](https://github.com/telerik/kendo-themes/issues/168) ([b2b2a81](https://github.com/telerik/kendo-themes/commit/b2b2a81))
+* **textbox:** added textbox selection color in material theme ([4dddc16](https://github.com/telerik/kendo-themes/commit/4dddc16))
+* **toolbar:** inconsistent buttons background color in material theme ([bb9e286](https://github.com/telerik/kendo-themes/commit/bb9e286))
+
+
+### Features
+
+* add support for RTL of Kendo Angular Treeview ([#581](https://github.com/telerik/kendo-themes/issues/581)) ([71eb0ad](https://github.com/telerik/kendo-themes/commit/71eb0ad))
+
+
+
+
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-material@2.1.0...@progress/kendo-theme-material@2.2.0) (2019-01-15)
+
+
+### Bug Fixes
+
+* **popup:** group header styles ([7032efe](https://github.com/telerik/kendo-themes/commit/7032efe))
+
+
+### Features
+
+* **datetimepicker:** add styles for kendo-react ([1aea521](https://github.com/telerik/kendo-themes/commit/1aea521))
+
+
+
+
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-material@2.0.0...@progress/kendo-theme-material@2.1.0) (2019-01-14)
+
+
+### Bug Fixes
+
+* **grid:** filter button active state color ([02e1697](https://github.com/telerik/kendo-themes/commit/02e1697))
+* **toolbar:** disabled splitbutton has unexpected background in material [#198](https://github.com/telerik/kendo-themes/issues/198) ([b2c1693](https://github.com/telerik/kendo-themes/commit/b2c1693))
+
+
+### Features
+
+* add prebuilt swatches to npm package ([5962540](https://github.com/telerik/kendo-themes/commit/5962540)), closes [#36](https://github.com/telerik/kendo-themes/issues/36)
+
+
+
+
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-material@1.6.0...@progress/kendo-theme-material@2.0.0) (2019-01-08)
+
+
+### Features
+
+* **switch:** improvements based on the latest design ([2a1dcec](https://github.com/telerik/kendo-themes/commit/2a1dcec))
+
+
+### BREAKING CHANGES
+
+* **switch:** Improve switch rendering and remove javascript animations
+
+
+
+
+<a name="1.6.0"></a>
+# 1.6.0 (2019-01-07)
+
+
+### Bug Fixes
+
+* improve clear icon position in dropdowns and pickers ([f83db0f](https://github.com/telerik/kendo-themes/commit/f83db0f))
+* **calendar:** remove material header buttons shadow ([1396eec](https://github.com/telerik/kendo-themes/commit/1396eec))
+* **dialog:** improve button layouts ([37c988d](https://github.com/telerik/kendo-themes/commit/37c988d))
+* **grid:** drag clue styles improvements [#252](https://github.com/telerik/kendo-themes/issues/252) ([780ff12](https://github.com/telerik/kendo-themes/commit/780ff12))
+* **material:** dates in century view calendar are not aligned ([44c2883](https://github.com/telerik/kendo-themes/commit/44c2883))
+* **multiviewcalendar:** add styles for month headers ([a6b473a](https://github.com/telerik/kendo-themes/commit/a6b473a))
+
+
+### Features
+
+* add predefined widths for Window and Dialog ([18cab9c](https://github.com/telerik/kendo-themes/commit/18cab9c))
+* integrate material theme with themebuilder ([c4eac63](https://github.com/telerik/kendo-themes/commit/c4eac63))
+* responsive pager jQuery ([9baeefc](https://github.com/telerik/kendo-themes/commit/9baeefc))
+
+
+
+
 <a name="1.5.2"></a>
 ## [1.5.2](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-material@1.5.1...@progress/kendo-theme-material@1.5.2) (2018-12-07)
 

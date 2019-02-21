@@ -3,6 +3,108 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.2.2"></a>
+## [3.2.2](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@3.2.1...@progress/kendo-theme-bootstrap@3.2.2) (2019-02-19)
+
+
+### Bug Fixes
+
+* **gantt:** improve focused toolbar item styles ([1c2d77f](https://github.com/telerik/kendo-themes/commit/1c2d77f))
+* **scheduler:** improve scheduler event styles ([a37e948](https://github.com/telerik/kendo-themes/commit/a37e948))
+
+
+
+
+<a name="3.2.1"></a>
+## 3.2.1 (2019-02-14)
+
+
+### Bug Fixes
+
+* **editor:** selected table cells styles ([3e9bc58](https://github.com/telerik/kendo-themes/commit/3e9bc58))
+* **grid:** improve styles for column settings menu ([6f5ba27](https://github.com/telerik/kendo-themes/commit/6f5ba27))
+* **input:** edge specific style for inputs in flex container ([2e80be3](https://github.com/telerik/kendo-themes/commit/2e80be3))
+* **pivotgrid:** bottom border on collapsed items ([23e00f5](https://github.com/telerik/kendo-themes/commit/23e00f5))
+* **scheduler:** columns layout in material theme ([20b31c9](https://github.com/telerik/kendo-themes/commit/20b31c9))
+* **scheduler:** header items focus state styles ([7516d9c](https://github.com/telerik/kendo-themes/commit/7516d9c))
+* **scheduler:** incorrect inverse color for event title [#168](https://github.com/telerik/kendo-themes/issues/168) ([b2b2a81](https://github.com/telerik/kendo-themes/commit/b2b2a81))
+* **scheduler:** navigation focus state ([9e5b372](https://github.com/telerik/kendo-themes/commit/9e5b372))
+* **spreadsheet:** filter menu sort icons ([f9d09ab](https://github.com/telerik/kendo-themes/commit/f9d09ab))
+
+
+
+
+<a name="3.2.0"></a>
+# [3.2.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@3.1.0...@progress/kendo-theme-bootstrap@3.2.0) (2019-01-15)
+
+
+### Bug Fixes
+
+* **popup:** group header styles ([7032efe](https://github.com/telerik/kendo-themes/commit/7032efe))
+
+
+### Features
+
+* **datetimepicker:** add styles for kendo-react ([1aea521](https://github.com/telerik/kendo-themes/commit/1aea521))
+
+
+
+
+<a name="3.1.0"></a>
+# [3.1.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@3.0.0...@progress/kendo-theme-bootstrap@3.1.0) (2019-01-14)
+
+
+### Bug Fixes
+
+* **pager:** hover bg color ([bda7b56](https://github.com/telerik/kendo-themes/commit/bda7b56))
+
+
+### Features
+
+* add prebuilt swatches to npm package ([5962540](https://github.com/telerik/kendo-themes/commit/5962540)), closes [#36](https://github.com/telerik/kendo-themes/issues/36)
+
+
+
+
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@2.18.0...@progress/kendo-theme-bootstrap@3.0.0) (2019-01-08)
+
+
+### Features
+
+* **switch:** improvements based on the latest design ([2a1dcec](https://github.com/telerik/kendo-themes/commit/2a1dcec))
+
+
+### BREAKING CHANGES
+
+* **switch:** Improve switch rendering and remove javascript animations
+
+
+
+
+<a name="2.18.0"></a>
+# 2.18.0 (2019-01-07)
+
+
+### Bug Fixes
+
+* improve clear icon position in dropdowns and pickers ([f83db0f](https://github.com/telerik/kendo-themes/commit/f83db0f))
+* **calendar:** remove material header buttons shadow ([1396eec](https://github.com/telerik/kendo-themes/commit/1396eec))
+* **dialog:** improve button layouts ([37c988d](https://github.com/telerik/kendo-themes/commit/37c988d))
+* **grid:** drag clue styles improvements [#252](https://github.com/telerik/kendo-themes/issues/252) ([780ff12](https://github.com/telerik/kendo-themes/commit/780ff12))
+* **grid:** filter menu buttons margin and borders ([471c5b2](https://github.com/telerik/kendo-themes/commit/471c5b2))
+* **scrollview:** trigger build ([a209ce2](https://github.com/telerik/kendo-themes/commit/a209ce2))
+* **window:** window actions are not properly aligned in IE ([c2f6f6b](https://github.com/telerik/kendo-themes/commit/c2f6f6b))
+
+
+### Features
+
+* add predefined widths for Window and Dialog ([18cab9c](https://github.com/telerik/kendo-themes/commit/18cab9c))
+* responsive pager jQuery ([9baeefc](https://github.com/telerik/kendo-themes/commit/9baeefc))
+
+
+
+
 <a name="2.17.1"></a>
 ## [2.17.1](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@2.17.0...@progress/kendo-theme-bootstrap@2.17.1) (2018-12-07)
 

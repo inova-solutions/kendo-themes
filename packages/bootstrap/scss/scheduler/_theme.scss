@@ -3,6 +3,23 @@
     // Appearance
     .k-scheduler {}
 
+    // Current time
+    .k-current-time {
+        background: $scheduler-current-time-color;
+
+        &.k-current-time-arrow-left {
+            border-right-color: $scheduler-current-time-color;
+        }
+
+        &.k-current-time-arrow-right {
+            border-left-color: $scheduler-current-time-color;
+        }
+
+        &.k-current-time-arrow-down {
+            border-top-color: $scheduler-current-time-color;
+        }
+    }
+
 
     // Header and footer
     .k-scheduler-toolbar,
@@ -23,6 +40,12 @@
         }
         .k-nav-today { @include border-radius( $border-radius 0 0 $border-radius ); }
         .k-nav-next { @include border-radius( 0 $border-radius $border-radius 0 ); }
+
+        li {
+            &.k-state-focused {
+                @include appearance( focused-button );
+            }
+        }
     }
 
 
@@ -33,8 +56,15 @@
         li {
             @include appearance( button );
 
-            &:hover { @include appearance( hovered-button ); }
-            &.k-state-selected { @include appearance( pressed-button ); }
+            &:hover {
+                @include appearance( hovered-button );
+            }
+            &.k-state-selected {
+                @include appearance( pressed-button );
+            }
+            &.k-state-focused {
+                @include appearance( focused-button );
+            }
         }
         li:first-child { @include border-radius( $border-radius ); }
         li:first-child + li { @include border-radius( $border-radius 0 0 $border-radius ); }
@@ -65,21 +95,36 @@
         }
     }
 
-
     // Scheduler content
     .k-scheduler-content {}
     .k-nonwork-hour {
         background-color: mix( $panel-text, $panel-bg, ($color-level-step / 2) );
     }
 
+    .k-scheduler-layout td.k-state-selected {
+        background-color: rgba($selected-bg, .25);
+    }
+
 
     // Appointments
     .k-event {
-        @include appearance( selected-node );
-        @include border-radius( $border-radius );
+        background-color: $scheduler-event-bg;
+        color: $scheduler-event-text;
+
+        .k-event-template {
+            padding: $padding-y-sm $padding-x-sm;
+        }
+
+        .k-event-actions {
+            right: $padding-x-sm;
+        }
+
+        &.k-state-selected {
+            box-shadow: $scheduler-event-selected-box-shadow;
+        }
     }
     .k-event-inverse {
-        color: $panel-bg;
+        color: $panel-text;
     }
 
 

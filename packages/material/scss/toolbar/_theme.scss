@@ -9,7 +9,13 @@ $toolbar-separator-padding-y: 0 !default;
 
     .k-toolbar {
 
-        .k-button {}
+        background-color: $toolbar-bg;
+
+        .k-dropdown-button,
+        .k-split-button,
+        .k-button {
+            background-color: initial;
+        }
 
         .k-button.k-state-disabled,
         .k-state-disabled > .k-button {
@@ -68,6 +74,12 @@ $toolbar-separator-padding-y: 0 !default;
                 .k-split-button-arrow {
                     border-left-color: transparent;
                 }
+
+                .k-button {
+                    @extend .k-button.k-flat;
+                    color: $button-disabled-text;
+                }
+
                 .k-button::before {
                     opacity: 0;
                 }

@@ -11,6 +11,10 @@ The Kendo UI Default theme is available through the @progress/kendo-theme-defaul
 
 ## Installation
 
+{% platform_content angular %}
+> Due to recent changes in rendering, the Kendo UI Default theme package now requires a kendo-angular-inputs@^4.0.0 version. For more information, refer to [issue #2018](https://github.com/telerik/kendo-angular/issues/2018) on GitHub.
+{% endplatform_content %}
+
 1. Download and install the package of the Default theme.
 
     ```sh
@@ -21,26 +25,12 @@ The Kendo UI Default theme is available through the @progress/kendo-theme-defaul
 
 ## Preview
 
-{% platform_content angular %}
-The following example previews Kendo UI components which are styled with the Default theme.
-{% endplatform_content %}
-{% platform_content vue %}
-The following example previews Kendo UI components which are styled with the Default theme.
-{% endplatform_content %}
-{% platform_content react %}
-You can apply the Default theme to all Kendo UI for React examples, which demonstrate the behavior of a component, by selecting the theme from the theme-chooser at the top-right corner of the page.
-{% endplatform_content %}
+To apply the Default theme to any of the examples on this website, use the theme chooser drop-down at the top-right corner of the page. The Material theme styling is loaded by default.
 
-{% platform_content angular %}
-{% theme_preview theme:default %}
-<script async src="{% asset_path theme-preview.js %}"></script>
-{% endplatform_content %}
-{% platform_content vue %}
-{% theme_preview theme:default %}
-<script async src="{% asset_path vue-theme-preview.js %}"></script>
-{% endplatform_content %}
+To simultaneously preview multiple components from different packages, to build your own theme, or to customize any of the available Kendo UI ones, use the capabilities of the [Kendo UI Theme Builder](https://themebuilder.telerik.com/) web application.
 
 ## Suggested Links
 
 * [Styling the Kendo UI Components]({% slug themesandstyles %})
 * [Kendo UI Font Icons]({% slug icons %})
+* [Kendo UI Theme Builder](https://themebuilder.telerik.com/)

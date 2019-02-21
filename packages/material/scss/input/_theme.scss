@@ -23,6 +23,12 @@
             border-color: $input-focused-border;
         }
 
+         // Selection
+         &::selection {
+            background-color: $accent;
+            color: $accent-contrast;
+        }
+
         // Invalid
         &.k-invalid,
         &.k-state-invalid,
@@ -48,7 +54,7 @@
 
     // Floating label
     .k-textbox-container {
-        vertical-align: top;
+        vertical-align: baseline;
 
         > .k-label {
             color: $floating-label-color;

@@ -19,6 +19,9 @@
         }
     }
 
+    .k-overlay {
+        background-color: $editor-overlay-background;
+    }
 
     // Editor toolbar
     .k-editor-toolbar {
@@ -49,6 +52,20 @@
     .k-editor-dialog {
         .k-edit-label {
             padding: add-two($padding-y, -$input-border-width) 0;
+        }
+    }
+
+
+    // Insert table
+    .k-ct-popup {
+        line-height: normal;
+
+        .k-status {
+            line-height: $line-height;
+        }
+
+        .k-state-selected {
+            @include fill( $selected-text, $selected-bg, $selected-border, none );
         }
     }
 }
