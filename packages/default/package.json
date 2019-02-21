@@ -1,7 +1,7 @@
 {
   "name": "@progress/kendo-theme-default",
   "description": "SASS resources for the default Kendo UI theme",
-  "version": "2.62.0",
+  "version": "3.3.1",
   "author": "Progress",
   "license": "Apache-2.0",
   "keywords": [
@@ -26,11 +26,12 @@
     "swatches": "kendotheme build --swatches",
     "embed-assets": "kendotheme assets",
     "test": "npm run lint && npm run build && npm run api-check",
-    "twbs-compat": "kendotheme build --file ./build/twbs-compat.scss"
+    "twbs-compat": "kendotheme build --file ./build/twbs-compat.scss",
+    "prepublishOnly": "npm run build && npm run swatches"
   },
   "devDependencies": {
-    "@progress/kendo-theme-tasks": "^0.1.0",
-    "bootstrap": "4.0.0",
+    "@progress/kendo-theme-tasks": "^0.1.3",
+    "bootstrap": "^4.1.3",
     "handlebars": "^4.0.10"
   }
 }

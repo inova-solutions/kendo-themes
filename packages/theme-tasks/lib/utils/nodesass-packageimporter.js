@@ -2,39 +2,32 @@ const path = require("path");
 
 const EMPTY_IMPORT = {
     file: "",
-    contents: "",
+    contents: ""
 };
 
 const imported = new Set();
 
-module.exports = function(url, prev/*, done*/) {
-    let file;
+function packageImporterFactory(options = { cache: false }) {
+    return function packageImporter(url) {
+        if (!url.startsWith("~")) {
+            return null;
+        }
 
-    if (url.startsWith("~")) {
-        file = path.resolve(
-            path.join(
-                process.cwd(),
-                "node_modules/",
-                url.slice(1)
-            )
-        );
-    } else {
-        file = path.resolve(
-            path.join(
-                path.dirname(prev),
-                url
-            )
-        );
-    }
+        let file = path.resolve( path.join(
+            process.cwd(),
+            "node_modules/",
+            url.slice(1)
+        ) );
 
-    if (imported.has(file)) {
-        return EMPTY_IMPORT;
-    }
+        if (options.cache && imported.has(file)) {
+            return EMPTY_IMPORT;
+        }
 
-    imported.add(file);
+        imported.add(file);
 
-    return {
-        file: file
+        return { file };
     };
+}
 
-};
+
+module.exports = packageImporterFactory;

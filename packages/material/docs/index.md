@@ -11,6 +11,10 @@ The Kendo UI Material theme is available through the @progress/kendo-theme-mater
 
 ## Installation
 
+{% platform_content angular %}
+> Due to recent changes in rendering, the Kendo UI Material theme package now requires a kendo-angular-inputs@^4.0.0 version. For more information, refer to [issue #2018](https://github.com/telerik/kendo-angular/issues/2018) on GitHub.
+{% endplatform_content %}
+
 1. Download and install the package of the Material theme.
 
     ```sh
@@ -49,29 +53,14 @@ The following additional configuration improves the look and feel of the theme i
 The following additional configuration improves the look and feel of the theme in your application:
 
 * Use a [Ripple effect]({% slug overview_ripple %})&mdash;Available through the `Ripple` component from the `@progress/kendo-react-ripple` NPM module. The `Ripple` component provides the [Material ink ripple effect](https://material.io/guidelines/motion/choreography.html#choreography-radial-reaction) for the Kendo UI components for React and is fully compatible with all available Kendo UI themes.
-* Use the `floatingLabel` property on components from the [Inputs]({% slug overview_inputs %}) and [DropDowns]({% slug overview_dropdowns %}) packages for React.
+* Use the `floatingLabel` property on components from the [Inputs]({% slug overview_inputs %}) and [Dropdowns]({% slug overview_dropdowns %}) packages for React.
 {% endplatform_content %}
 
 ## Preview
 
-{% platform_content angular %}
-The following example previews Kendo UI components which are styled with the Material theme.
-{% endplatform_content %}
-{% platform_content vue %}
-The following example previews Kendo UI components which are styled with the Material theme.
-{% endplatform_content %}
-{% platform_content react %}
-You can apply the Material theme to all Kendo UI for React examples, which demonstrate the behavior of a component, by selecting the theme from the theme-chooser at the top-right corner of the page.
-{% endplatform_content %}
+To apply the Material theme to any of the examples on this website, use the theme chooser drop-down at the top-right corner of the page. The Material theme styling is loaded by default.
 
-{% platform_content angular %}
-{% theme_preview theme:material %}
-<script async src="{% asset_path theme-preview.js %}"></script>
-{% endplatform_content %}
-{% platform_content vue %}
-{% theme_preview theme:material %}
-<script async src="{% asset_path vue-theme-preview.js %}"></script>
-{% endplatform_content %}
+To simultaneously preview multiple components from different packages, to build your own theme, or to customize any of the available Kendo UI ones, use the capabilities of the [Kendo UI Theme Builder](https://themebuilder.telerik.com/) web application.
 
 ## Suggested Links
 
@@ -79,14 +68,21 @@ You can apply the Material theme to all Kendo UI for React examples, which demon
 * [Material Design Guidelines](https://material.io/guidelines/)
 * [Kendo UI Ripple for Angular]({% slug overview_ripple %})
 * [Kendo UI TextBox for Angular]({% slug overview_textbox %})
+* [Kendo UI Theme Builder](https://themebuilder.telerik.com/)
+* [Styling the Kendo UI Components]({% slug themesandstyles %})
+* [Kendo UI Font Icons]({% slug icons %})
 {% endplatform_content %}
 
 {% platform_content react %}
 * [Material Design Guidelines](https://material.io/guidelines/)
 * [Kendo UI Ripple for React]({% slug overview_ripple %})
+* [Kendo UI Theme Builder](https://themebuilder.telerik.com/)
+* [Styling the Kendo UI Components]({% slug themesandstyles %})
+* [Kendo UI Font Icons]({% slug icons %})
 {% endplatform_content %}
 
 {% platform_content vue %}
+* [Kendo UI Theme Builder](https://themebuilder.telerik.com/)
 * [Styling the Kendo UI Components]({% slug themesandstyles %})
 * [Kendo UI Font Icons]({% slug icons %})
 {% endplatform_content %}

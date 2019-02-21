@@ -1,11 +1,3 @@
-// TODO: list item variables
-$list-container-shadow: 0 5px 10px 0 rgba(0, 0, 0, .06) !default;
-$list-container-no-data-text: rgba( $text-color, .5 ) !default;
-$popup-text: $normal-text-color !default;
-$grouping-header-text: $bg-color !default;
-$grouping-header-bg: $text-color !default;
-$grouping-border: $border-color !default;
-
 @include exports('popup/theme') {
 
     .k-popup {
@@ -19,6 +11,7 @@ $grouping-border: $border-color !default;
         }
     }
     .k-popup > .k-group-header,
+    .k-popup .k-outer-group-header.k-first,
     .k-popup > .k-virtual-wrap > .k-group-header {
         border-bottom-color: $border-color;
         box-shadow: $list-container-shadow;
@@ -37,19 +30,24 @@ $grouping-border: $border-color !default;
     .k-group-header+div > .k-list > .k-item.k-first::before {
         border-color: $grouping-border;
     }
+    .k-list > .k-outer-group-header {
+        border-color: $grouping-border;
+    }
 }
 
 @include exports( "list/theme" ) {
 
     .k-list {}
 
-    .k-list .k-item {
+    .k-list .k-item,
+    .k-list-optionlabel {
         transition: all .2s ease; // sass-lint:disable-block no-transition-all
     }
 
     .k-list .k-item:hover,
     .k-list .k-item.k-state-hover,
-    .k-list-optionlabel:hover {
+    .k-list-optionlabel:hover,
+    .k-list-optionlabel.k-state-hover {
         @include appearance( hovered-list-item );
 
         &.k-state-selected {
@@ -59,7 +57,9 @@ $grouping-border: $border-color !default;
     }
 
     .k-list .k-item:focus,
-    .k-list .k-item.k-state-focused {
+    .k-list .k-item.k-state-focused,
+    .k-list-optionlabel:focus,
+    .k-list-optionlabel.k-state-focused {
         @include appearance( focused-list-item );
     }
 
