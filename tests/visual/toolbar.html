@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <!-- normal state split button and dropdowns -->
+        <!-- normal state SplitButton and Dropdowns -->
         <div class="section">
             <div class="k-toolbar k-widget k-toolbar-resizable">
                 <div class="k-overflow-anchor k-button" style="visibility: visible;">
@@ -393,9 +393,36 @@
             </div>
         </div>
 
+        <!-- Disabled focused states of buttons -->
+        <div class="section">
+                <div class="k-toolbar k-widget k-toolbar-resizable">
+                    <div class="k-overflow-anchor k-button k-state-disabled k-state-focused" style="visibility: visible;">
+                        <span class="k-icon k-i-more-vertical"></span>
+                    </div>
+                    <a class="k-button k-state-disabled k-state-focused">Button</a>
+                    <a class="k-toggle-button k-button k-state-disabled k-state-focused">Toggle Button</a>
+                    <div class="k-split-button k-state-disabled k-state-focused">
+                        <a class="k-button">SplitButton</a>
+                        <a class="k-button k-split-button-arrow">
+                            <span class="k-icon k-i-arrow-60-down"></span>
+                        </a>
+                    </div>
+                    <div class="k-button-group k-toolbar-last-visible">
+                        <a class="k-toggle-button k-button k-button-icontext k-group-start k-state-disabled k-state-focused">
+                            <span class="k-icon k-i-align-left"></span>
+                            Button 1
+                        </a>
+                        <a class="k-toggle-button k-button k-button-icontext k-state-disabled">
+                            <span class="k-icon k-i-align-center"></span>
+                            Button 2
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         <!-- Template containers -->
         <div class="section">
-            <div id="toolbarTemplates" class="k-toolbar k-widget" tabindex="0">
+            <div id="toolbarTemplates" class="k-toolbar k-widget">
                 <div>
                     <label>SHAPE:</label>
                     <span title="" class="k-widget k-dropdown k-header">
@@ -439,6 +466,55 @@
                             </span>
                         </span>
                     </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Angular specific rendering (.k-button not direct descendant of .k-toolbar) -->
+        <div class="section">
+            <div tabindex="0" role="toolbar" dir="ltr" class="k-widget k-toolbar">
+                <div style="display: inline-block;">
+                    <button tabindex="-1" class="k-button" dir="ltr">
+                        Button
+                    </button>
+                </div>
+                <div style="display: inline-block;">
+                    <button tabindex="-1" role="checkbox" aria-checked="true" class="k-button k-state-active" dir="ltr">
+                        Toggle
+                    </button>
+                </div>
+                <div style="display: inline-block;">
+                    <div class="k-widget k-split-button k-button-group" dir="ltr">
+                        <button role="listbox" type="button" tabindex="-1" class="k-button" dir="ltr">
+                            Split Button
+                        </button>
+                        <button type="button" class="k-button-icon k-button" tabindex="-1" dir="ltr">
+                            <span class="k-icon k-i-arrow-s" role="presentation"></span>
+                        </button>
+                    </div>
+                </div>
+                <div style="display: inline-block;">
+                    <div class="k-widget k-dropdown-button" dir="ltr">
+                        <button role="menu" type="button" tabindex="-1" class="k-button" dir="ltr">
+                            DropDownButton
+                        </button>
+                    </div>
+                </div>
+                <div style="display: inline-block;">
+                    <div class="k-button-group" role="radiogroup" dir="ltr" tabindex="-1">
+                        <button class="k-button-icon k-button k-group-start" role="radio" dir="ltr" tabindex="-1">
+                            <span class="k-icon k-i-align-left" role="presentation"></span>
+                        </button>
+                        <button class="k-button-icon k-button" role="radio" dir="ltr" tabindex="-1">
+                            <span class="k-icon k-i-align-center" role="presentation"></span>
+                        </button>
+                        <button class="k-button-icon k-button" role="radio" dir="ltr" tabindex="-1">
+                            <span class="k-icon k-i-align-right" role="presentation"></span>
+                        </button>
+                        <button class="k-button-icon k-button k-group-end k-state-active" role="radio" dir="ltr" tabindex="0">
+                            <span class="k-icon k-i-align-justify" role="presentation"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

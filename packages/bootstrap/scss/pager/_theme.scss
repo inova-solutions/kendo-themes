@@ -19,7 +19,8 @@
             border-width: 1px;
             border-style: solid;
 
-            &:hover {
+            &:hover,
+            &.k-state-hover {
                 color: $pager-hover-text;
                 background-color: $pager-hover-bg;
                 border-color: $pager-hover-border;
@@ -64,6 +65,23 @@
             .k-pager-numbers .k-current-page ~ li + li {
                 margin-right: -1px;
                 margin-left: 0;
+            }
+        }
+
+        &.k-pager-lg,
+        &.k-pager-md,
+        &.k-pager-sm {
+
+            .k-pager-numbers {
+                border-color: $button-border;
+                background-color: $pager-bg;
+
+                &.k-state-expanded {
+
+                    .k-current-page {
+                        border-color: $button-border;
+                    }
+                }
             }
         }
     }

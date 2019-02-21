@@ -27,7 +27,7 @@
         }
 
         // Hover, Focused state
-        tbody {
+        table {
             tr:hover,
             tr.k-state-hover,
             td.k-state-focused,
@@ -82,6 +82,11 @@
                 background-color: $grid-filter-button-focus;
                 box-shadow: none;
             }
+        }
+
+        .k-grid-filter.k-state-active {
+            color: $accent-contrast;
+            background-color: $accent;
         }
 
         thead > tr:not(:only-child) > th {
@@ -156,5 +161,25 @@
 
     .k-columnmenu-actions .k-button {
         box-shadow: none;
+    }
+
+    .k-column-menu .k-menu:not(.k-context-menu) {
+
+        .k-item {
+            & > .k-link::before {
+                content: none;
+            }
+
+            // Selected state
+            &.k-state-selected {
+                background: $list-item-hovered-bg;
+            }
+        }
+
+        &.k-menu-vertical {
+            & > .k-item + .k-item {
+                margin-top: 0;
+            }
+        }
     }
 }
