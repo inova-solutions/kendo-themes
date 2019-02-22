@@ -1,5 +1,12 @@
-export const InovaTheme = (function () {
+/**
+ * Diese Klasse definiert alle InovaStyles
+ * Diese werden als CSS Variablen auf den Body per JavaScript gesetzt
+ */
+const InovaTheme = (function () {
 
+    /**
+     * Der Body ist das Element, auf welches die CSS Variablen gesetzt werden
+     */
     const themeWrapper = document.getElementsByTagName("body")[0];
 
     const colors = {
@@ -9,6 +16,11 @@ export const InovaTheme = (function () {
         inovaOlivMedium: "rgb(204, 201, 190)",
         inovaOlivLight: "rgb(236, 232, 226)",
     };
+
+    /**
+     * Die folgenden Funktionen sind kopiert aus dem sass-Source-Code um dieselben Farbfunktionen abzubilden
+     * wie in den Kendo Themes verwendet werden
+     */
 
     let pSBCr = undefined;
 
@@ -194,10 +206,8 @@ export const InovaTheme = (function () {
         themeWrapper.style.setProperty("--k-success", "#5ec232");
         themeWrapper.style.setProperty("--k-warning", "#fdce3e");
         themeWrapper.style.setProperty("--k-error", "#d51923");
-
         themeWrapper.style.setProperty("--k-selected-text", "#ffffff");
         themeWrapper.style.setProperty("--k-selected-bg", accent);
-
         themeWrapper.style.setProperty("--colorAccent", accent);
         themeWrapper.style.setProperty("--inovaPink", colors.inovaPink);
         themeWrapper.style.setProperty("--inovaBlue", colors.inovaBlue);
@@ -291,6 +301,9 @@ export const InovaTheme = (function () {
     const loadOliveBlue = function () { loadOliveTheme(colors.inovaOliv); };
     const loadOlivePink = function () { loadOliveTheme(colors.inovaPink); };
 
+    /**
+     * Veröffentlicht werden die Funktionen um die Jeweiligen Themes zu laden
+     */
     return {
         load: function (themeName: string) {
             switch (themeName) {
@@ -311,3 +324,21 @@ export const InovaTheme = (function () {
     };
 })();
 (<any>window).InovaTheme = InovaTheme;
+
+/**
+ * Falls innerhalb des alten inova-Desktops (d.h. wenn inovaGlobal.theme gesetzt ist)
+ * wird die entsprechende Theme Funktion aufgerufen.
+ * Ansonsten wird das Olive Pink theme aufgerufen.
+ */
+if ((<any>window).inovaGlobal && (<any>window).inovaGlobal.theme) {
+    switch ((<any>window).inovaGlobal.theme) {
+        case "OlivePink": InovaTheme.loadOlivePink();
+        case "OliveBlue": InovaTheme.loadOliveBlue();
+        case "GrayPink": InovaTheme.loadGrayPink();
+        case "GrayBlue": InovaTheme.loadGrayBlue();
+        case "DarkPink": InovaTheme.loadDarkPink();
+        case "DarkBlue": InovaTheme.loadDarkBlue();
+    }
+} else {
+    InovaTheme.loadOlivePink();
+}
