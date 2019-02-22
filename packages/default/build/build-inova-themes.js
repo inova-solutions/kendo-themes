@@ -3,6 +3,7 @@ const ncp = require('ncp').ncp;
 const fs = require('fs-extra');
 const sass = require('node-sass');
 const distPath = `dist`;
+const defaultVariables = `build\\_variables.scss`;
 let allScss = '';
 const themes = [
     'OlivePink',
@@ -44,17 +45,22 @@ themes.forEach(theme => {
       ${fs.readFileSync(`${distPath}/${theme}/all.css`).toString()}
     }`;
 
-    //create variables.scss per theme
+    //create _variables.scss per theme
     let origThemeVarsContent = fs.readFileSync(origThemeVars).toString();
     origThemeVarsContent = origThemeVarsContent.replace(
         /@import '/g,
         "@import '../common/scss/"
     );
     fs.writeFileSync(
-        `${distPath}/${theme}/variables.scss`,
+        `${distPath}/${theme}/_variables.scss`,
         origThemeVarsContent
     );
 });
+
+fs.writeFileSync(
+    `${distPath}/_variables.scss`,
+    fs.readFileSync(defaultVariables).toString()
+);
 
 //compile css with all themes
 const allCss = sass.renderSync({
