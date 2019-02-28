@@ -298,7 +298,7 @@ const InovaTheme = (function () {
     const loadDarkPink = function () { loadDarkTheme(colors.inovaPink); };
     const loadGrayBlue = function () { loadGrayTheme(colors.inovaBlue); };
     const loadGrayPink = function () { loadGrayTheme(colors.inovaPink); };
-    const loadOliveBlue = function () { loadOliveTheme(colors.inovaOliv); };
+    const loadOliveBlue = function () { loadOliveTheme(colors.inovaBlue); };
     const loadOlivePink = function () { loadOliveTheme(colors.inovaPink); };
 
     /**
