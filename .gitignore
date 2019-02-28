@@ -15,3 +15,4 @@ debug.log
 
 # Lock files
 package-lock.json
+packages/default/scripts/InovaTheme.js

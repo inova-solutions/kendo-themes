@@ -294,12 +294,45 @@ const InovaTheme = (function () {
         themeWrapper.style.setProperty("--colorFont", colors.inovaOliv);
     };
 
-    const loadDarkBlue = function () { loadDarkTheme(colors.inovaBlue); };
-    const loadDarkPink = function () { loadDarkTheme(colors.inovaPink); };
-    const loadGrayBlue = function () { loadGrayTheme(colors.inovaBlue); };
-    const loadGrayPink = function () { loadGrayTheme(colors.inovaPink); };
-    const loadOliveBlue = function () { loadOliveTheme(colors.inovaBlue); };
-    const loadOlivePink = function () { loadOliveTheme(colors.inovaPink); };
+    const removeCurrentThemeClass = () => {
+        for (let i = 0; i < document.body.classList.length; i++) {
+            const c = document.body.classList[i];
+            if (c.match("^theme-")) {
+                document.body.classList.remove(c);
+            }
+        }
+    };
+
+    const loadDarkBlue = () => {
+        loadDarkTheme(colors.inovaBlue);
+        removeCurrentThemeClass();
+        document.body.classList.add("theme-darkblue");
+    };
+    const loadDarkPink = () => {
+        loadDarkTheme(colors.inovaPink);
+        removeCurrentThemeClass();
+        document.body.classList.add("theme-darkpink");
+    };
+    const loadGrayBlue = () => {
+        loadGrayTheme(colors.inovaBlue);
+        removeCurrentThemeClass();
+        document.body.classList.add("theme-grayblue");
+    };
+    const loadGrayPink = () => {
+        loadGrayTheme(colors.inovaPink);
+        removeCurrentThemeClass();
+        document.body.classList.add("theme-graypink");
+    };
+    const loadOliveBlue = () => {
+        loadOliveTheme(colors.inovaBlue);
+        removeCurrentThemeClass();
+        document.body.classList.add("theme-oliveblue");
+    };
+    const loadOlivePink = () => {
+        loadOliveTheme(colors.inovaPink);
+        removeCurrentThemeClass();
+        document.body.classList.add("theme-olivepink");
+    };
 
     /**
      * Veröffentlicht werden die Funktionen um die Jeweiligen Themes zu laden

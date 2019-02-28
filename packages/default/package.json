@@ -24,6 +24,7 @@
     "build": "kendotheme build",
     "watch": "kendotheme build --watch",
     "buildinova": "node build/build-inova-themes.js",
+    "buildinova:debug": "node --nolazy --inspect-brk=9229 build/build-inova-themes.js",
     "swatches": "kendotheme build --swatches",
     "embed-assets": "kendotheme assets",
     "test": "npm run lint && npm run build && npm run api-check",
