@@ -2,16 +2,18 @@ const execSync = require('child_process').execSync;
 const ncp = require('ncp').ncp;
 const fs = require('fs-extra');
 const sass = require('node-sass');
+const CleanCSS = require('clean-css');
 const distPath = `dist`;
 const defaultVariables = `build\\_variables.scss`;
 let allScss = '';
+let fontFace = null;
 const themes = [
     'OlivePink',
-    'OliveBlue',
+    // 'OliveBlue',
     'GrayPink',
-    'GrayBlue',
+    // 'GrayBlue',
     'DarkPink',
-    'DarkBlue'
+    // 'DarkBlue'
 ];
 
 /**
@@ -40,9 +42,18 @@ themes.forEach(theme => {
     fs.mkdirSync(`${distPath}/${theme}`);
     fs.renameSync(`${distPath}/all.css`, `${distPath}/${theme}/all.css`);
 
+    //Remove Font-Face definitions and add it only once (outside of theme wrapper)
+    let css = fs.readFileSync(`${distPath}/${theme}/all.css`).toString();
+    const ffStart = css.indexOf("@font-face");
+    const ffEnd = css.indexOf("}", ffStart + 1);
+    if (fontFace === null) {
+        fontFace = css.slice(ffStart, ffEnd + 1);
+    }
+    css = css.slice(0, ffStart) + css.slice(ffEnd + 1);
+
     //wrap themes with a css class .theme-<themename> and concatenate all
     allScss += `.theme-${theme.toLowerCase()} {
-      ${fs.readFileSync(`${distPath}/${theme}/all.css`).toString()}
+      ${css}
     }`;
 
     //create _variables.scss per theme
@@ -63,10 +74,12 @@ fs.writeFileSync(
 );
 
 //compile css with all themes
-const allCss = sass.renderSync({
+let allCss = sass.renderSync({
     data: allScss
 }).css;
+allCss = fontFace + ' ' + allCss;
 fs.writeFileSync(`${distPath}/all.css`, allCss);
+fs.writeFileSync(`${distPath}/all.min.css`, new CleanCSS({}).minify(allCss).styles);
 
 //create package.json
 fs.copyFileSync(`build/inova-themes-package.json`, `${distPath}/package.json`);
