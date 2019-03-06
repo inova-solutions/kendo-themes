@@ -365,12 +365,12 @@ const InovaTheme = (function () {
  */
 if ((<any>window).inovaGlobal && (<any>window).inovaGlobal.theme) {
     switch ((<any>window).inovaGlobal.theme) {
-        case "OlivePink": InovaTheme.loadOlivePink();
-        case "OliveBlue": InovaTheme.loadOliveBlue();
-        case "GrayPink": InovaTheme.loadGrayPink();
-        case "GrayBlue": InovaTheme.loadGrayBlue();
-        case "DarkPink": InovaTheme.loadDarkPink();
-        case "DarkBlue": InovaTheme.loadDarkBlue();
+        case "OlivePink": InovaTheme.loadOlivePink(); break;
+        case "OliveBlue": InovaTheme.loadOliveBlue(); break;
+        case "GrayPink": InovaTheme.loadGrayPink(); break;
+        case "GrayBlue": InovaTheme.loadGrayBlue(); break;
+        case "DarkPink": InovaTheme.loadDarkPink(); break;
+        case "DarkBlue": InovaTheme.loadDarkBlue(); break;
     }
 } else {
     InovaTheme.loadOlivePink();
