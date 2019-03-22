@@ -214,6 +214,15 @@ const InovaTheme = (function () {
         themeWrapper.style.setProperty("--inovaOliv", colors.inovaOliv);
         themeWrapper.style.setProperty("--inovaOlivMedium", colors.inovaOlivMedium);
         themeWrapper.style.setProperty("--inovaOlivLight", colors.inovaOlivLight);
+
+        themeWrapper.style.setProperty("--k-series-a", accent);
+        themeWrapper.style.setProperty("--k-series-b", "#ffd246");
+        themeWrapper.style.setProperty("--k-series-c", "#78d237");
+        themeWrapper.style.setProperty("--k-series-d", "#28b4c8");
+        themeWrapper.style.setProperty("--k-series-e", "#2d73f5");
+        themeWrapper.style.setProperty("--k-series-f", "#aa46be");
+        themeWrapper.style.setProperty("--k-chart-major-lines", "rgba(0, 0, 0, 0.08)");
+        themeWrapper.style.setProperty("--k-chart-minor-lines", "rgba(0, 0, 0, 0.04)");
     };
 
     const loadDarkTheme = function (accent: any) {
