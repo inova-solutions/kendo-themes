@@ -4,9 +4,11 @@ const fs = require('fs-extra');
 const sass = require('node-sass');
 const CleanCSS = require('clean-css');
 const distPath = `dist`;
+const inovaIconsPath = `../icons/inovaicon.css`
 const defaultVariables = `build\\_variables.scss`;
 let allScss = '';
 let fontFace = null;
+let inovaIconsCss = '';
 const themes = [
     'OlivePink',
     // 'OliveBlue',
@@ -15,6 +17,9 @@ const themes = [
     'DarkPink',
     // 'DarkBlue'
 ];
+
+//Read inovaicons css
+inovaIconsCss = fs.readFileSync(`${inovaIconsPath}`).toString();
 
 /**
  * The file /scss/variables.css is used by kendo to define the variables per theme.
@@ -78,6 +83,7 @@ let allCss = sass.renderSync({
     data: allScss
 }).css;
 allCss = fontFace + ' ' + allCss;
+allCss += ' ' + inovaIconsCss;
 fs.writeFileSync(`${distPath}/all.css`, allCss);
 fs.writeFileSync(`${distPath}/all.min.css`, new CleanCSS({}).minify(allCss).styles);
 
