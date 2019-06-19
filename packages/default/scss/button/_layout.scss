@@ -1,4 +1,4 @@
-@include exports('button/layout') {
+@include exports("button/layout") {
 
     // Button
     .k-button {
@@ -25,8 +25,14 @@
 
         // TODO: extend disabled selector
         &[disabled],
-        [disabled] & {
-            @extend %disabled;
+        [disabled] &,
+        &.k-state-disabled {
+
+            &,
+            &:focus,
+            &.k-state-focused {
+                @extend %disabled;
+            }
         }
 
         &::-moz-focus-inner {
@@ -62,7 +68,7 @@
             }
 
             .k-rtl &,
-            &[dir='rtl'] {
+            &[dir="rtl"] {
                 .k-icon,
                 .k-image,
                 .k-sprite {
@@ -379,9 +385,7 @@
 
     }
 
-    .k-ie9,
-    .k-ie10,
-    .k-ie11 {
+    .k-ie {
 
         .k-button,
         .k-button-group {

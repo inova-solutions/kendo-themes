@@ -41,6 +41,14 @@
         }
     }
 
+    .k-scheduler-header {
+        background-color: $base-bg;
+    }
+
+    .k-scheduler-header-wrap {
+        background-color: $bg-color;
+    }
+
 
     //Scheduler navigation
     .k-scheduler-navigation {
@@ -117,7 +125,7 @@
     // Scheduler content
     .k-scheduler-content {}
     .k-nonwork-hour {
-        background-color: mix( $panel-text, $panel-bg, 3% );
+        background-color: $scheduler-nonwork-bg;
     }
 
     .k-scheduler-layout td.k-state-selected {
@@ -134,8 +142,13 @@
         &::before {
             display: block;
             left: 3px;
-            opacity: 0.35;
+            opacity: .35;
             background-color: $scheduler-event-text;
+
+            .k-rtl & {
+                left: 0;
+                right: 3px;
+            }
         }
 
         &.k-state-selected {

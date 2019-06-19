@@ -53,6 +53,10 @@
         .k-middle-row td {
             border-bottom-style: dotted;
         }
+
+        .k-link {
+            cursor: pointer;
+        }
     }
 
     %ul-button-group {
@@ -147,13 +151,6 @@
         }
         .k-nav-today { @include border-left-radius-only(); }
         .k-nav-next { @include border-right-radius-only(); }
-
-        .k-rtl & {
-            .k-i-arrow-60-left,
-            .k-i-arrow-60-right {
-                transform: scaleX(-1);
-            }
-        }
     }
 
     .k-scheduler-tools {
@@ -231,6 +228,11 @@
             &.k-state-expanded {
                 li { display: block; }
             }
+
+            .k-rtl & {
+                left: $toolbar-padding-x;
+                right: auto;
+            }
         }
     }
 
@@ -256,17 +258,26 @@
             padding: 0;
             vertical-align: top;
         }
+
+        // Remove bottom border from first cell of hours cells spaning on two rows
+        tr + tr,
+        .k-scheduler-pane + .k-scheduler-pane {
+            .k-scheduler-times tr {
+                th {
+                    border-bottom-color: transparent;
+                }
+
+                .k-slot-cell,
+                .k-scheduler-times-all-day,
+                &:last-child th {
+                    border-bottom-color: inherit;
+                }
+            }
+        }
     }
     .k-scheduler-layout.k-scheduler-flex-layout {
         display: flex;
         flex-direction: column;
-
-        &.k-scheduler-timeline-view,
-        &.k-scheduler-timeline-week-view,
-        &.k-scheduler-timeline-month-view {
-
-            .k-scheduler-header-wrap { border-width: 0; }
-        }
 
         &.k-scheduler-weekview,
         &.k-scheduler-dayview {
@@ -287,7 +298,7 @@
         overflow: hidden;
     }
     .k-scheduler-header-wrap {
-        border-width: 0 1px 0 0;
+        border-width:  0;
         border-style: solid;
         position: relative;
     }
@@ -301,10 +312,6 @@
         th {
             border-width: 0 1px 1px 0;
             text-align: right;
-        }
-
-        tr+tr th {
-            border-bottom-color: transparent;
         }
 
         .k-slot-cell,
@@ -342,7 +349,7 @@
     kendo-scheduler .k-event,
     .k-event {
         @include border-radius();
-        min-height: $line-height-em;
+        min-height: $scheduler-event-min-height;
         box-sizing: border-box;
         border-width: 0;
         border-style: solid;
@@ -354,7 +361,7 @@
         padding-right: $padding-x;
 
         &::before {
-            content: '';
+            content: "";
             position: absolute;
             display: none;
             top: 0;
@@ -371,6 +378,7 @@
 
         // Template
         .k-event-template {
+            line-height: $scheduler-event-line-height;
             padding: $padding-y $padding-x;
             // TODO: incompatible units
             // padding-right: $padding-x-sm + $spacer;
@@ -387,7 +395,8 @@
         .k-event-actions {
             white-space: nowrap;
             position: absolute;
-            top: $padding-y-sm;
+            top: 0;
+            bottom: 0;
             right: $padding-x;
             opacity: .5;
             visibility: hidden;
@@ -396,6 +405,11 @@
             &:hover,
             &.k-state-hover {
                 opacity: 1;
+            }
+
+            .k-icon {
+                line-height: normal;
+                font-size: inherit;
             }
 
             a { color: inherit; }
@@ -411,6 +425,7 @@
             position: relative;
             opacity: 1;
             visibility: visible;
+            line-height: normal;
         }
 
 
@@ -469,6 +484,7 @@
         width: 1em;
         height: 1em;
         display: inline-block;
+        vertical-align: middle;
     }
 
 
@@ -642,11 +658,15 @@
             vertical-align: middle;
         }
 
-        .k-scheduler-table td:first-child {
-            border-left-width: 1px;
-        }
-        .k-scheduler-table td.k-first {
-            border-left-width: 0;
+        .k-scheduler-table {
+            th:first-child,
+            td:first-child {
+                border-left-width: 1px;
+            }
+
+            td.k-first {
+                border-left-width: 0;
+            }
         }
 
         .k-task > .k-event-delete {
@@ -741,8 +761,20 @@
     .k-rtl {
         .k-scheduler-header th,
         .k-scheduler-table td {
-            border-left-width: 0;
-            border-right-width: 1px;
+            border-width: 0 1px 1px 0;
+        }
+
+        .k-scheduler-table {
+            td,
+            th {
+                &:first-child {
+                    border-right-width: 0;
+                }
+            }
+        }
+
+        .k-scheduler-times th {
+            border-width: 0 0 1px 1px;
         }
 
         .k-scheduler .k-scrollbar-v .k-scheduler-header-wrap {
@@ -752,6 +784,8 @@
 
         .k-event {
             text-align: right;
+            padding-right: 0;
+            padding-left: $padding-x;
 
             .k-resize-w {
                 left: auto;
@@ -769,17 +803,31 @@
             }
 
             .k-event-actions:first-child {
+                margin: $padding-y-sm $padding-x-sm 0 .4ex;
                 float: right;
             }
         }
-        .k-scheduler-agendaview .k-task > .k-event-delete {
-            left: 2px;
-            right: auto;
+        .k-scheduler-agendaview .k-task {
+
+            > .k-event-delete {
+                left: 2px;
+                right: auto;
+            }
+
+            .k-scheduler-mark {
+                margin-left: .5em;
+                margin-right: 0;
+            }
+
         }
 
         .k-scheduler-views {
             li:first-child + li { @include border-right-radius-only(); }
             li:last-child { @include border-left-radius-only(); }
+
+            .k-current-view .k-link::after {
+                margin: 0 1ex 0 0;
+            }
         }
 
         .k-scheduler-navigation  {
@@ -824,6 +872,38 @@
         .k-scheduler-edit-form .k-scheduler-delete {
             float: right;
         }
-    }
 
+        .k-scheduler,
+        &.k-scheduler {
+            .k-i-arrow-60-left,
+            .k-i-arrow-60-right,
+            .k-current-time-arrow-right {
+                transform: scaleX(-1);
+            }
+
+            .k-scheduler-header-wrap {
+                border-right-width: 0;
+            }
+
+            .k-scheduler-agendaday {
+                float: right;
+                margin: 0 0 0 .2em;
+            }
+
+            .k-scheduler-agendaview .k-scheduler-table {
+                td:first-child,
+                th:first-child {
+                    border-left-width: 0;
+                }
+
+                tr + tr {
+                    td:first-child,
+                    th:first-child {
+                        border-right-width: 1px;
+                    }
+                }
+            }
+        }
+    }
 }
+

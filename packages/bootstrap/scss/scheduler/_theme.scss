@@ -23,10 +23,14 @@
 
     // Header and footer
     .k-scheduler-toolbar,
-    .k-scheduler-footer {
+    .k-scheduler-footer,
+    .k-scheduler-header {
         @include appearance( header );
     }
 
+    .k-scheduler-header-wrap {
+        background-color: $bg-color;
+    }
 
     //Scheduler navigation
     .k-scheduler-navigation {
@@ -98,7 +102,7 @@
     // Scheduler content
     .k-scheduler-content {}
     .k-nonwork-hour {
-        background-color: mix( $panel-text, $panel-bg, ($color-level-step / 2) );
+        background-color: $scheduler-nonwork-bg;
     }
 
     .k-scheduler-layout td.k-state-selected {
@@ -112,11 +116,17 @@
         color: $scheduler-event-text;
 
         .k-event-template {
-            padding: $padding-y-sm $padding-x-sm;
+            // Angular fix for stronger selector and smaller padding
+            &,
+            kendo-scheduler & {
+                padding: $padding-y-sm $padding-x-sm;
+                font-size: $font-size-sm;
+            }
         }
 
         .k-event-actions {
             right: $padding-x-sm;
+            font-size: $font-size-sm;
         }
 
         &.k-state-selected {
@@ -139,6 +149,22 @@
     .k-scheduler-marquee::before,
     .k-scheduler-marquee::after {
         border-color: $primary-button-border;
+    }
+
+
+    // Agenda view
+    .k-scheduler-agendaview {
+
+        tr.k-state-hover,
+        .k-scheduler-content tr:hover {
+            @include appearance( hovered-node );
+        }
+
+        tr.k-state-hover .k-scheduler-datecolumn,
+        tr:hover .k-scheduler-datecolumn,
+        tr:hover .k-scheduler-groupcolumn {
+            @include appearance( panel );
+        }
     }
 
 }

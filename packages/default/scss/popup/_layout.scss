@@ -4,7 +4,7 @@ $popup-header-font-size: null !default;
 $popup-header-text: null !default;
 $popup-filter-padding-x: $input-padding-x !default;
 
-@include exports('popup/layout') {
+@include exports("popup/layout") {
 
     .k-popup {
         display: flex;
@@ -28,7 +28,7 @@ $popup-filter-padding-x: $input-padding-x !default;
         }
 
         .k-rtl,
-        [dir='rtl'] & {
+        [dir="rtl"] & {
             .k-list-optionlabel {
                 text-align: right;
             }
@@ -69,6 +69,11 @@ $popup-filter-padding-x: $input-padding-x !default;
         font-size: $popup-header-font-size;
         color: $popup-header-text;
         white-space: normal;
+    }
+
+    .k-popup > .k-colorpalette,
+    .k-popup > .k-flatcolorpicker {
+        padding: $colorpicker-rect-padding;
     }
 
     .k-popup .k-list .k-item > .k-group {
@@ -196,7 +201,7 @@ $popup-filter-padding-x: $input-padding-x !default;
 
 
         .k-rtl &,
-        [dir='rtl'] & {
+        [dir="rtl"] & {
 
             > .k-textbox {
                 padding-right: $popup-filter-padding-x;
@@ -247,6 +252,10 @@ $popup-filter-padding-x: $input-padding-x !default;
 
             .k-icon {
                 margin: 0 $icon-spacing 0 0;
+            }
+
+            .k-ie11 & {
+                display: flex;
             }
         }
 

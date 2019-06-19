@@ -147,7 +147,7 @@ $input-calc-size: #{$input-inner-calc-size} + #{$input-border-width * 2};
 $input-icon-offset: 6px !default;
 
 // Pickers
-$picker-select-border-width: 0 !default;
+$picker-select-border-width: 1px !default;
 $picker-select-padding-x: $button-padding-y !default;
 $picker-select-padding-y: $button-padding-y !default;
 $picker-select-line-height: $line-height !default;
@@ -180,6 +180,14 @@ $toolbar-button-line-height: $button-line-height !default;
 $toolbar-button-calc-size: #{$toolbar-button-line-height * 1em} + #{$toolbar-button-padding-y * 2} + #{$toolbar-button-border-width * 2} !default;
 $toolbar-inner-calc-size: #{$toolbar-button-calc-size} + #{$toolbar-padding-y * 2} !default;
 
+$toolbar-button-expanded-bg: null !default;
+$toolbar-button-expanded-shadow: none !default;
+
+$toolbar-shadow: none !default;
+$toolbar-separator-padding-y: $toolbar-button-padding-y !default;
+$toolbar-separator-border: inherit !default;
+
+
 $list-item-padding-x: $padding-x !default;
 $list-item-padding-y: $padding-y !default;
 
@@ -196,6 +204,17 @@ $zindex-popup: 1;
 $zindex-window: 2;
 
 $rgba-transparent: rgba( 0, 0, 0, 0 );
+
+// ColorPicker
+$colorpicker-rect-padding: $padding-x !default;
+$colorpicker-margin: 8px !default;
+$colorpicker-width: 310px !default;
+$colorpicker-draghandle-width: 16px !default;
+$colorpicker-draghandle-height: 16px !default;
+$colorpicker-slider-track-size: 10px !default;
+$colorpicker-slider-border-radius: 10px !default;
+$colorpicker-hex-input-width: 65px !default;
+$colorpicker-input-width: 48px !default;
 
 
 // Theme colors
@@ -648,19 +667,21 @@ $panelbar-item-focused-shadow: $list-item-focused-shadow !default;
 $notification-padding-x: 8px !default;
 $notification-padding-y: 4px !default;
 $notification-border-width: 1px !default;
+$notification-icon-offset: null !default;
+$notification-icon-spacing: $icon-spacing !default;
 
-$notification-info-border: $info !default;
 $notification-info-bg: $info !default;
 $notification-info-text: contrast-wcag( $notification-info-bg ) !default;
-$notification-success-border: $success !default;
+$notification-info-border: $notification-info-bg !default;
 $notification-success-bg: $success !default;
 $notification-success-text: contrast-wcag( $notification-success-bg ) !default;
-$notification-warning-border: $warning !default;
+$notification-success-border: $notification-success-bg !default;
 $notification-warning-bg: $warning !default;
 $notification-warning-text: contrast-wcag( $notification-warning-bg ) !default;
-$notification-error-border: $error !default;
+$notification-warning-border: $notification-warning-bg !default;
 $notification-error-bg: $error !default;
 $notification-error-text: contrast-wcag( $notification-error-bg ) !default;
+$notification-error-border: $notification-error-bg !default;
 
 
 // Chart
@@ -737,18 +758,6 @@ $pager-number-hovered-border: null !default;
 $pager-number-selected-bg: $selected-bg !default;
 $pager-number-selected-text: $selected-text !default;
 $pager-number-selected-border: null !default;
-
-$pager-numbers-position: calc(
-    #{add-three( 2 * $button-border-width, 2 * $button-padding-y, $button-line-height * 1em, 2)} +
-    #{1.5 * $pager-padding-x}
-) !default;
-
-$pager-numbers-margin: calc(
-    #{add-three( 2 * $button-border-width, 2 * $button-padding-y, $button-line-height * 1em, 2)} +
-    #{$pager-padding-x} +
-    #{2 * $button-border-width}
-) !default;
-
 
 // Card
 $card-padding-x: 16px !default;
@@ -881,6 +890,8 @@ $multiviewcalendar-button-size: 44px !default;
 $multiviewcalendar-gap: ($calendar-content-padding-x * 2) !default;
 $multiviewcalendar-content-padding-x: ($multiviewcalendar-gap / 2);
 $multiviewcalendar-content-padding-y: 0;
+$multiviewcalendar-navigation-margin-x: 0;
+$multiviewcalendar-navigation-margin-y: #{add-three( 2 * $calendar-header-padding-y, $calendar-header-height, 2 * $button-border-width) };
 
 
 // Chat
@@ -977,7 +988,6 @@ $progressbar-indeterminate-gradient: null !default;
 $progressbar-chunk-border: $bg-color !default;
 
 
-
 // Window
 $window-border-width: 0 !default;
 $window-border-radius: 0 !default;
@@ -1013,7 +1023,6 @@ $window-sizes: map-merge((
 
 
 // DateTime
-
 $time-list-highlight-color: $border-color !default;
 $time-list-focused-bg: rgba(0, 0, 0, .04) !default;
 $time-list-title-focus: black !default;
@@ -1149,14 +1158,15 @@ $switch-off-handle-hovered-gradient: null !default;
 
 
 // Editor
-$editor-overlay-background: #000 !default;
+
 
 // Scheduler
 $scheduler-event-border-radius: $border-radius !default;
 
-$scheduler-event-border: $accent !default;
 $scheduler-event-bg: $selected-bg !default;
 $scheduler-event-text: $selected-text !default;
+$scheduler-event-min-height: 25px !default;
+$scheduler-event-line-height: calc(#{$scheduler-event-min-height} - (2 * #{$padding-y})) !default;
 
 $scheduler-event-selected-box-shadow: null !default;
 
@@ -1167,7 +1177,109 @@ $scheduler-timecolumn-width: 11em;
 $modal-header-border-color: #cccccc;
 $modal-inner-padding: 1em;
 
-$scheduler-current-time-color: #f00;
+$scheduler-current-time-color: #ff0000;
+
+$scheduler-nonwork-bg: mix( $panel-text, $panel-bg, 3% ) !default;
+
+
+// PDF viewer
+$pdf-viewer-bg: null !default;
+$pdf-viewer-text: null !default;
+$pdf-viewer-border: null !default;
+
+$pdf-viewer-canvas-bg: $chat-bg !default;
+$pdf-viewer-canvas-text: null !default;
+$pdf-viewer-canvas-border: null !default;
+
+$pdf-viewer-page-spacing: 30px !default;
+
+$pdf-viewer-page-bg: white !default;
+$pdf-viewer-page-text: $panel-text !default;
+$pdf-viewer-page-border: $panel-border !default;
+$pdf-viewer-page-shadow: 0 0 ($pdf-viewer-page-spacing / 2) $pdf-viewer-page-border !default;
+
+
+// Adaptive Common
+$adaptive-content-bg: $base-bg !default;
+$adaptive-content-text: $accent;
+
+$adaptive-menu-bg: $accent;
+$adaptive-menu-text: white;
+
+$adaptive-menu-clear-text: $accent;
+
+$adaptive-menu-item-border: $grid-border;
+$adaptive-menu-title-text: $base-text;
+
+// Adaptive Grid
+$adaptive-grid-sort-text: $accent;
+
+// Adaptive Scheduler
+$adaptive-scheduler-current-text: $accent;
+$adaptive-scheduler-base-text: inherit;
+
+
+// Drawer
+$drawer-text: $base-text !default;
+$drawer-bg: $base-bg !default;
+$drawer-border: $base-border !default;
+$drawer-border-width: 1px !default;
+$drawer-content-padding-x: $padding-x !default;
+$drawer-content-padding-y: $padding-y !default;
+
+$drawer-scrollbar-width: 7px !default;
+$drawer-scrollbar-color: rgba(156, 156, 156, .7) !default;
+$drawer-scrollbar-bg: #dedede !default;
+$drawer-scrollbar-radius: 20px !default;
+$drawer-scrollbar-hovered-color: rgba(156, 156, 156, 1) !default;
+
+$drawer-item-padding-x: $padding-x !default;
+$drawer-item-padding-y: $padding-x !default;
+$drawer-item-font-size: 16px !default;
+$drawer-item-line-height: $line-height-lg !default;
+$drawer-icon-size: 18px !default;
+
+$drawer-mini-initial-width: calc(4 * #{$drawer-item-padding-x} + #{$drawer-icon-size}) !default;
+
+$drawer-hovered-text: $hovered-text !default;
+$drawer-hovered-bg: $hovered-bg !default;
+
+$drawer-focused-bg: $drawer-bg !default;
+$drawer-focused-shadow: $list-item-focused-shadow !default;
+
+$drawer-selected-text: $selected-text !default;
+$drawer-selected-bg: $selected-bg !default;
+$drawer-selected-hover-text: $selected-hover-color !default;
+$drawer-selected-hover-bg: $selected-hover-bg !default;
+
+
+// Spreadsheet
+$spreadsheet-insert-image-dialog-border-style: dashed !default;
+$spreadsheet-insert-image-dialog-border-width: 2px !default;
+$spreadsheet-insert-image-dialog-text-margin-bottom: 30px !default;
+$spreadsheet-insert-image-dialog-preview-width: 355px !default;
+$spreadsheet-insert-image-dialog-preview-height: 230px !default;
+$spreadsheet-insert-image-dialog-preview-img: "image-default.png" !default;
+$spreadsheet-insert-image-dialog-preview-border-bg: $border-color !default;
+$spreadsheet-insert-image-dialog-preview-border-radius: $border-radius !default;
+$spreadsheet-insert-image-dialog-preview-overlay-shadow: inset 0 0 0 2000px rgba(0, 0, 0, .5) !default;
+$spreadsheet-insert-image-dialog-preview-overlay-border-radius: $border-radius !default;
+$spreadsheet-insert-image-dialog-overlay-hovered-text: $bg-color !default;
+
+$spreadsheet-drawing-handle-width: 6px !default;
+$spreadsheet-drawing-handle-height: 6px !default;
+$spreadsheet-drawing-handle-border-style: solid !default;
+$spreadsheet-drawing-handle-border-width: 1px !default;
+$spreadsheet-drawing-handle-outline-color: $accent !default;
+$spreadsheet-drawing-handle-border-color: $selected-bg !default;
+$spreadsheet-drawing-handle-bg: $accent !default;
+$spreadsheet-drawing-handle-border-radius: $border-radius-lg !default;
+
+$spreadsheet-drawing-outline-style: solid !default;
+$spreadsheet-drawing-outline-width: 2px !default;
+
+$spreadsheet-drawing-anchor-bg: rgba( $header-selected-bg, .25 ) !default;
+
 
 // Config maps
 $typography-config: () !default;

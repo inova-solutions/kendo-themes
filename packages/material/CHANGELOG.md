@@ -3,6 +3,99 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.5.2"></a>
+## 2.5.2 (2019-06-12)
+
+
+### Bug Fixes
+
+* **colorpicker:** remove additional padding for material theme ([8f6ebca](https://github.com/telerik/kendo-themes/commit/8f6ebca))
+* background color on hover when using multiselect in a dialog ([4eda7e7](https://github.com/telerik/kendo-themes/commit/4eda7e7))
+* improve dialog form alignment ([6b081aa](https://github.com/telerik/kendo-themes/commit/6b081aa))
+* improve edit dialog form label color ([a5709b4](https://github.com/telerik/kendo-themes/commit/a5709b4))
+* remove margin between buttons in button group ([ea1bf88](https://github.com/telerik/kendo-themes/commit/ea1bf88))
+* use gulp tasks in themes instead of lerna ([f5d5c0c](https://github.com/telerik/kendo-themes/commit/f5d5c0c))
+* **grid:** adaptive renedering checkbox focused state ([12c2dbe](https://github.com/telerik/kendo-themes/commit/12c2dbe))
+* **grid:** material filter menu wrong font-weight ([7bb5c91](https://github.com/telerik/kendo-themes/commit/7bb5c91))
+* **notification:** improve alignment of text and icons in notification ([e629688](https://github.com/telerik/kendo-themes/commit/e629688))
+* **switch:** width in cell in grid edit mode ([4a7cffe](https://github.com/telerik/kendo-themes/commit/4a7cffe))
+
+
+
+
+<a name="2.5.1"></a>
+## [2.5.1](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-material@2.5.0...@progress/kendo-theme-material@2.5.1) (2019-05-15)
+
+
+
+
+**Note:** Version bump only for package @progress/kendo-theme-material
+
+<a name="2.5.0"></a>
+# 2.5.0 (2019-05-13)
+
+
+### Bug Fixes
+
+* **colorpicker:** alpha slider bgr using embed assets script ([a300c78](https://github.com/telerik/kendo-themes/commit/a300c78))
+* drawer overlay closed layout ([9b09fa1](https://github.com/telerik/kendo-themes/commit/9b09fa1))
+* **colorpicker:** bootstrap and material themes icon hover styles ([d451132](https://github.com/telerik/kendo-themes/commit/d451132))
+* **colorpicker:** flex layout glitches when hiding dynamically content ([9711ef9](https://github.com/telerik/kendo-themes/commit/9711ef9))
+
+
+### Features
+
+* drawer styles ([76c7ea3](https://github.com/telerik/kendo-themes/commit/76c7ea3))
+* **spreadsheet:** add images sass styles ([b369217](https://github.com/telerik/kendo-themes/commit/b369217))
+
+
+
+
+<a name="2.4.1"></a>
+## [2.4.1](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-material@2.4.0...@progress/kendo-theme-material@2.4.1) (2019-04-09)
+
+
+### Bug Fixes
+
+* **toolbar:** wrong primary button appearance in Material ([21af366](https://github.com/telerik/kendo-themes/commit/21af366))
+
+
+
+
+<a name="2.4.0"></a>
+# [2.4.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-material@2.3.2...@progress/kendo-theme-material@2.4.0) (2019-04-08)
+
+
+### Bug Fixes
+
+* **buttons:** disabled focused buttons styles in mozilla ([961f592](https://github.com/telerik/kendo-themes/commit/961f592))
+
+
+### Features
+
+* **calendar:** add styles for Blazor calendar ([8987d65](https://github.com/telerik/kendo-themes/commit/8987d65))
+* **pager:** rendering changes and styles ([0a5642b](https://github.com/telerik/kendo-themes/commit/0a5642b))
+* **validator:** layout changes ([add9c9c](https://github.com/telerik/kendo-themes/commit/add9c9c))
+
+
+
+
+<a name="2.3.2"></a>
+## 2.3.2 (2019-03-14)
+
+
+### Bug Fixes
+
+* **buttons:** use correct color for .k-button.k-flat:hover.k-state-active ([eebad66](https://github.com/telerik/kendo-themes/commit/eebad66))
+* **grid:** added active styles for grid column menu ([dfd1bc6](https://github.com/telerik/kendo-themes/commit/dfd1bc6))
+* **grid:** grouping header text overflows with frozen columns ([779a216](https://github.com/telerik/kendo-themes/commit/779a216))
+* **scheduler:** angular material padding ([aca6886](https://github.com/telerik/kendo-themes/commit/aca6886))
+* **scheduler:** month view style improvements ([e3dc082](https://github.com/telerik/kendo-themes/commit/e3dc082))
+* **toolbar:** added min-height ([452f4c0](https://github.com/telerik/kendo-themes/commit/452f4c0))
+
+
+
+
 <a name="2.3.1"></a>
 ## [2.3.1](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-material@2.3.0...@progress/kendo-theme-material@2.3.1) (2019-02-19)
 

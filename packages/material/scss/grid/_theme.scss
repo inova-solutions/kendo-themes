@@ -1,6 +1,6 @@
 @import "~@progress/kendo-theme-default/scss/grid/theme";
 
-@include exports ('grid/theme/material') {
+@include exports ("grid/theme/material") {
     $grid-filter-button-focus: rgba(0, 0, 0, .12) !default;
     $grid-edit-cell-border: rgba(0, 0, 0, .12) !default;
     $grid-edit-cell-bg: #f5f5f5 !default;
@@ -82,11 +82,11 @@
                 background-color: $grid-filter-button-focus;
                 box-shadow: none;
             }
-        }
 
-        .k-grid-filter.k-state-active {
-            color: $accent-contrast;
-            background-color: $accent;
+            &.k-state-active {
+                color: $accent-contrast;
+                background-color: $accent;
+            }
         }
 
         thead > tr:not(:only-child) > th {

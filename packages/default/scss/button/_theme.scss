@@ -53,6 +53,13 @@
         &:focus,
         &.k-state-focused {
             box-shadow: $primary-button-focused-shadow;
+
+
+            &[disabled],
+            [disabled] &,
+            &.k-state-disabled {
+                box-shadow: none;
+            }
         }
 
         // Active state
@@ -248,6 +255,8 @@
 
         // Explicitly exclude flat button from button group styling
         &,
+        &:hover,
+        &.k-state-hover,
         .k-button-group & {
             color: $accent;
             background: none;
