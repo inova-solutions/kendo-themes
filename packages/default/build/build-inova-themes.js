@@ -18,6 +18,11 @@ const themes = [
     // 'DarkBlue'
 ];
 
+try {
+    fs.removeSync(`${distPath}`);
+} catch (e) { }
+fs.mkdirSync(`${distPath}`);
+
 //Read inovaicons css
 inovaIconsCss = fs.readFileSync(`${inovaIconsPath}`).toString();
 
@@ -31,16 +36,21 @@ themes.forEach(theme => {
 
     const origThemeVars = `scss\\_variables_inova-${theme}.scss`;
     const tmpThemeVars = `scss\\_variables.scss`;
+    // const bootstrapFile = `..\\bootstrap-library\\inova-bootstrap.${theme}.scss`;
+    // const tmpBootstrapFile = `..\\bootstrap-library\\inova-bootstrap.Current.scss`;
 
     //rename theme file and start build
     fs.removeSync(tmpThemeVars);
     fs.copyFileSync(origThemeVars, tmpThemeVars);
+    // fs.removeSync(tmpBootstrapFile);
+    // fs.copyFileSync(origBootstrapFile, tmpBootstrapFile);
     execSync(`npm run build`, {
         stdio: 'inherit'
     });
 
     //delete unnecessary files
     fs.unlinkSync(tmpThemeVars);
+    // fs.unlinkSync(tmpBootstrapFile);
 
     //move generated css to theme output directory
     fs.removeSync(`${distPath}/${theme}`);
@@ -55,6 +65,16 @@ themes.forEach(theme => {
         fontFace = css.slice(ffStart, ffEnd + 1);
     }
     css = css.slice(0, ffStart) + css.slice(ffEnd + 1);
+
+    const bootstrapPath = `..\\bootstrap-library`;
+    const bootstrapFile = `${bootstrapPath}\\inova-bootstrap.${theme}.scss`;
+    const bootstrapScss = fs.readFileSync(`${bootstrapFile}`).toString();
+    const bootstrapCSS = sass.renderSync({
+        data: bootstrapScss,
+        includePaths: [bootstrapPath],
+    }).css;
+    // To include Bootstrap include, uncomment the following line
+    // css += ' ' + bootstrapCSS;
 
     //wrap themes with a css class .theme-<themename> and concatenate all
     allScss += `.theme-${theme.toLowerCase()} {
