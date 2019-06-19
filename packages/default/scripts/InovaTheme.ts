@@ -39,7 +39,13 @@ const InovaTheme = (function () {
         dark_bg_color: "#333",
         dark_base_text: "#f6f6f6",
         dark_base_bg: "#444",
-        dark_base_border: "rgba(black, 0.08)"
+        dark_base_border: "rgba(black, 0.08)",
+        inova_series_a: "#e81e75",
+        inova_series_b: "#ffd246",
+        inova_series_c: "#78d237",
+        inova_series_d: "#28b4c8",
+        inova_series_e: "#2d73f5",
+        inova_series_f: "#aa46be",
     };
 
     /**
@@ -240,12 +246,12 @@ const InovaTheme = (function () {
         themeWrapper.style.setProperty("--inova-oliv-medium", colors.inova_oliv_medium);
         themeWrapper.style.setProperty("--inova-oliv-light", colors.inova_oliv_light);
 
-        themeWrapper.style.setProperty("--k-series-a", accent);
-        themeWrapper.style.setProperty("--k-series-b", colors.inova_yellow);
-        themeWrapper.style.setProperty("--k-series-c", colors.inova_green);
-        themeWrapper.style.setProperty("--k-series-d", colors.inova_cyan);
-        themeWrapper.style.setProperty("--k-series-e", colors.inova_blue);
-        themeWrapper.style.setProperty("--k-series-f", colors.inova_purple);
+        themeWrapper.style.setProperty("--k-series-a", colors.inova_series_a);
+        themeWrapper.style.setProperty("--k-series-b", colors.inova_series_b);
+        themeWrapper.style.setProperty("--k-series-c", colors.inova_series_c);
+        themeWrapper.style.setProperty("--k-series-d", colors.inova_series_d);
+        themeWrapper.style.setProperty("--k-series-e", colors.inova_series_e);
+        themeWrapper.style.setProperty("--k-series-f", colors.inova_series_f);
         themeWrapper.style.setProperty("--k-chart-major-lines", "rgba(0, 0, 0, 0.08)");
         themeWrapper.style.setProperty("--k-chart-minor-lines", "rgba(0, 0, 0, 0.04)");
 
