@@ -10,11 +10,36 @@ const InovaTheme = (function () {
     const themeWrapper = document.getElementsByTagName("body")[0];
 
     const colors = {
-        inovaPink: "#e81e75",
-        inovaBlue: "#1e98e8",
-        inovaOliv: "#564925",
-        inovaOlivMedium: "rgb(204, 201, 190)",
-        inovaOlivLight: "rgb(236, 232, 226)",
+        inova_pink: "#e81e75",
+        inova_blue: "#1e98e8",
+        inova_oliv: "#564925",
+        inova_oliv_medium: "#ccc9be",
+        inova_oliv_light: "#ece8e2",
+        inova_red: "#dc3535",
+        inova_orange: "#fd7e14",
+        inova_yellow: "#ffc107",
+        inova_green: "#1fb141",
+        inova_indigo: "#6610f2",
+        inova_purple: "#b046be",
+        inova_cyan: "#00bad8",
+        light_text_color: "#333333",
+        light_text_color_inverse: "#ffffff",
+        light_bg_color: "#ffffff",
+        light_base_text: "#333333",
+        light_base_bg: "#f4f2ee",
+        light_base_border: "rgba(black, 0.12)",
+        gray_text_color: "#656565",
+        gray_text_color_inverse: "#ffffff",
+        gray_bg_color: "#ffffff",
+        gray_base_text: "#656565",
+        gray_base_bg: "#f6f6f6",
+        gray_base_border: "rgba(black, 0.08)",
+        dark_text_color: "#f6f6f6",
+        dark_text_color_inverse: "#f6f6f6",
+        dark_bg_color: "#333",
+        dark_base_text: "#f6f6f6",
+        dark_base_bg: "#444",
+        dark_base_border: "rgba(black, 0.08)"
     };
 
     /**
@@ -202,105 +227,103 @@ const InovaTheme = (function () {
     const loadBaseTheme = function (accent: any) {
         themeWrapper.style.setProperty("--k-accent", accent);
         themeWrapper.style.setProperty("--k-accent-contrast", contrastWcag(accent));
-        themeWrapper.style.setProperty("--k-info", "#3e80ed");
-        themeWrapper.style.setProperty("--k-success", "#5ec232");
-        themeWrapper.style.setProperty("--k-warning", "#fdce3e");
-        themeWrapper.style.setProperty("--k-error", "#d51923");
-        themeWrapper.style.setProperty("--k-selected-text", "#ffffff");
+        themeWrapper.style.setProperty("--k-info", colors.inova_blue);
+        themeWrapper.style.setProperty("--k-success", colors.inova_green);
+        themeWrapper.style.setProperty("--k-warning", colors.inova_yellow);
+        themeWrapper.style.setProperty("--k-error", colors.inova_red);
+        themeWrapper.style.setProperty("--k-selected-text", colors.light_text_color);
         themeWrapper.style.setProperty("--k-selected-bg", accent);
-        themeWrapper.style.setProperty("--colorAccent", accent);
-        themeWrapper.style.setProperty("--inovaPink", colors.inovaPink);
-        themeWrapper.style.setProperty("--inovaBlue", colors.inovaBlue);
-        themeWrapper.style.setProperty("--inovaOliv", colors.inovaOliv);
-        themeWrapper.style.setProperty("--inovaOlivMedium", colors.inovaOlivMedium);
-        themeWrapper.style.setProperty("--inovaOlivLight", colors.inovaOlivLight);
+        themeWrapper.style.setProperty("--color-accent", accent);
+        themeWrapper.style.setProperty("--inova-pink", colors.inova_pink);
+        themeWrapper.style.setProperty("--inova-blue", colors.inova_blue);
+        themeWrapper.style.setProperty("--inova-oliv", colors.inova_oliv);
+        themeWrapper.style.setProperty("--inova-oliv-medium", colors.inova_oliv_medium);
+        themeWrapper.style.setProperty("--inova-oliv-light", colors.inova_oliv_light);
 
         themeWrapper.style.setProperty("--k-series-a", accent);
-        themeWrapper.style.setProperty("--k-series-b", "#ffd246");
-        themeWrapper.style.setProperty("--k-series-c", "#78d237");
-        themeWrapper.style.setProperty("--k-series-d", "#28b4c8");
-        themeWrapper.style.setProperty("--k-series-e", "#2d73f5");
-        themeWrapper.style.setProperty("--k-series-f", "#aa46be");
+        themeWrapper.style.setProperty("--k-series-b", colors.inova_yellow);
+        themeWrapper.style.setProperty("--k-series-c", colors.inova_green);
+        themeWrapper.style.setProperty("--k-series-d", colors.inova_cyan);
+        themeWrapper.style.setProperty("--k-series-e", colors.inova_blue);
+        themeWrapper.style.setProperty("--k-series-f", colors.inova_purple);
         themeWrapper.style.setProperty("--k-chart-major-lines", "rgba(0, 0, 0, 0.08)");
         themeWrapper.style.setProperty("--k-chart-minor-lines", "rgba(0, 0, 0, 0.04)");
+
+        themeWrapper.style.setProperty("--color-error", colors.inova_red);
+        themeWrapper.style.setProperty("--color-warning", colors.inova_yellow);
+        themeWrapper.style.setProperty("--color-success", colors.inova_green);
+        themeWrapper.style.setProperty("--color-info", colors.inova_cyan);
     };
 
     const loadDarkTheme = function (accent: any) {
-        const baseBg = "#444";
         const hoveredBg = "#555555";
         loadBaseTheme(accent);
-        themeWrapper.style.setProperty("--k-text-color", "#ffffff");
-        themeWrapper.style.setProperty("--k-bg-color", "#333");
-        themeWrapper.style.setProperty("--k-base-text", "#f6f6f6");
-        themeWrapper.style.setProperty("--k-base-bg", baseBg);
-        themeWrapper.style.setProperty("--k-base-border", "rgba(0,0,0,0.08)");
-        themeWrapper.style.setProperty("--k-base-gradient", baseBg + "," + pSBC(-0.02, baseBg));
+        themeWrapper.style.setProperty("--k-text-color", colors.dark_base_text);
+        themeWrapper.style.setProperty("--k-bg-color", colors.dark_base_bg);
+        themeWrapper.style.setProperty("--k-base-text", colors.dark_base_text);
+        themeWrapper.style.setProperty("--k-base-bg", colors.dark_base_bg);
+        themeWrapper.style.setProperty("--k-base-border", colors.dark_base_border);
+        themeWrapper.style.setProperty("--k-base-gradient", colors.dark_base_bg + "," + pSBC(-0.02, colors.dark_base_bg));
         themeWrapper.style.setProperty("--k-hovered-text", "#ffffff");
         themeWrapper.style.setProperty("--k-hovered-bg", hoveredBg);
         themeWrapper.style.setProperty("--k-hovered-border", "rgba(black, 0.15)");
         themeWrapper.style.setProperty("--k-hovered-gradient", hoveredBg, pSBC(-0.02, hoveredBg));
         themeWrapper.style.setProperty("--k-selected-border", "rgba(black, 0.1)");
-        themeWrapper.style.setProperty("--colorBorder", "rgba(0, 0, 0, 0.1)");
-        themeWrapper.style.setProperty("--color1", "#404040");
-        themeWrapper.style.setProperty("--color2", "#404040");
-        themeWrapper.style.setProperty("--color3", "#404040");
-        themeWrapper.style.setProperty("--colorFont", "#eaeaea");
-        themeWrapper.style.setProperty("--colorIcon1", "#eaeaea");
-        themeWrapper.style.setProperty("--colorIcon2", "#eaeaea");
-        themeWrapper.style.setProperty("--colorWidgetInset", "#333");
-        themeWrapper.style.setProperty("--colorError", "#e20000");
-        themeWrapper.style.setProperty("--colorWarning", "#ffb137");
-        themeWrapper.style.setProperty("--colorSuccess", "#2b893c");
-        themeWrapper.style.setProperty("--colorInfo", "#0c779b");
+        themeWrapper.style.setProperty("--color-border", colors.dark_base_border);
+        themeWrapper.style.setProperty("--color1", colors.dark_base_bg);
+        themeWrapper.style.setProperty("--color2", colors.dark_base_bg);
+        themeWrapper.style.setProperty("--color3", colors.dark_base_bg);
+        themeWrapper.style.setProperty("--color-font", colors.dark_base_text);
+        themeWrapper.style.setProperty("--color-icon1", colors.dark_base_text);
+        themeWrapper.style.setProperty("--color-icon2", colors.dark_base_text);
+        themeWrapper.style.setProperty("--color-widget-inset", "#333");
     };
 
     const loadOliveTheme = function (accent: any) {
-        const baseBg = "#f4f2ee";
         const hoveredBg = "#efebe6";
         loadBaseTheme(accent);
-        themeWrapper.style.setProperty("--k-text-color", "#333333");
-        themeWrapper.style.setProperty("--k-bg-color", "#ffffff");
-        themeWrapper.style.setProperty("--k-base-text", "#333333");
-        themeWrapper.style.setProperty("--k-base-bg", baseBg);
+        themeWrapper.style.setProperty("--k-text-color", colors.light_text_color);
+        themeWrapper.style.setProperty("--k-bg-color", colors.light_bg_color);
+        themeWrapper.style.setProperty("--k-base-text", colors.light_base_text);
+        themeWrapper.style.setProperty("--k-base-bg", colors.light_base_bg);
         themeWrapper.style.setProperty("--k-base-border", "rgba(0,0,0,0.12)");
-        themeWrapper.style.setProperty("--k-base-gradient", baseBg + "," + pSBC(-0.02, baseBg));
+        themeWrapper.style.setProperty("--k-base-gradient", colors.light_base_bg + "," + pSBC(-0.02, colors.light_base_bg));
         themeWrapper.style.setProperty("--k-hovered-text", "#333333");
         themeWrapper.style.setProperty("--k-hovered-bg", hoveredBg);
         themeWrapper.style.setProperty("--k-hovered-border", "rgba(black, 0.19)");
         themeWrapper.style.setProperty("--k-hovered-gradient", hoveredBg, pSBC(-0.02, hoveredBg));
         themeWrapper.style.setProperty("--k-selected-border", "rgba(black, 0.14)");
-        themeWrapper.style.setProperty("--colorBorder", "#cccccc");
-        themeWrapper.style.setProperty("--color1", "#ffffff");
-        themeWrapper.style.setProperty("--color2", colors.inovaOlivLight);
-        themeWrapper.style.setProperty("--color3", colors.inovaOlivMedium);
-        themeWrapper.style.setProperty("--colorFont", "#000000");
-        themeWrapper.style.setProperty("--colorIcon1", "#333333");
-        themeWrapper.style.setProperty("--colorIcon2", "#ffffff");
-        themeWrapper.style.setProperty("--colorWidgetInset", "#ffffff");
-        themeWrapper.style.setProperty("--colorError", "#ffe0d9");
-        themeWrapper.style.setProperty("--colorWarning", "#fbeed5");
-        themeWrapper.style.setProperty("--colorSuccess", "#eaf7ec");
-        themeWrapper.style.setProperty("--colorInfo", "#e5f5fa");
+        themeWrapper.style.setProperty("--color-border", "#cccccc");
+        themeWrapper.style.setProperty("--color1", colors.light_bg_color);
+        themeWrapper.style.setProperty("--color2", colors.inova_oliv_light);
+        themeWrapper.style.setProperty("--color3", colors.inova_oliv_medium);
+        themeWrapper.style.setProperty("--color-font", colors.light_text_color);
+        themeWrapper.style.setProperty("--color-icon1", colors.light_text_color);
+        themeWrapper.style.setProperty("--color-icon2", colors.light_text_color_inverse);
+        themeWrapper.style.setProperty("--color-widget-inset", "#ffffff");
+        themeWrapper.style.setProperty("--color-error-light", "#ffe0d9");
+        themeWrapper.style.setProperty("--color-warning-light", "#fbeed5");
+        themeWrapper.style.setProperty("--color-success-light", "#eaf7ec");
+        themeWrapper.style.setProperty("--color-info-light", "#e5f5fa");
     };
 
     const loadGrayTheme = function (accent: any) {
-        const baseBg = "#f6f6f6";
         const hoveredBg = "#ededed";
         loadOliveTheme(accent);
-        themeWrapper.style.setProperty("--k-text-color", "#656565");
-        themeWrapper.style.setProperty("--k-base-text", "#656565");
-        themeWrapper.style.setProperty("--k-base-bg", baseBg);
+        themeWrapper.style.setProperty("--k-text-color", colors.gray_text_color);
+        themeWrapper.style.setProperty("--k-base-text", colors.gray_base_text);
+        themeWrapper.style.setProperty("--k-base-bg", colors.gray_base_bg);
         themeWrapper.style.setProperty("--k-base-border", "rgba(0,0,0,0.08)");
-        themeWrapper.style.setProperty("--k-base-gradient", baseBg + "," + pSBC(-0.02, baseBg));
+        themeWrapper.style.setProperty("--k-base-gradient", colors.gray_base_bg + "," + pSBC(-0.02, colors.gray_base_bg));
         themeWrapper.style.setProperty("--k-hovered-text", "#656565");
         themeWrapper.style.setProperty("--k-hovered-bg", hoveredBg);
         themeWrapper.style.setProperty("--k-hovered-border", "rgba(black, 0.15)");
         themeWrapper.style.setProperty("--k-hovered-gradient", hoveredBg, pSBC(-0.02, hoveredBg));
         themeWrapper.style.setProperty("--k-selected-border", "rgba(black, 0.1)");
-        themeWrapper.style.setProperty("--colorBorder", "#cccccc");
+        themeWrapper.style.setProperty("--color-border", "#cccccc");
         themeWrapper.style.setProperty("--color2", "#ebebeb");
         themeWrapper.style.setProperty("--color3", "#cecece");
-        themeWrapper.style.setProperty("--colorFont", colors.inovaOliv);
+        themeWrapper.style.setProperty("--color-font", colors.inova_oliv);
     };
 
     const removeCurrentThemeClass = () => {
@@ -313,32 +336,32 @@ const InovaTheme = (function () {
     };
 
     const loadDarkBlue = () => {
-        loadDarkTheme(colors.inovaBlue);
+        loadDarkTheme(colors.inova_blue);
         removeCurrentThemeClass();
         document.body.classList.add("theme-darkblue");
     };
     const loadDarkPink = () => {
-        loadDarkTheme(colors.inovaPink);
+        loadDarkTheme(colors.inova_pink);
         removeCurrentThemeClass();
         document.body.classList.add("theme-darkpink");
     };
     const loadGrayBlue = () => {
-        loadGrayTheme(colors.inovaBlue);
+        loadGrayTheme(colors.inova_blue);
         removeCurrentThemeClass();
         document.body.classList.add("theme-grayblue");
     };
     const loadGrayPink = () => {
-        loadGrayTheme(colors.inovaPink);
+        loadGrayTheme(colors.inova_pink);
         removeCurrentThemeClass();
         document.body.classList.add("theme-graypink");
     };
     const loadOliveBlue = () => {
-        loadOliveTheme(colors.inovaBlue);
+        loadOliveTheme(colors.inova_blue);
         removeCurrentThemeClass();
         document.body.classList.add("theme-oliveblue");
     };
     const loadOlivePink = () => {
-        loadOliveTheme(colors.inovaPink);
+        loadOliveTheme(colors.inova_pink);
         removeCurrentThemeClass();
         document.body.classList.add("theme-olivepink");
     };

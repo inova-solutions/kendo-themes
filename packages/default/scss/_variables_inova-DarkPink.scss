@@ -8,10 +8,10 @@ $border-radius: 2px;
 $skin-name: inova-dark-pink;
 $accent: $inova-pink;
 $accent-contrast: contrast-wcag($accent);
-$info: #3e80ed;
-$success: #5ec232;
-$warning: #fdce3e;
-$error: #d51923;
+$info: $inova-blue;
+$success: $inova-green;
+$warning: $inova-yellow;
+$error: $inova-red;
 $text-color: $dark-text-color;
 $bg-color: $dark-bg-color;
 $base-text: $dark-base-text;
@@ -44,11 +44,11 @@ $button-focused-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.06);
 
 //Charts
 $series-a: $accent;
-$series-b: #ffd246;
-$series-c: #78d237;
-$series-d: #28b4c8;
-$series-e: #2d73f5;
-$series-f: #aa46be;
+$series-b: $inova-yellow;
+$series-c: $inova-green;
+$series-d: $inova-cyan;
+$series-e: $inova-blue;
+$series-f: $inova-purple;
 $chart-major-lines: rgba(0, 0, 0, 0.08);
 $chart-minor-lines: rgba(0, 0, 0, 0.04);
 
@@ -89,8 +89,8 @@ $theme: (
   colorIcon1: #eaeaea,
   colorIcon2: #eaeaea,
   colorWidgetInset: #333,
-  colorError: #e20000,
-  colorWarning: #ffb137,
-  colorSuccess: #2b893c,
-  colorInfo: #0c779b
+  colorErrorLight: #ffe0d9,
+  colorWarningLight: #fbeed5,
+  colorSuccessLight: #eaf7ec,
+  colorInfoLight: #e5f5fa
 );

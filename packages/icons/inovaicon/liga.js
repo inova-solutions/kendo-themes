@@ -25,6 +25,8 @@
     var icons;
     if (!supportsProperty('fontFeatureSettings')) {
         icons = {
+            'apartment': '&#xe60c;',
+            'building8': '&#xe60c;',
             'resize-handle': '&#xe87f;',
             'refresh': '&#xe8d3;',
             'spinner4': '&#xe8d3;',

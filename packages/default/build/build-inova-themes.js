@@ -85,7 +85,11 @@ themes.forEach(theme => {
     let origThemeVarsContent = fs.readFileSync(origThemeVars).toString();
     origThemeVarsContent = origThemeVarsContent.replace(
         /@import '/g,
-        "@import '../common/scss/"
+        `@import '../common/scss/`
+    );
+    origThemeVarsContent = origThemeVarsContent.replace(
+        /@import "/g,
+        `@import "../common/scss/`
     );
     fs.writeFileSync(
         `${distPath}/${theme}/_variables.scss`,
