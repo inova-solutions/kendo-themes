@@ -1,4 +1,4 @@
-@include exports('grid/layout') {
+@include exports("grid/layout") {
 
     $filter-rows-span-size: calc( #{$line-height-em} + #{$input-padding-y * 2} + #{$input-border-width * 2}) !default;
 
@@ -359,6 +359,7 @@
             position: absolute;
             visibility: hidden;
             height: 1px;
+            bottom: 1px; // fix for vertical scrollbar appearing when no records template is displayed
         }
     }
 
@@ -372,12 +373,13 @@
         cursor: default;
         display: block;
 
-        .k-button {
+        > * {
             vertical-align: middle;
         }
-        .k-button + .k-button {
+        > * + * {
             margin-left: $grid-toolbar-button-spacing;
         }
+
     }
 
 
@@ -385,6 +387,7 @@
     .k-grouping-header {
         display: block;
         position: relative;
+        white-space: normal;
         padding: $grid-grouping-header-padding-y $grid-grouping-header-padding-x;
         border-width: 0 0 1px;
         border-style: solid;
@@ -478,7 +481,7 @@
         &::before,
         &::after {
             display: inline-block;
-            content: '';
+            content: "";
             position: absolute;
         }
 
@@ -563,6 +566,7 @@
         .k-header {
             position: relative;
             vertical-align: bottom;
+            cursor: default;
 
             &:first-child {
                 border-left-width: 0;
@@ -584,7 +588,8 @@
 
             .k-ie &,
             .k-edge & {
-                margin-right: calc( 1em + #{ $grid-header-menu-icon-spacing } + #{ $button-padding-y });
+                margin: 0;
+                padding: 0;
             }
 
         }
@@ -595,7 +600,7 @@
 
             .k-ie &,
             .k-edge & {
-                padding-right: $grid-header-padding-x;
+                padding-right: calc( #{ button-size() } + #{ $grid-header-menu-icon-spacing });
             }
         }
 
@@ -624,9 +629,9 @@
             .k-edge & {
                 position: static;
                 float: right;
-                width: auto;
-                height: auto;
-                padding: $button-padding-y-sm;
+                margin-top: calc( (#{ button-size() } - #{ $form-line-height * 1em}) / -2);
+                margin-bottom: calc( (#{ button-size() } - #{ $form-line-height * 1em}) / -2);
+                margin-right: calc( -1 * #{ button-size() });
             }
         }
 
@@ -717,7 +722,7 @@
                 margin-left: $grid-cell-padding-y / 2;
             }
 
-            .k-numerictextbox {
+            .k-widget {
                 width: auto;
             }
         }
@@ -812,17 +817,18 @@
     .k-edit-cell,
     .k-grid-edit-row > td {
         > .k-textbox,
-        > .k-widget,
+        > .k-widget:not(.k-switch),
         > .text-box {
             margin-left: $edit-cell-input-space;
         }
     }
 
-    .k-grid-edit-row td > .k-textbox,
-    .k-grid-edit-row td > .k-widget,
-    .k-edit-cell > .k-textbox,
-    .k-edit-cell > .k-widget {
-        width: $edit-cell-textbox-width;
+    .k-grid-edit-row td,
+    .k-edit-cell {
+        > .k-textbox,
+        > .k-widget:not(.k-switch) {
+            width: $edit-cell-textbox-width;
+        }
     }
 
     .k-grid-edit-row td > .k-textbox,
@@ -895,7 +901,7 @@
     }
 
 
-    /* Locked columns */
+    // Locked columns
     .k-grid-lockedcolumns {
         white-space: nowrap;
     }
@@ -956,6 +962,24 @@
             overflow-y: auto;
         }
     }
+
+
+    .k-grid-norecords {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+    }
+
+    .k-grid-norecords-template {
+        width: 20em;
+        height: 4em;
+        line-height: 4em;
+        margin: 0 auto;
+        border: 1px solid;
+    }
+
 }
 
 @include exports( "grid/pdf-export" ) {
@@ -1007,7 +1031,7 @@
             width: auto !important; // sass-lint:disable-line no-important
         }
 
-         // Remove all sizes and scrolling
+        // Remove all sizes and scrolling
         .k-grid,
         .k-grid-content,
         .k-grid-content-locked {
@@ -1109,7 +1133,7 @@
 
 }
 
-@include exports('columnmenu/layout') {
+@include exports("columnmenu/layout") {
     .k-column-list {
         padding: 0;
         margin: 0;
@@ -1186,6 +1210,14 @@
                     margin-right: 0;
                 }
             }
+        }
+    }
+
+    [dir = "rtl"],
+    .k-rtl {
+        .k-columnmenu-item  > .k-icon {
+            margin-left: $icon-spacing;
+            margin-right: 0;
         }
     }
 }

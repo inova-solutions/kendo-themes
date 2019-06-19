@@ -7,7 +7,12 @@ position: 1
 
 # Material Theme Overview
 
-The Kendo UI Material theme is available through the @progress/kendo-theme-material NPM module.
+{% platform_content angular %}
+The Kendo UI for Angular Material theme is part of the Kendo UI for Angular library of UI components. It is distributed through NPM under the [kendo-theme-material package](https://www.npmjs.com/package/@progress/kendo-theme-material).
+{% endplatform_content %}
+{% platform_content react %}
+The KendoReact Material theme is part of the KendoReact library of React UI components. It is distributed through NPM under the [kendo-theme-material package](https://www.npmjs.com/package/@progress/kendo-theme-material).
+{% endplatform_content %}
 
 ## Installation
 
@@ -15,13 +20,13 @@ The Kendo UI Material theme is available through the @progress/kendo-theme-mater
 > Due to recent changes in rendering, the Kendo UI Material theme package now requires a kendo-angular-inputs@^4.0.0 version. For more information, refer to [issue #2018](https://github.com/telerik/kendo-angular/issues/2018) on GitHub.
 {% endplatform_content %}
 
-1. Download and install the package of the Material theme.
+1. Download and install the Kendo UI Material theme package.
 
     ```sh
     npm install --save @progress/kendo-theme-material
     ```
 
-1. Include the Material theme in your application according to the instructions in the article on [styling]({% slug themesandstyles %}).
+1. For the next steps that include alternative approaches for theme installation, refer to the instructions in the [article on styling in Kendo UI]({% slug themesandstyles %}).
 
 ## Dependencies
 
@@ -31,7 +36,7 @@ By default, the Material theme uses the Roboto font family but the font itself i
 
 You can add the font to the page from Google Fonts in the following way:
 
-```html
+```html-no-run
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
 <style>
   body { font-family: Roboto, sans-serif; }

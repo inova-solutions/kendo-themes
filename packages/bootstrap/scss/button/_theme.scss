@@ -45,6 +45,12 @@
         &:focus,
         &.k-state-focused {
             box-shadow: $primary-button-focused-shadow;
+
+            &[disabled],
+            [disabled] &,
+            &.k-state-disabled {
+                box-shadow: none;
+            }
         }
 
         // Active state
@@ -66,10 +72,6 @@
         border: 0;
 
         // Hover state
-        > input[type="radio"]:hover + .k-button,
-        > input[type="checkbox"]:hover + .k-button {
-            @include appearance( hovered-button );
-        }
         .k-button:active,
         .k-button.k-state-active {
             & + .k-button:hover,
@@ -201,7 +203,13 @@
     }
     .k-button.k-primary.k-flat,
     .k-button.k-primary.k-bare {
-        color: $accent;
+
+        &,
+        &:hover,
+        &.k-state-hover,
+        &.k-state-active {
+            color: $accent;
+        }
     }
 
 }

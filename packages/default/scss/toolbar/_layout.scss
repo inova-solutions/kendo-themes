@@ -1,6 +1,3 @@
-$toolbar-shadow: none !default;
-$toolbar-separator-padding-y: $toolbar-button-padding-y !default;
-
 @include exports("toolbar/layout") {
 
     // Base
@@ -16,6 +13,11 @@ $toolbar-separator-padding-y: $toolbar-button-padding-y !default;
         position: relative;
         overflow: hidden;
         box-shadow: $toolbar-shadow;
+
+        &::before {
+            content: "";
+            height: calc(#{$toolbar-button-calc-size});
+        }
 
         &.k-toolbar-resizable {
             flex-wrap: nowrap;
@@ -53,6 +55,10 @@ $toolbar-separator-padding-y: $toolbar-button-padding-y !default;
 
             &::before {
                 @include border-radius( $toolbar-button-border-radius );
+            }
+
+            .k-ie11 & {
+                display: inline-flex;
             }
         }
 
@@ -126,15 +132,46 @@ $toolbar-separator-padding-y: $toolbar-button-padding-y !default;
         // Separator
         .k-separator {
             @extend %hr-vertical;
-            padding: $toolbar-separator-padding-y 0;
             margin: 0 $toolbar-spacing;
+            height: $line-height-em;
 
             & + * {
                 margin-left: 0;
             }
         }
+
+
+        // Spacer
+        .k-spacer {
+            height: $line-height-em;
+            flex: 1 1 auto;
+        }
+
     }
 
+    kendo-toolbar.k-toolbar {
+        padding: $toolbar-padding-y / 2 $toolbar-padding-x;
+
+        kendo-toolbar-renderer {
+            margin-top: $toolbar-padding-y / 2;
+            margin-bottom: $toolbar-padding-y / 2;
+            margin-left: 0;
+
+            &:not(:last-child) {
+                margin-right: $toolbar-padding-x;
+            }
+        }
+
+        &[dir="rtl"] {
+            kendo-toolbar-renderer {
+                margin-left: $toolbar-padding-x;
+
+                &:not(:last-child) {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
 
     .k-overflow-container {
 

@@ -3,6 +3,94 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.4.2"></a>
+## 3.4.2 (2019-06-12)
+
+
+### Bug Fixes
+
+* use gulp tasks in themes instead of lerna ([f5d5c0c](https://github.com/telerik/kendo-themes/commit/f5d5c0c))
+* **drawer:** fix includes in bootstrap theme ([ed4364d](https://github.com/telerik/kendo-themes/commit/ed4364d))
+* **grid:** adaptive renedering checkbox focused state ([12c2dbe](https://github.com/telerik/kendo-themes/commit/12c2dbe))
+* **grid:** add no records template styles ([0c64ab0](https://github.com/telerik/kendo-themes/commit/0c64ab0))
+* **notification:** improve alignment of text and icons in notification ([e629688](https://github.com/telerik/kendo-themes/commit/e629688))
+
+
+
+
+<a name="3.4.1"></a>
+## [3.4.1](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@3.4.0...@progress/kendo-theme-bootstrap@3.4.1) (2019-05-15)
+
+
+
+
+**Note:** Version bump only for package @progress/kendo-theme-bootstrap
+
+<a name="3.4.0"></a>
+# 3.4.0 (2019-05-13)
+
+
+### Bug Fixes
+
+* **colorpicker:** alpha slider bgr using embed assets script ([a300c78](https://github.com/telerik/kendo-themes/commit/a300c78))
+* drawer overlay closed layout ([9b09fa1](https://github.com/telerik/kendo-themes/commit/9b09fa1))
+* **colorpicker:** bootstrap and material themes icon hover styles ([d451132](https://github.com/telerik/kendo-themes/commit/d451132))
+* **colorpicker:** flex layout glitches when hiding dynamically content ([9711ef9](https://github.com/telerik/kendo-themes/commit/9711ef9))
+
+
+### Features
+
+* drawer styles ([76c7ea3](https://github.com/telerik/kendo-themes/commit/76c7ea3))
+* **spreadsheet:** add images sass styles ([b369217](https://github.com/telerik/kendo-themes/commit/b369217))
+
+
+
+
+<a name="3.3.1"></a>
+## [3.3.1](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@3.3.0...@progress/kendo-theme-bootstrap@3.3.1) (2019-04-09)
+
+
+
+
+**Note:** Version bump only for package @progress/kendo-theme-bootstrap
+
+<a name="3.3.0"></a>
+# [3.3.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@3.2.3...@progress/kendo-theme-bootstrap@3.3.0) (2019-04-08)
+
+
+### Bug Fixes
+
+* **buttons:** disabled focused buttons styles in mozilla ([961f592](https://github.com/telerik/kendo-themes/commit/961f592))
+* **textbox:** placeholder color in IE ([cfd732a](https://github.com/telerik/kendo-themes/commit/cfd732a))
+
+
+### Features
+
+* **calendar:** add styles for Blazor calendar ([8987d65](https://github.com/telerik/kendo-themes/commit/8987d65))
+* **pager:** rendering changes and styles ([0a5642b](https://github.com/telerik/kendo-themes/commit/0a5642b))
+
+
+
+
+<a name="3.2.3"></a>
+## 3.2.3 (2019-03-14)
+
+
+### Bug Fixes
+
+* upgrade theme dependency to bootstrap 4.3.1 ([eedd116](https://github.com/telerik/kendo-themes/commit/eedd116))
+* **buttons:** use correct color for .k-button.k-flat:hover.k-state-active ([eebad66](https://github.com/telerik/kendo-themes/commit/eebad66))
+* **colorpicker:** wrapper hover styles not applied ([0f5ea5e](https://github.com/telerik/kendo-themes/commit/0f5ea5e))
+* **dropdowns:** remove list items transform transitions ([71f3982](https://github.com/telerik/kendo-themes/commit/71f3982))
+* **grid:** added active styles for grid column menu ([dfd1bc6](https://github.com/telerik/kendo-themes/commit/dfd1bc6))
+* **grid:** grouping header text overflows with frozen columns ([779a216](https://github.com/telerik/kendo-themes/commit/779a216))
+* **scheduler:** decreasing bootstrap padding in angular ([8ad054c](https://github.com/telerik/kendo-themes/commit/8ad054c))
+* **scheduler:** month view style improvements ([e3dc082](https://github.com/telerik/kendo-themes/commit/e3dc082))
+* **toolbar:** added min-height ([452f4c0](https://github.com/telerik/kendo-themes/commit/452f4c0))
+
+
+
+
 <a name="3.2.2"></a>
 ## [3.2.2](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-bootstrap@3.2.1...@progress/kendo-theme-bootstrap@3.2.2) (2019-02-19)
 
