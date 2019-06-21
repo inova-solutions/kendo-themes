@@ -27,19 +27,22 @@ const InovaTheme = (function () {
         light_bg_color: "#ffffff",
         light_base_text: "#333333",
         light_base_bg: "#f4f2ee",
-        light_base_border: "rgba(black, 0.12)",
+        light_base_border: "rgba(0,0,0,0.12)",
+        light_shadow_color: "#9e9e9e",
         gray_text_color: "#656565",
         gray_text_color_inverse: "#ffffff",
         gray_bg_color: "#ffffff",
         gray_base_text: "#656565",
         gray_base_bg: "#f6f6f6",
-        gray_base_border: "rgba(black, 0.08)",
+        gray_base_border: "rgba(0,0,0,0.08)",
+        gray_shadow_color: "#9e9e9e",
         dark_text_color: "#f6f6f6",
         dark_text_color_inverse: "#f6f6f6",
         dark_bg_color: "#333",
         dark_base_text: "#f6f6f6",
         dark_base_bg: "#444",
-        dark_base_border: "rgba(black, 0.08)",
+        dark_base_border: "rgba(0,0,0,0.08)",
+        dark_shadow_color: "#0a0a0a",
         inova_series_a: "#e81e75",
         inova_series_b: "#ffd246",
         inova_series_c: "#78d237",
@@ -265,16 +268,16 @@ const InovaTheme = (function () {
         const hoveredBg = "#555555";
         loadBaseTheme(accent);
         themeWrapper.style.setProperty("--k-text-color", colors.dark_base_text);
-        themeWrapper.style.setProperty("--k-bg-color", colors.dark_base_bg);
+        themeWrapper.style.setProperty("--k-bg-color", colors.dark_bg_color);
         themeWrapper.style.setProperty("--k-base-text", colors.dark_base_text);
         themeWrapper.style.setProperty("--k-base-bg", colors.dark_base_bg);
         themeWrapper.style.setProperty("--k-base-border", colors.dark_base_border);
         themeWrapper.style.setProperty("--k-base-gradient", colors.dark_base_bg + "," + pSBC(-0.02, colors.dark_base_bg));
         themeWrapper.style.setProperty("--k-hovered-text", "#ffffff");
         themeWrapper.style.setProperty("--k-hovered-bg", hoveredBg);
-        themeWrapper.style.setProperty("--k-hovered-border", "rgba(black, 0.15)");
+        themeWrapper.style.setProperty("--k-hovered-border", "rgba(0,0,0,0.15)");
         themeWrapper.style.setProperty("--k-hovered-gradient", hoveredBg, pSBC(-0.02, hoveredBg));
-        themeWrapper.style.setProperty("--k-selected-border", "rgba(black, 0.1)");
+        themeWrapper.style.setProperty("--k-selected-border", "rgba(0,0,0,0.1)");
         themeWrapper.style.setProperty("--color-border", colors.dark_base_border);
         themeWrapper.style.setProperty("--color1", colors.dark_base_bg);
         themeWrapper.style.setProperty("--color2", colors.dark_base_bg);
@@ -282,7 +285,8 @@ const InovaTheme = (function () {
         themeWrapper.style.setProperty("--color-font", colors.dark_base_text);
         themeWrapper.style.setProperty("--color-icon1", colors.dark_base_text);
         themeWrapper.style.setProperty("--color-icon2", colors.dark_base_text);
-        themeWrapper.style.setProperty("--color-widget-inset", "#333");
+        themeWrapper.style.setProperty("--color-widget-inset", colors.dark_bg_color);
+        themeWrapper.style.setProperty("--color-shadow", colors.dark_shadow_color);
     };
 
     const loadOliveTheme = function (accent: any) {
@@ -292,13 +296,13 @@ const InovaTheme = (function () {
         themeWrapper.style.setProperty("--k-bg-color", colors.light_bg_color);
         themeWrapper.style.setProperty("--k-base-text", colors.light_base_text);
         themeWrapper.style.setProperty("--k-base-bg", colors.light_base_bg);
-        themeWrapper.style.setProperty("--k-base-border", "rgba(0,0,0,0.12)");
+        themeWrapper.style.setProperty("--k-base-border", colors.light_base_border);
         themeWrapper.style.setProperty("--k-base-gradient", colors.light_base_bg + "," + pSBC(-0.02, colors.light_base_bg));
         themeWrapper.style.setProperty("--k-hovered-text", "#333333");
         themeWrapper.style.setProperty("--k-hovered-bg", hoveredBg);
-        themeWrapper.style.setProperty("--k-hovered-border", "rgba(black, 0.19)");
+        themeWrapper.style.setProperty("--k-hovered-border", "rgba(0,0,0,0.19)");
         themeWrapper.style.setProperty("--k-hovered-gradient", hoveredBg, pSBC(-0.02, hoveredBg));
-        themeWrapper.style.setProperty("--k-selected-border", "rgba(black, 0.14)");
+        themeWrapper.style.setProperty("--k-selected-border", "rgba(0,0,0,0.14)");
         themeWrapper.style.setProperty("--color-border", "#cccccc");
         themeWrapper.style.setProperty("--color1", colors.light_bg_color);
         themeWrapper.style.setProperty("--color2", colors.inova_oliv_light);
@@ -311,6 +315,7 @@ const InovaTheme = (function () {
         themeWrapper.style.setProperty("--color-warning-light", "#fbeed5");
         themeWrapper.style.setProperty("--color-success-light", "#eaf7ec");
         themeWrapper.style.setProperty("--color-info-light", "#e5f5fa");
+        themeWrapper.style.setProperty("--color-shadow", colors.light_shadow_color);
     };
 
     const loadGrayTheme = function (accent: any) {
@@ -319,17 +324,18 @@ const InovaTheme = (function () {
         themeWrapper.style.setProperty("--k-text-color", colors.gray_text_color);
         themeWrapper.style.setProperty("--k-base-text", colors.gray_base_text);
         themeWrapper.style.setProperty("--k-base-bg", colors.gray_base_bg);
-        themeWrapper.style.setProperty("--k-base-border", "rgba(0,0,0,0.08)");
+        themeWrapper.style.setProperty("--k-base-border", colors.gray_base_border);
         themeWrapper.style.setProperty("--k-base-gradient", colors.gray_base_bg + "," + pSBC(-0.02, colors.gray_base_bg));
         themeWrapper.style.setProperty("--k-hovered-text", "#656565");
         themeWrapper.style.setProperty("--k-hovered-bg", hoveredBg);
-        themeWrapper.style.setProperty("--k-hovered-border", "rgba(black, 0.15)");
+        themeWrapper.style.setProperty("--k-hovered-border", "rgba(0,0,0,0.15)");
         themeWrapper.style.setProperty("--k-hovered-gradient", hoveredBg, pSBC(-0.02, hoveredBg));
-        themeWrapper.style.setProperty("--k-selected-border", "rgba(black, 0.1)");
+        themeWrapper.style.setProperty("--k-selected-border", "rgba(0,0,0,0.1)");
         themeWrapper.style.setProperty("--color-border", "#cccccc");
         themeWrapper.style.setProperty("--color2", "#ebebeb");
         themeWrapper.style.setProperty("--color3", "#cecece");
         themeWrapper.style.setProperty("--color-font", colors.inova_oliv);
+        themeWrapper.style.setProperty("--color-shadow", colors.gray_shadow_color);
     };
 
     const removeCurrentThemeClass = () => {
