@@ -18,7 +18,7 @@ $base-text: $light-base-text;
 $base-bg: $light-base-bg;
 $base-border: $light-base-border;
 $base-gradient: $base-bg, darken($base-bg, 2%);
-$hovered-text: #333333;
+$hovered-text: $light-base-text;
 $hovered-bg: #efebe6;
 $hovered-border: rgba(black, 0.19);
 $hovered-gradient: $hovered-bg, darken($hovered-bg, 2%);
@@ -85,8 +85,8 @@ $theme: (
   color1: #ffffff,
   color2: $inova-oliv-light,
   color3: $inova-oliv-medium,
-  colorFont: black,
-  colorIcon1: #333333,
+  colorFont: $text-color,
+  colorIcon1: $text-color,
   colorIcon2: #ffffff,
   colorWidgetInset: #ffffff,
   colorErrorLight: #ffe0d9,

@@ -22,10 +22,11 @@ const InovaTheme = (function () {
         inova_indigo: "#6610f2",
         inova_purple: "#b046be",
         inova_cyan: "#00bad8",
-        light_text_color: "#333333",
+        light_text_color: "#222222",
         light_text_color_inverse: "#ffffff",
         light_bg_color: "#ffffff",
-        light_base_text: "#333333",
+        light_base_text: "#222222",
+        light_base_text_soft: "#767676",
         light_base_bg: "#f4f2ee",
         light_base_border: "rgba(0,0,0,0.12)",
         light_shadow_color: "#9e9e9e",
@@ -33,6 +34,7 @@ const InovaTheme = (function () {
         gray_text_color_inverse: "#ffffff",
         gray_bg_color: "#ffffff",
         gray_base_text: "#656565",
+        gray_base_text_soft: "#767676",
         gray_base_bg: "#f6f6f6",
         gray_base_border: "rgba(0,0,0,0.08)",
         gray_shadow_color: "#9e9e9e",
@@ -40,6 +42,7 @@ const InovaTheme = (function () {
         dark_text_color_inverse: "#f6f6f6",
         dark_bg_color: "#333",
         dark_base_text: "#f6f6f6",
+        dark_base_text_soft: "#adadad",
         dark_base_bg: "#444",
         dark_base_border: "rgba(0,0,0,0.08)",
         dark_shadow_color: "#0a0a0a",
@@ -240,8 +243,8 @@ const InovaTheme = (function () {
         themeWrapper.style.setProperty("--k-success", colors.inova_green);
         themeWrapper.style.setProperty("--k-warning", colors.inova_yellow);
         themeWrapper.style.setProperty("--k-error", colors.inova_red);
-        themeWrapper.style.setProperty("--k-selected-text", colors.light_text_color);
         themeWrapper.style.setProperty("--k-selected-bg", accent);
+        themeWrapper.style.setProperty("--k-selected-text", colors.light_text_color_inverse);
         themeWrapper.style.setProperty("--color-accent", accent);
         themeWrapper.style.setProperty("--inova-pink", colors.inova_pink);
         themeWrapper.style.setProperty("--inova-blue", colors.inova_blue);
@@ -264,6 +267,9 @@ const InovaTheme = (function () {
         themeWrapper.style.setProperty("--color-info", colors.inova_cyan);
     };
 
+    /**
+     * Basiert auf Base Theme
+     */
     const loadDarkTheme = function (accent: any) {
         const hoveredBg = "#555555";
         loadBaseTheme(accent);
@@ -283,12 +289,16 @@ const InovaTheme = (function () {
         themeWrapper.style.setProperty("--color2", colors.dark_base_bg);
         themeWrapper.style.setProperty("--color3", colors.dark_base_bg);
         themeWrapper.style.setProperty("--color-font", colors.dark_base_text);
+        themeWrapper.style.setProperty("--color-font-soft", colors.dark_base_text_soft);
         themeWrapper.style.setProperty("--color-icon1", colors.dark_base_text);
         themeWrapper.style.setProperty("--color-icon2", colors.dark_base_text);
         themeWrapper.style.setProperty("--color-widget-inset", colors.dark_bg_color);
         themeWrapper.style.setProperty("--color-shadow", colors.dark_shadow_color);
     };
 
+    /**
+     * Basiert auf Base Theme
+     */
     const loadOliveTheme = function (accent: any) {
         const hoveredBg = "#efebe6";
         loadBaseTheme(accent);
@@ -298,7 +308,7 @@ const InovaTheme = (function () {
         themeWrapper.style.setProperty("--k-base-bg", colors.light_base_bg);
         themeWrapper.style.setProperty("--k-base-border", colors.light_base_border);
         themeWrapper.style.setProperty("--k-base-gradient", colors.light_base_bg + "," + pSBC(-0.02, colors.light_base_bg));
-        themeWrapper.style.setProperty("--k-hovered-text", "#333333");
+        themeWrapper.style.setProperty("--k-hovered-text", "#222222");
         themeWrapper.style.setProperty("--k-hovered-bg", hoveredBg);
         themeWrapper.style.setProperty("--k-hovered-border", "rgba(0,0,0,0.19)");
         themeWrapper.style.setProperty("--k-hovered-gradient", hoveredBg, pSBC(-0.02, hoveredBg));
@@ -308,6 +318,7 @@ const InovaTheme = (function () {
         themeWrapper.style.setProperty("--color2", colors.inova_oliv_light);
         themeWrapper.style.setProperty("--color3", colors.inova_oliv_medium);
         themeWrapper.style.setProperty("--color-font", colors.light_text_color);
+        themeWrapper.style.setProperty("--color-font-soft", colors.light_base_text_soft);
         themeWrapper.style.setProperty("--color-icon1", colors.light_text_color);
         themeWrapper.style.setProperty("--color-icon2", colors.light_text_color_inverse);
         themeWrapper.style.setProperty("--color-widget-inset", "#ffffff");
@@ -318,6 +329,9 @@ const InovaTheme = (function () {
         themeWrapper.style.setProperty("--color-shadow", colors.light_shadow_color);
     };
 
+    /**
+     * Basiert auf Olive Theme
+     */
     const loadGrayTheme = function (accent: any) {
         const hoveredBg = "#ededed";
         loadOliveTheme(accent);
