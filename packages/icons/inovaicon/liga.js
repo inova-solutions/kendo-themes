@@ -25,6 +25,10 @@
     var icons;
     if (!supportsProperty('fontFeatureSettings')) {
         icons = {
+            'happy': '&#xe889;',
+            'emoticon': '&#xe889;',
+            'sad': '&#xe88d;',
+            'emoticon5': '&#xe88d;',
             'apartment': '&#xe60c;',
             'building8': '&#xe60c;',
             'enter-right2': '&#xe915;',
