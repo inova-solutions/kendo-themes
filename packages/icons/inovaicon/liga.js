@@ -25,6 +25,8 @@
     var icons;
     if (!supportsProperty('fontFeatureSettings')) {
         icons = {
+            'archery': '&#xe870;',
+            'sports13': '&#xe870;',
             'happy': '&#xe889;',
             'emoticon': '&#xe889;',
             'sad': '&#xe88d;',
