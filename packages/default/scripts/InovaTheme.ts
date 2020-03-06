@@ -29,6 +29,7 @@ const InovaTheme = (function () {
         light_base_text_soft: "#767676",
         light_base_bg: "#f4f2ee",
         light_base_bg_darker: "#e8e6e3",
+        light_base_bg_lighter: "#f7f6f3",
         light_base_border: "rgba(0,0,0,0.12)",
         light_shadow_color: "#9e9e9e",
         gray_text_color: "#656565",
@@ -38,6 +39,7 @@ const InovaTheme = (function () {
         gray_base_text_soft: "#767676",
         gray_base_bg: "#f6f6f6",
         gray_base_bg_darker: "#e9e9e9",
+        gray_base_bg_lighter: "#f5f5f5",
         gray_base_border: "rgba(0,0,0,0.08)",
         gray_shadow_color: "#9e9e9e",
         dark_text_color: "#f6f6f6",
@@ -47,6 +49,7 @@ const InovaTheme = (function () {
         dark_base_text_soft: "#adadad",
         dark_base_bg: "#444",
         dark_base_bg_darker: "#3b3b3b",
+        dark_base_bg_lighter: "#3b3b3b",
         dark_base_border: "rgba(0,0,0,0.08)",
         dark_shadow_color: "#0a0a0a",
         inova_series_a: "#e81e75",
@@ -281,6 +284,7 @@ const InovaTheme = (function () {
         themeWrapper.style.setProperty("--k-base-text", colors.dark_base_text);
         themeWrapper.style.setProperty("--k-base-bg", colors.dark_base_bg);
         themeWrapper.style.setProperty("--k-base-bg-darker", colors.dark_base_bg_darker);
+        themeWrapper.style.setProperty("--k-base-bg-lighter", colors.dark_base_bg_lighter);
         themeWrapper.style.setProperty("--k-base-border", colors.dark_base_border);
         themeWrapper.style.setProperty("--k-base-gradient", colors.dark_base_bg + "," + pSBC(-0.02, colors.dark_base_bg));
         themeWrapper.style.setProperty("--k-hovered-text", "#ffffff");
@@ -311,6 +315,7 @@ const InovaTheme = (function () {
         themeWrapper.style.setProperty("--k-base-text", colors.light_base_text);
         themeWrapper.style.setProperty("--k-base-bg", colors.light_base_bg);
         themeWrapper.style.setProperty("--k-base-bg-darker", colors.light_base_bg_darker);
+        themeWrapper.style.setProperty("--k-base-bg-lighter", colors.light_base_bg_lighter);
         themeWrapper.style.setProperty("--k-base-border", colors.light_base_border);
         themeWrapper.style.setProperty("--k-base-gradient", colors.light_base_bg + "," + pSBC(-0.02, colors.light_base_bg));
         themeWrapper.style.setProperty("--k-hovered-text", "#222222");
@@ -344,6 +349,7 @@ const InovaTheme = (function () {
         themeWrapper.style.setProperty("--k-base-text", colors.gray_base_text);
         themeWrapper.style.setProperty("--k-base-bg", colors.gray_base_bg);
         themeWrapper.style.setProperty("--k-base-bg-darker", colors.gray_base_bg_darker);
+        themeWrapper.style.setProperty("--k-base-bg-lighter", colors.gray_base_bg_lighter);
         themeWrapper.style.setProperty("--k-base-border", colors.gray_base_border);
         themeWrapper.style.setProperty("--k-base-gradient", colors.gray_base_bg + "," + pSBC(-0.02, colors.gray_base_bg));
         themeWrapper.style.setProperty("--k-hovered-text", "#656565");
