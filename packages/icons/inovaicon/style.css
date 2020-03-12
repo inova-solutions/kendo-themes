@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'inovaicon';
   src:
-    url('fonts/inovaicon.ttf?pq06sw') format('truetype'),
-    url('fonts/inovaicon.woff?pq06sw') format('woff'),
-    url('fonts/inovaicon.svg?pq06sw#inovaicon') format('svg');
+    url('fonts/inovaicon.ttf?1jeaj') format('truetype'),
+    url('fonts/inovaicon.woff?1jeaj') format('woff'),
+    url('fonts/inovaicon.svg?1jeaj#inovaicon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -381,4 +381,7 @@
 }
 .i-i-wildcard-search:before {
   content: "\e67e";
+}
+.i-i-save-add:before {
+  content: "\e684";
 }
