@@ -4,7 +4,8 @@ const fs = require('fs-extra');
 const sass = require('node-sass');
 const CleanCSS = require('clean-css');
 const distPath = `dist`;
-const inovaIconsPath = `../icons/inovaicon.css`
+const inovaIconsPath = `../icons/inovaicon.css`;
+const invoaFontPath = `../default/scss/_inova_font.scss`;
 const defaultVariables = `build\\_variables.scss`;
 let allScss = '';
 let fontFace = null;
@@ -102,11 +103,15 @@ fs.writeFileSync(
     fs.readFileSync(defaultVariables).toString()
 );
 
+// read font.scss
+const inovaFont = fs.readFileSync(invoaFontPath).toString();
+
+
 //compile css with all themes
 let allCss = sass.renderSync({
     data: allScss
 }).css;
-allCss = fontFace + ' ' + allCss;
+allCss = inovaFont + ' ' + fontFace + ' ' + allCss;
 allCss += ' ' + inovaIconsCss;
 fs.writeFileSync(`${distPath}/all.css`, allCss);
 fs.writeFileSync(`${distPath}/all.min.css`, new CleanCSS({}).minify(allCss).styles);
