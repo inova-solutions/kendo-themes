@@ -25,6 +25,10 @@
     var icons;
     if (!supportsProperty('fontFeatureSettings')) {
         icons = {
+            'presentation': '&#xe6f6;',
+            'board': '&#xe6f6;',
+            'border-all': '&#xe9df;',
+            'border2': '&#xe9df;',
             'archery': '&#xe870;',
             'sports13': '&#xe870;',
             'happy': '&#xe889;',
