@@ -25,8 +25,16 @@
     var icons;
     if (!supportsProperty('fontFeatureSettings')) {
         icons = {
+            'sun': '&#xe647;',
+            'brightness2': '&#xe647;',
             'presentation': '&#xe6f6;',
             'board': '&#xe6f6;',
+            'briefcase': '&#xe83a;',
+            'suitcase': '&#xe83a;',
+            'clock3': '&#xe8e8;',
+            'time3': '&#xe8e8;',
+            'play-circle': '&#xe96a;',
+            'play2': '&#xe96a;',
             'border-all': '&#xe9df;',
             'border2': '&#xe9df;',
             'archery': '&#xe870;',

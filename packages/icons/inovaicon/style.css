@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'inovaicon';
   src:
-    url('fonts/inovaicon.ttf?bvjlm4') format('truetype'),
-    url('fonts/inovaicon.woff?bvjlm4') format('woff'),
-    url('fonts/inovaicon.svg?bvjlm4#inovaicon') format('svg');
+    url('fonts/inovaicon.ttf?fi7anv') format('truetype'),
+    url('fonts/inovaicon.woff?fi7anv') format('woff'),
+    url('fonts/inovaicon.svg?fi7anv#inovaicon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -34,8 +34,20 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.i-i-sun:before {
+  content: "\e647";
+}
 .i-i-presentation:before {
   content: "\e6f6";
+}
+.i-i-work:before {
+  content: "\e83a";
+}
+.i-i-clock:before {
+  content: "\e8e8";
+}
+.i-i-play:before {
+  content: "\e96a";
 }
 .i-i-helper-lines:before {
   content: "\e9df";
@@ -199,11 +211,23 @@
 .i-i-circle-warning:before {
   content: "\e770";
 }
+.i-i-triangle-warning:before {
+  content: "\e773";
+}
 .i-i-circle-success:before {
   content: "\e771";
 }
 .i-i-circle-error:before {
   content: "\e772";
+}
+.i-i-circle-one:before {
+  content: "\e774";
+}
+.i-i-circle-two:before {
+  content: "\e775";
+}
+.i-i-circle-three:before {
+  content: "\e776";
 }
 .i-i-ok:before {
   content: "\e912";
