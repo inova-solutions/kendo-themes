@@ -55,10 +55,10 @@ jobs:
       firefox: latest
     install:
       #- npm install
-      - npm installinova
+      #- npm installinova
       #- lerna bootstrap --concurrency=1
     script:
-      - npm run buildinova
+      # - npm run buildinova
       #- npm run sass:flat
       #- npm run karma-single
       #- npm run visual-tests
