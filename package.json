@@ -28,6 +28,8 @@
     "sassdoc-extras": "^3.0.0"
   },
   "scripts": {
+    "install": "cd packages/default && npm install",
+    "buildinova": "cd packages/default && npm run buildinova",
     "sass": "bash ./build/foreach.sh sass",
     "sass:swatches": "bash ./build/foreach.sh sass:swatches",
     "sass:flat": "bash ./build/foreach.sh sass:flat",

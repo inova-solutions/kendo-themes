@@ -54,12 +54,14 @@ jobs:
       chrome: stable
       firefox: latest
     install:
-      - npm install
-      - lerna bootstrap --concurrency=1
+      #- npm install
+      - npm installinova
+      #- lerna bootstrap --concurrency=1
     script:
-      - npm run sass:flat
-      - npm run karma-single
-      - npm run visual-tests
+      - npm run buildinova
+      #- npm run sass:flat
+      #- npm run karma-single
+      #- npm run visual-tests
 
   # Master and develop
   - stage: Master and develop
