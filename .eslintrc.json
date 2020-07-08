@@ -86,7 +86,7 @@
             }
         ],
         "linebreak-style": [
-            "error",
+            "off",
             "unix"
         ],
         "max-params": [

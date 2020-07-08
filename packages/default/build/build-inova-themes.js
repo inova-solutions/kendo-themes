@@ -12,11 +12,8 @@ let fontFace = null;
 let inovaIconsCss = '';
 const themes = [
     'OlivePink',
-    // 'OliveBlue',
     'GrayPink',
-    // 'GrayBlue',
     'DarkPink',
-    // 'DarkBlue'
 ];
 
 try {
@@ -45,7 +42,7 @@ themes.forEach(theme => {
     fs.copyFileSync(origThemeVars, tmpThemeVars);
     // fs.removeSync(tmpBootstrapFile);
     // fs.copyFileSync(origBootstrapFile, tmpBootstrapFile);
-    execSync(`npm run build`, {
+    execSync(`npm run sass`, {
         stdio: 'inherit'
     });
 
@@ -106,7 +103,6 @@ fs.writeFileSync(
 // read font.scss
 const inovaFont = fs.readFileSync(invoaFontPath).toString();
 
-
 //compile css with all themes
 let allCss = sass.renderSync({
     data: allScss
@@ -116,15 +112,20 @@ allCss += ' ' + inovaIconsCss;
 fs.writeFileSync(`${distPath}/all.css`, allCss);
 fs.writeFileSync(`${distPath}/all.min.css`, new CleanCSS({}).minify(allCss).styles);
 
+
 //create package.json
 fs.copyFileSync(`build/inova-themes-package.json`, `${distPath}/package.json`);
 
 //build and copy InovaTheme js to dist
-execSync(`tsc scripts/InovaTheme.ts -m "es2015" -t "es5"`, {
-    stdio: 'inherit'
-});
+try {
+    execSync(`tsc scripts/InovaTheme.ts -m "es2015" -t "es5"`, {
+        stdio: 'inherit'
+    });
+} catch (e) { }
+
 fs.copyFileSync(`scripts/InovaTheme.js`, `${distPath}/InovaTheme.js`);
 fs.removeSync(`scripts/InovaTheme.js`);
+
 
 //copy all scss files to dist
 fs.removeSync(`${distPath}/common`);
