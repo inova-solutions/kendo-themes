@@ -2,7 +2,7 @@
 
     // Base
     .k-treelist {
-        &.k-display-block.k-grid-lockedcolumns {
+        &.k-grid-display-block.k-grid-lockedcolumns {
             display: block;
         }
 
@@ -35,6 +35,47 @@
             background-color: transparent;
             background-repeat: no-repeat;
         }
+    }
+
+
+    // Sticky headers
+    .k-treelist-scrollable {
+        > table,
+        .k-grid-header tr,
+        .k-grid-header th {
+            background-color: inherit;
+        }
+
+        .k-grid-toolbar {
+            position: sticky;
+            z-index: 3;
+        }
+
+        .k-grid-header th {
+            position: sticky;
+            z-index: 1;
+        }
+
+        .k-grid-header th.k-grid-header-sticky {
+            z-index: 3;
+        }
+
+        .k-grid-toolbar {
+            top: 0;
+            left: 0;
+        }
+
+        thead.k-grid-header {
+            padding-right: 0;
+        }
+
+        &[dir = "rtl"],
+        .k-rtl & {
+            thead.k-grid-header {
+                padding-left: 0;
+            }
+        }
+
     }
 
     .k-drag-separator {

@@ -1,1 +1,15 @@
-@import "~@progress/kendo-theme-default/scss/autocomplete/layout";
+@import "~@progress/kendo-theme-default/scss/autocomplete/_layout.scss";
+
+@include exports( "autocomplete/layout/material" ) {
+
+    .k-autocomplete {
+        border-width: 0 0 $input-border-width;
+
+        // Disabled
+        .k-state-disabled > &,
+        &.k-state-disabled {
+            border-bottom-style: dashed;
+        }
+    }
+
+}

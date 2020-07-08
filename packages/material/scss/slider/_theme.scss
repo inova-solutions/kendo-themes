@@ -1,9 +1,6 @@
-$slider-trackbackground-color: darken($widget-bg, 10%) !default;
-$slider-selection-background-color: $accent !default;
-$slider-disabled-bg: $input-disabled-bg !default;
+@import "~@progress/kendo-theme-default/scss/slider/_theme.scss";
 
-@include exports("slider/theme") {
-    $draghandle-focus-shadow: 0 0 0 11px rgba($accent, .25) !default;
+@include exports("slider/theme/material") {
 
     .k-slider {
         cursor: pointer;
@@ -13,19 +10,11 @@ $slider-disabled-bg: $input-disabled-bg !default;
             border-radius: 0;
         }
 
-        .k-slider-track {
-            background-color: $slider-trackbackground-color;
-        }
-        .k-slider-selection {
-            background-color: $slider-selection-background-color;
-        }
         .k-tick::after {
-            background: $base-text;
+            @include fill( $bg: $base-text );
         }
 
         .k-button {
-            @include border-radius( 50% );
-
             &:hover,
             &.k-state-hover {
                 &::before {
@@ -35,16 +24,10 @@ $slider-disabled-bg: $input-disabled-bg !default;
         }
 
         .k-draghandle {
-            @include appearance( primary-button );
-            @include border-radius( 50% );
             box-sizing: border-box;
 
-            &:hover {
-                @include appearance( hovered-primary-button );
-            }
-
             &:focus {
-                box-shadow: $draghandle-focus-shadow;
+                @include box-shadow( $slider-draghandle-focused-shadow );
             }
         }
 
@@ -54,7 +37,7 @@ $slider-disabled-bg: $input-disabled-bg !default;
             .k-slider-track,
             .k-slider-selection,
             .k-draghandle {
-                background-color: $slider-disabled-bg;
+                @include fill( $bg: $slider-track-bg );
             }
 
             .k-draghandle {

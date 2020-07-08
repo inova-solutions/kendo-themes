@@ -2,6 +2,7 @@
 
 
     .k-pdf-viewer {
+        @extend .k-text-selection !optional;
         @include fill(
             $pdf-viewer-text,
             $pdf-viewer-bg,
@@ -31,6 +32,12 @@
                 $pdf-viewer-page-border
             );
             @include box-shadow( $pdf-viewer-page-shadow );
+        }
+
+
+        // Search
+        .k-search-highlight {
+            background-color: $pdf-viewer-search-highlight-bg;
         }
 
     }

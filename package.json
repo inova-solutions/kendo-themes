@@ -1,58 +1,53 @@
 {
   "devDependencies": {
-    "@semantic-release/npm": "^2.6.0",
-    "cz-conventional-changelog": "^1.1.5",
-    "editorconfig-tools": "^0.1.1",
-    "ghooks": "^1.0.3",
-    "http-server": "0.9.0",
-    "jquery": "^3.3.1",
-    "karma": "^1.7.1",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-qunit": "^1.2.1",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/core": "^8.3.5",
+    "@joneff/baka": "^0.3.0",
+    "eslint": "^7.0.0",
+    "fs-extra": "^9.0.0",
+    "glob": "^7.1.6",
+    "gulp": "^4.0.2",
+    "gulp-eslint": "^6.0.0",
+    "gulp-sass-lint": "^1.4.0",
+    "gulplog": "^1.0.0",
+    "http-server": "^0.12.1",
+    "husky": "^4.2.5",
+    "jquery": "^3.4.1",
+    "karma": "^4.4.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-qunit": "^4.0.0",
     "lerna": "^2.4.0",
-    "pastshots": "^1.4.1",
-    "qunitjs": "^2.4.1",
-    "semantic-release": "^12.4.1",
-    "semantic-release-monorepo": "^4.2.1",
-    "validate-commit-msg": "^1.1.1"
+    "mime": "^2.4.5",
+    "nunjucks": "^3.2.1",
+    "pastshots": "^1.5.1",
+    "qunit": "^2.9.3",
+    "sass-lint": "^1.13.1",
+    "sass-variable-parser": "^1.2.2",
+    "sassdoc": "^2.7.1",
+    "sassdoc-extras": "^3.0.0"
   },
   "scripts": {
-    "build": "bash ./build/foreach.sh build",
-    "lint": "bash ./build/foreach.sh lint",
-    "api": "bash ./build/foreach.sh api",
-    "api-check": "bash ./build/foreach.sh api-check",
-    "test": "./build/foreach.sh test && npm run karma-single && npm run visual-test",
-    "visual-test": "./build/visual-test.sh",
+    "sass": "bash ./build/foreach.sh sass",
+    "sass:swatches": "bash ./build/foreach.sh sass:swatches",
+    "sass:flat": "bash ./build/foreach.sh sass:flat",
+    "dart": "bash ./build/foreach.sh dart",
+    "dart:swatches": "bash ./build/foreach.sh dart:swatches",
+    "dart:flat": "bash ./build/foreach.sh dart:flat",
+    "lint": "gulp lint",
+    "docs": "gulp docs",
+    "docs:check": "gulp docs:check",
+    "visual-tests": "./build/visual-test.sh",
     "create-screenshots": "./build/create-screenshots.sh",
-    "develop": "./develop.sh",
-    "watch-test": "npm run karma-watch",
     "karma-watch": "karma start --auto-watch --no-single-run",
     "karma-single": "karma start --no-auto-watch --single-run --browsers ChromeHeadless",
-    "serve-integrity": "http-server ./tests/integrity",
-    "serve-visual": "http-server ./tests/visual"
+    "serve-tests": "http-server ./"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    },
-    "ghooks": {
+  "husky": {
+    "hooks": {
       "pre-commit": "npm run lint",
-      "commit-msg": "validate-commit-msg"
-    },
-    "validate-commit-msg": {
-      "types": [
-        "feat",
-        "fix",
-        "docs",
-        "style",
-        "refactor",
-        "perf",
-        "test",
-        "chore",
-        "revert"
-      ],
-      "warnOnFail": false,
-      "maxSubjectLength": 100
+      "pre-push": "npm run lint && npm run sass && npm run docs:check",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "dependencies": {}

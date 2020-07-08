@@ -59,7 +59,8 @@ To perform a clean setup (remove existing node_modules) of the monorepo, on the 
 The following commands have to be run in the root of the repository and help you check if various tasks are accomplished successfully:
 
 * To lint over all the themes, run `npm run lint`.
-* To build all the themes, run `npm run build`.
+* To build all the themes with node-sass, run `npm run sass`.
+* To build all the themes with dart-sass, run `npm run dart`.
 * To run the lint, JS, and build tests, run `npm test`.
 * To run builds on every file change of a specific theme:
 
@@ -74,7 +75,7 @@ To guard against regressions and make pull request reviews easier, the CI build 
 
 To generate screenshots for a specific theme:
 
-1. Build the theme with `npm run build`
+1. Build the theme with `npm run sass` or `npm run dart`
 1. Run `npm run create-screenshots <theme>`, substituting `<theme>` with a theme name.
 
 These steps will create new screenshots in `tests/output`. Note that due to platform differences, all of the files will be marked as changed.
@@ -117,6 +118,6 @@ To group variables, use the `@group` directive.
 
 To change the layout or the front meter of the generated help topic, change the `build/customization.md.hbs` source file.
 
-*Copyright © 2019 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.*
+*Copyright © 2020 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 *Progress, Telerik, and certain product names used herein are trademarks or registered trademarks of Progress Software Corporation and/or one of its subsidiaries or affiliates in the U.S. and/or other countries.*

@@ -5,12 +5,14 @@ $flat-button-selected-opacity: .16 !default;
 $outline-button-border-width: 2px !default;
 $split-button-arrow-border-width: 1px;
 
-@import "~@progress/kendo-theme-default/scss/button/layout";
+@import "~@progress/kendo-theme-default/scss/button/_layout.scss";
 
 @include exports("button/layout/material") {
 
     .k-button {
         text-transform: uppercase;
+        font-weight: 500;
+        transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
 
         &::before {
             display: block;
@@ -24,10 +26,10 @@ $split-button-arrow-border-width: 1px;
         border: $outline-button-border-width solid currentColor;
 
         &:not(.k-button-icon) {
-            padding-top: add-two( $button-padding-y, -$outline-button-border-width );
-            padding-bottom: add-two( $button-padding-y, -$outline-button-border-width );
-            padding-left: add-two( $button-padding-x, -$outline-button-border-width );
-            padding-right: add-two( $button-padding-x, -$outline-button-border-width );
+            padding-top: calc( #{$button-padding-y} - #{$outline-button-border-width} );
+            padding-bottom: calc( #{$button-padding-y} - #{$outline-button-border-width} );
+            padding-left: calc( #{$button-padding-x} - #{$outline-button-border-width} );
+            padding-right: calc( #{$button-padding-x} - #{$outline-button-border-width} );
         }
     }
 

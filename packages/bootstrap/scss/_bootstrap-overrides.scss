@@ -36,6 +36,10 @@ $theme-colors: () !default;
         "danger": $danger
     ), $theme-colors);
 
+    $yiq-threshold: 150 !default;
+    $yiq-dark: $gray-900 !default;
+    $yiq-light: $white !default;
+
     $body-bg: $white !default;
     $body-color: contrast-yiq($body-bg, $gray-900) !default;
 
@@ -43,7 +47,11 @@ $theme-colors: () !default;
     $component-color: contrast-yiq($component-bg, $gray-900) !default;
     $component-border-color: rgba(contrast-yiq($component-bg, $gray-900), .125) !default;
     $component-active-bg: $primary !default;
-    $component-active-color: contrast-yiq($component-active-bg);
+    $component-active-color: contrast-yiq($component-active-bg) !default;
+
+    $breadcrumb-padding-x: 0 !default;
+    $breadcrumb-padding-y: 0 !default;
+    $breadcrumb-bg: $component-bg !default;
 
     $card-bg: $component-bg !default;
     $card-color: $component-color !default;
@@ -93,11 +101,7 @@ $theme-colors: () !default;
     $modal-content-bg: $component-bg !default;
     $modal-content-color: $component-color !default;
     $modal-content-border-color: $component-border-color !default;
-    $modal-header-bg: $modal-content-bg !default;
-    $modal-header-color: $modal-content-color !default;
     $modal-header-border-color: $component-border-color !default;
-
-    $custom-control-indicator-bg: try-lighten( $input-border-color, 6.7 ) !default;
 
     $progress-bg: $gray-200 !default;
     $progress-color: contrast-yiq($progress-bg, $gray-900) !default;

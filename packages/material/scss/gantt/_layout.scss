@@ -1,4 +1,4 @@
-@import "~@progress/kendo-theme-default/scss/gantt/layout";
+@import "~@progress/kendo-theme-default/scss/gantt/_layout.scss";
 
 @include exports("gantt/layout/material") {
 
@@ -9,7 +9,7 @@
     .k-gantt-toolbar {
 
         .k-button {
-            @extend .k-button.k-flat;
+            @extend .k-button-flat;
             padding: $toolbar-button-padding-y $toolbar-button-padding-x;
         }
     }
@@ -25,14 +25,14 @@
             background: none;
         }
         li a {
-            @extend .k-button.k-flat;
+            @extend .k-button-flat;
             padding: $toolbar-button-padding-y $toolbar-button-padding-x;
             display: flex;
             align-items: center;
             position: relative;
         }
         li a::before {
-            @extend .k-button::before;
+            @extend .k-button-overlay;
             display: block;
         }
         li.k-state-selected a::before {
@@ -59,6 +59,20 @@
         }
     }
 
+
+    //Timeline
+    .k-gantt-timeline {
+
+        .k-header {
+            font-weight: 700;
+        }
+        .k-rtl & {
+
+            .k-header {
+                border-width: 0 $grid-cell-vertical-border-width 1px 0;
+            }
+        }
+    }
 
     // Treelist
     .k-gantt-treelist {}

@@ -1,11 +1,10 @@
-@import "~@progress/kendo-theme-default/scss/grid/theme";
+@import "~@progress/kendo-theme-default/scss/grid/_theme.scss";
 
 @include exports ("grid/theme/material") {
     $grid-filter-button-focus: rgba(0, 0, 0, .12) !default;
     $grid-edit-cell-border: rgba(0, 0, 0, .12) !default;
     $grid-edit-cell-bg: #f5f5f5 !default;
     $grid-edit-cell-shadow: 0 0 5px 3px rgba(0, 0, 0, .12) !default;
-    $grid-locked-column-shadow: inset 18px 0 5px -15px rgba(0, 0, 0, .14) !default;
 
     $text-field-bg: rgba(0, 0, 0, .07) !default;
 
@@ -56,6 +55,9 @@
                 }
             }
         }
+        .k-grid-header-locked th {
+            @include fill( $border: $grid-sticky-header-border );
+        }
     }
 
     .k-grid-header {
@@ -84,15 +86,21 @@
             }
 
             &.k-state-active {
-                color: $accent-contrast;
-                background-color: $accent;
+                color: $primary-contrast;
+                background-color: $primary;
             }
         }
 
         thead > tr:not(:only-child) > th {
             border-left-color: $grid-border;
         }
+
     }
+
+    thead.k-grid-header> tr:not(:only-child)>th {
+        border-left-color: $grid-border;
+    }
+
     .k-grouping-header .k-group-indicator {
         background-color: $grid-selected-bg;
 
@@ -114,7 +122,7 @@
 
     .k-grouping-dropclue,
     .k-reorder-cue {
-        border-color: $accent;
+        border-color: $primary;
 
         &::before {
             border-color: transparent;
@@ -127,32 +135,20 @@
     }
 
     .k-resize-handle:hover .k-resize-handle-inner {
-        background-color: $accent;
+        background-color: $primary;
     }
 
     .k-column-resizer:hover {
-        color: $accent;
+        color: $primary;
     }
 
     .k-reorder-cue {
-        background-color: $accent;
-    }
-
-    .k-grid-lockedcolumns {
-        .k-grid-header-locked {
-            border-right-color: $grid-border;
-        }
-
-        .k-grid-content,
-        .k-grid-header-wrap {
-            box-shadow: $grid-locked-column-shadow;
-        }
+        background-color: $primary;
     }
 
     .k-grid-edit-row > td {
 
         > .k-textbox,
-        > .k-input.k-textbox,
         > .k-textarea,
         > .k-widget {
             background-color: $text-field-bg;
@@ -163,22 +159,21 @@
         box-shadow: none;
     }
 
+    .k-columnmenu-item {
+        &.k-state-selected {
+            @include fill(
+                $list-item-selected-text,
+                $list-item-selected-bg
+            );
+        }
+    }
+
     .k-column-menu .k-menu:not(.k-context-menu) {
 
         .k-item {
-            & > .k-link::before {
-                content: none;
-            }
-
             // Selected state
             &.k-state-selected {
                 background: $list-item-hovered-bg;
-            }
-        }
-
-        &.k-menu-vertical {
-            & > .k-item + .k-item {
-                margin-top: 0;
             }
         }
     }

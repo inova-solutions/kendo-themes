@@ -1,1 +1,31 @@
-@import "~@progress/kendo-theme-default/scss/scheduler/layout";
+@import "~@progress/kendo-theme-default/scss/scheduler/_layout.scss";
+
+@include exports("scheduler/layout/bootstrap") {
+
+    // Appointments
+    kendo-scheduler .k-event,
+    .k-event {
+        &::before {
+            display: none;
+            left: 0;
+
+            .k-rtl & {
+                right: 0;
+            }
+        }
+
+        .k-event-template {
+            // Angular fix for stronger selector and smaller padding
+            & {
+                padding: $padding-y-sm $padding-x-sm;
+                font-size: $font-size-sm;
+            }
+        }
+
+        .k-event-actions {
+            right: $padding-x-sm;
+            font-size: $font-size-sm;
+        }
+    }
+
+}

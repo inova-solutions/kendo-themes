@@ -3,13 +3,13 @@
 <head>
     <title>Button group</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../packages/default/dist/all.css" />
+    <link rel="stylesheet" data-role="kendo-theme" href="../../packages/default/dist/all.css" />
     <link rel="stylesheet" href="assets/styles.css" />
     <script src="assets/scripts.js"></script>
 
     <style>
         #test-area {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
         }
         #test-area > section {
             padding: 20px;
@@ -25,38 +25,42 @@
 
         <section>
             <div>
-                <kendo-buttongroup class="k-button-group">
+                <kendo-buttongroup class="k-widget k-button-group">
                     <button class="k-button k-group-start">Button</button><!--
                     --><button class="k-button k-state-hover">Hover</button><!--
                     --><button class="k-button k-state-focused">Focus</button><!--
                     --><button class="k-button k-state-active">Toggled</button><!--
+                    --><button class="k-button k-state-active k-state-focused">Toggled & Focused</button><!--
                     --><button class="k-button k-group-end" disabled>Disabled</button>
                 </kendo-buttongroup>
             </div>
             <div>
-                <kendo-buttongroup class="k-button-group k-button-group-outline">
+                <kendo-buttongroup class="k-widget k-button-group k-button-group-outline">
                     <button class="k-button k-outline k-group-start">Button</button><!--
                     --><button class="k-button k-outline k-state-hover">Hover</button><!--
                     --><button class="k-button k-outline k-state-focused">Focus</button><!--
                     --><button class="k-button k-outline k-state-active">Toggled</button><!--
+                    --><button class="k-button k-outline k-state-active k-state-focused">Toggled & Focused</button><!--
                     --><button class="k-button k-outline k-group-end" disabled>Disabled</button>
                 </kendo-buttongroup>
             </div>
             <div>
-                <kendo-buttongroup class="k-button-group k-button-group-bare">
+                <kendo-buttongroup class="k-widget k-button-group k-button-group-bare">
                     <button class="k-button k-bare k-group-start">Button</button><!--
                     --><button class="k-button k-bare k-state-hover">Hover</button><!--
                     --><button class="k-button k-bare k-state-focused">Focus</button><!--
                     --><button class="k-button k-bare k-state-active">Toggled</button><!--
+                    --><button class="k-button k-bare k-state-active k-state-focused">Toggled & Focused</button><!--
                     --><button class="k-button k-bare k-group-end" disabled>Disabled</button>
                 </kendo-buttongroup>
             </div>
             <div>
-                <kendo-buttongroup class="k-button-group k-button-group-flat">
+                <kendo-buttongroup class="k-widget k-button-group k-button-group-flat">
                     <button class="k-button k-flat k-group-start">Button</button><!--
                     --><button class="k-button k-flat k-state-hover">Hover</button><!--
                     --><button class="k-button k-flat k-state-focused">Focus</button><!--
                     --><button class="k-button k-flat k-state-active">Toggled</button><!--
+                    --><button class="k-button k-flat k-state-active k-state-focused">Toggled & Focused</button><!--
                     --><button class="k-button k-flat k-group-end" disabled>Disabled</button>
                 </kendo-buttongroup>
             </div>
@@ -64,38 +68,42 @@
 
         <section style="background-color: #787878; color: #ffffff;">
             <div>
-                <kendo-buttongroup class="k-button-group">
+                <kendo-buttongroup class="k-widget k-button-group">
                     <button class="k-button k-group-start">Button</button><!--
                     --><button class="k-button k-state-hover">Hover</button><!--
                     --><button class="k-button k-state-focused">Focus</button><!--
                     --><button class="k-button k-state-active">Toggled</button><!--
+                    --><button class="k-button k-state-active k-state-focused">Toggled & Focused</button><!--
                     --><button class="k-button k-group-end" disabled>Disabled</button>
                 </kendo-buttongroup>
             </div>
             <div>
-                <kendo-buttongroup class="k-button-group k-button-group-outline">
+                <kendo-buttongroup class="k-widget k-button-group k-button-group-outline">
                     <button class="k-button k-outline k-group-start">Button</button><!--
                     --><button class="k-button k-outline k-state-hover">Hover</button><!--
                     --><button class="k-button k-outline k-state-focused">Focus</button><!--
                     --><button class="k-button k-outline k-state-active">Toggled</button><!--
+                    --><button class="k-button k-outline k-state-active k-state-focused">Toggled & Focused</button><!--
                     --><button class="k-button k-outline k-group-end" disabled>Disabled</button>
                 </kendo-buttongroup>
             </div>
             <div>
-                <kendo-buttongroup class="k-button-group k-button-group-bare">
+                <kendo-buttongroup class="k-widget k-button-group k-button-group-bare">
                     <button class="k-button k-bare k-group-start">Button</button><!--
                     --><button class="k-button k-bare k-state-hover">Hover</button><!--
                     --><button class="k-button k-bare k-state-focused">Focus</button><!--
                     --><button class="k-button k-bare k-state-active">Toggled</button><!--
+                    --><button class="k-button k-bare k-state-active k-state-focused">Toggled & Focused</button><!--
                     --><button class="k-button k-bare k-group-end" disabled>Disabled</button>
                 </kendo-buttongroup>
             </div>
             <div>
-                <kendo-buttongroup class="k-button-group k-button-group-flat">
+                <kendo-buttongroup class="k-widget k-button-group k-button-group-flat">
                     <button class="k-button k-flat k-group-start">Button</button><!--
                     --><button class="k-button k-flat k-state-hover">Hover</button><!--
                     --><button class="k-button k-flat k-state-focused">Focus</button><!--
                     --><button class="k-button k-flat k-state-active">Toggled</button><!--
+                    --><button class="k-button k-flat k-state-active k-state-focused">Toggled & Focused</button><!--
                     --><button class="k-button k-flat k-group-end" disabled>Disabled</button>
                 </kendo-buttongroup>
             </div>
@@ -103,38 +111,42 @@
 
         <section style="color: #0000ff;">
             <div>
-                <kendo-buttongroup class="k-button-group">
+                <kendo-buttongroup class="k-widget k-button-group">
                     <button class="k-button k-group-start">Button</button><!--
                     --><button class="k-button k-state-hover">Hover</button><!--
                     --><button class="k-button k-state-focused">Focus</button><!--
                     --><button class="k-button k-state-active">Toggled</button><!--
+                    --><button class="k-button k-state-active k-state-focused">Toggled & Focused</button><!--
                     --><button class="k-button k-group-end" disabled>Disabled</button>
                 </kendo-buttongroup>
             </div>
             <div>
-                <kendo-buttongroup class="k-button-group k-button-group-outline">
+                <kendo-buttongroup class="k-widget k-button-group k-button-group-outline">
                     <button class="k-button k-outline k-group-start">Button</button><!--
                     --><button class="k-button k-outline k-state-hover">Hover</button><!--
                     --><button class="k-button k-outline k-state-focused">Focus</button><!--
                     --><button class="k-button k-outline k-state-active">Toggled</button><!--
+                    --><button class="k-button k-outline k-state-active k-state-focused">Toggled & Focused</button><!--
                     --><button class="k-button k-outline k-group-end" disabled>Disabled</button>
                 </kendo-buttongroup>
             </div>
             <div>
-                <kendo-buttongroup class="k-button-group k-button-group-bare">
+                <kendo-buttongroup class="k-widget k-button-group k-button-group-bare">
                     <button class="k-button k-bare k-group-start">Button</button><!--
                     --><button class="k-button k-bare k-state-hover">Hover</button><!--
                     --><button class="k-button k-bare k-state-focused">Focus</button><!--
                     --><button class="k-button k-bare k-state-active">Toggled</button><!--
+                    --><button class="k-button k-bare k-state-active k-state-focused">Toggled & Focused</button><!--
                     --><button class="k-button k-bare k-group-end" disabled>Disabled</button>
                 </kendo-buttongroup>
             </div>
             <div>
-                <kendo-buttongroup class="k-button-group k-button-group-flat">
+                <kendo-buttongroup class="k-widget k-button-group k-button-group-flat">
                     <button class="k-button k-flat k-group-start">Button</button><!--
                     --><button class="k-button k-flat k-state-hover">Hover</button><!--
                     --><button class="k-button k-flat k-state-focused">Focus</button><!--
                     --><button class="k-button k-flat k-state-active">Toggled</button><!--
+                    --><button class="k-button k-flat k-state-active k-state-focused">Toggled & Focused</button><!--
                     --><button class="k-button k-flat k-group-end" disabled>Disabled</button>
                 </kendo-buttongroup>
             </div>
@@ -142,38 +154,42 @@
 
         <section style="color: #ff00ff;">
             <div>
-                <kendo-buttongroup class="k-button-group">
+                <kendo-buttongroup class="k-widget k-button-group">
                     <button class="k-button k-group-start">Button</button><!--
                     --><button class="k-button k-state-hover">Hover</button><!--
                     --><button class="k-button k-state-focused">Focus</button><!--
                     --><button class="k-button k-state-active">Toggled</button><!--
+                    --><button class="k-button k-state-active k-state-focused">Toggled & Focused</button><!--
                     --><button class="k-button k-group-end" disabled>Disabled</button>
                 </kendo-buttongroup>
             </div>
             <div>
-                <kendo-buttongroup class="k-button-group k-button-group-outline">
+                <kendo-buttongroup class="k-widget k-button-group k-button-group-outline">
                     <button class="k-button k-outline k-group-start">Button</button><!--
                     --><button class="k-button k-outline k-state-hover">Hover</button><!--
                     --><button class="k-button k-outline k-state-focused">Focus</button><!--
                     --><button class="k-button k-outline k-state-active">Toggled</button><!--
+                    --><button class="k-button k-outline k-state-active k-state-focused">Toggled & Focused</button><!--
                     --><button class="k-button k-outline k-group-end" disabled>Disabled</button>
                 </kendo-buttongroup>
             </div>
             <div>
-                <kendo-buttongroup class="k-button-group k-button-group-bare">
+                <kendo-buttongroup class="k-widget k-button-group k-button-group-bare">
                     <button class="k-button k-bare k-group-start">Button</button><!--
                     --><button class="k-button k-bare k-state-hover">Hover</button><!--
                     --><button class="k-button k-bare k-state-focused">Focus</button><!--
                     --><button class="k-button k-bare k-state-active">Toggled</button><!--
+                    --><button class="k-button k-bare k-state-active k-state-focused">Toggled & Focused</button><!--
                     --><button class="k-button k-bare k-group-end" disabled>Disabled</button>
                 </kendo-buttongroup>
             </div>
             <div>
-                <kendo-buttongroup class="k-button-group k-button-group-flat">
+                <kendo-buttongroup class="k-widget k-button-group k-button-group-flat">
                     <button class="k-button k-flat k-group-start">Button</button><!--
                     --><button class="k-button k-flat k-state-hover">Hover</button><!--
                     --><button class="k-button k-flat k-state-focused">Focus</button><!--
                     --><button class="k-button k-flat k-state-active">Toggled</button><!--
+                    --><button class="k-button k-flat k-state-active k-state-focused">Toggled & Focused</button><!--
                     --><button class="k-button k-flat k-group-end" disabled>Disabled</button>
                 </kendo-buttongroup>
             </div>

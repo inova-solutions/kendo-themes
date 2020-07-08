@@ -14,3 +14,5 @@ debug.log
 .DS_Store
 
 packages/default/scripts/InovaTheme.js
+# Lock files
+# package-lock.json

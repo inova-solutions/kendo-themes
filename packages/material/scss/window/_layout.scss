@@ -1,4 +1,4 @@
-@import "~@progress/kendo-theme-default/scss/window/layout";
+@import "~@progress/kendo-theme-default/scss/window/_layout.scss";
 
 @include exports("window/layout/material") {
 
@@ -18,15 +18,5 @@
             padding-top: 0;
         }
     }
-
-    .k-dialog-button-group,
-    .k-edit-buttons,
-    .k-edit-field {
-        .k-button {
-            @extend .k-button.k-flat;
-        }
-    }
-
-
 
 }

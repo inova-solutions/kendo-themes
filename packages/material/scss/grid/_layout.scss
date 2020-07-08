@@ -8,15 +8,14 @@ $edit-cell-input-space: 0 !default;
 $grid-header-first-border: 1px !default;
 $grid-sorted-icon-spacing: 4px !default;
 $grid-header-menu-icon-spacing: 14px !default;
-$grid-group-indicator-border-radius: add-two( $font-size, $button-padding-y) !default;
+$grid-group-indicator-border-radius: calc( #{$font-size} + #{$button-padding-y} ) !default;
 $grid-group-indicator-gap: 8px !default;
-$grid-header-font-size: 12px !default;
 
-$grid-group-dropclue-height: add-two( 2 * $font-size, 2 * $padding-y) !default;
-$grid-group-dropclue-top: calc( ( #{button-size()} + 2 * #{$grid-grouping-header-padding-y} - #{$grid-group-dropclue-height} ) / 2) !default;
+$grid-group-dropclue-height: calc( #{$font-size * 2} + #{$padding-y * 2} ) !default;
+$grid-group-dropclue-top: calc( ( #{$button-calc-size} + #{$grid-grouping-header-padding-y * 2} - #{$grid-group-dropclue-height} ) / 2) !default;
 $grid-group-drag-clue-opacity: .9 !default;
 
-@import "~@progress/kendo-theme-default/scss/grid/layout";
+@import "~@progress/kendo-theme-default/scss/grid/_layout.scss";
 
 @include exports ("grid/layout/material") {
     $text-field-border-width: 2px;
@@ -48,7 +47,6 @@ $grid-group-drag-clue-opacity: .9 !default;
     }
 
     .k-grid-header {
-        font-size: $grid-header-font-size;
 
         th {
             font-weight: 700;
@@ -92,6 +90,7 @@ $grid-group-drag-clue-opacity: .9 !default;
 
         .k-group-indicator {
             border-width: 0;
+            line-height: $button-line-height;
         }
     }
 
@@ -128,7 +127,6 @@ $grid-group-drag-clue-opacity: .9 !default;
     .k-grid-edit-row > td {
 
         > .k-textbox,
-        > .k-input.k-textbox,
         > .k-textarea,
         > .k-widget {
             border-radius: $text-field-radius;
@@ -154,37 +152,74 @@ $grid-group-drag-clue-opacity: .9 !default;
         .k-multiselect,
         .k-numerictextbox,
         .k-timepicker,
-        .k-textbox,
-        .k-textbox.k-input {
+        .k-textbox {
             font-size: $font-size;
             line-height: $button-line-height;
         }
 
         .k-textbox,
-        .k-textbox.k-input,
         .k-textarea,
         .k-autocomplete,
         .k-dateinput-wrap,
         .k-dropdown-wrap,
         .k-picker-wrap,
-        .k-multiselect-wrap,
-        .k-numeric-wrap {
+        .k-multiselect-wrap {
             border-radius: $text-field-radius;
             border-width: 0 0 $text-field-border-width;
             padding-left: $text-field-padding;
             padding-right: $text-field-padding;
 
             .k-input {
-                height: add-three( $button-line-height * 1em, $button-padding-y * 2, -$text-field-border-width );
+                height: calc( #{$button-line-height * 1em} + #{$button-padding-y * 2} - #{$text-field-border-width} );
             }
         }
 
-        .k-multiselect-wrap {
-            .k-button {
-                margin-top: $padding-y * 2;
+        .k-dateinput,
+        .k-datepicker,
+        .k-datetimepicker,
+        .k-timepicker {
+            .k-dateinput-wrap,
+            .k-picker-wrap {
+                border-radius: $text-field-radius;
+                border-width: 0 0 $text-field-border-width;
+                padding-left: $text-field-padding;
+                padding-right: $padding-y;
+
+                .k-input {
+                    height: calc( #{$button-line-height * 1em} + #{$button-padding-y * 2} - #{$text-field-border-width} );
+                }
             }
-            > .k-clear-value {
-                right: $padding-y * 2;
+        }
+
+        .k-combobox {
+            .k-dropdown-wrap {
+                border-radius: $text-field-radius;
+                border-width: 0 0 $text-field-border-width;
+                padding-left: $text-field-padding;
+                padding-right: $text-field-padding;
+
+                .k-input {
+                    height: calc( #{$button-line-height * 1em} + #{$button-padding-y * 2} - #{$text-field-border-width} );
+                }
+            }
+        }
+
+        .k-autocomplete {
+            &[dir="rtl"],
+            .k-rtl & {
+                padding-left: $text-field-padding;
+                padding-right: $text-field-padding;
+            }
+        }
+
+        .k-multiselect {
+            .k-multiselect-wrap {
+                .k-button {
+                    margin-top: $padding-y * 2;
+                }
+                > .k-clear-value {
+                    right: $padding-y * 2;
+                }
             }
         }
 
@@ -195,11 +230,49 @@ $grid-group-drag-clue-opacity: .9 !default;
             }
         }
 
+        .k-combobox {
+            .k-dropdown-wrap {
+                > .k-clear-value {
+                    right: $padding-y * 6;
+                    padding: 0 $padding-y;
+                }
+            }
+        }
+
         .k-dropdown-wrap,
-        .k-numeric-wrap,
         .k-dateinput-wrap,
         .k-picker-wrap {
             padding-right: $padding-y;
+        }
+
+        .k-numerictextbox {
+            .k-numeric-wrap {
+                padding-right: $padding-y;
+            }
+        }
+
+        .k-combobox {
+            .k-dropdown-wrap {
+                padding-right: $padding-y;
+            }
+        }
+
+        .k-dropdown {
+            .k-dropdown-wrap {
+                border-radius: $text-field-radius;
+                border-width: 0 0 $text-field-border-width;
+                padding-left: $text-field-padding;
+                padding-right: $padding-y;
+
+                .k-input {
+                    height: calc( #{$button-line-height * 1em} + #{$button-padding-y * 2} - #{$text-field-border-width} );
+                }
+
+                > .k-clear-value {
+                    right: $padding-y * 6;
+                    padding: 0 $padding-y;
+                }
+            }
         }
 
         .k-dropdown,
@@ -238,9 +311,23 @@ $grid-group-drag-clue-opacity: .9 !default;
             }
         }
 
-        .k-textbox,
-        .k-textbox.k-input {
-            height: button-size();
+        .k-textbox {
+            height: $button-calc-size;
+        }
+    }
+
+    .k-column-menu .k-menu:not(.k-context-menu) {
+
+        .k-item {
+            & > .k-link::before {
+                content: none;
+            }
+        }
+
+        &.k-menu-vertical {
+            & > .k-item + .k-item {
+                margin-top: 0;
+            }
         }
     }
 }
