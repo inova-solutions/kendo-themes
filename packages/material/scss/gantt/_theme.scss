@@ -2,13 +2,22 @@
 
     // Theme
     .k-gantt {
-        @include appearance( panel );
+        @include fill(
+            $gantt-text,
+            $gantt-bg,
+            $gantt-border
+        );
     }
 
 
     // Header and footer
     .k-gantt-toolbar {
-        @include appearance( toolbar );
+        @include fill(
+            $toolbar-text,
+            $toolbar-bg,
+            inherit,
+            $toolbar-gradient
+        );
     }
 
 
@@ -19,14 +28,30 @@
 
 
         &.k-state-expanded {
-            @include appearance( popup );
+            @include fill(
+                $popup-text,
+                $popup-bg,
+                $popup-border
+            );
             box-shadow: $popup-shadow;
+        }
+    }
 
-            li {
-                margin: 0;
-                border-radius: 0;
+
+    //Timeline
+    .k-gantt-timeline {
+
+        tbody > tr:not(:only-child) > .k-header {
+            border-left-color: $grid-border;
+        }
+        .k-rtl & {
+
+            .k-grid-header {
+
+                tbody > tr:not(:only-child) > .k-header {
+                    border-right-color: $grid-border;
+                }
             }
-            li + li { margin: 0; }
         }
     }
 
@@ -36,17 +61,6 @@
     .k-gantt-columns {}
     .k-gantt-columns .k-nonwork-hour {
         background-color: rgba( $panel-text, .025 );
-    }
-
-
-    .k-gantt-dependencies {}
-    .k-line {
-        color: mix( $panel-text, $panel-bg );
-        background-color: mix( $panel-text, $panel-bg );
-    }
-    .k-line.k-state-selected {
-        color: $header-selected-bg;
-        background-color: $header-selected-bg;
     }
 
     .k-task-dot {}
@@ -62,8 +76,8 @@
 
     // Milestone
     .k-task-milestone {
-        border-color: $accent;
-        background-color: $accent;
+        border-color: $primary;
+        background-color: $primary;
     }
     .k-task-milestone.k-state-selected {
         border-color: $secondary;
@@ -73,10 +87,10 @@
 
     // Summary
     .k-task-summary {
-        color: mix( $accent, $grid-bg, 54 );
+        color: mix( $primary, $grid-bg, 54 );
     }
     .k-task-summary-complete {
-        color: $accent;
+        color: $primary;
     }
     .k-task-summary.k-state-selected {
         color: mix( $secondary, $grid-bg, 54 );
@@ -85,26 +99,18 @@
             color: $secondary;
         }
     }
-    .k-task-summary::before,
-    .k-task-summary::after,
-    .k-task-summary-complete::before,
-    .k-task-summary-complete::after {
-        display: none;
-    }
 
 
     // Tasks
     .k-task-single {
-        @include border-radius( $border-radius );
-        color: $accent-contrast;
-        background-color: mix( $accent, $grid-bg, 54 );
+        color: $primary-contrast;
+        background-color: mix( $primary, $grid-bg, 54 );
 
         .k-task-complete {
-            background: $accent;
+            background: $primary;
         }
     }
     .k-task-single.k-state-selected {
-        @include appearance( active-button );
         color: $secondary-contrast;
         background-color: mix( $secondary, $grid-bg, 54 );
 
@@ -112,11 +118,13 @@
             background: $secondary;
         }
     }
-    .k-task-single .k-resize-handle {
-        width:  ($spacer-x / 2 );
+
+    // Dependency Lines
+    .k-gantt-line {
+        color: $gantt-line-fill;
     }
-    .k-task-single:hover .k-resize-handle {
-        opacity: 0;
+    .k-gantt-line.k-state-selected {
+        color: $gantt-line-selected-fill;
     }
 
 }

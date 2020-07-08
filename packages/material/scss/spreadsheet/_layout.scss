@@ -1,4 +1,4 @@
-@import "~@progress/kendo-theme-default/scss/spreadsheet/layout";
+@import "~@progress/kendo-theme-default/scss/spreadsheet/_layout.scss";
 
 @include exports( "spreadsheet/layout/material" ) {
 
@@ -8,7 +8,7 @@
         padding: 4px;
 
         .k-button {
-            @extend .k-button.k-flat;
+            @extend .k-button-flat;
             border-radius: 50%;
 
             &::before {
@@ -24,7 +24,7 @@
         padding: 0;
 
         .k-button {
-            @extend .k-button.k-flat;
+            @extend .k-button-flat;
             margin: 4px;
             border-radius: 50%;
 
@@ -33,6 +33,15 @@
             }
         }
 
+    }
+
+
+    // Selection
+    .k-spreadsheet .k-selection-full,
+    .k-spreadsheet .k-selection-partial {
+        &::after {
+            display: block;
+        }
     }
 
 }
@@ -62,7 +71,7 @@
     .k-spreadsheet-popup {
 
         .k-button {
-            @extend .k-button.k-flat;
+            @extend .k-button-flat;
 
             &::before {
                 display: block;

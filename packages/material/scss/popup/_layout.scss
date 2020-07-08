@@ -1,20 +1,18 @@
-$popup-border-width: 0;
-$popup-header-padding: $padding-y-lg $padding-x-lg !default;
-$popup-header-font-size: $font-size-sm !default;
-$popup-header-text: rgba($base-text, .54) !default;
-$popup-filter-padding-x: $padding-x;
-
-@import "~@progress/kendo-theme-default/scss/popup/layout";
+@import "~@progress/kendo-theme-default/scss/popup/_layout.scss";
 
 @include exports("popup/layout/material") {
 
     .k-popup {
-
         .k-group-header {
             text-transform: uppercase;
         }
+
         &.k-colorpicker-popup {
             padding: 0;
+        }
+
+        .k-outer-group-header {
+            line-height: $line-height-lg;
         }
     }
 
@@ -41,6 +39,13 @@ $popup-filter-padding-x: $padding-x;
         & > .k-icon {
             margin-top: -.5em;
             transform: none;
+        }
+    }
+
+    // Tooltip popup container padding
+    .k-animation-container-shown.k-tooltip-wrapper {
+        .k-popup-transparent {
+            padding: 0;
         }
     }
 }

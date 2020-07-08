@@ -1,4 +1,4 @@
-@import "~@progress/kendo-theme-default/scss/colorpicker/layout";
+@import "~@progress/kendo-theme-default/scss/colorpicker/_layout.scss";
 
 @include exports( "colorpicker/layout/material" ) {
 
@@ -8,7 +8,8 @@
         .k-selected-color {
             margin: 8px;
             padding: 0;
-            border: 1px solid rgba( 0, 0, 0, .08 );
+            border-width: 1px;
+            border-style: solid;
             width: ($button-line-height * 1em);
             height: ($button-line-height * 1em);
             overflow: visible;
@@ -32,6 +33,22 @@
                 height: 4px;
                 line-height: 0;
                 display: inline-block;
+            }
+        }
+
+        .k-picker-wrap {
+            border-width: 0 0 $input-border-width;
+            position: relative;
+
+            .k-select {
+                border-width: 0;
+                font-size: $font-size;
+            }
+
+            // Disabled
+            .k-state-disabled > &,
+            &.k-state-disabled {
+                border-bottom-style: dashed;
             }
         }
 

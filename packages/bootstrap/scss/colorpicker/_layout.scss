@@ -1,2 +1,26 @@
-@import "~@progress/kendo-theme-default/scss/colorpicker/layout";
+@import "~@progress/kendo-theme-default/scss/colorpicker/_layout.scss";
 
+@include exports("colorpicker/layout/bootstrap") {
+
+    .k-colorpicker {
+        .k-picker-wrap {
+            transition: $transition;
+
+            .k-select {
+                border-width: 0 0 0 $picker-select-border-width;
+                border-color: inherit;
+                transition: $transition;
+            }
+        }
+
+        .k-rtl &,
+        &[dir="rtl"] {
+            .k-picker-wrap {
+                .k-select {
+                    border-width: 0 $picker-select-border-width 0 0;
+                }
+            }
+        }
+    }
+
+}

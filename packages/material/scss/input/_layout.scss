@@ -1,59 +1,55 @@
-$checkbox-size: 20px !default;
-$checkbox-border-width: 2px !default;
-$checkbox-indeterminate-style: dash !default;
-$textbox-line-height: 1.375em !default;
-$textbox-shadow: none !default;
-$floating-label-transition: .4s cubic-bezier(.25, .8, .25, 1) !default;
+@import "~@progress/kendo-theme-default/scss/input/_layout.scss";
 
-@import "~@progress/kendo-theme-default/scss/input/layout";
+@include exports("input/layout/material") {
 
-@include exports("input/layout/checkbox-radiobutton/material") {
+    // Textbox, Textarea
+    .k-textbox,
+    .k-textarea {
 
-    // animate tick mark with max-width transition
-
-    .k-checkbox-label::after {
-        $check-icon-size: (2 * $icon-size) / 3;
-        font-size: $check-icon-size;
-        transition: max-width linear 280ms;
-        max-width: 0;
-        justify-content: flex-start;
-        text-indent: (($checkbox-size - $check-icon-size) / 2);
-
-        .k-checkbox:checked + &,
-        .k-checkbox:indeterminate + & {
-            max-width: $checkbox-size;
+        &:disabled {
+            border-style: dashed;
         }
     }
+    .k-textbox {
+        border-width: 0 0 $input-border-width;
+    }
+    .k-textarea {
+        @include border-radius( $border-radius );
+    }
+
+
+    // Input ripple
+    .k-textbox-container,
+    .k-floating-label-container {
+        @include input-ripple();
+    }
+
 
     // Textarea Floating label
     .k-textarea-wrapper {
         padding-top: 0;
 
-        .k-textarea {
-            padding: $textarea-padding-y $textarea-padding-x;
-
-            &:focus {
-                border-width: $input-border-width;
-            }
-        }
-
         > .k-label {
-            left: add-two($textarea-padding-x, $input-border-width);
+            top: calc( #{$textarea-padding-y} + #{$input-border-width} );
+            left: calc( #{$textarea-padding-x } + #{$input-border-width} );
         }
 
-        &::after {
-            // disable input ripple
-            display: none;
-        }
-
-        .k-rtl &,
-        &[dir="rtl"] {
-            &.k-textarea-wrapper {
-                > .k-label {
-                    left: auto;
-                    right: add-two($textarea-padding-x, $input-border-width);
-                }
+        &:not(.k-state-empty) {
+            > .k-label {
+                top: calc( #{$floating-label-height} + #{$input-border-width} + #{$input-padding-y} - 10px );
+                padding: 0 $textarea-floating-label-padding;
             }
+        }
+
+        // Disable input ripple
+        &::after { display: none; }
+    }
+    .k-rtl .k-textarea-wrapper,
+    .k-textarea-wrapper[dir="rtl"] {
+        > .k-label {
+            left: auto;
+            right: calc( #{$textarea-padding-x } + #{$input-border-width} );
         }
     }
+
 }

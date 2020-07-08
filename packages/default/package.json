@@ -1,7 +1,7 @@
 {
   "name": "@progress/kendo-theme-default",
   "description": "SASS resources for the default Kendo UI theme",
-  "version": "3.7.0",
+  "version": "4.19.0",
   "author": "Progress",
   "license": "Apache-2.0",
   "keywords": [
@@ -10,6 +10,11 @@
   ],
   "main": "dist/all.css",
   "sass": "scss/all.scss",
+  "files": [
+    "dist/",
+    "scss/",
+    "modules/"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/telerik/kendo-themes.git"
@@ -18,21 +23,19 @@
     "access": "public"
   },
   "scripts": {
-    "lint": "gulp lint",
-    "api": "gulp api",
-    "api-check": "npm run api && git diff --exit-code --quiet -- docs/ || (echo -e '\\033[0;31mERROR: API docs are out of date' && exit 1)",
-    "build": "gulp sass",
-    "watch": "gulp sass:watch",
-    "embed-assets": "gulp assets",
-    "swatches": "gulp swatches",
-    "test": "npm run lint && npm run build && npm run api-check",
-    "twbs-compat": "kendotheme build --file ./build/twbs-compat.scss",
-    "prepublishOnly": "npm run build && npm run swatches"
+    "sass": "gulp sass",
+    "sass:watch": "gulp sass:watch",
+    "sass:swatches": "gulp sass:swatches",
+    "sass:flat": "gulp sass:flat",
+    "dart": "gulp dart",
+    "dart:watch": "gulp dart:watch",
+    "dart:swatches": "gulp dart:swatches",
+    "dart:flat": "gulp dart:flat",
+    "twbs-compat": "gulp sass --file ./build/twbs-compat.scss",
+    "prepublishOnly": "echo 'no prebublish for default theme'"
   },
   "devDependencies": {
-    "@progress/kendo-theme-tasks": "^0.1.6",
-    "bootstrap": "^4.3.1",
-    "gulp": "^4.0.2",
-    "handlebars": "^4.0.10"
+    "@progress/kendo-theme-tasks": "^0.6.4",
+    "bootstrap": "^4.5.0"
   }
 }

@@ -11,7 +11,7 @@
         clear: both;
 
         .k-button {
-            @extend .k-button.k-flat;
+            @extend .k-button-flat;
             border-radius: $border-radius;
             flex: 0 1 auto;
             align-self: center;
@@ -30,6 +30,12 @@
             float: none;
         }
 
+    }
+
+    .k-popup > .k-action-buttons,
+    .k-popup > kendo-grid-columnlist > .k-action-buttons {
+        margin-top: $spacer;
+        margin-bottom: -$popup-padding-y;
     }
 
 }

@@ -1,16 +1,11 @@
-@import "~@progress/kendo-theme-default/scss/scheduler/layout";
+@import "~@progress/kendo-theme-default/scss/scheduler/_layout.scss";
 
 @include exports("scheduler/layout/material") {
 
 
-    .k-scheduler {
-        font-family: $font-family;
-    }
-
-
     // Header and footer
-    .k-scheduler-toolbar,
-    .k-scheduler-footer {
+    kendo-scheduler .k-scheduler-toolbar,
+    kendo-scheduler .k-scheduler-footer {
         line-height: $toolbar-line-height;
         text-transform: uppercase;
 
@@ -18,28 +13,44 @@
         li,
         li.k-state-hover,
         li.k-state-selected {
-            color: inherit;
-            background: none;
+            color: inherit !important; // sass-lint:disable-line no-important
+            background: none !important; // sass-lint:disable-line no-important
         }
 
-        li a {
-            @extend .k-button.k-flat;
+        li a,
+        li .k-link {
+            @extend .k-button-flat;
             padding: $toolbar-button-padding-y $toolbar-button-padding-x;
             display: flex;
             align-items: center;
             position: relative;
         }
-        li a::before {
-            @extend .k-button::before;
+        li a::before,
+        li .k-link::before {
+            @extend .k-button-overlay;
             display: block;
         }
-        li.k-state-selected a::before {
+
+        li:hover,
+        li.k-state-hover {
+            a::before,
+            .k-link::before {
+                @include opacity( $flat-button-hover-opacity );
+            }
+        }
+
+        li.k-state-selected a::before,
+        li.k-state-selected .k-link::before {
             @include opacity( $flat-button-selected-opacity );
         }
 
-        li.k-state-focused a::before {
+        li.k-state-focused a::before,
+        li.k-state-focused .k-link::before {
             @include opacity( $flat-button-focused-opacity );
         }
+    }
+    kendo-scheduler .k-scheduler-toolbar {
+        @include box-shadow( $toolbar-shadow );
     }
 
 
@@ -48,7 +59,7 @@
 
 
     // View switcher
-    .k-scheduler-views {
+    ul.k-scheduler-views {
 
         &.k-state-expanded {
             li {
@@ -84,6 +95,28 @@
     }
 
 
+    // Appointments
+    kendo-scheduler .k-event,
+    .k-event {
+
+        &.k-state-selected {
+            &::before {
+                display: block;
+            }
+        }
+
+        .k-event-template {
+            // Angular fix for stronger selector and smaller padding
+            & {
+                padding: $padding-y-sm $padding-x-sm;
+            }
+        }
+
+        .k-event-actions {
+            right: $padding-x-sm;
+        }
+    }
+
     $handle-size: 2px;
     $handle-half-size: $handle-size / 2;
     .k-event {
@@ -95,7 +128,7 @@
 
             .k-icon {
                 font-size: $font-size-sm;
-                padding: add-two($font-size, -$font-size-sm);
+                padding: calc( #{$font-size} - #{$font-size-sm} );
                 box-sizing: content-box;
                 vertical-align: unset;
             }
@@ -133,6 +166,24 @@
         border-width: 0;
         box-shadow: none;
     }
+
+    .k-scheduler-layout-flex .k-scheduler-cell {
+        min-height: $line-height-em;
+    }
+}
+
+
+
+
+@include exports("scheduler-views/layout/material") {
+
+    // Month view
+    .k-scheduler-monthview {
+        .k-scheduler-table td {
+            height: 85px;
+        }
+    }
+
 }
 
 

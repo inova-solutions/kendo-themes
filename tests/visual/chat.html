@@ -3,13 +3,16 @@
 <head>
     <title>Chat</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../packages/default/dist/all.css" />
+    <link rel="stylesheet" data-role="kendo-theme" href="../../packages/default/dist/all.css" />
     <link rel="stylesheet" href="assets/styles.css" />
     <script src="assets/scripts.js"></script>
 
     <style>
         #test-area {
             grid-template-columns: repeat(2, 1fr);
+        }
+        .k-chat {
+            max-width: 482px;
         }
     </style>
 </head>
@@ -101,7 +104,7 @@
                         </svg>
                     </button>
                 </div>
-                <div class="k-toolbar-box" role="toolbar" style="display: block; height: auto; overflow: hidden;" data-role="chattoolbar">
+                <div class="k-toolbar-box" style="display: block; height: auto; overflow: hidden;">
                     <button class="k-scroll-button k-scroll-button-left chatToolbarScrollLeft k-button k-button-icon" type="button" style="display: none;">
                         <span class="k-icon k-i-arrow-chevron-left"></span>
                     </button>
