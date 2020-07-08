@@ -1,14 +1,14 @@
-@import '_variables_inova-DarkBlue';
+@import "_variables_inova-DarkBlue";
 $theme-dark-blue: $theme;
-@import '_variables_inova-DarkPink';
+@import "_variables_inova-DarkPink";
 $theme-dark-pink: $theme;
-@import '_variables_inova-GrayBlue';
+@import "_variables_inova-GrayBlue";
 $theme-gray-blue: $theme;
-@import '_variables_inova-GrayPink';
+@import "_variables_inova-GrayPink";
 $theme-gray-pink: $theme;
-@import '_variables_inova-OliveBlue';
+@import "_variables_inova-OliveBlue";
 $theme-olive-blue: $theme;
-@import '_variables_inova-OlivePink';
+@import "_variables_inova-OlivePink";
 $theme-olive-pink: $theme;
 
 $themes: (
@@ -17,7 +17,7 @@ $themes: (
     gray-blue: $theme-gray-blue,
     gray-pink: $theme-gray-pink,
     olive-blue: $theme-olive-blue,
-    olive-pink: $theme-olive-pink
+    olive-pink: $theme-olive-pink,
 );
 
 @mixin themify() {
@@ -25,11 +25,11 @@ $themes: (
         .theme-#{$theme} {
             $theme-map: () !global;
             @each $key, $submap in $map {
-                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $value: map-get(map-get($themes, $theme), "#{$key}");
                 $theme-map: map-merge(
                     $theme-map,
                     (
-                        $key: $value
+                        $key: $value,
                     )
                 ) !global;
             }
@@ -85,43 +85,43 @@ body {
 }
 
 $variables: (
-    --k-accent:           var(--k-accent           ),
-    --k-accent-contrast:  var(--k-accent-contrast  ),
-    --k-info:             var(--k-info             ),
-    --k-success:          var(--k-success          ),
-    --k-warning:          var(--k-warning          ),
-    --k-error:            var(--k-error            ),
-    --k-text-color:       var(--k-text-color       ),
-    --k-bg-color:         var(--k-bg-color         ),
-    --k-base-text:        var(--k-base-text        ),
-    --k-base-bg:          var(--k-base-bg          ),
-    --k-base-border:      var(--k-base-border      ),
-    --k-base-gradient:    var(--k-base-gradient    ),
-    --k-hovered-text:     var(--k-hovered-text     ),
-    --k-hovered-bg:       var(--k-hovered-bg       ),
-    --k-hovered-border:   var(--k-hovered-border   ),
-    --k-hovered-gradient: var(--k-hovered-gradient ),
-    --k-selected-text:    var(--k-selected-text    ),
-    --k-selected-bg:      var(--k-selected-bg      ),
-    --k-selected-border:  var(--k-selected-border  ),
-    --inovaPink:          var(--inovaPink          ),
-    --inovaBlue:          var(--inovaBlue          ),
-    --inovaOliv:          var(--inovaOliv          ),
-    --inovaOlivMedium:    var(--inovaOlivMedium    ),
-    --inovaOlivLight:     var(--inovaOlivLight     ),
-    --colorAccent:        var(--colorAccent        ),
-    --colorBorder:        var(--colorBorder        ),
-    --color1:             var(--color1             ),
-    --color2:             var(--color2             ),
-    --color3:             var(--color3             ),
-    --colorFont:          var(--colorFont          ),
-    --colorIcon1:         var(--colorIcon1         ),
-    --colorIcon2:         var(--colorIcon2         ),
-    --colorWidgetInset:   var(--colorWidgetInset   ),
-    --colorError:         var(--colorError         ),
-    --colorWarning:       var(--colorWarning       ),
-    --colorSuccess:       var(--colorSuccess       ),
-    --colorInfo:          var(--colorInfo          )
+    --k-accent: var(--k-accent),
+    --k-accent-contrast: var(--k-accent-contrast),
+    --k-info: var(--k-info),
+    --k-success: var(--k-success),
+    --k-warning: var(--k-warning),
+    --k-error: var(--k-error),
+    --k-text-color: var(--k-text-color),
+    --k-bg-color: var(--k-bg-color),
+    --k-base-text: var(--k-base-text),
+    --k-base-bg: var(--k-base-bg),
+    --k-base-border: var(--k-base-border),
+    --k-base-gradient: var(--k-base-gradient),
+    --k-hovered-text: var(--k-hovered-text),
+    --k-hovered-bg: var(--k-hovered-bg),
+    --k-hovered-border: var(--k-hovered-border),
+    --k-hovered-gradient: var(--k-hovered-gradient),
+    --k-selected-text: var(--k-selected-text),
+    --k-selected-bg: var(--k-selected-bg),
+    --k-selected-border: var(--k-selected-border),
+    --inovaPink: var(--inovaPink),
+    --inovaBlue: var(--inovaBlue),
+    --inovaOliv: var(--inovaOliv),
+    --inovaOlivMedium: var(--inovaOlivMedium),
+    --inovaOlivLight: var(--inovaOlivLight),
+    --colorAccent: var(--colorAccent),
+    --colorBorder: var(--colorBorder),
+    --color1: var(--color1),
+    --color2: var(--color2),
+    --color3: var(--color3),
+    --colorFont: var(--colorFont),
+    --colorIcon1: var(--colorIcon1),
+    --colorIcon2: var(--colorIcon2),
+    --colorWidgetInset: var(--colorWidgetInset),
+    --colorError: var(--colorError),
+    --colorWarning: var(--colorWarning),
+    --colorSuccess: var(--colorSuccess),
+    --colorInfo: var(--colorInfo),
 );
 
 @function var($variable) {

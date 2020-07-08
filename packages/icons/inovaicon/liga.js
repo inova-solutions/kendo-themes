@@ -239,7 +239,7 @@
             'steps': '&#xe833;',
             'user': '&#xe71e;',
             'persona': '&#xe71e;',
-          '0': 0
+            '0': 0
         };
         delete icons['0'];
         window.icomoonLiga = function (els) {

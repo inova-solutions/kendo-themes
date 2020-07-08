@@ -12,12 +12,21 @@
     "rules": {
         "no-unexpected-multiline": "error",
         "block-scoped-var": "error",
-        "complexity": [ 1, 15 ],
+        "complexity": [
+            1,
+            15
+        ],
         "consistent-return": "error",
         "curly": "error",
         "default-case": "error",
-        "dot-location": ["error", "property"],
-        "eqeqeq": ["error", "smart"],
+        "dot-location": [
+            "error",
+            "property"
+        ],
+        "eqeqeq": [
+            "error",
+            "smart"
+        ],
         "no-alert": "error",
         "no-caller": "error",
         "no-console": "error",
@@ -37,27 +46,82 @@
         "no-return-assign": "error",
         "no-sequences": "error",
         "no-useless-call": "error",
-        "array-bracket-spacing": ["error", "always"],
-        "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+        "array-bracket-spacing": [
+            "off",
+            "always"
+        ],
+        "brace-style": [
+            "error",
+            "1tbs",
+            {
+                "allowSingleLine": true
+            }
+        ],
         "camelcase": "error",
         "comma-style": "error",
-        "consistent-this": ["error", "that"],
-        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "consistent-this": [
+            "error",
+            "that"
+        ],
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
         "jsx-quotes": "error",
-        "key-spacing": ["error", { "beforeColon": false, "afterColon": true }],
-        "keyword-spacing": ["error", { "before": true, "after": true }],
-        "linebreak-style": ["error", "unix"],
-        "max-params": ["error", 4],
-        "no-multiple-empty-lines": ["error", {"max": 2}],
+        "key-spacing": [
+            "error",
+            {
+                "beforeColon": false,
+                "afterColon": true
+            }
+        ],
+        "keyword-spacing": [
+            "error",
+            {
+                "before": true,
+                "after": true
+            }
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "max-params": [
+            "error",
+            4
+        ],
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 2
+            }
+        ],
         "no-nested-ternary": "error",
         "no-spaced-func": "error",
         "no-trailing-spaces": "error",
-        "object-curly-spacing": ["error", "always"],
-        "semi": [ "error", "always" ],
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
         "semi-spacing": "error",
         "space-before-blocks": "error",
-        "space-before-function-paren": ["error", "never"],
-        "space-infix-ops": ["error", {"int32Hint": false} ],
+        "space-before-function-paren": [
+            "off",
+            "never"
+        ],
+        "space-infix-ops": [
+            "error",
+            {
+                "int32Hint": false
+            }
+        ],
         "arrow-body-style": "error",
         "no-confusing-arrow": "error",
         "no-class-assign": "error",
@@ -65,11 +129,19 @@
         "no-dupe-class-members": "error",
         "no-this-before-super": "error",
         "no-var": "error",
-        "yoda": ["error", "never", { "exceptRange": true }]
+        "yoda": [
+            "error",
+            "never",
+            {
+                "exceptRange": true
+            }
+        ]
     },
     "overrides": [
         {
-            "files": ["tests/**/*.js"],
+            "files": [
+                "tests/**/*.js"
+            ],
             "globals": {
                 "QUnit": "writable",
                 "TestHelper": "writable",
