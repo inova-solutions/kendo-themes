@@ -48,7 +48,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint",
-      "pre-push": "npm run lint && npm run sass && npm run docs:check",
+      "pre-push": "npm run lint && npm run buildinova && npm run docs:check",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
