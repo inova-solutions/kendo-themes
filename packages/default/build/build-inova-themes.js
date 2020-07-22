@@ -1,24 +1,20 @@
-const execSync = require('child_process').execSync;
-const ncp = require('ncp').ncp;
-const fs = require('fs-extra');
-const sass = require('node-sass');
-const CleanCSS = require('clean-css');
+const execSync = require("child_process").execSync;
+const ncp = require("ncp").ncp;
+const fs = require("fs-extra");
+const sass = require("node-sass");
+const CleanCSS = require("clean-css");
 const distPath = `dist`;
 const inovaIconsPath = `../icons/inovaicon.css`;
 const invoaFontPath = `../default/scss/_inova_font.scss`;
 const defaultVariables = `build\\_variables.scss`;
-let allScss = '';
+let allScss = "";
 let fontFace = null;
-let inovaIconsCss = '';
-const themes = [
-    'OlivePink',
-    'GrayPink',
-    'DarkPink',
-];
+let inovaIconsCss = "";
+const themes = ["Dark", "Light"];
 
 try {
     fs.removeSync(`${distPath}`);
-} catch (e) { }
+} catch (e) {}
 fs.mkdirSync(`${distPath}`);
 
 //Read inovaicons css
@@ -29,8 +25,8 @@ inovaIconsCss = fs.readFileSync(`${inovaIconsPath}`).toString();
  * For each theme rename _variables_inova-<theme>.scss to _variables.scss and start
  * npm run build
  */
-themes.forEach(theme => {
-    console.log('\x1b[45m\x1b[37m', `Building Theme '${theme}'`, '\x1b[0m');
+themes.forEach((theme) => {
+    console.log("\x1b[45m\x1b[37m", `Building Theme '${theme}'`, "\x1b[0m");
 
     const origThemeVars = `scss\\_variables_inova-${theme}.scss`;
     const tmpThemeVars = `scss\\_variables.scss`;
@@ -43,7 +39,7 @@ themes.forEach(theme => {
     // fs.removeSync(tmpBootstrapFile);
     // fs.copyFileSync(origBootstrapFile, tmpBootstrapFile);
     execSync(`npm run sass`, {
-        stdio: 'inherit'
+        stdio: "inherit",
     });
 
     //delete unnecessary files
@@ -105,13 +101,15 @@ const inovaFont = fs.readFileSync(invoaFontPath).toString();
 
 //compile css with all themes
 let allCss = sass.renderSync({
-    data: allScss
+    data: allScss,
 }).css;
-allCss = inovaFont + ' ' + fontFace + ' ' + allCss;
-allCss += ' ' + inovaIconsCss;
+allCss = inovaFont + " " + fontFace + " " + allCss;
+allCss += " " + inovaIconsCss;
 fs.writeFileSync(`${distPath}/all.css`, allCss);
-fs.writeFileSync(`${distPath}/all.min.css`, new CleanCSS({}).minify(allCss).styles);
-
+fs.writeFileSync(
+    `${distPath}/all.min.css`,
+    new CleanCSS({}).minify(allCss).styles
+);
 
 //create package.json
 fs.copyFileSync(`build/inova-themes-package.json`, `${distPath}/package.json`);
@@ -119,13 +117,12 @@ fs.copyFileSync(`build/inova-themes-package.json`, `${distPath}/package.json`);
 //build and copy InovaTheme js to dist
 try {
     execSync(`tsc scripts/InovaTheme.ts -m "es2015" -t "es5"`, {
-        stdio: 'inherit'
+        stdio: "inherit",
     });
-} catch (e) { }
+} catch (e) {}
 
 fs.copyFileSync(`scripts/InovaTheme.js`, `${distPath}/InovaTheme.js`);
 fs.removeSync(`scripts/InovaTheme.js`);
-
 
 //copy all scss files to dist
 fs.removeSync(`${distPath}/common`);
@@ -138,5 +135,5 @@ ncp(`scss`, `${distPath}/common/scss`, function (err) {
         `@import 'common/scss/themify';`
     );
 
-    console.log('\n', '\x1b[42m\x1b[37m', `Build Successful!`, '\x1b[0m');
+    console.log("\n", "\x1b[42m\x1b[37m", `Build Successful!`, "\x1b[0m");
 });

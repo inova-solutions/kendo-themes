@@ -1,23 +1,11 @@
-@import "_variables_inova-DarkBlue";
-$theme-dark-blue: $theme;
-@import "_variables_inova-DarkPink";
-$theme-dark-pink: $theme;
-@import "_variables_inova-GrayBlue";
-$theme-gray-blue: $theme;
-@import "_variables_inova-GrayPink";
-$theme-gray-pink: $theme;
-@import "_variables_inova-OliveBlue";
-$theme-olive-blue: $theme;
-@import "_variables_inova-OlivePink";
-$theme-olive-pink: $theme;
+@import "_variables_inova-Dark";
+$theme-dark: $theme;
+@import "_variables_inova-Light";
+$theme-light: $theme;
 
 $themes: (
-    dark-blue: $theme-dark-blue,
-    dark-pink: $theme-dark-pink,
-    gray-blue: $theme-gray-blue,
-    gray-pink: $theme-gray-pink,
-    olive-blue: $theme-olive-blue,
-    olive-pink: $theme-olive-pink,
+    dark: $theme-dark,
+    light: $theme-light,
 );
 
 @mixin themify() {
@@ -66,9 +54,9 @@ body {
     --k-selected-border: $dummy;
     --inovaPink: $dummy;
     --inovaBlue: $dummy;
-    --inovaOliv: $dummy;
-    --inovaOlivMedium: $dummy;
-    --inovaOlivLight: $dummy;
+    --inovaGray: $dummy;
+    --inovaGrayMedium: $dummy;
+    --inovaGrayLight: $dummy;
     --colorAccent: $dummy;
     --colorBorder: $dummy;
     --color1: $dummy;
@@ -106,9 +94,9 @@ $variables: (
     --k-selected-border: var(--k-selected-border),
     --inovaPink: var(--inovaPink),
     --inovaBlue: var(--inovaBlue),
-    --inovaOliv: var(--inovaOliv),
-    --inovaOlivMedium: var(--inovaOlivMedium),
-    --inovaOlivLight: var(--inovaOlivLight),
+    --inovaGray: var(--inovaGray),
+    --inovaGrayMedium: var(--inovaGrayMedium),
+    --inovaGrayLight: var(--inovaGrayLight),
     --colorAccent: var(--colorAccent),
     --colorBorder: var(--colorBorder),
     --color1: var(--color1),

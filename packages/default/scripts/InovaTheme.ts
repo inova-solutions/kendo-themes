@@ -10,10 +10,11 @@ const InovaTheme = (function () {
 
   const colors = {
     inova_pink: "#e81e75",
+    inova_pink_lighter: "#f290b6",
     inova_blue: "#1e98e8",
-    inova_oliv: "#323232",
-    inova_oliv_medium: "#c4c4c4",
-    inova_oliv_light: "#e8e8e8",
+    inova_gray: "#323232",
+    inova_gray_medium: "#c4c4c4",
+    inova_gray_light: "#e8e8e8",
     inova_red: "#dc3535",
     inova_orange: "#fd7e14",
     inova_yellow: "#ffc107",
@@ -322,14 +323,14 @@ const InovaTheme = (function () {
     themeWrapper.style.setProperty("--color-accent", accent);
     themeWrapper.style.setProperty("--inova-pink", colors.inova_pink);
     themeWrapper.style.setProperty("--inova-blue", colors.inova_blue);
-    themeWrapper.style.setProperty("--inova-oliv", colors.inova_oliv);
+    themeWrapper.style.setProperty("--inova-gray", colors.inova_gray);
     themeWrapper.style.setProperty(
-      "--inova-oliv-medium",
-      colors.inova_oliv_medium
+      "--inova-gray-medium",
+      colors.inova_gray_medium
     );
     themeWrapper.style.setProperty(
-      "--inova-oliv-light",
-      colors.inova_oliv_light
+      "--inova-gray-light",
+      colors.inova_gray_light
     );
 
     themeWrapper.style.setProperty("--k-series-a", colors.inova_series_a);
@@ -356,8 +357,9 @@ const InovaTheme = (function () {
   /**
    * Basiert auf Base Theme
    */
-  const loadDarkTheme = function (accent: any) {
-    const hoveredBg = "#555555";
+  const loadDarkTheme = function () {
+    const hoveredBg = "#555555",
+      accent = colors.inova_pink_lighter;
     loadBaseTheme(accent);
     themeWrapper.style.setProperty("--k-text-color", colors.dark_base_text);
     themeWrapper.style.setProperty("--k-bg-color", colors.dark_bg_color);
@@ -401,13 +403,17 @@ const InovaTheme = (function () {
       colors.dark_bg_color
     );
     themeWrapper.style.setProperty("--color-shadow", colors.dark_shadow_color);
+
+    removeCurrentThemeClass();
+    document.body.classList.add("theme-dark");
   };
 
   /**
    * Basiert auf Base Theme
    */
-  const loadOliveTheme = function (accent: any) {
-    const hoveredBg = "#efebe6";
+  const loadLightTheme = function () {
+    const hoveredBg = "#efebe6",
+      accent = colors.inova_pink;
     loadBaseTheme(accent);
     themeWrapper.style.setProperty("--k-text-color", colors.light_text_color);
     themeWrapper.style.setProperty("--k-bg-color", colors.light_bg_color);
@@ -437,8 +443,8 @@ const InovaTheme = (function () {
     themeWrapper.style.setProperty("--k-selected-border", "rgba(0,0,0,0.14)");
     themeWrapper.style.setProperty("--color-border", "#cccccc");
     themeWrapper.style.setProperty("--color1", colors.light_bg_color);
-    themeWrapper.style.setProperty("--color2", colors.inova_oliv_light);
-    themeWrapper.style.setProperty("--color3", colors.inova_oliv_medium);
+    themeWrapper.style.setProperty("--color2", colors.inova_gray_light);
+    themeWrapper.style.setProperty("--color3", colors.inova_gray_medium);
     themeWrapper.style.setProperty("--color-font", colors.light_text_color);
     themeWrapper.style.setProperty(
       "--color-font-soft",
@@ -455,44 +461,9 @@ const InovaTheme = (function () {
     themeWrapper.style.setProperty("--color-success-light", "#eaf7ec");
     themeWrapper.style.setProperty("--color-info-light", "#e5f5fa");
     themeWrapper.style.setProperty("--color-shadow", colors.light_shadow_color);
-  };
 
-  /**
-   * Basiert auf Olive Theme
-   */
-  const loadGrayTheme = function (accent: any) {
-    const hoveredBg = "#ededed";
-    loadOliveTheme(accent);
-    themeWrapper.style.setProperty("--k-text-color", colors.gray_text_color);
-    themeWrapper.style.setProperty("--k-base-text", colors.gray_base_text);
-    themeWrapper.style.setProperty("--k-base-bg", colors.gray_base_bg);
-    themeWrapper.style.setProperty(
-      "--k-base-bg-darker",
-      colors.gray_base_bg_darker
-    );
-    themeWrapper.style.setProperty(
-      "--k-base-bg-lighter",
-      colors.gray_base_bg_lighter
-    );
-    themeWrapper.style.setProperty("--k-base-border", colors.gray_base_border);
-    themeWrapper.style.setProperty(
-      "--k-base-gradient",
-      colors.gray_base_bg + "," + pSBC(-0.02, colors.gray_base_bg)
-    );
-    themeWrapper.style.setProperty("--k-hovered-text", "#656565");
-    themeWrapper.style.setProperty("--k-hovered-bg", hoveredBg);
-    themeWrapper.style.setProperty("--k-hovered-border", "rgba(0,0,0,0.15)");
-    themeWrapper.style.setProperty(
-      "--k-hovered-gradient",
-      hoveredBg,
-      pSBC(-0.02, hoveredBg)
-    );
-    themeWrapper.style.setProperty("--k-selected-border", "rgba(0,0,0,0.1)");
-    themeWrapper.style.setProperty("--color-border", "#cccccc");
-    themeWrapper.style.setProperty("--color2", "#ebebeb");
-    themeWrapper.style.setProperty("--color3", "#cecece");
-    themeWrapper.style.setProperty("--color-font", colors.inova_oliv);
-    themeWrapper.style.setProperty("--color-shadow", colors.gray_shadow_color);
+    removeCurrentThemeClass();
+    document.body.classList.add("theme-light");
   };
 
   const removeCurrentThemeClass = () => {
@@ -504,69 +475,22 @@ const InovaTheme = (function () {
     }
   };
 
-  const loadDarkBlue = () => {
-    loadDarkTheme(colors.inova_blue);
-    removeCurrentThemeClass();
-    document.body.classList.add("theme-darkblue");
-  };
-  const loadDarkPink = () => {
-    loadDarkTheme(colors.inova_pink);
-    removeCurrentThemeClass();
-    document.body.classList.add("theme-darkpink");
-  };
-  const loadGrayBlue = () => {
-    loadGrayTheme(colors.inova_blue);
-    removeCurrentThemeClass();
-    document.body.classList.add("theme-grayblue");
-  };
-  const loadGrayPink = () => {
-    loadGrayTheme(colors.inova_pink);
-    removeCurrentThemeClass();
-    document.body.classList.add("theme-graypink");
-  };
-  const loadOliveBlue = () => {
-    loadOliveTheme(colors.inova_blue);
-    removeCurrentThemeClass();
-    document.body.classList.add("theme-oliveblue");
-  };
-  const loadOlivePink = () => {
-    loadOliveTheme(colors.inova_pink);
-    removeCurrentThemeClass();
-    document.body.classList.add("theme-olivepink");
-  };
-
   /**
    * Veröffentlicht werden die Funktionen um die Jeweiligen Themes zu laden
    */
   return {
     load: function (themeName: string) {
       switch (themeName) {
-        case "dark-blue":
-          loadDarkBlue();
+        case "dark":
+          loadDarkTheme();
           break;
-        case "dark-pink":
-          loadDarkPink();
-          break;
-        case "gray-blue":
-          loadGrayBlue();
-          break;
-        case "gray-pink":
-          loadGrayPink();
-          break;
-        case "olive-blue":
-          loadOliveBlue();
-          break;
-        case "olive-pink":
-          loadOlivePink();
+        case "light":
+          loadLightTheme();
           break;
       }
     },
-    loadDarkBlue: loadDarkBlue,
-    loadDarkPink: loadDarkPink,
-    loadGrayBlue: loadGrayBlue,
-    loadGrayPink: loadGrayPink,
-    loadOliveBlue: loadOliveBlue,
-    loadOlivePink: loadOlivePink,
+    loadDarkTheme: loadDarkTheme,
+    loadLightTheme: loadLightTheme,
   };
 })();
 (<any>window).InovaTheme = InovaTheme;
@@ -574,29 +498,17 @@ const InovaTheme = (function () {
 /**
  * Falls innerhalb des alten inova-Desktops (d.h. wenn inovaGlobal.theme gesetzt ist)
  * wird die entsprechende Theme Funktion aufgerufen.
- * Ansonsten wird das Olive Pink theme aufgerufen.
+ * Ansonsten wird das Light theme aufgerufen.
  */
 if ((<any>window).inovaGlobal && (<any>window).inovaGlobal.theme) {
   switch ((<any>window).inovaGlobal.theme) {
-    case "OlivePink":
-      InovaTheme.loadOlivePink();
+    case "Dark":
+      InovaTheme.loadDarkTheme();
       break;
-    case "OliveBlue":
-      InovaTheme.loadOliveBlue();
-      break;
-    case "GrayPink":
-      InovaTheme.loadGrayPink();
-      break;
-    case "GrayBlue":
-      InovaTheme.loadGrayBlue();
-      break;
-    case "DarkPink":
-      InovaTheme.loadDarkPink();
-      break;
-    case "DarkBlue":
-      InovaTheme.loadDarkBlue();
+    case "Light":
+      InovaTheme.loadLightTheme();
       break;
   }
 } else {
-  InovaTheme.loadOlivePink();
+  InovaTheme.loadLightTheme();
 }
