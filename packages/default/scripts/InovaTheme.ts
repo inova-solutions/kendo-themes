@@ -359,7 +359,7 @@ const InovaTheme = (function () {
    */
   const loadDarkTheme = function () {
     const hoveredBg = "#555555",
-      accent = colors.inova_pink_lighter;
+      accent = colors.inova_pink;
     loadBaseTheme(accent);
     themeWrapper.style.setProperty("--k-text-color", colors.dark_base_text);
     themeWrapper.style.setProperty("--k-bg-color", colors.dark_bg_color);
