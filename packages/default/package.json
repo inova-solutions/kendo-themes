@@ -43,6 +43,9 @@
     "ncp": "^2.0.0",
     "gulp": "^4.0.2",
     "@progress/kendo-theme-tasks": "^0.6.4",
-    "bootstrap": "^4.5.0"
+    "bootstrap": "^4.5.0",
+    "fs-extra": "^9.0.1",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.9.7"
   }
 }
