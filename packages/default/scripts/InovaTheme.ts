@@ -406,6 +406,7 @@ const InovaTheme = (function () {
 
     removeCurrentThemeClass();
     document.body.classList.add("theme-dark");
+    document.body.classList.add("theme-darkpink");
   };
 
   /**
@@ -464,6 +465,7 @@ const InovaTheme = (function () {
 
     removeCurrentThemeClass();
     document.body.classList.add("theme-light");
+    document.body.classList.add("theme-olivepink");
   };
 
   const removeCurrentThemeClass = () => {
@@ -503,9 +505,13 @@ const InovaTheme = (function () {
 if ((<any>window).inovaGlobal && (<any>window).inovaGlobal.theme) {
   switch ((<any>window).inovaGlobal.theme) {
     case "Dark":
+    /** Damit die Themes im alten Desktop funktionieren */
+    case "DarkPink":
       InovaTheme.loadDarkTheme();
       break;
     case "Light":
+    /** Damit die Themes im alten Desktop funktionieren */
+    case "OlivePink":
       InovaTheme.loadLightTheme();
       break;
   }
