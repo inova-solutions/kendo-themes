@@ -116,7 +116,7 @@ fs.copyFileSync(`build/inova-themes-package.json`, `${distPath}/package.json`);
 
 //build and copy InovaTheme js to dist
 try {
-    execSync(`tsc scripts/InovaTheme.ts -m "es2015" -t "es5"`, {
+    execSync(`tsc scripts/InovaTheme.ts -m "system" -t "es5"`, {
         stdio: "inherit",
     });
 } catch (e) {}

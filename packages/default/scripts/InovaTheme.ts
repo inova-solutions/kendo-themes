@@ -10,6 +10,7 @@ const InovaTheme = (function () {
 
   const colors = {
     inova_pink: "#e81e75",
+    inova_pink_rgb: "232, 30, 117",
     inova_pink_lighter: "#f290b6",
     inova_blue: "#1e98e8",
     inova_gray: "#323232",
@@ -23,6 +24,7 @@ const InovaTheme = (function () {
     inova_purple: "#b046be",
     inova_cyan: "#00bad8",
     light_text_color: "#222222",
+    light_text_color_rgb: "34, 34, 34",
     light_text_color_inverse: "#ffffff",
     light_bg_color: "#ffffff",
     light_base_text: "#222222",
@@ -43,6 +45,7 @@ const InovaTheme = (function () {
     gray_base_border: "rgba(0,0,0,0.08)",
     gray_shadow_color: "#9e9e9e",
     dark_text_color: "#f6f6f6",
+    dark_text_color_rgb: "246, 246, 246",
     dark_text_color_inverse: "#f6f6f6",
     dark_bg_color: "#333",
     dark_base_text: "#f6f6f6",
@@ -352,6 +355,9 @@ const InovaTheme = (function () {
     themeWrapper.style.setProperty("--color-warning", colors.inova_yellow);
     themeWrapper.style.setProperty("--color-success", colors.inova_green);
     themeWrapper.style.setProperty("--color-info", colors.inova_cyan);
+
+    themeWrapper.style.setProperty("--color-accent-rgb", colors.inova_pink_rgb);
+    themeWrapper.style.setProperty("--color-font-rgb", colors.light_text_color_rgb);
   };
 
   /**
@@ -403,6 +409,8 @@ const InovaTheme = (function () {
       colors.dark_bg_color
     );
     themeWrapper.style.setProperty("--color-shadow", colors.dark_shadow_color);
+
+    themeWrapper.style.setProperty("--color-font-rgb", colors.dark_text_color_rgb);
 
     removeCurrentThemeClass();
     document.body.classList.add("theme-dark");
