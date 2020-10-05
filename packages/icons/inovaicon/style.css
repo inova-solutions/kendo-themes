@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'inovaicon';
   src:
-    url('fonts/inovaicon.ttf?fi7anv') format('truetype'),
-    url('fonts/inovaicon.woff?fi7anv') format('woff'),
-    url('fonts/inovaicon.svg?fi7anv#inovaicon') format('svg');
+    url('fonts/inovaicon.ttf?74vxjr') format('truetype'),
+    url('fonts/inovaicon.woff?74vxjr') format('woff'),
+    url('fonts/inovaicon.svg?74vxjr#inovaicon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -429,4 +429,13 @@
 }
 .i-i-split-window:before {
   content: "\e685";
+}
+.i-i-snippet:before {
+  content: "\e686";
+}
+.i-i-snippet-add-v2:before {
+  content: "\e687";
+}
+.i-i-snippet-add:before {
+  content: "\e688";
 }
