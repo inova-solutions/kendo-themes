@@ -23,6 +23,23 @@ const InovaTheme = (function () {
     inova_indigo: "#6610f2",
     inova_purple: "#b046be",
     inova_cyan: "#00bad8",
+    inova_palette_faded_red: "#E9A6A5",
+    inova_palette_faded_orange: "#EFCDA8",
+    inova_palette_faded_yellow: "#F5F4AC",
+    inova_palette_faded_lime: "#D4F3AB",
+    inova_palette_faded_green: "#B5F2AB",
+    inova_palette_faded_turquoise: "#B5F2CE",
+    inova_palette_faded_pink: "#E9A7CA",
+    inova_palette_faded_violet: "#EFBCF5",
+    inova_palette_faded_purple: "#D3BAF5",
+    inova_palette_faded_indigo: "#B8B9F4",
+    inova_palette_faded_blue: "#BED8F6",
+    inova_palette_faded_mint: "#C5F7F8",
+    inova_palette_faded_white: "#FFFFFF",
+    inova_palette_faded_gray1: "#E6E6E6",
+    inova_palette_faded_gray2: "#CCCCCC",
+    inova_palette_faded_gray3: "#B3B3B3",
+    inova_palette_faded_font: "#222222",
     light_text_color: "#222222",
     light_text_color_rgb: "34, 34, 34",
     light_text_color_inverse: "#ffffff",
@@ -358,6 +375,24 @@ const InovaTheme = (function () {
 
     themeWrapper.style.setProperty("--color-accent-rgb", colors.inova_pink_rgb);
     themeWrapper.style.setProperty("--color-font-rgb", colors.light_text_color_rgb);
+
+    themeWrapper.style.setProperty("--i-palette-faded-red", colors.inova_palette_faded_red);
+    themeWrapper.style.setProperty("--i-palette-faded-orange", colors.inova_palette_faded_orange);
+    themeWrapper.style.setProperty("--i-palette-faded-yellow", colors.inova_palette_faded_yellow);
+    themeWrapper.style.setProperty("--i-palette-faded-lime", colors.inova_palette_faded_lime);
+    themeWrapper.style.setProperty("--i-palette-faded-green", colors.inova_palette_faded_green);
+    themeWrapper.style.setProperty("--i-palette-faded-turquoise", colors.inova_palette_faded_turquoise);
+    themeWrapper.style.setProperty("--i-palette-faded-pink", colors.inova_palette_faded_pink);
+    themeWrapper.style.setProperty("--i-palette-faded-violet", colors.inova_palette_faded_violet);
+    themeWrapper.style.setProperty("--i-palette-faded-purple", colors.inova_palette_faded_purple);
+    themeWrapper.style.setProperty("--i-palette-faded-indigo", colors.inova_palette_faded_indigo);
+    themeWrapper.style.setProperty("--i-palette-faded-blue", colors.inova_palette_faded_blue);
+    themeWrapper.style.setProperty("--i-palette-faded-mint", colors.inova_palette_faded_mint);
+    themeWrapper.style.setProperty("--i-palette-faded-white", colors.inova_palette_faded_white);
+    themeWrapper.style.setProperty("--i-palette-faded-gray1", colors.inova_palette_faded_gray1);
+    themeWrapper.style.setProperty("--i-palette-faded-gray2", colors.inova_palette_faded_gray2);
+    themeWrapper.style.setProperty("--i-palette-faded-gray3", colors.inova_palette_faded_gray3);
+    themeWrapper.style.setProperty("--i-palette-faded-font", colors.inova_palette_faded_font);
   };
 
   /**
