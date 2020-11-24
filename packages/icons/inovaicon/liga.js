@@ -27,8 +27,6 @@
         icons = {
             'sort-alpha-asc': '&#xe9b5;',
             'sort': '&#xe9b5;',
-            'sort-alpha-desc': '&#xe9b6;',
-            'sort2': '&#xe9b6;',
             'sun': '&#xe647;',
             'brightness2': '&#xe647;',
             'presentation': '&#xe6f6;',
