@@ -50,10 +50,10 @@ jobs:
       chrome: stable
       firefox: latest
     install:
-      - npm ci
-      - npm run bootstrap
+      - npm installinova
+      - lerna bootstrap --concurrency=1
     script:
-      - set -e
+      - npm run buildinova
       - npm run sass:flat
       - npm run pre-tests
       - npm run karma-travis
