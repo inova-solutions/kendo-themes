@@ -78,6 +78,9 @@ const InovaTheme = (function () {
     inova_series_d: "#28b4c8",
     inova_series_e: "#2d73f5",
     inova_series_f: "#aa46be",
+    inova_series_b_light: "rgba(255,210,70,0.45)",
+    inova_series_a_light: "rgba(231,31,108,0.35)",
+    inova_series_e_light: "rgba(45,115,245,0.3)",
   };
 
   /**
@@ -278,15 +281,13 @@ const InovaTheme = (function () {
     // from https://stackoverflow.com/a/5624139
     // expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
     const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-    hex = hex.replace(shorthandRegex, function (
-      m: any,
-      r: any,
-      g: any,
-      b: any
-    ) {
-      m = m;
-      return r + r + g + g + b + b;
-    });
+    hex = hex.replace(
+      shorthandRegex,
+      function (m: any, r: any, g: any, b: any) {
+        m = m;
+        return r + r + g + g + b + b;
+      }
+    );
 
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result
@@ -360,6 +361,18 @@ const InovaTheme = (function () {
     themeWrapper.style.setProperty("--k-series-e", colors.inova_series_e);
     themeWrapper.style.setProperty("--k-series-f", colors.inova_series_f);
     themeWrapper.style.setProperty(
+      "--k-series-a-light",
+      colors.inova_series_a_light
+    );
+    themeWrapper.style.setProperty(
+      "--k-series-b-light",
+      colors.inova_series_b_light
+    );
+    themeWrapper.style.setProperty(
+      "--k-series-e-light",
+      colors.inova_series_e_light
+    );
+    themeWrapper.style.setProperty(
       "--k-chart-major-lines",
       "rgba(0, 0, 0, 0.08)"
     );
@@ -374,25 +387,79 @@ const InovaTheme = (function () {
     themeWrapper.style.setProperty("--color-info", colors.inova_cyan);
 
     themeWrapper.style.setProperty("--color-accent-rgb", colors.inova_pink_rgb);
-    themeWrapper.style.setProperty("--color-font-rgb", colors.light_text_color_rgb);
+    themeWrapper.style.setProperty(
+      "--color-font-rgb",
+      colors.light_text_color_rgb
+    );
 
-    themeWrapper.style.setProperty("--i-palette-faded-red", colors.inova_palette_faded_red);
-    themeWrapper.style.setProperty("--i-palette-faded-orange", colors.inova_palette_faded_orange);
-    themeWrapper.style.setProperty("--i-palette-faded-yellow", colors.inova_palette_faded_yellow);
-    themeWrapper.style.setProperty("--i-palette-faded-lime", colors.inova_palette_faded_lime);
-    themeWrapper.style.setProperty("--i-palette-faded-green", colors.inova_palette_faded_green);
-    themeWrapper.style.setProperty("--i-palette-faded-turquoise", colors.inova_palette_faded_turquoise);
-    themeWrapper.style.setProperty("--i-palette-faded-pink", colors.inova_palette_faded_pink);
-    themeWrapper.style.setProperty("--i-palette-faded-violet", colors.inova_palette_faded_violet);
-    themeWrapper.style.setProperty("--i-palette-faded-purple", colors.inova_palette_faded_purple);
-    themeWrapper.style.setProperty("--i-palette-faded-indigo", colors.inova_palette_faded_indigo);
-    themeWrapper.style.setProperty("--i-palette-faded-blue", colors.inova_palette_faded_blue);
-    themeWrapper.style.setProperty("--i-palette-faded-mint", colors.inova_palette_faded_mint);
-    themeWrapper.style.setProperty("--i-palette-faded-white", colors.inova_palette_faded_white);
-    themeWrapper.style.setProperty("--i-palette-faded-gray1", colors.inova_palette_faded_gray1);
-    themeWrapper.style.setProperty("--i-palette-faded-gray2", colors.inova_palette_faded_gray2);
-    themeWrapper.style.setProperty("--i-palette-faded-gray3", colors.inova_palette_faded_gray3);
-    themeWrapper.style.setProperty("--i-palette-faded-font", colors.inova_palette_faded_font);
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-red",
+      colors.inova_palette_faded_red
+    );
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-orange",
+      colors.inova_palette_faded_orange
+    );
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-yellow",
+      colors.inova_palette_faded_yellow
+    );
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-lime",
+      colors.inova_palette_faded_lime
+    );
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-green",
+      colors.inova_palette_faded_green
+    );
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-turquoise",
+      colors.inova_palette_faded_turquoise
+    );
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-pink",
+      colors.inova_palette_faded_pink
+    );
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-violet",
+      colors.inova_palette_faded_violet
+    );
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-purple",
+      colors.inova_palette_faded_purple
+    );
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-indigo",
+      colors.inova_palette_faded_indigo
+    );
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-blue",
+      colors.inova_palette_faded_blue
+    );
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-mint",
+      colors.inova_palette_faded_mint
+    );
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-white",
+      colors.inova_palette_faded_white
+    );
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-gray1",
+      colors.inova_palette_faded_gray1
+    );
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-gray2",
+      colors.inova_palette_faded_gray2
+    );
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-gray3",
+      colors.inova_palette_faded_gray3
+    );
+    themeWrapper.style.setProperty(
+      "--i-palette-faded-font",
+      colors.inova_palette_faded_font
+    );
   };
 
   /**
@@ -445,7 +512,10 @@ const InovaTheme = (function () {
     );
     themeWrapper.style.setProperty("--color-shadow", colors.dark_shadow_color);
 
-    themeWrapper.style.setProperty("--color-font-rgb", colors.dark_text_color_rgb);
+    themeWrapper.style.setProperty(
+      "--color-font-rgb",
+      colors.dark_text_color_rgb
+    );
 
     removeCurrentThemeClass();
     document.body.classList.add("theme-dark");
