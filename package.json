@@ -3,28 +3,28 @@
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@commitlint/core": "^8.3.5",
-    "@joneff/baka": "^0.3.0",
-    "eslint": "^7.0.0",
-    "fs-extra": "^9.0.0",
+    "@joneff/baka": "^0.3.2",
+    "eslint": "^7.18.0",
+    "fs-extra": "^9.1.0",
     "glob": "^7.1.6",
     "gulp": "^4.0.2",
     "gulp-eslint": "^6.0.0",
     "gulp-sass-lint": "^1.4.0",
     "gulplog": "^1.0.0",
-    "http-server": "^0.12.1",
-    "husky": "^4.2.5",
-    "jquery": "^3.4.1",
+    "http-server": "^0.12.3",
+    "husky": "^4.3.8",
+    "jquery": "^3.5.1",
     "karma": "^4.4.1",
     "karma-chrome-launcher": "^3.1.0",
-    "karma-qunit": "^4.0.0",
+    "karma-qunit": "^4.1.1",
     "lerna": "^2.4.0",
-    "mime": "^2.4.5",
-    "nunjucks": "^3.2.1",
-    "pastshots": "^1.5.1",
-    "qunit": "^2.9.3",
+    "mime": "^2.5.0",
+    "nunjucks": "^3.2.2",
+    "pastshots": "^1.5.2",
+    "qunit": "^2.14.0",
     "sass-lint": "^1.13.1",
     "sass-variable-parser": "^1.2.2",
-    "sassdoc": "^2.7.1",
+    "sassdoc": "^2.7.3",
     "sassdoc-extras": "^3.0.0"
   },
   "scripts": {
@@ -52,5 +52,7 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "@progress/kendo-theme-tasks": "^0.7.8"
+  }
 }

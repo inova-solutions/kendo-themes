@@ -2,13 +2,7 @@ os: linux
 language: node_js
 node_js: 12
 
-cache:
-  directories:
-    - node_modules
-    - packages/default/node_modules
-    - packages/bootstrap/node_modules
-    - packages/material/node_modules
-    - packages/theme-tasks/node_modules
+cache: npm
 
 notifications:
   email: false
