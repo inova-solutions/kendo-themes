@@ -1,5 +1,9 @@
 @include exports("pivotgrid/theme") {
 
+    .k-pivot {
+        border-color: $pivotgrid-border;
+    }
+
     .k-fieldselector,
     .k-pivot-layout .k-grid-footer,
     .k-pivot-layout > tbody > tr:first-child > td:first-child {
@@ -8,6 +12,10 @@
     }
     .k-pivot-rowheaders .k-grid {
         background: none;
+    }
+
+    .k-fieldselector {
+        color: $pivotgrid-configurator-text;
     }
 
     .k-fieldselector .k-list-container {

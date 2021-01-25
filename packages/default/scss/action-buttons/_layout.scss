@@ -1,41 +1,88 @@
 @include exports("action-buttons/layout") {
 
-    .k-action-buttons {
-        border-width: 1px 0 0;
+    .k-actions,
+    .k-action-buttons,
+    .k-columnmenu-actions {
+        padding: $actions-padding-y $actions-padding-x;
+        border-width: $actions-border-width;
         border-style: solid;
         border-color: inherit;
         display: flex;
-        flex-direction: row;
+        flex-flow: row nowrap;
+        align-items: center;
+        align-content: flex-end;
+        justify-content: flex-end;
         clear: both;
 
-        .k-button {
-            @include border-radius( 0 );
-            padding: ($window-inner-padding-x * .75) $window-inner-padding-x;
-            border-width: 0;
-            border-color: inherit;
-            color: inherit;
-            background: none;
-            flex: 1 1 auto;
-        }
         .k-button + .k-button {
-            border-left-width: 1px;
-        }
+            margin-left: $actions-button-gap;
+            flex-shrink: 0;
 
-        .k-rtl &,
-        [dir="rtl"] & {
-            .k-button + .k-button {
-                border-left-width: 0;
-                border-right-width: 1px;
-                border-right-style: solid;
+            .k-rtl &,
+            [dir="rtl"] & {
                 margin-left: 0;
+                margin-right: $actions-button-gap;
             }
         }
     }
 
-    .k-popup > .k-action-buttons,
-    .k-popup > kendo-grid-columnlist > .k-action-buttons {
-        margin-top: $spacer;
-        margin-bottom: -$popup-padding-y;
+    .k-popup .k-actions,
+    .k-popup .k-action-buttons {
+        margin-top: $actions-margin-top;
+    }
+
+    .k-actions {
+        justify-content: flex-start;
+
+        .k-button {
+            flex: 0 1 auto;
+        }
+
+        &.k-actions-start {
+            justify-content: flex-start;
+        }
+
+        &.k-actions-center {
+            justify-content: center;
+        }
+
+        &.k-actions-end {
+            justify-content: flex-end;
+        }
+
+        &.k-actions-stretched {
+            padding: 0;
+            align-items: stretch;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+            border-width: 1px 0 0;
+            border-style: solid;
+            display: flex;
+            flex-direction: row;
+            flex-shrink: 0;
+            flex-basis: auto;
+            overflow: hidden;
+
+            .k-button {
+                background-clip: border-box;
+                border-radius: 0;
+                padding: 12px 16px;
+                border-width: 0;
+                text-overflow: ellipsis;
+                flex: 1 0 0%;
+                flex-grow: 1;
+                display: inline-block;
+                overflow: hidden;
+
+                width: auto !important; // sass-lint:disable-line no-important
+                max-width: 100%;
+
+                ~ .k-button {
+                    margin: 0;
+                    border-left-width: 1px;
+                }
+            }
+        }
     }
 
 }

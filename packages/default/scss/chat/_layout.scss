@@ -166,10 +166,10 @@
 
         // Avatar
         .k-avatar {
-            @include border-radius(100%);
+            @include border-radius( 100% );
+            margin: 0;
             width: $chat-avatar-size;
             height: $chat-avatar-size;
-            margin: 0;
             position: absolute;
 
             @at-root .k-message-group:not(.k-alt) > .k-avatar {
@@ -268,17 +268,12 @@
         border-style: solid;
         flex: 0 0 auto;
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
+        flex-flow: row nowrap;
+        align-items: center;
 
-
+        // Input
         .k-input {
-            margin: 0;
             padding: 0;
-            border: 0;
-            font: inherit;
-            background: none;
-            flex: 1 1 auto;
         }
 
         .k-button {
@@ -324,14 +319,17 @@
         overflow: hidden;
         overflow-x: auto;
         scroll-behavior: smooth;
-
-        .k-card-wrap + .k-card-wrap {
-            margin-left: $card-deck-gap;
-        }
     }
     .k-chat .k-card-deck .k-card,
     .k-chat .k-card-deck .k-card-wrap {
         width: 200px;
+    }
+
+    .k-chat .k-card-deck-scrollwrap {
+        margin-right: -$chat-message-list-padding-y;
+        margin-left: -$chat-message-list-padding-y;
+        padding-left: $chat-message-list-padding-y;
+        padding-right: $chat-message-list-padding-y;
     }
 
     .k-chat .k-card-deck-scrollwrap > .k-card-deck {
@@ -353,9 +351,6 @@
 
         .k-card {
             flex: 0 0 auto;
-        }
-        .k-card + .k-card {
-            margin-left: $card-deck-gap;
         }
 
         &.k-state-selected {
@@ -413,6 +408,7 @@
 
 @include exports( "chat/toolbar/layout" ) {
 
+    .k-chat-toolbar,
     .k-chat .k-toolbar-box {
         width: 100%;
         box-sizing: border-box;

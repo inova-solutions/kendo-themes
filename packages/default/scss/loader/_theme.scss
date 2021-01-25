@@ -1,0 +1,40 @@
+@include exports( "loader/theme" ) {
+
+    @each $name, $color in $theme-colors {
+        .k-loader-#{$name} {
+            @if $name == "secondary" {
+                color: $loader-secondary-bg;
+            } @else {
+                color: $color;
+            }
+        }
+    }
+
+}
+
+
+
+@include exports( "loader-container/theme" ) {
+
+    .k-loader-container-overlay {
+        &.k-overlay-light {
+            background-color: $loader-container-overlay-light-bg;
+        }
+
+        &.k-overlay-dark {
+            background-color: $loader-container-overlay-dark-bg;
+        }
+    }
+
+    .k-loader-container-panel {
+        background-color: $loader-container-panel-bg;
+        border-color: $loader-container-panel-border-color;
+    }
+
+    .k-loader-container-inner {
+        .k-text-secondary {
+            color: $loader-secondary-bg !important; // sass-lint:disable-line no-important
+        }
+    }
+
+}

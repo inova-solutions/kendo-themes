@@ -9,6 +9,14 @@
         );
     }
 
+    kendo-editor {
+        &.k-readonly {
+            .k-editor-content.k-state-focused {
+                outline-color: $text-color;
+            }
+        }
+    }
+
     // Inline Editor
     .k-editor-inline {
 
@@ -45,23 +53,41 @@
         }
     }
 
-    // sass-lint:disable class-name-format
-    .editorToolbarWindow.k-header.k-window-content {
-        @include fill(
-            $toolbar-text,
-            $toolbar-bg,
-            $toolbar-border,
-            $toolbar-gradient
-        );
-    }
-    // sass-lint:enable class-name-format
-
 
     // Insert table
     .k-ct-popup {
         .k-state-selected {
             @include fill( $selected-text, $selected-bg, $selected-border, none );
         }
+    }
+
+    // Content
+    .k-editor-content {
+
+        // Selection
+        .k-text-selected,
+        &::selection {
+            @include fill (
+                $color: $editor-selected-text,
+                $bg: $editor-selected-bg
+            );
+        }
+
+        .k-text-highlighted {
+            @include fill (
+                $bg: $editor-highlighted-bg
+            );
+        }
+    }
+
+    // Find and replace dialog
+    .k-editor-find-replace {
+        .k-matches-container {
+            @include fill (
+                $bg: $editor-find-line-bg
+            );
+        }
+
     }
 
 }

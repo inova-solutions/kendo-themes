@@ -2,54 +2,10 @@
 
 @include exports("input/layout/material") {
 
-    // Textbox, Textarea
-    .k-textbox,
-    .k-textarea {
-
-        &:disabled {
-            border-style: dashed;
-        }
-    }
-    .k-textbox {
-        border-width: 0 0 $input-border-width;
-    }
-    .k-textarea {
-        @include border-radius( $border-radius );
-    }
-
-
     // Input ripple
     .k-textbox-container,
     .k-floating-label-container {
         @include input-ripple();
-    }
-
-
-    // Textarea Floating label
-    .k-textarea-wrapper {
-        padding-top: 0;
-
-        > .k-label {
-            top: calc( #{$textarea-padding-y} + #{$input-border-width} );
-            left: calc( #{$textarea-padding-x } + #{$input-border-width} );
-        }
-
-        &:not(.k-state-empty) {
-            > .k-label {
-                top: calc( #{$floating-label-height} + #{$input-border-width} + #{$input-padding-y} - 10px );
-                padding: 0 $textarea-floating-label-padding;
-            }
-        }
-
-        // Disable input ripple
-        &::after { display: none; }
-    }
-    .k-rtl .k-textarea-wrapper,
-    .k-textarea-wrapper[dir="rtl"] {
-        > .k-label {
-            left: auto;
-            right: calc( #{$textarea-padding-x } + #{$input-border-width} );
-        }
     }
 
 }

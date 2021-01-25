@@ -37,43 +37,28 @@
             transition: all .1s ease; // sass-lint:disable-block no-transition-all
             cursor: default;
             outline: 0;
+        }
 
-            .k-input {
-                padding: $input-padding-y $input-padding-x;
-                width: 100%;
-                height: calc( #{$input-padding-y * 2} + #{$input-line-height * 1em} );
-                box-sizing: border-box;
-                border: 0;
-                outline: 0;
-                color: inherit;
-                background: none;
-                font: inherit;
-                flex: 0 1 auto;
-                display: flex;
-                align-items: center;
-                overflow: hidden;
-                text-overflow: ellipsis;
 
-                .k-edge & {
-                    min-width: 0;
-                }
-            }
+        // Input
+        .k-input {}
 
-            .k-select {
-                @include border-right-radius-only();
-                padding: 0;
-                border-width: 0;
-                box-sizing: border-box;
-                border-style: solid;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex: 0 0 auto;
-                text-align: center;
-                cursor: pointer;
 
-                .k-icon {}
-            }
+        // Select
+        .k-select {
+            @include border-right-radius-only( $input-border-radius );
+            padding: 0;
+            border-width: 0;
+            box-sizing: border-box;
+            border-style: solid;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 auto;
+            text-align: center;
+            cursor: pointer;
+
+            .k-icon {}
         }
 
         &[dir="rtl"],
@@ -81,12 +66,8 @@
             text-align: right;
 
             .k-select {
-                @include border-left-radius-only();
+                @include border-left-radius-only( $input-border-radius );
             }
-        }
-
-        ::-ms-clear {
-            display: none;
         }
     }
 
@@ -122,7 +103,7 @@
 
         .k-dateinput-wrap {
             border: 0;
-            @include border-left-radius-only();
+            @include border-left-radius-only( $input-border-radius );
         }
 
         .k-picker-wrap {
@@ -229,11 +210,21 @@
             }
         }
 
-        > .k-popup {
-            padding-bottom: 0;
+        .k-actions,
+        .k-action-buttons,
+        .k-columnmenu-actions {
+            .k-button {
+                flex: 1 1 50%;
+            }
+        }
 
-            .k-action-buttons {
-                margin-bottom: 0;
+        .k-actions {
+            &.k-actions-start,
+            &.k-actions-center,
+            &.k-actions-end {
+                .k-button {
+                    flex: 0 1 auto;
+                }
             }
         }
 
@@ -307,6 +298,28 @@
     }
 
     // Infinite timepicker
+    .k-timeselector {
+
+        .k-actions,
+        .k-action-buttons,
+        .k-columnmenu-actions {
+            .k-button {
+                flex: 1 1 50%;
+            }
+        }
+
+        .k-actions {
+            &.k-actions-start,
+            &.k-actions-center,
+            &.k-actions-end {
+                .k-button {
+                    flex: 0 1 auto;
+                }
+            }
+        }
+    }
+
+
     // Header
     .k-time-header {
         display: flex;
@@ -438,7 +451,7 @@
     }
 
     .k-time-list .k-item {
-        padding: $list-item-padding-y $list-item-padding-x;
+        padding: $time-list-item-padding-y $time-list-item-padding-x;
         min-height: calc( #{decimal-round($line-height-em, 2)} + 2px );
         line-height: calc( #{decimal-round($line-height-em, 2)} + 2px );
     }
@@ -465,10 +478,11 @@
     }
 
     .k-time-separator {
+        width: 0;
+        height: 100%;
         display: inline-flex;
         align-self: center;
         justify-content: center;
-        height: 100%;
         z-index: 11;
     }
 }

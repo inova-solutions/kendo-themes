@@ -9,33 +9,6 @@ position: 9
 
 The following table lists the available variables for customization.
 
-<style>
-    .theme-variables th,
-    .theme-variables td {
-        vertical-align: top;
-    }
-
-    .color-preview {
-        margin-right: .5em;
-        border-radius: 50%;
-        width: 1em;
-        height: 1em;
-        vertical-align: middle;
-        display: inline-block;
-        border: 1px solid rgba(0,0,0,.08);
-    }
-
-    .theme-variables-description-container > div {
-        margin: 0 0 .5em 2em;
-    }
-
-    .theme-variables-description {
-        display: block;
-        margin-left: 1em;
-    }
-</style>
-
-
 <table class="theme-variables">
     <colgroup>
     <col style="width: 200px; white-space:nowrap;" />
@@ -120,6 +93,36 @@ The following table lists the available variables for customization.
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Background gradient of grid header</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$grid-footer-bg</td>
+    <td></td>
+    <td>$grid-header-bg</td>
+    <td>transparent</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Background color of grid footer</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$grid-footer-text</td>
+    <td></td>
+    <td>$grid-header-text</td>
+    <td>if($theme-type == dark, $light-secondary-text, $dark-secondary-text)</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Text color of grid footer</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$grid-footer-border</td>
+    <td></td>
+    <td>$grid-header-border</td>
+    <td>map-get($theme, component-border)</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Border color of grid footer</div></div>
     </td>
 </tr>
 <tr>

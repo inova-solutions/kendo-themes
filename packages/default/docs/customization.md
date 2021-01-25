@@ -9,33 +9,6 @@ position: 9
 
 The following table lists the available variables for customizing the Default theme.
 
-<style>
-    .theme-variables th,
-    .theme-variables td {
-        vertical-align: top;
-    }
-
-    .color-preview {
-        margin-right: .5em;
-        border-radius: 50%;
-        width: 1em;
-        height: 1em;
-        vertical-align: middle;
-        display: inline-block;
-        border: 1px solid rgba(0,0,0,.08);
-    }
-
-    .theme-variables-description-container > div {
-        margin: 0 0 .5em 2em;
-    }
-
-    .theme-variables-description {
-        display: block;
-        margin-left: 1em;
-    }
-</style>
-
-
 ## Variables
 
 ### Common
@@ -188,6 +161,7 @@ The following table lists the available variables for customizing the Default th
 </tr>
 </tbody>
 </table>
+
 ### Buttons
 
 <table class="theme-variables">
@@ -224,6 +198,26 @@ The following table lists the available variables for customizing the Default th
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Border radius of buttons</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$button-padding-x</td>
+    <td></td>
+    <td>$padding-x</td>
+    <td></td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Horizontal padding of buttons</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$button-padding-y</td>
+    <td></td>
+    <td>$padding-y</td>
+    <td></td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Vertical padding of buttons</div></div>
     </td>
 </tr>
 <tr>
@@ -358,6 +352,7 @@ The following table lists the available variables for customizing the Default th
 </tr>
 </tbody>
 </table>
+
 ### Charts
 
 <table class="theme-variables">
@@ -383,7 +378,7 @@ The following table lists the available variables for customizing the Default th
     <td><span class="color-preview" style="background-color: #ff6358"></span>#ff6358</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the first series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The first base series color and its light and dark shades.</div></div>
     </td>
 </tr>
 <tr>
@@ -393,7 +388,7 @@ The following table lists the available variables for customizing the Default th
     <td><span class="color-preview" style="background-color: #ffd246"></span>#ffd246</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the second series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The second base series color and its light and dark shades.</div></div>
     </td>
 </tr>
 <tr>
@@ -403,7 +398,7 @@ The following table lists the available variables for customizing the Default th
     <td><span class="color-preview" style="background-color: #78d237"></span>#78d237</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the third series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The third base series color and its light and dark shades.</div></div>
     </td>
 </tr>
 <tr>
@@ -413,7 +408,7 @@ The following table lists the available variables for customizing the Default th
     <td><span class="color-preview" style="background-color: #28b4c8"></span>#28b4c8</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the fourth series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The fourth base series color and its light and dark shades.</div></div>
     </td>
 </tr>
 <tr>
@@ -423,7 +418,7 @@ The following table lists the available variables for customizing the Default th
     <td><span class="color-preview" style="background-color: #2d73f5"></span>#2d73f5</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the fifth series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The fifth base series color and its light and dark shades.</div></div>
     </td>
 </tr>
 <tr>
@@ -433,7 +428,17 @@ The following table lists the available variables for customizing the Default th
     <td><span class="color-preview" style="background-color: #aa46be"></span>#aa46be</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the sixth series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The sixth base series color and its light and dark shades.</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$series-1</td>
+    <td></td>
+    <td>$series-a</td>
+    <td><span class="color-preview" style="background-color: #ff6358"></span>#ff6358</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The series colors in order:<br />base, light, dark, lighter, darker</div></div>
     </td>
 </tr>
 <tr>
@@ -458,6 +463,7 @@ The following table lists the available variables for customizing the Default th
 </tr>
 </tbody>
 </table>
+
 ### Color System
 
 <table class="theme-variables">
@@ -623,11 +629,12 @@ The following table lists the available variables for customizing the Default th
     <td>if( $is-dark-theme, $light, $dark )</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Inverse color of the theme. Depending on the theme luminance dark or lught, it will be light or dark</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Inverse color of the theme. Depending on the theme luminance dark or light, it will be light or dark</div></div>
     </td>
 </tr>
 </tbody>
 </table>
+
 ### Component
 
 <table class="theme-variables">
@@ -708,6 +715,7 @@ The following table lists the available variables for customizing the Default th
 </tr>
 </tbody>
 </table>
+
 ### Grid
 
 <table class="theme-variables">
@@ -794,6 +802,36 @@ The following table lists the available variables for customizing the Default th
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Background gradient of grid header</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$grid-footer-bg</td>
+    <td></td>
+    <td>$grid-header-bg</td>
+    <td></td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Background color of grid footer</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$grid-footer-text</td>
+    <td></td>
+    <td>$grid-header-text</td>
+    <td></td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Text color of grid footer</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$grid-footer-border</td>
+    <td></td>
+    <td>$grid-header-border</td>
+    <td>rgba( black, .08 )</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Border color of grid footer</div></div>
     </td>
 </tr>
 <tr>
@@ -888,6 +926,7 @@ The following table lists the available variables for customizing the Default th
 </tr>
 </tbody>
 </table>
+
 ### Icons
 
 <table class="theme-variables">
@@ -918,6 +957,7 @@ The following table lists the available variables for customizing the Default th
 </tr>
 </tbody>
 </table>
+
 ### Tabstrip
 
 <table class="theme-variables">
@@ -937,26 +977,6 @@ The following table lists the available variables for customizing the Default th
 </thead>
 <tbody>
         <tr>
-    <td>$button-padding-x</td>
-    <td></td>
-    <td>$padding-x</td>
-    <td></td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Horizontal padding of buttons</div></div>
-    </td>
-</tr>
-<tr>
-    <td>$button-padding-y</td>
-    <td></td>
-    <td>$padding-y</td>
-    <td></td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Vertical padding of buttons</div></div>
-    </td>
-</tr>
-<tr>
     <td>$tabstrip-bg</td>
     <td></td>
     <td>null</td>
@@ -1218,6 +1238,7 @@ The following table lists the available variables for customizing the Default th
 </tr>
 </tbody>
 </table>
+
 ### Toolbar
 
 <table class="theme-variables">
@@ -1258,6 +1279,7 @@ The following table lists the available variables for customizing the Default th
 </tr>
 </tbody>
 </table>
+
 ### Typography
 
 <table class="theme-variables">
@@ -1318,6 +1340,7 @@ The following table lists the available variables for customizing the Default th
 </tr>
 </tbody>
 </table>
+
 
 
 

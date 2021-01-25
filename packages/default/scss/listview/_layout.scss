@@ -10,7 +10,6 @@
         font-family: $listview-font-family;
         font-size: $listview-font-size;
         line-height: $listview-line-height;
-        display: flex;
         flex-flow: column nowrap;
         position: relative;
         -webkit-touch-callout: none;
@@ -37,6 +36,7 @@
     .k-listview-content {
         margin: 0;
         padding: 0;
+        outline: 0;
         flex-grow: 1;
         position: relative;
         overflow: auto;
@@ -63,6 +63,7 @@
     .k-listview-item {
         padding: 0;
         border-width: 0;
+        outline: 0;
         border-style: solid;
         box-sizing: border-box;
         flex-shrink: 0;

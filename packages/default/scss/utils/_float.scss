@@ -1,0 +1,38 @@
+@include exports( "utils/float" ) {
+
+    $utils-float: (
+        left,
+        right,
+        none
+    ) !default;
+
+    $utils-clear: (
+        left,
+        right,
+        both,
+        none
+    ) !default;
+
+    @if $utils-float {
+        @each $float in $utils-float {
+            // sass-lint:disable-block no-important
+            .k-float-#{$float} { float: $float !important; }
+        }
+    }
+
+    @if $utils-clear {
+        @each $clear in $utils-clear {
+            // sass-lint:disable-block no-important
+            .k-clear-#{$clear} { clear: $clear !important; }
+        }
+    }
+
+
+    // Float wrap
+    .k-floatwrap::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+}

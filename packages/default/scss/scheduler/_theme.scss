@@ -28,20 +28,20 @@
     }
 
     // Header and footer
-    kendo-scheduler .k-scheduler-toolbar {
+    .k-scheduler-toolbar {
         @include fill(
-            $toolbar-text,
-            $toolbar-bg,
-            $toolbar-border,
-            $toolbar-gradient
+            $scheduler-toolbar-text,
+            $scheduler-toolbar-bg,
+            $scheduler-toolbar-border,
+            $scheduler-toolbar-gradient
         );
     }
-    kendo-scheduler .k-scheduler-footer {
+    .k-scheduler-footer {
         @include fill(
-            $toolbar-text,
-            $toolbar-bg,
-            $toolbar-border,
-            $toolbar-gradient
+            $scheduler-footer-text,
+            $scheduler-footer-bg,
+            $scheduler-footer-border,
+            $scheduler-footer-gradient
         );
     }
 
@@ -149,8 +149,19 @@
 
     // Scheduler content
     .k-scheduler-content {}
-    .k-nonwork-hour {
-        background-color: $scheduler-nonwork-bg;
+    .k-scheduler-nonwork,
+    .k-scheduler .k-nonwork-hour {
+        @include fill(
+            $scheduler-nonwork-text,
+            $scheduler-nonwork-bg
+        );
+    }
+    .k-scheduler-other-month,
+    .k-scheduler .k-other-month {
+        @include fill(
+            $scheduler-othermonth-text,
+            $scheduler-othermonth-bg
+        );
     }
 
     .k-scheduler-layout td.k-state-selected,

@@ -9,42 +9,133 @@
 
     <style>
         #test-area {
-            grid-template-columns: repeat(2, min-content);
             align-items: start;
         }
-
-        .k-textbox-container {
-            width: 300px;
-            height: 200px;
+        .k-textarea {
+            width: 100%;
         }
     </style>
 </head>
 <body>
 
-    <div id="test-area" class="grid">
+    <div id="test-area" class="k-d-grid k-grid-cols-4">
 
-        <span>LTR</span>
-        <span>RTL</span>
+        <span class="k-colspan-2">LTR</span>
+        <span class="k-colspan-2">RTL</span>
+        <span>jquery</span>
+        <span>react</span>
+        <span>jquery</span>
+        <span>react</span>
 
-        <kendo-textbox-container class="k-textbox-container k-textarea-wrapper k-state-empty" dir="ltr">
-            <textarea name="textarea" rows="5" class="k-textarea" dir="ltr"></textarea>
-            <label class="k-label">Textarea label</label>
-        </kendo-textbox-container>
+        <span class="k-textarea">
+            <textarea class="k-input" placeholder="Empty..."></textarea>
+        </span>
+        <span class="k-textarea">
+            <textarea class="k-input" placeholder="Empty..."></textarea>
+        </span>
+        <span class="k-textarea" dir="rtl">
+            <textarea class="k-input" placeholder="Empty..."></textarea>
+        </span>
+        <span class="k-textarea" dir="rtl">
+            <textarea class="k-input" placeholder="Empty..."></textarea>
+        </span>
 
-        <kendo-textbox-container class="k-textbox-container k-textarea-wrapper k-state-empty" dir="rtl">
-            <textarea name="textarea" rows="5" class="k-textarea" dir="rtl"></textarea>
-            <label class="k-label">Textarea label</label>
-        </kendo-textbox-container>
+        <span class="k-textarea">
+            <textarea class="k-input">Normal</textarea>
+        </span>
+        <span class="k-textarea">
+            <textarea class="k-input">Normal</textarea>
+        </span>
+        <span class="k-textarea" dir="rtl">
+            <textarea class="k-input">Normal</textarea>
+        </span>
+        <span class="k-textarea" dir="rtl">
+            <textarea class="k-input">Normal</textarea>
+        </span>
 
-        <kendo-textbox-container class="k-textbox-container k-textarea-wrapper k-state-empty k-state-focused" dir="ltr">
-            <textarea name="textarea" rows="5" class="k-textarea" dir="ltr"></textarea>
-            <label class="k-label">Textarea label</label>
-        </kendo-textbox-container>
 
-        <kendo-textbox-container class="k-textbox-container k-textarea-wrapper k-state-empty k-state-focused" dir="rtl">
-            <textarea name="textarea" rows="5" class="k-textarea" dir="rtl"></textarea>
-            <label class="k-label">Textarea label</label>
-        </kendo-textbox-container>
+        <span class="k-textarea k-state-hover">
+            <textarea class="k-input">Hover</textarea>
+        </span>
+        <span class="k-textarea k-state-hover">
+            <textarea class="k-input">Hover</textarea>
+        </span>
+        <span class="k-textarea k-state-hover" dir="rtl">
+            <textarea class="k-input">Hover</textarea>
+        </span>
+        <span class="k-textarea k-state-hover" dir="rtl">
+            <textarea class="k-input">Hover</textarea>
+        </span>
+
+
+        <span class="k-textarea k-state-focused">
+            <textarea class="k-input">Focus</textarea>
+        </span>
+        <span class="k-textarea k-state-focused">
+            <textarea class="k-input">Focus</textarea>
+        </span>
+        <span class="k-textarea k-state-focused" dir="rtl">
+            <textarea class="k-input">Focus</textarea>
+        </span>
+        <span class="k-textarea k-state-focused" dir="rtl">
+            <textarea class="k-input">Focus</textarea>
+        </span>
+
+
+        <span class="k-textarea k-state-focused k-state-hover">
+            <textarea class="k-input">Hover + Focus</textarea>
+        </span>
+        <span class="k-textarea k-state-focused k-state-hover">
+            <textarea class="k-input">Hover + Focus</textarea>
+        </span>
+        <span class="k-textarea k-state-focused k-state-hover" dir="rtl">
+            <textarea class="k-input">Hover + Focus</textarea>
+        </span>
+        <span class="k-textarea k-state-focused k-state-hover" dir="rtl">
+            <textarea class="k-input">Hover + Focus</textarea>
+        </span>
+
+
+        <span class="k-textarea k-invalid">
+            <textarea class="k-input">Invalid</textarea>
+        </span>
+        <span class="k-textarea k-state-invalid">
+            <textarea class="k-input">Invalid</textarea>
+        </span>
+        <span class="k-textarea k-invalid" dir="rtl">
+            <textarea class="k-input">Invalid</textarea>
+        </span>
+        <span class="k-textarea k-state-invalid" dir="rtl">
+            <textarea class="k-input">Invalid</textarea>
+        </span>
+
+
+        <span class="k-textarea k-invalid k-state-focused">
+            <textarea class="k-input">Invalid + Focus</textarea>
+        </span>
+        <span class="k-textarea k-state-invalid k-state-focused">
+            <textarea class="k-input">Invalid + Focus</textarea>
+        </span>
+        <span class="k-textarea k-invalid k-state-focused" dir="rtl">
+            <textarea class="k-input">Invalid + Focus</textarea>
+        </span>
+        <span class="k-textarea k-state-invalid k-state-focused" dir="rtl">
+            <textarea class="k-input">Invalid + Focus</textarea>
+        </span>
+
+
+        <span class="k-textarea k-state-disabled">
+            <textarea class="k-input">Disabled</textarea>
+        </span>
+        <span class="k-textarea" disabled>
+            <textarea class="k-input">Disabled</textarea>
+        </span>
+        <span class="k-textarea k-state-disabled" dir="rtl">
+            <textarea class="k-input">Disabled</textarea>
+        </span>
+        <span class="k-textarea" disabled dir="rtl">
+            <textarea class="k-input">Disabled</textarea>
+        </span>
 
     </div>
 

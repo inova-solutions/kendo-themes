@@ -9,33 +9,6 @@ position: 9
 
 The following table lists the available variables for customizing the Bootstrap theme.
 
-<style>
-    .theme-variables th,
-    .theme-variables td {
-        vertical-align: top;
-    }
-
-    .color-preview {
-        margin-right: .5em;
-        border-radius: 50%;
-        width: 1em;
-        height: 1em;
-        vertical-align: middle;
-        display: inline-block;
-        border: 1px solid rgba(0,0,0,.08);
-    }
-
-    .theme-variables-description-container > div {
-        margin: 0 0 .5em 2em;
-    }
-
-    .theme-variables-description {
-        display: block;
-        margin-left: 1em;
-    }
-</style>
-
-
 ## Variables
 
 ### Common
@@ -188,6 +161,7 @@ The following table lists the available variables for customizing the Bootstrap 
 </tr>
 </tbody>
 </table>
+
 ### Buttons
 
 <table class="theme-variables">
@@ -207,6 +181,46 @@ The following table lists the available variables for customizing the Bootstrap 
 </thead>
 <tbody>
         <tr>
+    <td>$button-border-width</td>
+    <td></td>
+    <td>$btn-border-width</td>
+    <td></td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Width of border around buttons</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$button-border-radius</td>
+    <td></td>
+    <td>$border-radius</td>
+    <td>$border-radius</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Border radius of buttons</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$button-padding-x</td>
+    <td></td>
+    <td>$btn-padding-x</td>
+    <td></td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Horizontal padding of buttons</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$button-padding-y</td>
+    <td></td>
+    <td>$btn-padding-y</td>
+    <td></td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Vertical padding of buttons</div></div>
+    </td>
+</tr>
+<tr>
     <td>$button-bg</td>
     <td></td>
     <td>$secondary</td>
@@ -338,6 +352,7 @@ The following table lists the available variables for customizing the Bootstrap 
 </tr>
 </tbody>
 </table>
+
 ### Charts
 
 <table class="theme-variables">
@@ -359,61 +374,71 @@ The following table lists the available variables for customizing the Bootstrap 
         <tr>
     <td>$series-a</td>
     <td></td>
-    <td><span class="color-preview" style="background-color: #0275d8"></span>#0275d8</td>
-    <td><span class="color-preview" style="background-color: #0275d8"></span>#0275d8</td>
+    <td>$teal</td>
+    <td></td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the first series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The first base series color and its light and dark shades.</div></div>
     </td>
 </tr>
 <tr>
     <td>$series-b</td>
     <td></td>
-    <td><span class="color-preview" style="background-color: #5bc0de"></span>#5bc0de</td>
-    <td><span class="color-preview" style="background-color: #5bc0de"></span>#5bc0de</td>
+    <td>$blue</td>
+    <td></td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the second series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The second base series color and its light and dark shades.</div></div>
     </td>
 </tr>
 <tr>
     <td>$series-c</td>
     <td></td>
-    <td><span class="color-preview" style="background-color: #5cb85c"></span>#5cb85c</td>
-    <td><span class="color-preview" style="background-color: #5cb85c"></span>#5cb85c</td>
+    <td>$purple</td>
+    <td></td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the third series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The third base series color and its light and dark shades.</div></div>
     </td>
 </tr>
 <tr>
     <td>$series-d</td>
     <td></td>
-    <td><span class="color-preview" style="background-color: #f0ad4e"></span>#f0ad4e</td>
-    <td><span class="color-preview" style="background-color: #f0ad4e"></span>#f0ad4e</td>
+    <td>$red</td>
+    <td></td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the fourth series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The fourth base series color and its light and dark shades.</div></div>
     </td>
 </tr>
 <tr>
     <td>$series-e</td>
     <td></td>
-    <td><span class="color-preview" style="background-color: #e67d4a"></span>#e67d4a</td>
-    <td><span class="color-preview" style="background-color: #e67d4a"></span>#e67d4a</td>
+    <td>$yellow</td>
+    <td></td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the fifth series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The fifth base series color and its light and dark shades.</div></div>
     </td>
 </tr>
 <tr>
     <td>$series-f</td>
     <td></td>
-    <td><span class="color-preview" style="background-color: #d9534f"></span>#d9534f</td>
-    <td><span class="color-preview" style="background-color: #d9534f"></span>#d9534f</td>
+    <td>$green</td>
+    <td></td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the sixth series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The sixth base series color and its light and dark shades.</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$series-1</td>
+    <td></td>
+    <td>$series-a</td>
+    <td></td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The series colors in order:<br />base, light, dark, lighter, darker</div></div>
     </td>
 </tr>
 <tr>
@@ -438,6 +463,7 @@ The following table lists the available variables for customizing the Bootstrap 
 </tr>
 </tbody>
 </table>
+
 ### Color System
 
 <table class="theme-variables">
@@ -608,6 +634,7 @@ The following table lists the available variables for customizing the Bootstrap 
 </tr>
 </tbody>
 </table>
+
 ### Component
 
 <table class="theme-variables">
@@ -688,6 +715,7 @@ The following table lists the available variables for customizing the Bootstrap 
 </tr>
 </tbody>
 </table>
+
 ### Grid
 
 <table class="theme-variables">
@@ -774,6 +802,36 @@ The following table lists the available variables for customizing the Bootstrap 
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Background gradient of grid header</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$grid-footer-bg</td>
+    <td></td>
+    <td>$grid-header-bg</td>
+    <td></td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Background color of grid footer</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$grid-footer-text</td>
+    <td></td>
+    <td>$grid-header-text</td>
+    <td></td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Text color of grid footer</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$grid-footer-border</td>
+    <td></td>
+    <td>$grid-header-border</td>
+    <td></td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Border color of grid footer</div></div>
     </td>
 </tr>
 <tr>
@@ -868,6 +926,7 @@ The following table lists the available variables for customizing the Bootstrap 
 </tr>
 </tbody>
 </table>
+
 ### Icons
 
 <table class="theme-variables">
@@ -898,6 +957,7 @@ The following table lists the available variables for customizing the Bootstrap 
 </tr>
 </tbody>
 </table>
+
 ### Tabstrip
 
 <table class="theme-variables">
@@ -917,46 +977,6 @@ The following table lists the available variables for customizing the Bootstrap 
 </thead>
 <tbody>
         <tr>
-    <td>$button-border-width</td>
-    <td></td>
-    <td>$btn-border-width</td>
-    <td></td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Width of border around buttons</div></div>
-    </td>
-</tr>
-<tr>
-    <td>$button-border-radius</td>
-    <td></td>
-    <td>$border-radius</td>
-    <td>$border-radius</td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Border radius of buttons</div></div>
-    </td>
-</tr>
-<tr>
-    <td>$button-padding-x</td>
-    <td></td>
-    <td>$btn-padding-x</td>
-    <td></td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Horizontal padding of buttons</div></div>
-    </td>
-</tr>
-<tr>
-    <td>$button-padding-y</td>
-    <td></td>
-    <td>$btn-padding-y</td>
-    <td></td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Vertical padding of buttons</div></div>
-    </td>
-</tr>
-<tr>
     <td>$tabstrip-bg</td>
     <td></td>
     <td>null</td>
@@ -1218,6 +1238,7 @@ The following table lists the available variables for customizing the Bootstrap 
 </tr>
 </tbody>
 </table>
+
 ### Toolbar
 
 <table class="theme-variables">
@@ -1258,6 +1279,7 @@ The following table lists the available variables for customizing the Bootstrap 
 </tr>
 </tbody>
 </table>
+
 ### Typography
 
 <table class="theme-variables">
@@ -1318,6 +1340,7 @@ The following table lists the available variables for customizing the Bootstrap 
 </tr>
 </tbody>
 </table>
+
 
 
 

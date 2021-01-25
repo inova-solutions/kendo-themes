@@ -14,7 +14,14 @@ kendoThemeLink.href = kendoThemeLink.href.replace(/default/i, theme).replace(/al
 
 // Stop animations
 if (animations === true) {
-    document.documentElement.classList.add("k-no-animations");
-} else {
     document.documentElement.classList.remove("k-no-animations");
+} else {
+    document.documentElement.classList.add("k-no-animations");
 }
+
+// Apply chart colors to SVG elements
+window.addEventListener('load', () => [ ...kendoThemeLink.sheet.cssRules ]
+    .filter(rule => rule.selectorText && rule.selectorText.startsWith('.k-var'))
+    .filter(rule => Boolean(rule.style.backgroundColor))
+    .forEach(rule => { rule.style.fill = rule.style.backgroundColor; })
+);

@@ -32,18 +32,27 @@
     }
 
     kendo-editor {
+        .k-editor-content {
+            z-index: 1;
+        }
+
         &.k-readonly {
             @include disabled( $disabled-styling );
             > .k-content,
             .k-editor-content {
                 pointer-events: auto;
             }
+
+            .k-editor-content.k-state-focused {
+                outline-width: 1px;
+                outline-style: dashed;
+            }
         }
     }
 
     // Inline editor
     .k-editor-inline {
-        @include border-radius();
+        @include border-radius( $border-radius );
         padding: $padding-y-sm $padding-x-sm;
         border: 1px solid transparent;
         word-wrap: break-word;
@@ -53,18 +62,6 @@
     .k-window.k-editor-widget {
         padding: 0;
     }
-    // sass-lint:disable class-name-format
-    .editorToolbarWindow {
-        padding: 0;
-        display: flex;
-        align-items: stretch;
-    }
-    .k-editortoolbar-dragHandle {
-        margin: $toolbar-padding-y;
-        padding: 0;
-        cursor: move;
-    }
-    // sass-lint:enable class-name-format
 
 
     // Toolbar
@@ -87,9 +84,9 @@
 
         // Tool
         .k-tool {
-            padding: $toolbar-button-padding-y;
-            width: $toolbar-button-calc-size;
-            height: $toolbar-button-calc-size;
+            padding: $button-padding-y;
+            width: $button-calc-size;
+            height: $button-calc-size;
         }
         .k-tool-text {
             display: none;
@@ -111,6 +108,16 @@
             position: relative;
         }
 
+        .k-editor-export {
+            .k-icon {
+                margin-right: $editor-export-tool-icon-margin-x;
+            }
+
+            .k-icon,
+            .k-export-tool-text {
+                vertical-align: middle;
+            }
+        }
     }
 
 
@@ -128,11 +135,26 @@
 
         > .ProseMirror { // sass-lint:disable-line class-name-format
             padding: $padding-x;
-            outline: 0;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            outline: none;
             white-space: pre-wrap;
+            overflow: auto;
 
             table {
                 white-space: pre-wrap;
+            }
+
+            .k-placeholder::before {
+                content: attr(data-placeholder);
+                height: 0;
+                color: $editor-placeholder-text;
+                font-style: italic;
+                float: left;
+                opacity: $editor-placeholder-opacity;
+                cursor: text;
+                user-select: none;
             }
         }
     }
@@ -223,10 +245,48 @@
             border-width: 0;
         }
     }
+
+    // Find and replace dialog
+    .k-editor-find-replace {
+        .k-content {
+            position: relative;
+        }
+
+        .k-edit-form-container {
+            display: inline-block;
+
+            .k-edit-label {
+                text-align: left;
+            }
+        }
+
+        .k-action-buttons {
+            padding: 0;
+        }
+
+        .k-search-options {
+            display: flex;
+            flex-direction: column;
+            padding: 10px 0 40px 0;
+
+            > span {
+                padding-bottom: $padding-y;
+            }
+        }
+
+        .k-matches-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
 }
-
-
-
 
 @include exports( "editor/dialog/layout" ) {
 
@@ -251,7 +311,7 @@
     }
 
     // Text area in editor dialog
-    .k-editor-textarea {
+    .k-textarea.k-editor-textarea {
         width: 100%;
         height: 100%;
         resize: none;
@@ -315,20 +375,6 @@
         // Filebrowser toolbar
         .k-filebrowser-toolbar {
             margin: $spacer-y 0 0 0;
-            padding: $toolbar-padding-y $toolbar-padding-x;
-            display: flex;
-            justify-content: space-between;
-        }
-        .k-toolbar-wrap {
-            display: flex;
-
-            > * + * {
-                margin-left: $toolbar-spacing;
-            }
-
-            .k-state-disabled {
-                display: none;
-            }
         }
 
         .k-upload {
@@ -370,7 +416,7 @@
             white-space: nowrap;
             overflow: hidden;
             cursor: pointer;
-            @include border-radius();
+            @include border-radius( $border-radius );
 
             .k-i-file,
             .k-i-folder {
