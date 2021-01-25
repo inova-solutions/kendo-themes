@@ -9,11 +9,14 @@
 
 // Generic content
 @import "styling/_index.scss";
+@import "utils/_index.scss";
+@import "icons/_index.scss";
+@import "typography/_index.scss";
 @import "avatar/_index.scss";
 @import "badge/_index.scss";
+@import "loader/_index.scss";
 @import "chip/_index.scss";
 @import "cursor/_index.scss";
-// @import "icons/_index.scss";
 // @import "list/_index.scss";
 @import "forms/_index.scss";
 @import "listgroup/_index.scss";
@@ -22,7 +25,6 @@
 @import "progressbar/_index.scss";
 @import "ripple/_index.scss";
 // @import "table/_index.scss";
-// @import "typography/_index.scss";
 @import "messagebox/_index.scss";
 
 
@@ -30,10 +32,13 @@
 @import "button/_index.scss";
 @import "action-buttons/_index.scss";
 @import "input/_index.scss";
+@import "floating-label/_index.scss";
+@import "textbox/_index.scss";
+@import "textarea/_index.scss";
 @import "checkbox/_index.scss";
 @import "radio/_index.scss";
 @import "validator/_index.scss";
-
+@import "fab/_index.scss";
 
 // Inputs
 @import "autocomplete/_index.scss";
@@ -46,6 +51,7 @@
 @import "maskedtextbox/_index.scss";
 @import "multiselect/_index.scss";
 @import "numerictextbox/_index.scss";
+@import "searchbox/_index.scss";
 @import "upload/_index.scss";
 @import "dropzone/_index.scss";
 
@@ -62,6 +68,7 @@
 
 
 // Command interfaces
+@import "appbar/_index.scss";
 @import "menu/_index.scss";
 @import "toolbar/_index.scss";
 
@@ -84,10 +91,11 @@
 @import "wizard/_index.scss";
 @import "tabstrip/_index.scss";
 @import "treeview/_index.scss";
+@import "expansion-panel/_index.scss";
+@import "bottom-navigation/_index.scss";
 
 
 // Layout & containers
-@import "layout/_index.scss";
 @import "card/_index.scss";
 @import "splitter/_index.scss";
 @import "tilelayout/_index.scss";
@@ -105,6 +113,10 @@
 
 // Editor
 @import "editor/_index.scss";
+
+
+// Image Editor
+@import "imageeditor/_index.scss";
 
 
 // Scheduling

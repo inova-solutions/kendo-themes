@@ -3,13 +3,15 @@
 @include exports( "autocomplete/layout/material" ) {
 
     .k-autocomplete {
-        border-width: 0 0 $input-border-width;
+        border-width: $input-border-width 0;
+        border-top-color: transparent !important; // sass-lint:disable-line no-important
 
         // Disabled
-        .k-state-disabled > &,
+        &[disabled],
         &.k-state-disabled {
             border-bottom-style: dashed;
         }
+
     }
 
 }

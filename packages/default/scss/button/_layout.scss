@@ -8,9 +8,9 @@
         box-sizing: border-box;
         border-width: $button-border-width;
         border-style: solid;
-        font-size: $font-size;
+        font-size: $button-font-size;
         line-height: $button-line-height;
-        font-family: inherit;
+        font-family: $button-font-family;
         text-align: center;
         text-decoration: none;
         white-space: nowrap;
@@ -71,32 +71,44 @@
                 }
             }
         }
-        &-icon {
-            width: $button-calc-size;
-            height: $button-calc-size;
-            padding: $button-padding-y;
-
-            .k-text,
-            .k-button-text {
-                display: none;
-            }
-        }
 
     }
 
 
+    // Text button
+    .k-text-button {
+        > .k-icon,
+        > .k-button-icon {
+            display: none;
+        }
+    }
+
+
+    // Icon button
+    .k-icon-button,
+    .k-button.k-button-icon {
+        width: $button-calc-size;
+        height: $button-calc-size;
+        padding: $button-padding-y;
+
+        .k-text,
+        .k-button-text {
+            display: none;
+        }
+    }
+
+
+    // Input button
+    .k-input-button {}
+    .k-input-button.k-icon-button {}
+
+
     //DropDown Button
     .k-dropdown-button {
-        &.k-state-focused,
-        &:focus {
-            outline: 0;
-        }
-
-        &.k-widget {
-            border-radius: $border-radius;
-            border-width: 0;
-            display: inline-block;
-        }
+        outline: 0;
+        display: inline-flex;
+        flex-flow: row nowrap;
+        vertical-align: middle;
     }
 
 
@@ -105,6 +117,7 @@
         margin: 0;
         padding: 0;
         border-width: 0;
+        box-sizing: border-box;
         color: inherit;
         background-color: transparent;
         list-style: none;
@@ -114,6 +127,8 @@
         flex-direction: row;
         vertical-align: middle;
         position: relative;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: $rgba-transparent;
 
         .k-button {
             @include border-radius( 0 );
@@ -196,6 +211,18 @@
             width: auto;
             flex: none;
         }
+
+        &[dir="rtl"] {
+            // k-button
+            > .k-button:first-child {
+                @include border-left-radius( 0 );
+                @include border-right-radius( $button-border-radius );
+            }
+            > .k-button:last-child {
+                @include border-right-radius( 0 );
+                @include border-left-radius( $button-border-radius );
+            }
+        }
     }
 
 
@@ -235,7 +262,6 @@
     .k-button.k-outline {
         @extend .k-button-outline;
     }
-
 
     // RTL
     .k-rtl {
@@ -289,7 +315,7 @@
 
     // Button overlay
     .k-button-overlay {
-        @include border-radius(inherit);
+        @include border-radius( inherit );
         content: "";
         background: currentColor;
         opacity: 0;
@@ -315,7 +341,7 @@
         &:hover,
         &.k-state-hover {
             &::before {
-                @include opacity( $flat-button-hover-opacity );
+                opacity: $flat-button-hover-opacity;
             }
         }
 
@@ -323,13 +349,13 @@
         &:focus,
         &.k-state-focused {
             &::before {
-                @include opacity( $flat-button-focused-opacity );
+                opacity: $flat-button-focused-opacity;
             }
         }
         &.k-no-focus:not(:hover),
         &.k-no-focus:not(.k-state-hover) {
             &::before {
-                @include opacity( 0 );
+                opacity: 0;
             }
         }
 
@@ -337,14 +363,20 @@
         &:active,
         &.k-state-active {
             &::before {
-                @include opacity( $flat-button-active-opacity );
+                opacity: $flat-button-active-opacity;
             }
         }
 
         // Selected state
         &.k-state-selected {
             &::before {
-                @include opacity( $flat-button-selected-opacity );
+                opacity: $flat-button-selected-opacity;
+            }
+        }
+
+        &.k-button-clear {
+            &::before {
+                display: none;
             }
         }
     }

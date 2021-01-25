@@ -1,10 +1,10 @@
 $grid-hierarchy-col-width: 32px !default;
 $grid-form-component-vertical-align: middle !default;
 // TODO: perhaps these should be the values for cell-padding-x/-y
-$grid-grouping-row-border-top: 0 !default;
-$grid-group-footer-border-y: 0 !default;
-$grid-group-footer-second-cell-border: 0 !default;
-$edit-cell-input-space: 0 !default;
+$grid-grouping-row-border-top: 0px !default;
+$grid-group-footer-border-y: 1px !default;
+$grid-group-footer-second-cell-border: 0px !default;
+$edit-cell-input-space: 0px !default;
 $grid-header-first-border: 1px !default;
 $grid-sorted-icon-spacing: 4px !default;
 $grid-header-menu-icon-spacing: 14px !default;
@@ -31,6 +31,10 @@ $grid-group-drag-clue-opacity: .9 !default;
         .k-button,
         .k-button:active {
             box-shadow: none;
+        }
+
+        .k-group-footer td {
+            border-top-width: 0;
         }
 
         &[dir="rtl"],
@@ -83,6 +87,14 @@ $grid-group-drag-clue-opacity: .9 !default;
             width: 1px;
             height: 100%;
             cursor: col-resize;
+        }
+    }
+
+    .k-cell-inner {
+        .k-grid-filter,
+        .k-header-column-menu,
+        .k-hierarchy-cell .k-icon {
+            line-height: normal;
         }
     }
 
@@ -163,7 +175,8 @@ $grid-group-drag-clue-opacity: .9 !default;
         .k-dateinput-wrap,
         .k-dropdown-wrap,
         .k-picker-wrap,
-        .k-multiselect-wrap {
+        .k-multiselect-wrap,
+        .k-numeric-wrap {
             border-radius: $text-field-radius;
             border-width: 0 0 $text-field-border-width;
             padding-left: $text-field-padding;
@@ -217,32 +230,7 @@ $grid-group-drag-clue-opacity: .9 !default;
                 .k-button {
                     margin-top: $padding-y * 2;
                 }
-                > .k-clear-value {
-                    right: $padding-y * 2;
-                }
             }
-        }
-
-        .k-dropdown-wrap {
-            > .k-clear-value {
-                right: $padding-y * 6;
-                padding: 0 $padding-y;
-            }
-        }
-
-        .k-combobox {
-            .k-dropdown-wrap {
-                > .k-clear-value {
-                    right: $padding-y * 6;
-                    padding: 0 $padding-y;
-                }
-            }
-        }
-
-        .k-dropdown-wrap,
-        .k-dateinput-wrap,
-        .k-picker-wrap {
-            padding-right: $padding-y;
         }
 
         .k-numerictextbox {
@@ -267,11 +255,6 @@ $grid-group-drag-clue-opacity: .9 !default;
                 .k-input {
                     height: calc( #{$button-line-height * 1em} + #{$button-padding-y * 2} - #{$text-field-border-width} );
                 }
-
-                > .k-clear-value {
-                    right: $padding-y * 6;
-                    padding: 0 $padding-y;
-                }
             }
         }
 
@@ -293,20 +276,6 @@ $grid-group-drag-clue-opacity: .9 !default;
                 .k-numeric-wrap {
                     padding-left: $padding-y;
                     padding-right: $text-field-padding;
-                }
-
-                .k-dropdown-wrap {
-                    > .k-clear-value {
-                        right: auto;
-                        left: $padding-y * 6;
-                    }
-                }
-
-                .k-multiselect-wrap {
-                    > .k-clear-value {
-                        right: auto;
-                        left: $padding-y * 2;
-                    }
                 }
             }
         }

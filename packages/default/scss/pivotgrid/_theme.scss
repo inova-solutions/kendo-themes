@@ -1,9 +1,17 @@
 @include exports("pivotgrid/theme") {
 
+    .k-pivot {
+        border-color: $pivotgrid-border;
+    }
+
     .k-alt,
     .k-pivot-toolbar,
     .k-pivot-layout > tbody > tr:first-child > td:first-child {
         background-color: $pivotgrid-alt-bg;
+    }
+
+    .k-fieldselector {
+        color: $pivotgrid-configurator-text;
     }
 
     .k-fieldselector .k-list-container {

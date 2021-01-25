@@ -11,6 +11,8 @@
         font-family: $gantt-font-family;
         font-size: $gantt-font-size;
         line-height: $gantt-line-height;
+        display: flex;
+        flex-flow: column nowrap;
         position: relative;
         white-space: nowrap;
         -webkit-touch-callout: none;
@@ -28,10 +30,16 @@
         .k-grid-header .k-header {
             position: static;
         }
+        .k-treelist .k-grid-header .k-header {
+            position: relative;
+        }
         .k-grid-content tr {
             height: calc( #{$line-height-em} + #{$grid-cell-padding-y * 2} + #{$grid-cell-horizontal-border-width} );
         }
 
+        &.k-gantt-planned .k-grid-content tr {
+            height: calc( #{$line-height-em * 1.7} + #{$grid-cell-padding-y * 2} + #{$grid-cell-horizontal-border-width} );
+        }
 
         // Layout
         .k-gantt-layout {
@@ -47,40 +55,162 @@
             display: inline-flex;
         }
 
+        // React gantt
+        .k-treelist-scrollable {
+            width: 100%;
+            border-width: 0;
+            overflow: auto;
+
+            .k-grid-header .k-header {
+                position: sticky;
+            }
+            .k-grid-header th,
+            .k-grid-content-sticky {
+                z-index: 4;
+            }
+            .k-grid-header th.k-grid-header-sticky {
+                z-index: 5;
+            }
+            .k-grid-header tr:first-child th:last-child ,
+            tbody td:last-child {
+                padding: 0;
+            }
+            .k-grid-header th:last-child {
+                .k-header {
+                    padding: $grid-header-padding-y $grid-header-padding-x;
+                    border-width: 0 0 1px $grid-cell-vertical-border-width;
+                    white-space: nowrap;
+                }
+            }
+
+            tr.k-state-selected > td:last-child {
+                background: transparent;
+            }
+
+            // Task
+            .k-task {
+                display: inline-flex;
+                flex-flow: row nowrap;
+                white-space: nowrap;
+                z-index: 3;
+
+                &:hover .k-task-start,
+                &:hover .k-task-end {
+                    display: block;
+                }
+
+                &:hover .k-task-draghandle {
+                    visibility: visible;
+                }
+            }
+            .k-task-content {
+                padding: $gantt-task-padding-y $gantt-task-padding-x;
+                display: block;
+                line-height: normal;
+                flex: 1 1 auto;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .k-task-actions {
+                flex-shrink: 0;
+            }
+
+            // Milestone
+            .k-task-milestone {
+                border: 0;
+                transform: none;
+                background: none;
+
+                .k-task-milestone-content {
+                    width: .875em;
+                    height: .875em;
+                    border-width: 1px;
+                    border-style: solid;
+                    transform: rotate(45deg);
+                }
+            }
+
+            // Summary
+            .k-task-summary {
+                height: 15px;
+                clip-path: polygon(-20px 0, calc(100% + 20px) 0, calc(100% + 20px) 100%, 100% 100%, calc(100% - 8px) calc(100% - 5px), 8px calc(100% - 5px), 0 100%, -20px 100%);
+            }
+            .k-task-summary-complete {
+                width: 100%;
+                height: 15px;
+            }
+
+            // Dots
+            .k-task-start {
+                transform: translateX(-140%) translateY(-50%);
+            }
+            .k-task-end {
+                transform: translateX(140%) translateY(-50%);
+            }
+            .k-master-row:hover .k-task-dot {
+                display: block;
+            }
+
+            // Dependency lines SVG
+            .k-gantt-dependencies-svg {
+                position: absolute;
+                overflow: visible;
+                pointer-events: none;
+                z-index: 2;
+
+                polyline {
+                    stroke-width: $gantt-line-size;
+                }
+            }
+
+            // Table with columns borders
+            .k-gantt-columns {
+                background: transparent;
+                pointer-events: none;
+                table-layout: fixed;
+            }
+        }
+    }
+
+    // Header and footer
+    .k-gantt-header {
+        border-width: 0 0 $toolbar-border-width;
+        flex-shrink: 0;
+        z-index: 6;
+    }
+    .k-gantt-footer {
+        border-width: $toolbar-border-width 0 0;
+        flex-shrink: 0;
     }
 
 
     // Toolbar
-    .k-gantt-toolbar {
-        padding: $toolbar-padding-y $toolbar-padding-x;
-        border-width: 0 0 1px;
-        border-style: solid;
-        border-color: inherit;
-        line-height: $toolbar-line-height;
+    .k-gantt-toolbar {}
 
-        .k-gantt-layout + & {
-            border-width: 1px 0 0;
-        }
+    .k-gantt-toggle {
+        display: none;
+    }
+    .k-gantt-add {}
+    .k-gantt-create {}
+    .k-gantt-views {}
 
-        .k-gantt-toggle {
-            margin-right: .5em;
+
+    // Gantt views
+    .k-gantt-views-wrapper {
+        margin-left: auto;
+
+        .k-views-dropdown {
+            width: auto;
+            font-size: inherit;
             display: none;
-            float: left;
+            cursor: pointer;
         }
     }
-    .k-gantt-actions {
-        float: left;
 
-        .k-button + .k-button {
-            margin-left: $toolbar-padding-x;
-        }
-    }
-    .k-gantt-views {
-        float: right;
-        display: inline-flex;
-    }
 
-    @media only screen and (max-width: 480px) {
+    // Responsive gantt toolbar
+    @media (max-width: 480px) {
+
         .k-gantt-toolbar {
             .k-gantt-toggle {
                 display: inline-flex;
@@ -91,91 +221,30 @@
                 width: $button-calc-size;
                 height: $button-calc-size;
 
-                .k-icon {
+                .k-button-icon {
                     margin: 0;
                 }
-                span + span {
+                .k-button-text {
                     display: none;
                 }
             }
         }
+
     }
 
-
-    // View switcher
-    .k-gantt-views {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        li {
-            border-width: $button-border-width;
-            border-style: solid;
-            position: relative;
-            z-index: 1;
-        }
-        li + li {
-            margin-left: -$button-border-width;
-        }
-        li:first-child { @include border-radius(); }
-        li:first-child + li { @include border-left-radius-only(); }
-        li:last-child { @include border-right-radius-only(); }
-
-        .k-state-hover,
-        .k-state-selected {
-            z-index: 2;
-        }
-        &.k-state-expanded {
-            li {
-                @include border-radius( 0 );
-                margin: 0;
-            }
-            li + li { margin-top: -1px; }
-            li:first-child { @include border-top-radius-only(); }
-            li:first-child + li { @include border-radius( 0 ) }
-            li:last-child { @include border-bottom-radius-only(); }
-        }
-
-
-        .k-link {
-            padding: $button-padding-y $button-padding-x;
-            box-sizing: border-box;
-            color: inherit;
-            text-decoration: none;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            align-content: center;
-            justify-content: center;
-        }
-
-        .k-current-view { display: none; }
-        .k-current-view .k-link::after {
-            content: "";
-            margin: 0 0 0 1ex;
-            border: .25em solid transparent;
-            border-top: .5em solid currentColor;
-            border-bottom-width: 0;
-            display: inline-block;
-        }
-    }
     @media (max-width: 1024px) {
-        ul.k-gantt-views {
-            flex-direction: column;
-            align-items: stretch;
-            position: absolute;
-            top: $toolbar-padding-y;
-            right: $toolbar-padding-x;
-            z-index: 1000;
-
-            li { display: none; }
-            .k-current-view { display: block; }
+        .k-gantt-views-wrapper .k-gantt-views { display: none; }
+        .k-gantt-views-wrapper .k-views-dropdown { display: flex; }
+    }
 
 
-            &.k-state-expanded {
-                li { display: block; }
-            }
-        }
+    // Gant content
+    .k-gantt-content {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: stretch;
+        flex: 1 1 auto;
+        overflow: hidden;
     }
 
 
@@ -200,6 +269,9 @@
         .k-grid-content td {
             vertical-align: middle;
         }
+        .k-gantt-treelist-nested-columns .k-grid-header tr {
+            height: calc( #{$line-height-em} + #{$grid-header-padding-y * 2} + 1px );
+        }
     }
 
 
@@ -209,6 +281,7 @@
         .k-timeline {
             height: 100%;
             border-width: 0;
+            display: flex;
         }
         .k-grid-header {}
         .k-grid-content {
@@ -317,8 +390,8 @@
         flex: 1 1 auto;
     }
     .k-task-dot {
-        width: 16px;
-        height: 16px;
+        width: calc( #{$gantt-dot-size} + #{$gantt-dot-spacing * 2} );
+        height: calc( #{$gantt-dot-size} + #{$gantt-dot-spacing * 2} );
         line-height: 1;
         cursor: pointer;
         display: none;
@@ -332,8 +405,8 @@
     }
     .k-task-dot::before {
         content: "";
-        width: 8px;
-        height: 8px;
+        width: $gantt-dot-size;
+        height: $gantt-dot-size;
         border-width: 0;
         border-style: solid;
         border-radius: 100%;
@@ -425,7 +498,7 @@
     // Single task
     .k-single-wrap {}
     .k-task-single {
-        @include border-radius();
+        @include border-radius( $border-radius );
         border-width: $gantt-task-border-width;
         border-style: solid;
         cursor: default;
@@ -457,7 +530,7 @@
         }
     }
     .k-task-complete {
-        @include border-radius();
+        @include border-radius( $border-radius );
         width: 20%;
         position: absolute;
         z-index: 1;
@@ -473,7 +546,7 @@
         align-items: center;
     }
     .k-task-template {
-        padding: $gantt-task-template-padding;
+        padding: $gantt-task-padding-y $gantt-task-padding-x;
         line-height: normal;
         flex: 1;
         overflow: hidden;
@@ -486,6 +559,7 @@
         flex-direction: row;
         align-items: center;
         visibility: hidden;
+        z-index: 1;
     }
     .k-task-actions > .k-link {
         display: inline-flex;
@@ -524,6 +598,110 @@
         }
     }
 
+    // Planned position
+
+    .k-gantt-planned {
+        .k-gantt-dependencies,
+        .k-task-dot,
+        .k-resources-wrap {
+            margin-top: $gantt-planned-dependency-margin-y;
+        }
+
+        .k-task-wrap {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .k-task-inner-wrap {
+            display: inline-flex;
+        }
+
+        .k-task-wrap.k-drag-hint {
+            top: $gantt-planned-single-drag-hint-top;
+        }
+
+        .k-summary-wrap.k-drag-hint {
+            top: $gantt-planned-summary-drag-hint-top;
+        }
+
+        .k-milestone-wrap.k-drag-hint {
+            top: $gantt-planned-milestone-drag-hint-top;
+        }
+    }
+
+    // Planned element
+
+    .k-task-planned {
+        margin: 0 0 $gantt-planned-margin-y;
+        line-height: $gantt-planned-line-height;
+        display: flex;
+        align-items: center;
+
+        .k-task-moment {
+            border-width: $gantt-planned-border-width;
+            border-radius: $gantt-planned-moment-border-radius;
+            border-style: solid;
+            height: $gantt-planned-moment-height;
+            width: $gantt-planned-moment-width;
+        }
+
+        .k-task-duration {
+            height: $gantt-planned-duration-height;
+        }
+
+        .k-task-moment.k-moment-left {
+            margin-left: $gantt-planned-moment-left-margin-x;
+        }
+
+        &:hover .k-task-duration {
+            height: $gantt-planned-duration-hover-height;
+        }
+    }
+
+    .k-milestone-wrap .k-task-moment {
+        margin-left: $gantt-planned-milestone-moment-margin-x;
+    }
+
+    // Planned Tooltip
+
+    .k-planned-tooltip {
+        .k-task-content {
+            display: block;
+        }
+    }
+
+    // Delay offset
+
+    .k-task-offset-wrap .k-task-content .k-resize-e {
+        display: none;
+    }
+
+    .k-task-offset {
+        flex-direction: row-reverse;
+        display: flex;
+
+        .k-resize-handle {
+            right: 0;
+            z-index: 2;
+            visibility: hidden;
+            margin-right: $gantt-planned-offset-resize-handler-margin-x;
+        }
+
+        .k-resize-handle::before {
+            border-left-width: 1px;
+            position: absolute;
+            top: $gantt-offset-resize-handler-top;
+            bottom: .5em;
+            margin-right: 2px;
+        }
+    }
+
+    .k-task-single:hover + .k-task-offset .k-task-actions,
+    .k-task-offset:hover .k-task-actions,
+    .k-task-single:hover + .k-task-offset .k-resize-handle,
+    .k-task-offset:hover .k-resize-handle {
+        visibility: visible;
+    }
 }
 
 @include exports("gantt/export") {
@@ -571,22 +749,6 @@
 @include exports("gantt/rtl") {
 
     .k-rtl {
-
-        .k-gantt-views {
-            float: left;
-
-            li:first-child + li { @include border-right-radius-only(); }
-            li:last-child { @include border-left-radius-only(); }
-        }
-
-        .k-gantt-actions {
-            float: right;
-
-            .k-button + .k-button {
-                margin-left: 0;
-                margin-right: $toolbar-padding-x;
-            }
-        }
 
         .k-gantt-rows,
         .k-gantt-columns {
@@ -642,6 +804,28 @@
 
         .k-gantt-delete {
             float: right;
+        }
+
+        .k-task-offset-wrap .k-task-content {
+            .k-resize-e {
+                display: block;
+            }
+
+            .k-resize-w {
+                display: none;
+            }
+        }
+
+        .k-milestone-wrap {
+            margin-left: $gantt-rtl-milestone-wrap-margin-x;
+        }
+
+        .k-milestone-wrap .k-task-moment {
+            margin-right: $gantt-rtl-milestone-planned-moment-margin-x;
+        }
+
+        .k-gantt-timeline .k-milestone-wrap .k-task-start {
+            right: $gantt-rtl-milestone-dot-start-margin-x;
         }
     }
 }

@@ -14,25 +14,27 @@ This is a monorepo that holds the SCSS-based themes for the Kendo UI components.
 
 This package is part of the following suites:
 
-* [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/)
-* [KendoReact](http://www.telerik.com/kendo-react-ui/)
-* [Kendo UI for Vue](http://www.telerik.com/kendo-vue-ui/)
-* [Kendo UI for jQuery](http://www.telerik.com/kendo-ui)
-* [UI for ASP.NET MVC](http://www.telerik.com/aspnet-mvc)
-* [UI for ASP.NET Core](http://www.telerik.com/aspnet-core-ui)
+* [Kendo UI for Angular](https://www.telerik.com/kendo-angular-ui/)
+* [KendoReact](https://www.telerik.com/kendo-react-ui/)
+* [Kendo UI for Vue](https://www.telerik.com/kendo-vue-ui/)
+* [Kendo UI for jQuery](https://www.telerik.com/kendo-ui)
+* [UI for ASP.NET MVC](https://www.telerik.com/aspnet-mvc)
+* [UI for ASP.NET Core](https://www.telerik.com/aspnet-core-ui)
+* [UI for Blazor](https://www.telerik.com/blazor-ui)
 
-All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+All available Telerik and Kendo UI commercial licenses may be obtained at https://www.telerik.com/purchase.aspx.
 
-If you do not own a commercial license, the usage of this software shall be governed by the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+If you do not own a commercial license, the usage of this software shall be governed by the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
 ## Basic Usage
 
 For more information on how to add one of the themes in your project, refer to the following articles:
 
-* [Using the Kendo UI themes in Angular Projects](http://www.telerik.com/kendo-angular-ui/components/styling/)
-* [Using the Kendo UI themes in React Projects](http://www.telerik.com/kendo-react-ui/components/styling/)
-* [Using the Kendo UI themes in Vue Projects](http://www.telerik.com/kendo-vue-ui/components/styling/)
-* [Using the Kendo UI themes in jQuery Projects](http://docs.telerik.com/kendo-ui/styles-and-layout/sass-themes)
+* [Using the Kendo UI themes in Angular Projects](https://www.telerik.com/kendo-angular-ui/components/styling/)
+* [Using the Kendo UI themes in React Projects](https://www.telerik.com/kendo-react-ui/components/styling/)
+* [Using the Kendo UI themes in Vue Projects](https://www.telerik.com/kendo-vue-ui/components/styling/)
+* [Using the Kendo UI themes in jQuery Projects](https://docs.telerik.com/kendo-ui/styles-and-layout/sass-themes)
+* [Using the Kendo UI themes in Blazor](https://docs.telerik.com/blazor-ui/themes/overview)
 
 ## Development
 
@@ -48,13 +50,7 @@ The repository uses [lerna](https://github.com/lerna/lerna/) to ship the multipl
 
 To set up the monorepo:
 
-Run the `build/install.sh` file. To do that, on the root level of the repository, run the following row in a Git Bash:
-
-  > `./build/install.sh`
-
-To perform a clean setup (remove existing node_modules) of the monorepo, on the root level of the repository, run the following row in a Git Bash:
-
-  > `./build/clean-install.sh`
+Just run `npm install` in the root directory. Using node hooks, the command will clean the repo, install it and link the files.
 
 The following commands have to be run in the root of the repository and help you check if various tasks are accomplished successfully:
 
@@ -85,9 +81,9 @@ These steps will create new screenshots in `tests/output`. Note that due to plat
 
 To avoid hosting-related issues in projects that use the themes, the resources are embedded by encoding them in the output CSS. For more details, refer to [this issue](https://github.com/telerik/kendo-theme-default/issues/41#issuecomment-258472183).
 
-To embed the latest resources in a given theme:
+To embed the latest resources:
 
-1. Run the `npm run embed-assets` task in the theme subfolder. The task generates a file with the same name which registers a Base64-encoded version in the `$data-uris` SCSS map. For example, the `foo.woff` font file will be encoded in a `foo.scss` file which can later be imported through `@import './font/foo';`.
+1. Run the `npm run embed-assets` task. The task generates a file with the same name which registers a Base64-encoded version in the `$data-uris` SCSS map. For example, the `foo.woff` font file will be encoded in a `foo.scss` file which can later be imported through `@import './font/foo';`.
 1. Inline the encoded file inside the CSS through `map-get( $data-uris, 'foo.woff' )`. For example:
 
     ```scss

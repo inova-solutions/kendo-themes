@@ -1,57 +1,17 @@
 @include exports("input/theme") {
+    .k-input-separator {
+        border-color: $input-separator-color;
+        opacity: $input-separator-opacity;
+    }
 
-    // Textbox, Textarea
-    .k-textbox,
-    .k-textarea {
-        @include fill(
-            $input-text,
-            $input-bg,
-            $input-border
-        );
-
-        // Selection
-        &::selection {
-            @include fill (
-                $color: $primary-contrast,
-                $bg: $primary
-            );
-        }
-
-        // Hovered
-        &:hover,
-        &.k-state-hover {
-            @include fill(
-                $input-hovered-text,
-                $input-hovered-bg,
-                $input-hovered-border
-            );
-        }
-
-        // Focused
-        &:focus,
-        &.k-state-focus,
-        &.k-state-focused {
-            @include fill (
-                $input-focused-text,
-                $input-focused-bg,
-                $input-focused-border
-            );
-            @include box-shadow( $input-focused-shadow );
-        }
-
-        // Invalid
-        &.k-invalid,
-        &.k-state-invalid,
-        &.ng-invalid.ng-touched,
-        &.ng-invalid.ng-dirty {
-            border-color: $invalid-border;
-
-            &:focus,
-            &.k-state-focus,
-            &.k-state-focused {
-                @include box-shadow($invalid-shadow);
+    .k-input-prefix,
+    .k-input-suffix {
+        > .k-clear-value {
+            &.k-state-focused::after,
+            &:focus::after {
+                background-color: $input-clear-button-focused-background;
+                opacity: $input-clear-button-focused-opacity;
             }
         }
     }
-
 }

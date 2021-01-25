@@ -1,0 +1,44 @@
+// Notification
+$notification-padding-x: 8px !default;
+$notification-padding-y: 4px !default;
+$notification-border-width: 1px !default;
+$notification-border-radius: $border-radius !default;
+
+$notification-shadow: $popup-shadow !default;
+
+$notification-font-family: $font-family !default;
+$notification-font-size: $font-size-sm !default;
+$notification-line-height: $line-height !default;
+
+$notification-icon-offset: null !default;
+$notification-icon-spacing: $icon-spacing !default;
+
+$notification-bg: $component-bg !default;
+$notification-text: $component-text !default;
+$notification-border: $component-border !default;
+
+$notification-theme-colors: $theme-colors !default;
+// $notification-themes: () !default;
+
+@function notification-theme($name: null, $color: null) {
+    // sass-lint:disable indentation
+    @return (
+        border: $color,
+        color: contrast-wcag( $color ),
+        bg: $color
+    );
+    // sass-lint:enable indentation
+}
+
+$notification-themes: (
+    primary: notification-theme( primary, map-get( $notification-theme-colors, primary ) ),
+    secondary: notification-theme( secondary, map-get( $notification-theme-colors, secondary ) ),
+    tertiary: notification-theme( tertiary, map-get( $notification-theme-colors, tertiary ) ),
+    info: notification-theme( info, map-get( $notification-theme-colors, info ) ),
+    success: notification-theme( success, map-get( $notification-theme-colors, success ) ),
+    warning: notification-theme( warning, map-get( $notification-theme-colors, warning ) ),
+    error: notification-theme( error, map-get( $notification-theme-colors, error ) ),
+    dark: notification-theme( dark, map-get( $notification-theme-colors, dark ) ),
+    light: notification-theme( light, map-get( $notification-theme-colors, light ) ),
+    inverse: notification-theme( inverse, map-get( $notification-theme-colors, inverse ) )
+);

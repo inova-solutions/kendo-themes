@@ -9,33 +9,6 @@ position: 9
 
 The following table lists the available variables for customization.
 
-<style>
-    .theme-variables th,
-    .theme-variables td {
-        vertical-align: top;
-    }
-
-    .color-preview {
-        margin-right: .5em;
-        border-radius: 50%;
-        width: 1em;
-        height: 1em;
-        vertical-align: middle;
-        display: inline-block;
-        border: 1px solid rgba(0,0,0,.08);
-    }
-
-    .theme-variables-description-container > div {
-        margin: 0 0 .5em 2em;
-    }
-
-    .theme-variables-description {
-        display: block;
-        margin-left: 1em;
-    }
-</style>
-
-
 <table class="theme-variables">
     <colgroup>
     <col style="width: 200px; white-space:nowrap;" />
@@ -53,46 +26,6 @@ The following table lists the available variables for customization.
 </thead>
 <tbody>
         <tr>
-    <td>$button-border-width</td>
-    <td></td>
-    <td>$btn-border-width</td>
-    <td></td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Width of border around buttons</div></div>
-    </td>
-</tr>
-<tr>
-    <td>$button-border-radius</td>
-    <td></td>
-    <td>$border-radius</td>
-    <td>$border-radius</td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Border radius of buttons</div></div>
-    </td>
-</tr>
-<tr>
-    <td>$button-padding-x</td>
-    <td></td>
-    <td>$btn-padding-x</td>
-    <td></td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Horizontal padding of buttons</div></div>
-    </td>
-</tr>
-<tr>
-    <td>$button-padding-y</td>
-    <td></td>
-    <td>$btn-padding-y</td>
-    <td></td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Vertical padding of buttons</div></div>
-    </td>
-</tr>
-<tr>
     <td>$tabstrip-bg</td>
     <td></td>
     <td>null</td>

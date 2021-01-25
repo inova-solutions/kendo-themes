@@ -1,0 +1,53 @@
+@include exports( "utils/spacing" ) {
+
+    // sass-lint:disable-block no-important
+    // sass-lint:disable-block indentation
+
+    $utils-margin: (
+        m: margin,
+        mt: margin-top,
+        mr: margin-right,
+        mb: margin-bottom,
+        ml: margin-left
+    ) !default;
+    $utils-padding: (
+        p: padding,
+        pt: padding-top,
+        pr: padding-right,
+        pb: padding-bottom,
+        pl: padding-left
+    ) !default;
+
+    // Margin
+    @each $size, $val in $spacing {
+        @each $name, $prop in $utils-margin {
+            .k-#{$name}-#{$size} { #{$prop}: $val !important; }
+        }
+
+        .k-mx-#{$size} {
+            margin-left: $val !important;
+            margin-right: $val !important;
+        }
+        .k-my-#{$size} {
+            margin-top: $val !important;
+            margin-bottom: $val !important;
+        }
+    }
+
+    // Padding
+    @each $size, $val in $spacing {
+        @each $name, $prop in $utils-padding {
+            .k-#{$name}-#{$size} { #{$prop}: $val !important; }
+        }
+
+        .k-px-#{$size} {
+            padding-left: $val !important;
+            padding-right: $val !important;
+        }
+        .k-py-#{$size} {
+            padding-top: $val !important;
+            padding-bottom: $val !important;
+        }
+    }
+
+}

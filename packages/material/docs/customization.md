@@ -9,33 +9,6 @@ position: 9
 
 The following table lists the available variables for customizing the Material theme.
 
-<style>
-    .theme-variables th,
-    .theme-variables td {
-        vertical-align: top;
-    }
-
-    .color-preview {
-        margin-right: .5em;
-        border-radius: 50%;
-        width: 1em;
-        height: 1em;
-        vertical-align: middle;
-        display: inline-block;
-        border: 1px solid rgba(0,0,0,.08);
-    }
-
-    .theme-variables-description-container > div {
-        margin: 0 0 .5em 2em;
-    }
-
-    .theme-variables-description {
-        display: block;
-        margin-left: 1em;
-    }
-</style>
-
-
 ## Variables
 
 ### Common
@@ -188,6 +161,7 @@ The following table lists the available variables for customizing the Material t
 </tr>
 </tbody>
 </table>
+
 ### Buttons
 
 <table class="theme-variables">
@@ -207,6 +181,46 @@ The following table lists the available variables for customizing the Material t
 </thead>
 <tbody>
         <tr>
+    <td>$button-border-width</td>
+    <td></td>
+    <td>0px</td>
+    <td>0px</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Width of border around buttons</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$button-border-radius</td>
+    <td></td>
+    <td>$border-radius</td>
+    <td>2px</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Border radius of buttons</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$button-padding-x</td>
+    <td></td>
+    <td>$padding-x</td>
+    <td></td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Horizontal padding of buttons</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$button-padding-y</td>
+    <td></td>
+    <td>8px</td>
+    <td>8px</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Vertical padding of buttons</div></div>
+    </td>
+</tr>
+<tr>
     <td>$button-bg</td>
     <td></td>
     <td>$base-bg</td>
@@ -338,6 +352,7 @@ The following table lists the available variables for customizing the Material t
 </tr>
 </tbody>
 </table>
+
 ### Charts
 
 <table class="theme-variables">
@@ -359,61 +374,71 @@ The following table lists the available variables for customizing the Material t
         <tr>
     <td>$series-a</td>
     <td></td>
-    <td><span class="color-preview" style="background-color: #3f51b5"></span>#3f51b5</td>
-    <td><span class="color-preview" style="background-color: #3f51b5"></span>#3f51b5</td>
+    <td>get-base-hue( teal, 500 )</td>
+    <td>get-base-hue( teal, 500 )</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the first series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The first base series color and its light and dark shades.</div></div>
     </td>
 </tr>
 <tr>
     <td>$series-b</td>
     <td></td>
-    <td><span class="color-preview" style="background-color: #2196f3"></span>#2196f3</td>
-    <td><span class="color-preview" style="background-color: #2196f3"></span>#2196f3</td>
+    <td>get-base-hue( blue, 500 )</td>
+    <td>get-base-hue( blue, 500 )</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The clor of the second series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The second base series color and its light and dark shades.</div></div>
     </td>
 </tr>
 <tr>
     <td>$series-c</td>
     <td></td>
-    <td><span class="color-preview" style="background-color: #43a047"></span>#43a047</td>
-    <td><span class="color-preview" style="background-color: #43a047"></span>#43a047</td>
+    <td>get-base-hue( purple, 500 )</td>
+    <td>get-base-hue( purple, 500 )</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the third series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The third base series color and its light and dark shades.</div></div>
     </td>
 </tr>
 <tr>
     <td>$series-d</td>
     <td></td>
-    <td><span class="color-preview" style="background-color: #ffc107"></span>#ffc107</td>
-    <td><span class="color-preview" style="background-color: #ffc107"></span>#ffc107</td>
+    <td>get-base-hue( red, 500 )</td>
+    <td>get-base-hue( red, 500 )</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the fourth series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The fourth base series color and its light and dark shades.</div></div>
     </td>
 </tr>
 <tr>
     <td>$series-e</td>
     <td></td>
-    <td><span class="color-preview" style="background-color: #ff5722"></span>#ff5722</td>
-    <td><span class="color-preview" style="background-color: #ff5722"></span>#ff5722</td>
+    <td>get-base-hue( yellow, 500 )</td>
+    <td>get-base-hue( yellow, 500 )</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the fifth series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The fifth base series color and its light and dark shades.</div></div>
     </td>
 </tr>
 <tr>
     <td>$series-f</td>
     <td></td>
-    <td><span class="color-preview" style="background-color: #e91e63"></span>#e91e63</td>
-    <td><span class="color-preview" style="background-color: #e91e63"></span>#e91e63</td>
+    <td>get-base-hue( green, 500 )</td>
+    <td>get-base-hue( green, 500 )</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The color of the sixth series.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The sixth base series color and its light and dark shades.</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$series-1</td>
+    <td></td>
+    <td>$series-a</td>
+    <td>get-base-hue( teal, 500 )</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The series colors in order:<br />base, light, dark, lighter, darker</div></div>
     </td>
 </tr>
 <tr>
@@ -438,6 +463,7 @@ The following table lists the available variables for customizing the Material t
 </tr>
 </tbody>
 </table>
+
 ### Color System
 
 <table class="theme-variables">
@@ -588,6 +614,7 @@ The following table lists the available variables for customizing the Material t
 </tr>
 </tbody>
 </table>
+
 ### Component
 
 <table class="theme-variables">
@@ -668,6 +695,7 @@ The following table lists the available variables for customizing the Material t
 </tr>
 </tbody>
 </table>
+
 ### Grid
 
 <table class="theme-variables">
@@ -754,6 +782,36 @@ The following table lists the available variables for customizing the Material t
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Background gradient of grid header</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$grid-footer-bg</td>
+    <td></td>
+    <td>$grid-header-bg</td>
+    <td>transparent</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Background color of grid footer</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$grid-footer-text</td>
+    <td></td>
+    <td>$grid-header-text</td>
+    <td>if($theme-type == dark, $light-secondary-text, $dark-secondary-text)</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Text color of grid footer</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$grid-footer-border</td>
+    <td></td>
+    <td>$grid-header-border</td>
+    <td>map-get($theme, component-border)</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Border color of grid footer</div></div>
     </td>
 </tr>
 <tr>
@@ -848,6 +906,7 @@ The following table lists the available variables for customizing the Material t
 </tr>
 </tbody>
 </table>
+
 ### Icons
 
 <table class="theme-variables">
@@ -878,6 +937,7 @@ The following table lists the available variables for customizing the Material t
 </tr>
 </tbody>
 </table>
+
 ### Shadows
 
 <table class="theme-variables">
@@ -958,6 +1018,7 @@ The following table lists the available variables for customizing the Material t
 </tr>
 </tbody>
 </table>
+
 ### Tabstrip
 
 <table class="theme-variables">
@@ -977,46 +1038,6 @@ The following table lists the available variables for customizing the Material t
 </thead>
 <tbody>
         <tr>
-    <td>$button-border-width</td>
-    <td></td>
-    <td>0</td>
-    <td>0</td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Width of border around buttons</div></div>
-    </td>
-</tr>
-<tr>
-    <td>$button-border-radius</td>
-    <td></td>
-    <td>$border-radius</td>
-    <td>2px</td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Border radius of buttons</div></div>
-    </td>
-</tr>
-<tr>
-    <td>$button-padding-x</td>
-    <td></td>
-    <td>$padding-x</td>
-    <td></td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Horizontal padding of buttons</div></div>
-    </td>
-</tr>
-<tr>
-    <td>$button-padding-y</td>
-    <td></td>
-    <td>8px</td>
-    <td>8px</td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Vertical padding of buttons</div></div>
-    </td>
-</tr>
-<tr>
     <td>$tabstrip-bg</td>
     <td></td>
     <td>null</td>
@@ -1069,8 +1090,8 @@ The following table lists the available variables for customizing the Material t
 <tr>
     <td>$tabstrip-item-border-width</td>
     <td></td>
-    <td>0</td>
-    <td>0</td>
+    <td>0px</td>
+    <td>0px</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Width of border around of tabs</div></div>
@@ -1079,8 +1100,8 @@ The following table lists the available variables for customizing the Material t
 <tr>
     <td>$tabstrip-item-border-radius</td>
     <td></td>
-    <td>0</td>
-    <td>0</td>
+    <td>0px</td>
+    <td>0px</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Border radius of tabs</div></div>
@@ -1089,8 +1110,8 @@ The following table lists the available variables for customizing the Material t
 <tr>
     <td>$tabstrip-item-gap</td>
     <td></td>
-    <td>0</td>
-    <td>0</td>
+    <td>0px</td>
+    <td>0px</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Spacing between tabs</div></div>
@@ -1239,8 +1260,8 @@ The following table lists the available variables for customizing the Material t
 <tr>
     <td>$tabstrip-content-border-width</td>
     <td></td>
-    <td>0</td>
-    <td>0</td>
+    <td>0px</td>
+    <td>0px</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Width of border around tabstrip content</div></div>
@@ -1278,6 +1299,7 @@ The following table lists the available variables for customizing the Material t
 </tr>
 </tbody>
 </table>
+
 ### Toolbar
 
 <table class="theme-variables">
@@ -1299,8 +1321,8 @@ The following table lists the available variables for customizing the Material t
         <tr>
     <td>$toolbar-padding-x</td>
     <td></td>
-    <td>0</td>
-    <td>0</td>
+    <td>6px</td>
+    <td>6px</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The horizontal padding of the container.</div></div>
@@ -1309,8 +1331,8 @@ The following table lists the available variables for customizing the Material t
 <tr>
     <td>$toolbar-padding-y</td>
     <td></td>
-    <td>0</td>
-    <td>0</td>
+    <td>6px</td>
+    <td>6px</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The vertical padding of the container.</div></div>
@@ -1318,6 +1340,7 @@ The following table lists the available variables for customizing the Material t
 </tr>
 </tbody>
 </table>
+
 ### Typography
 
 <table class="theme-variables">
@@ -1378,6 +1401,7 @@ The following table lists the available variables for customizing the Material t
 </tr>
 </tbody>
 </table>
+
 
 
 

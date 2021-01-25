@@ -34,7 +34,12 @@
 
         // Focused state
         td.k-state-focused,
-        th.k-state-focused {
+        th.k-state-focused,
+        th:focus,
+        .k-master-row > td:focus,
+        .k-grouping-row > td:focus,
+        .k-detail-row > td:focus,
+        .k-group-footer > td:focus {
             box-shadow: $grid-focused-shadow;
         }
 
@@ -45,27 +50,25 @@
 
         // Locked
 
-        .k-grid-header-locked {
-            @include fill(
-                $grid-sticky-header-text,
-                $grid-sticky-header-bg,
-                $grid-sticky-header-border
-            );
+        .k-grid-header-locked,
+        .k-grid-content-locked,
+        .k-grid-header-locked .k-header,
+        .k-grid-content-locked td {
+            border-color: $grid-sticky-header-border;
+        }
+
+        .k-grid-header-locked .k-header {
+            border-bottom-color: $grid-header-border;
         }
 
         .k-grid-content-locked {
-            @include fill( $border: $grid-sticky-header-border );
-
-            td {
-                @include fill(
-                    $grid-sticky-text,
-                    $grid-sticky-bg,
-                    $grid-sticky-border
-                );
+            .k-group-footer td,
+            .k-group-cell {
+                @include fill( $border: $grid-header-border );
             }
 
-            .k-alt td {
-                @include fill( $bg: $grid-sticky-alt-bg );
+            .k-grouping-row + tr td {
+                border-top-color: $grid-header-border;
             }
 
             // Selected state
@@ -89,16 +92,24 @@
                 @include fill( $bg: $grid-sticky-selected-hovered-bg );
             }
         }
+
+        &[dir="rtl"],
+        &.k-rtl {
+            th.k-hierarchy-cell,
+            td.k-hierarchy-cell {
+                border-left-color: transparent;
+            }
+        }
     }
 
 
     // Toolbar
     .k-grid-toolbar {
         @include fill(
-            $toolbar-text,
-            $toolbar-bg,
+            null,
+            null,
             inherit,
-            $toolbar-gradient
+            null
         );
     }
 
@@ -130,7 +141,9 @@
         .k-grid-filter,
         .k-header-column-menu,
         .k-hierarchy-cell .k-icon {
-            &:focus {
+            &:focus,
+            &.k-state-focus,
+            &.k-state-border-down {
                 box-shadow: inset 0 0 0 2px rgba( 0, 0, 0, .1 );
             }
             &.k-state-active {
@@ -142,9 +155,20 @@
         .k-grid-header-sticky,
         .k-grid-header-sticky.k-sorted {
             @include fill(
-                $grid-sticky-header-text,
-                $grid-sticky-header-bg,
-                $grid-sticky-header-border
+                $color: $grid-sticky-header-text,
+                $bg: $grid-sticky-header-bg
+            );
+
+            border-right-color: $grid-sticky-header-border;
+            border-left-color: $grid-sticky-header-border;
+        }
+    }
+
+    // Grid footer
+    .k-grid-footer {
+        .k-grid-footer-sticky {
+            @include fill(
+                $bg: $grid-sticky-footer-bg
             );
         }
     }
@@ -158,39 +182,65 @@
                 $grid-sticky-bg,
                 $grid-sticky-border
             );
+            border-top-color: $grid-border;
+        }
+
+        .k-grid-row-sticky {
+            border-top-color: $grid-sticky-border;
+            border-bottom-color: $grid-sticky-border;
+            background-color: $grid-sticky-bg;
         }
 
         &.k-alt {
-            .k-grid-content-sticky {
+            .k-grid-content-sticky,
+            .k-grid-row-sticky {
                 @include fill( $bg: $grid-sticky-alt-bg );
             }
         }
 
         // Selected state
-        &.k-state-selected .k-grid-content-sticky {
+        &.k-state-selected .k-grid-content-sticky,
+        &.k-state-selected .k-grid-row-sticky {
             @include fill( $bg: $grid-sticky-selected-bg );
         }
 
-        &.k-state-selected.k-alt .k-grid-content-sticky {
+        &.k-state-selected.k-alt .k-grid-content-sticky,
+        &.k-state-selected.k-alt .k-grid-row-sticky {
             @include fill( $bg: $grid-sticky-selected-alt-bg );
         }
 
 
         // Hovered state
         &:hover .k-grid-content-sticky,
-        &.k-state-hover .k-grid-content-sticky {
+        &:hover .k-grid-row-sticky,
+        &.k-state-hover .k-grid-content-sticky,
+        &.k-state-hover .k-grid-row-sticky {
             background-color: $grid-sticky-hovered-bg;
         }
 
 
         // Selected hover
         &.k-state-selected:hover .k-grid-content-sticky,
-        &.k-state-selected.k-state-hover .k-grid-content-sticky {
+        &.k-state-selected:hover .k-grid-row-sticky,
+        &.k-state-selected.k-state-hover .k-grid-content-sticky,
+        &.k-state-selected.k-state-hover .k-grid-row-sticky {
             background-color: $grid-sticky-selected-hovered-bg;
         }
     }
 
+    .k-grouping-row {
+        .k-grid-content-sticky {
+            @include fill( $bg: $grid-sticky-header-bg );
+        }
+
+        &:hover .k-grid-content-sticky,
+        &.k-state-hover .k-grid-content-sticky {
+            @include fill( $bg: $grid-sticky-hovered-bg );
+        }
+    }
+
     .k-group-footer {
+        td,
         .k-grid-footer-sticky {
             @include fill( $bg: $grid-sticky-footer-bg );
         }
@@ -203,10 +253,17 @@
 
     // Footer
     .k-grid-footer {
-        @include fill( $grid-header-text, $grid-header-bg, $grid-header-border );
-
+        @include fill(
+            $grid-footer-text,
+            $grid-footer-bg,
+            $grid-footer-border
+        );
         .k-grid-footer-locked {
             border-color: inherit;
+        }
+        .k-grid-footer-sticky {
+            border-color: $grid-sticky-border;
+            background-color: $grid-sticky-footer-bg;
         }
     }
 
@@ -229,6 +286,10 @@
             $list-item-hovered-text,
             $list-item-hovered-bg
         );
+    }
+    .k-columnmenu-item:focus,
+    .k-columnmenu-item.k-state-focus {
+        @include box-shadow( $list-item-focused-shadow );
     }
 
     .k-column-list-wrapper {
@@ -281,6 +342,14 @@
                 }
             }
         }
+    }
+
+    .k-column-menu-group-header-text {
+        @include fill(
+            $grid-column-menu-group-header-text,
+            $grid-column-menu-group-header-bg,
+            $grid-column-menu-group-header-border
+        );
     }
 
     .k-grid-norecords-template {

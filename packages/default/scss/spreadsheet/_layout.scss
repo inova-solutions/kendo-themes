@@ -70,7 +70,7 @@
         display: none;
     }
     .k-spreadsheet-tabstrip .k-content {
-        @include border-radius(0);
+        @include border-radius( 0 );
         padding: 0;
         border-width: 0;
         overflow: hidden;
@@ -359,6 +359,11 @@
         -webkit-overflow-scrolling: touch;
         position: absolute;
         z-index: 1;
+
+        @media (hover: none), (pointer: coarse) {
+            // on touch devices we want this to stay on top.
+            z-index: 3;
+        }
     }
 
 
@@ -483,6 +488,9 @@
         padding: 0;
         z-index: 60;
     }
+    .k-spreadsheet .k-selection-wrapper .k-spreadsheet-editor-button.k-spreadsheet-last-column {
+        transform: translateX(-100%);
+    }
 
     .k-spreadsheet-active-cell {
         // sass-lint:disable-block no-important
@@ -590,7 +598,7 @@
         box-sizing: border-box;
     }
     .k-spreadsheet-filter {
-        @include border-radius();
+        @include border-radius( $border-radius );
         line-height: 1;
         position: absolute;
         cursor: pointer;
@@ -671,6 +679,23 @@
             }
         }
 
+        .k-actions,
+        .k-action-buttons,
+        .k-columnmenu-actions {
+            .k-button {
+                flex: 1 1 50%;
+            }
+        }
+
+        .k-actions {
+            &.k-actions-start,
+            &.k-actions-center,
+            &.k-actions-end {
+                .k-button {
+                    flex: 0 1 auto;
+                }
+            }
+        }
     }
 
 }

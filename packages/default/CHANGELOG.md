@@ -3,6 +3,449 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.32.0"></a>
+# [4.32.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.31.0...@progress/kendo-theme-default@4.32.0) (2021-01-13)
+
+
+### Bug Fixes
+
+* **chart:** inherit pane title font ([7db96ca](https://github.com/telerik/kendo-themes/commit/7db96ca))
+* **columnmenu:** apply correct padding to actions ([0280155](https://github.com/telerik/kendo-themes/commit/0280155))
+* **inputs:** angular checkbox and radio labels on the same line ([ee2aa6f](https://github.com/telerik/kendo-themes/commit/ee2aa6f))
+* **loader-container:** adjust secondary color ([d0d7e7b](https://github.com/telerik/kendo-themes/commit/d0d7e7b))
+* **utils:** use marging for MX and MY classes ([459bbe3](https://github.com/telerik/kendo-themes/commit/459bbe3))
+
+
+### Features
+
+* add $chart-pane-title-font-weight variable ([2daf251](https://github.com/telerik/kendo-themes/commit/2daf251))
+
+
+
+
+<a name="4.31.0"></a>
+# [4.31.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.30.0...@progress/kendo-theme-default@4.31.0) (2021-01-07)
+
+
+### Bug Fixes
+
+* clear-value icon wrong width ([acb7266](https://github.com/telerik/kendo-themes/commit/acb7266))
+* **chart:** set area opacity to 0.6 ([e1fc2c4](https://github.com/telerik/kendo-themes/commit/e1fc2c4))
+* **dialog:** make textbox / textarea inside prompt 100% wide ([b0a8cd8](https://github.com/telerik/kendo-themes/commit/b0a8cd8))
+* **fab:** add RTL styles for Angular FAB ([cd9cd76](https://github.com/telerik/kendo-themes/commit/cd9cd76))
+* **filemanager:** ensure correct scrolling direction of preview pane ([90d0970](https://github.com/telerik/kendo-themes/commit/90d0970))
+* **filemanager:** make treeview pane scrollable ([8ea6c71](https://github.com/telerik/kendo-themes/commit/8ea6c71))
+* **grid:** add styles for focused column menu button ([0ab43e9](https://github.com/telerik/kendo-themes/commit/0ab43e9))
+* **grid:** import textbox as a dependency ([0adbaa1](https://github.com/telerik/kendo-themes/commit/0adbaa1))
+* **multicolumncombobox:** default cursor used instead of pointer on item hover ([6e5b0b2](https://github.com/telerik/kendo-themes/commit/6e5b0b2))
+* **multicolumncombobox:** item k-state-hover styles not applied on hover ([063028e](https://github.com/telerik/kendo-themes/commit/063028e))
+* **scheduler:** missing border ([ad58619](https://github.com/telerik/kendo-themes/commit/ad58619))
+* **slider:** ticks in vertical slider are misaligned in Safari ([fc5161b](https://github.com/telerik/kendo-themes/commit/fc5161b))
+* extract :focus-within styles to ensure IE 11 compatibility ([136b048](https://github.com/telerik/kendo-themes/commit/136b048))
+* missing clear button focus state ([26eab30](https://github.com/telerik/kendo-themes/commit/26eab30))
+* prevent suffix container from shrinking ([5c42975](https://github.com/telerik/kendo-themes/commit/5c42975))
+* **slider:** eliminate dependency on utils/float ([071963a](https://github.com/telerik/kendo-themes/commit/071963a))
+* **spreadsheet:** move last cell editor button infront of the cell so its clickable ([d386f83](https://github.com/telerik/kendo-themes/commit/d386f83))
+* **toolbar:** splitbutton in overflow should display its items vertically ([9157d1f](https://github.com/telerik/kendo-themes/commit/9157d1f))
+* **tooltip:** tooltip content should take all available vertical space ([b46d9f8](https://github.com/telerik/kendo-themes/commit/b46d9f8))
+
+
+### Features
+
+* **chart:** add default inactive opacity for area series ([6f3a175](https://github.com/telerik/kendo-themes/commit/6f3a175))
+* **chart:** add default inactive opacity for line series ([156d38c](https://github.com/telerik/kendo-themes/commit/156d38c))
+* **chart:** new series colors ([706f02b](https://github.com/telerik/kendo-themes/commit/706f02b))
+* **filtermenu:** use Searchbox in multi-checkbox search ([02e89bd](https://github.com/telerik/kendo-themes/commit/02e89bd))
+* **utils:** add utility classes for clear ([7781232](https://github.com/telerik/kendo-themes/commit/7781232))
+* **utils:** add utility classes for horizontal and vertical padding and margin ([c162777](https://github.com/telerik/kendo-themes/commit/c162777))
+* **utils:** add utility classes for order ([6221ba1](https://github.com/telerik/kendo-themes/commit/6221ba1))
+* **utils:** add utility classes for overflow ([953ea45](https://github.com/telerik/kendo-themes/commit/953ea45))
+* **utils:** add utility classes for pointer events ([46fa35e](https://github.com/telerik/kendo-themes/commit/46fa35e))
+* **utils:** add utility classes for resizing textarea ([126ac02](https://github.com/telerik/kendo-themes/commit/126ac02))
+* **utils:** add utility classes for touch action ([025d5c0](https://github.com/telerik/kendo-themes/commit/025d5c0))
+* **utils:** add utility classes for user select ([0dc3da8](https://github.com/telerik/kendo-themes/commit/0dc3da8))
+
+
+
+
+<a name="4.30.0"></a>
+# [4.30.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.29.0...@progress/kendo-theme-default@4.30.0) (2020-12-21)
+
+
+### Bug Fixes
+
+* update expander padding ([aadceb0](https://github.com/telerik/kendo-themes/commit/aadceb0))
+* **bottom-navigation:** remove focus outline and hover decoration ([9be9088](https://github.com/telerik/kendo-themes/commit/9be9088))
+* **checkbox:** improve spacing between checkbox list items ([7e244a0](https://github.com/telerik/kendo-themes/commit/7e244a0))
+* **fab:** add disabled focus shadow ([f659ec5](https://github.com/telerik/kendo-themes/commit/f659ec5))
+* **fab:** add lower elevation of the FAB in Default and Bootstrap themes ([e05d9e1](https://github.com/telerik/kendo-themes/commit/e05d9e1))
+* **multiviewcalendar:** view header misalignment ([94714b5](https://github.com/telerik/kendo-themes/commit/94714b5))
+* **radio:** improve spacing between radio list items ([8a168ec](https://github.com/telerik/kendo-themes/commit/8a168ec))
+* **slider:** align first and last item labels to respective midpoint ([d1d1783](https://github.com/telerik/kendo-themes/commit/d1d1783))
+* **splitter:** force low z-index on splitter draghandle ([5624218](https://github.com/telerik/kendo-themes/commit/5624218))
+* **tooltip:** apply flex grow to tooltip content so the close icon is at the correct position ([dba4efd](https://github.com/telerik/kendo-themes/commit/dba4efd))
+* reduce expander content padding ([2c53d13](https://github.com/telerik/kendo-themes/commit/2c53d13))
+* revert styles for old rendering in Angular ([76b36f7](https://github.com/telerik/kendo-themes/commit/76b36f7))
+* separator wrong color ([04f5a39](https://github.com/telerik/kendo-themes/commit/04f5a39))
+* update textarea flex options ([c38c698](https://github.com/telerik/kendo-themes/commit/c38c698))
+
+
+### Features
+
+* **columnmenu:** new jQuery rendering ([4ed62fa](https://github.com/telerik/kendo-themes/commit/4ed62fa))
+* **slider:** introduce slider custom properties (css vars) ([6121f38](https://github.com/telerik/kendo-themes/commit/6121f38))
+
+
+
+
+<a name="4.29.0"></a>
+# [4.29.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.28.0...@progress/kendo-theme-default@4.29.0) (2020-12-15)
+
+
+### Bug Fixes
+
+* **fab:** constrain circle and square shapes in size ([a06627e](https://github.com/telerik/kendo-themes/commit/a06627e))
+* add k-text-base color ([a20ac9c](https://github.com/telerik/kendo-themes/commit/a20ac9c))
+* **dropdowngrid:** remove unicode space character ([4afd60d](https://github.com/telerik/kendo-themes/commit/4afd60d))
+* add k-spacer-sized style ([e37dfd4](https://github.com/telerik/kendo-themes/commit/e37dfd4))
+* angular scrollview ([10d7916](https://github.com/telerik/kendo-themes/commit/10d7916))
+* **grid:** remove shadow from grid-toolbar ([461455f](https://github.com/telerik/kendo-themes/commit/461455f))
+* **scrollview:** update styles based on latest design ([ba5a4e9](https://github.com/telerik/kendo-themes/commit/ba5a4e9))
+* add styles for text-theme colors ([55e5980](https://github.com/telerik/kendo-themes/commit/55e5980))
+
+
+### Features
+
+* **card:** focus styles ([dbca46b](https://github.com/telerik/kendo-themes/commit/dbca46b))
+* **multicolumncombobox:** design update and adjustments ([6670fda](https://github.com/telerik/kendo-themes/commit/6670fda))
+* **timeline:** focus styles ([ee8453f](https://github.com/telerik/kendo-themes/commit/ee8453f))
+
+
+
+
+<a name="4.28.0"></a>
+# [4.28.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.27.0...@progress/kendo-theme-default@4.28.0) (2020-12-10)
+
+
+### Bug Fixes
+
+* add k-input-separator styles ([bfc591e](https://github.com/telerik/kendo-themes/commit/bfc591e))
+* **calendar:** double border in angular classic calendar ([0ae3bab](https://github.com/telerik/kendo-themes/commit/0ae3bab))
+* **datetime:** hover style for single k-link hover ([82db441](https://github.com/telerik/kendo-themes/commit/82db441))
+* **expansion-panel:** remove focus outline ([bff1c4b](https://github.com/telerik/kendo-themes/commit/bff1c4b))
+* sort indicator not visible if text overflows ([06c9caa](https://github.com/telerik/kendo-themes/commit/06c9caa))
+* **calendar:** generated css has duplicate code ([fdf5bd6](https://github.com/telerik/kendo-themes/commit/fdf5bd6))
+* **expansion-panel:** content animation flicker ([4f6d9c1](https://github.com/telerik/kendo-themes/commit/4f6d9c1))
+* **fab:** apply pointer cursor on item ([4cc3405](https://github.com/telerik/kendo-themes/commit/4cc3405))
+* **fab:** remove focus outline and add box-sizing to item icons ([f07f5da](https://github.com/telerik/kendo-themes/commit/f07f5da))
+* **grid:** use toolbar styles for grid toolbar ([f429b96](https://github.com/telerik/kendo-themes/commit/f429b96))
+
+
+### Features
+
+* **bottom-navigation:** add styles for bottom navigation component ([5c97343](https://github.com/telerik/kendo-themes/commit/5c97343))
+* **column-menu:** update spacings based on latest design ([b82f31c](https://github.com/telerik/kendo-themes/commit/b82f31c))
+* **datetimepicker:** add milliseconds column in popup picker ([8f20baf](https://github.com/telerik/kendo-themes/commit/8f20baf))
+* **tilelayout:** navigation shadow ([2aedeff](https://github.com/telerik/kendo-themes/commit/2aedeff))
+* **utils:** add styles spacer utility classnames ([b0e3902](https://github.com/telerik/kendo-themes/commit/b0e3902))
+
+
+
+
+<a name="4.27.0"></a>
+# [4.27.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.26.0...@progress/kendo-theme-default@4.27.0) (2020-12-03)
+
+
+### Bug Fixes
+
+* **multicolumncombobox:** remove the horizontal scroll from popup ([e01bee2](https://github.com/telerik/kendo-themes/commit/e01bee2))
+* **utils:** reverse middle pos in rtl ([ebdae05](https://github.com/telerik/kendo-themes/commit/ebdae05))
+* ripple effect for checkboxes and radios ([7dfce23](https://github.com/telerik/kendo-themes/commit/7dfce23))
+* **autocomplete:** remove redundant autocomplete variables ([5eebb0c](https://github.com/telerik/kendo-themes/commit/5eebb0c))
+* rework input clear icon styles: ([8457bf7](https://github.com/telerik/kendo-themes/commit/8457bf7))
+
+
+### Features
+
+* **grid:** add focus shadow to the cells on native browser focus ([28290d9](https://github.com/telerik/kendo-themes/commit/28290d9))
+* **grid:** col menu group header styles ([28ce0d4](https://github.com/telerik/kendo-themes/commit/28ce0d4))
+* **utils:** add grid-auto-flow unset class ([72fd876](https://github.com/telerik/kendo-themes/commit/72fd876))
+
+
+
+
+<a name="4.26.0"></a>
+# [4.26.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.25.2...@progress/kendo-theme-default@4.26.0) (2020-11-16)
+
+
+### Bug Fixes
+
+* **calendar:** adjust spacing ([575dbcd](https://github.com/telerik/kendo-themes/commit/575dbcd))
+* **fab:** add disabled styling for the items ([917e726](https://github.com/telerik/kendo-themes/commit/917e726))
+* **grid:** import float utility ([8e7aa96](https://github.com/telerik/kendo-themes/commit/8e7aa96))
+* **input:** styled input with icon on left/right ([0794e79](https://github.com/telerik/kendo-themes/commit/0794e79))
+* **loader:** set canvas display to flex ([c27dfe9](https://github.com/telerik/kendo-themes/commit/c27dfe9))
+* **loader:** use precise metrics that correspond to our sizing system ([6648a90](https://github.com/telerik/kendo-themes/commit/6648a90))
+* **panelbar:** add space between icon and text ([7c90c9c](https://github.com/telerik/kendo-themes/commit/7c90c9c)), closes [telerik/kendo-themes#1144](https://github.com/telerik/kendo-themes/issues/1144)
+* **panelbar:** allow native :focus styles on items ([781c91c](https://github.com/telerik/kendo-themes/commit/781c91c))
+* **panelbar:** prevent margins in panelbar content from collapsing ([40c170a](https://github.com/telerik/kendo-themes/commit/40c170a))
+* **resizing:** use correct cursor for `.k-resize-e` ([0c4cb4d](https://github.com/telerik/kendo-themes/commit/0c4cb4d))
+* **toolbar:** make floating toolbar styles consistent with toolbar styles ([4e1c0a7](https://github.com/telerik/kendo-themes/commit/4e1c0a7))
+* **typography:** streamline typography variables ([da6a879](https://github.com/telerik/kendo-themes/commit/da6a879))
+* **window:** update window styles to match new font style metrics ([9c36541](https://github.com/telerik/kendo-themes/commit/9c36541))
+* explicitely set  box-sizing for better integration with Bootstrap ([4f71b79](https://github.com/telerik/kendo-themes/commit/4f71b79))
+* revise toggle button styling ([a61bdcf](https://github.com/telerik/kendo-themes/commit/a61bdcf))
+
+
+### Features
+
+* **fab:** add styles ([5d25359](https://github.com/telerik/kendo-themes/commit/5d25359))
+* **icons:** add icons ([4400f10](https://github.com/telerik/kendo-themes/commit/4400f10))
+* **loader-container:** add component styles ([987e603](https://github.com/telerik/kendo-themes/commit/987e603))
+* **notification:** add styling based on theme colors ([ad97348](https://github.com/telerik/kendo-themes/commit/ad97348)), closes [telerik/kendo-themes#1981](https://github.com/telerik/kendo-themes/issues/1981)
+* **utils:** update margin and padding classes ([71512b3](https://github.com/telerik/kendo-themes/commit/71512b3))
+
+
+
+
+<a name="4.25.2"></a>
+## [4.25.2](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.25.1...@progress/kendo-theme-default@4.25.2) (2020-11-05)
+
+
+### Bug Fixes
+
+* **adaptive:** require toolbar styles explictly ([326945d](https://github.com/telerik/kendo-themes/commit/326945d))
+* **chat:** require toolbar styles explictly ([0a96c6e](https://github.com/telerik/kendo-themes/commit/0a96c6e))
+* **checkbox:** do not base checkbox variables on input variables ([d172930](https://github.com/telerik/kendo-themes/commit/d172930))
+* **colorpicker:** require utils/flex styles explictly ([3d00ce4](https://github.com/telerik/kendo-themes/commit/3d00ce4))
+* **dropdowngrid:** require toolbar variables explicitly ([5bb3eff](https://github.com/telerik/kendo-themes/commit/5bb3eff))
+* **editor:** require toolbar styles before upload styles ([676ca40](https://github.com/telerik/kendo-themes/commit/676ca40))
+* **file-manager:** require toolbar styles before upload styles ([71b328e](https://github.com/telerik/kendo-themes/commit/71b328e))
+* **floating-label:** add width to floating label container ([2969b4c](https://github.com/telerik/kendo-themes/commit/2969b4c))
+* **floating-label:** font-size and height based on input-font-size ([0c61a43](https://github.com/telerik/kendo-themes/commit/0c61a43))
+* **floating-label:** require input variables explicitly ([8231f94](https://github.com/telerik/kendo-themes/commit/8231f94))
+* **forms:** move fieldset and label styles to forms ([cabe003](https://github.com/telerik/kendo-themes/commit/cabe003))
+* **forms:** require common styles explicitly ([e9a5314](https://github.com/telerik/kendo-themes/commit/e9a5314))
+* **grid:** remove padding from k-hierarchy-cell within k-grid-edit-row ([bddf98e](https://github.com/telerik/kendo-themes/commit/bddf98e))
+* **input:** require button variables explictly ([069aeed](https://github.com/telerik/kendo-themes/commit/069aeed))
+* **menu:** require popup styles explicitly ([c6b110a](https://github.com/telerik/kendo-themes/commit/c6b110a))
+* **pager:** require toolbar variables explicitly ([61253bb](https://github.com/telerik/kendo-themes/commit/61253bb))
+* **popoup:** require button styles explicitly ([dbea54c](https://github.com/telerik/kendo-themes/commit/dbea54c))
+* **popup:** remove fixed height from filter container ([1b249ec](https://github.com/telerik/kendo-themes/commit/1b249ec))
+* **popup:** require input styles explicitly ([514d0c7](https://github.com/telerik/kendo-themes/commit/514d0c7))
+* **splitter:** do not base splitbar variables on button variables ([aac856b](https://github.com/telerik/kendo-themes/commit/aac856b))
+* **spreadsheet:** require toolbar styles before upload styles ([15833ff](https://github.com/telerik/kendo-themes/commit/15833ff))
+* **textbox:** base variables on input variables ([6522a00](https://github.com/telerik/kendo-themes/commit/6522a00))
+* **treeview:** do not base treeview variables on button variables ([3005f6d](https://github.com/telerik/kendo-themes/commit/3005f6d))
+* **upload:** require toolbar variables explicitly ([99b4319](https://github.com/telerik/kendo-themes/commit/99b4319))
+* **utils:** require typography variables explicitly ([9ff3176](https://github.com/telerik/kendo-themes/commit/9ff3176))
+* add editor readonly focus styles ([dfc7295](https://github.com/telerik/kendo-themes/commit/dfc7295))
+
+
+
+
+<a name="4.25.1"></a>
+## 4.25.1 (2020-11-02)
+
+
+
+
+**Note:** Version bump only for package @progress/kendo-theme-default
+
+<a name="4.25.0"></a>
+# [4.25.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.24.0...@progress/kendo-theme-default@4.25.0) (2020-10-20)
+
+
+### Bug Fixes
+
+* **avatar:** add no shrink to avatar so it doesnt shrink inside cards ([e00d9c1](https://github.com/telerik/kendo-themes/commit/e00d9c1))
+* **avatar:** add typography styles to text avatars ([7a85b9b](https://github.com/telerik/kendo-themes/commit/7a85b9b))
+* **avatar:** add vertical align middle to avatar ([0b129ac](https://github.com/telerik/kendo-themes/commit/0b129ac))
+* **avatar:** fit img tag inside avatar the same way as background image ([80ebad5](https://github.com/telerik/kendo-themes/commit/80ebad5))
+* **checkbox:** kendo-theme-bootstrap checkboxes should be consistent with bootstrap checkboxes ([bca8369](https://github.com/telerik/kendo-themes/commit/bca8369)), closes [telerik/kendo-ui-core#5719](https://github.com/telerik/kendo-ui-core/issues/5719)
+* **checkbox:** use calc to calculate checkbox dash width ([0fe5d5b](https://github.com/telerik/kendo-themes/commit/0fe5d5b))
+* **progressbar:** do not use 0 for default css variable value when dividing ([58ba965](https://github.com/telerik/kendo-themes/commit/58ba965))
+* **radio:** kendo-theme-bootstrap radios should be consistent with bootstrap radios ([71c0c0f](https://github.com/telerik/kendo-themes/commit/71c0c0f)), closes [telerik/kendo-ui-core#5719](https://github.com/telerik/kendo-ui-core/issues/5719)
+* **textarea:** move width do k-textarea instead of inner element ([ebb8f9a](https://github.com/telerik/kendo-themes/commit/ebb8f9a)), closes [telerik/kendo-themes#1969](https://github.com/telerik/kendo-themes/issues/1969)
+* **textbox:** clear button wrong sizing ([2698d1a](https://github.com/telerik/kendo-themes/commit/2698d1a))
+
+
+### Features
+
+* **avatar:** sizes, shapes and colors to avatar ([4010ff8](https://github.com/telerik/kendo-themes/commit/4010ff8))
+
+
+
+
+<a name="4.24.0"></a>
+# 4.24.0 (2020-10-13)
+
+
+### Bug Fixes
+
+* **actions:** extract actions variables into separate files ([ad38523](https://github.com/telerik/kendo-themes/commit/ad38523))
+* **adaptive:** extract adaptive components variables into separate files ([1ff59ab](https://github.com/telerik/kendo-themes/commit/1ff59ab))
+* **button:** extract button variables ([44a3806](https://github.com/telerik/kendo-themes/commit/44a3806))
+* **card:** extract card variables into separate files ([d5bb957](https://github.com/telerik/kendo-themes/commit/d5bb957))
+* **charts:** tooltip opacity option not applying ([098f6f1](https://github.com/telerik/kendo-themes/commit/098f6f1))
+* **form:** extract form variables into separate files ([605019e](https://github.com/telerik/kendo-themes/commit/605019e))
+* **grid:** restyle the grid footer ([68f048f](https://github.com/telerik/kendo-themes/commit/68f048f))
+* **grid:** validation popup position in Material theme ([c01b44e](https://github.com/telerik/kendo-themes/commit/c01b44e))
+* **input:** extract input variables into separate files ([c1889b5](https://github.com/telerik/kendo-themes/commit/c1889b5))
+* **menu:** extract menu variables into separate files ([96f8021](https://github.com/telerik/kendo-themes/commit/96f8021))
+* **notification:** declare poup as explicit dependency ([b19a8ff](https://github.com/telerik/kendo-themes/commit/b19a8ff))
+* **pager:** extract pager variables into separate files ([de4707c](https://github.com/telerik/kendo-themes/commit/de4707c))
+* **panelbar:** extract panelbar variables into separate files ([9b47ece](https://github.com/telerik/kendo-themes/commit/9b47ece))
+* **panelbar:** keyboard navigation in IE ([5e22839](https://github.com/telerik/kendo-themes/commit/5e22839))
+* **pivotgrid:** buttons misalignments ([ea4a447](https://github.com/telerik/kendo-themes/commit/ea4a447))
+* **pivotgrid:** update settings item word-break ([1721fb8](https://github.com/telerik/kendo-themes/commit/1721fb8))
+* **popup:** extract popup variables ([94dc5f9](https://github.com/telerik/kendo-themes/commit/94dc5f9))
+* **progressbar:** center progress label inside progressbar ([6402819](https://github.com/telerik/kendo-themes/commit/6402819)), closes [telerik/kendo-themes#1945](https://github.com/telerik/kendo-themes/issues/1945) [telerik/kendo-themes#1947](https://github.com/telerik/kendo-themes/issues/1947)
+* add missing icons ([a2e70cd](https://github.com/telerik/kendo-themes/commit/a2e70cd))
+* **progressbar:** extract progressbar variables into separate files ([000040f](https://github.com/telerik/kendo-themes/commit/000040f))
+* **scheduler:** extract scheduler variables into separate files ([26c9c9a](https://github.com/telerik/kendo-themes/commit/26c9c9a))
+* **scheduler:** use uniform values for shceduler nonwork and othermonth cells ([3eaa95b](https://github.com/telerik/kendo-themes/commit/3eaa95b))
+* **toolbar:** extract toolbar variables ([5126f1d](https://github.com/telerik/kendo-themes/commit/5126f1d))
+* **typography:** extract typography variables into separate files ([5315fa4](https://github.com/telerik/kendo-themes/commit/5315fa4))
+* **utils:** move legacy shadow styling to popup due to variable flow ([202378a](https://github.com/telerik/kendo-themes/commit/202378a))
+* **window:** extract window variables ([2011e06](https://github.com/telerik/kendo-themes/commit/2011e06))
+
+
+### Features
+
+* **grid:** add sticky rows styling ([f02e23c](https://github.com/telerik/kendo-themes/commit/f02e23c))
+* add styles for searchbox component ([a25097e](https://github.com/telerik/kendo-themes/commit/a25097e))
+
+
+
+
+<a name="4.23.0"></a>
+# [4.23.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.22.1...@progress/kendo-theme-default@4.23.0) (2020-09-15)
+
+
+### Bug Fixes
+
+* **grid:** add styles for column menu focus items ([#1796](https://github.com/telerik/kendo-themes/issues/1796)) ([8faa5d4](https://github.com/telerik/kendo-themes/commit/8faa5d4))
+* **grid:** remove focus outline from column menu items ([#1796](https://github.com/telerik/kendo-themes/issues/1796)) ([b4af05e](https://github.com/telerik/kendo-themes/commit/b4af05e))
+* **icons:** add missing icon aliases ([817ad95](https://github.com/telerik/kendo-themes/commit/817ad95))
+* **listview:** remove focus outline from listview-item ([80a574e](https://github.com/telerik/kendo-themes/commit/80a574e))
+
+
+### Features
+
+* update icons for 2020 R3 ([#1687](https://github.com/telerik/kendo-themes/issues/1687)) ([90f4f5d](https://github.com/telerik/kendo-themes/commit/90f4f5d))
+
+
+
+
+<a name="4.22.1"></a>
+## [4.22.1](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.22.0...@progress/kendo-theme-default@4.22.1) (2020-09-14)
+
+
+### Bug Fixes
+
+* **gantt:** adjust planned vs actual styles telerik/kendo[#11149](https://github.com/telerik/kendo-themes/issues/11149) ([a055c1a](https://github.com/telerik/kendo-themes/commit/a055c1a))
+* **listview:** remove display: flex from listview container ([3a6e7bb](https://github.com/telerik/kendo-themes/commit/3a6e7bb))
+* **listview:** remove focus ring from listview-content ([947f2fd](https://github.com/telerik/kendo-themes/commit/947f2fd))
+* remove soldomly used header-hover and header-selected variables ([9fb414f](https://github.com/telerik/kendo-themes/commit/9fb414f))
+* set top margin to the form hint ([f8843cf](https://github.com/telerik/kendo-themes/commit/f8843cf))
+* svg alignment ([5ad3888](https://github.com/telerik/kendo-themes/commit/5ad3888))
+* svg icon flip ([afe57d1](https://github.com/telerik/kendo-themes/commit/afe57d1))
+* **appbar:** add styles for appbar section ([e47f46d](https://github.com/telerik/kendo-themes/commit/e47f46d))
+* **calendar:** center content of infinite calendar when width is wider ([21dfa27](https://github.com/telerik/kendo-themes/commit/21dfa27))
+* **checkbox:** invalid checkbox styles are missing in kendo-jquery ([#1122](https://github.com/telerik/kendo-themes/issues/1122)) ([e0cd98b](https://github.com/telerik/kendo-themes/commit/e0cd98b))
+* **gantt:** columnMenu position telerik/kendo[#11149](https://github.com/telerik/kendo-themes/issues/11149) ([9b9ea02](https://github.com/telerik/kendo-themes/commit/9b9ea02))
+* **gantt:** enable setting max-height to the gantt ([d8d63e1](https://github.com/telerik/kendo-themes/commit/d8d63e1))
+* **gantt:** make delete over offset always visible telerik/kendo[#11149](https://github.com/telerik/kendo-themes/issues/11149) ([f89970c](https://github.com/telerik/kendo-themes/commit/f89970c))
+* **radio:** invalid radio styles are missing in kendo-jquery ([#1122](https://github.com/telerik/kendo-themes/issues/1122)) ([24d74eb](https://github.com/telerik/kendo-themes/commit/24d74eb))
+
+
+
+
+<a name="4.22.0"></a>
+# 4.22.0 (2020-09-08)
+
+
+### Bug Fixes
+
+* **breadcrumb:** update styling for collapse mode wrap ([a26d603](https://github.com/telerik/kendo-themes/commit/a26d603))
+* **card:** generate styles for theme colors ([c7f6e3f](https://github.com/telerik/kendo-themes/commit/c7f6e3f))
+* **card:** improve card callout styles ([cc1f20b](https://github.com/telerik/kendo-themes/commit/cc1f20b))
+* **card:** prevent shrinking of card elements ([a95ef5a](https://github.com/telerik/kendo-themes/commit/a95ef5a))
+* **card:** refactor card actions to behave as expected ([6421f0d](https://github.com/telerik/kendo-themes/commit/6421f0d))
+* **card:** use oveflow hidden instead of individually rounded card parts ([721c760](https://github.com/telerik/kendo-themes/commit/721c760))
+* **grid:** do not remove next col border if sticky col is hidden ([bc0e344](https://github.com/telerik/kendo-themes/commit/bc0e344))
+* **input:** extract input styles as a separate module ([c67e163](https://github.com/telerik/kendo-themes/commit/c67e163))
+* **scheduler:** use smaller line-height in mobile scheduler header to fit properly ([90e53a2](https://github.com/telerik/kendo-themes/commit/90e53a2))
+* **toolbar:** make toolbar container for buttons ([cee0b45](https://github.com/telerik/kendo-themes/commit/cee0b45))
+* add basic styles for svg icons ([72308d0](https://github.com/telerik/kendo-themes/commit/72308d0))
+* remove clear button active background ([8606e58](https://github.com/telerik/kendo-themes/commit/8606e58))
+* **grid:** dirty + sticky cell position ([902f9ac](https://github.com/telerik/kendo-themes/commit/902f9ac))
+* **grid:** show validation popups in sticky edit cell ([60092b2](https://github.com/telerik/kendo-themes/commit/60092b2))
+* **loader:** add line-height ([7f09e92](https://github.com/telerik/kendo-themes/commit/7f09e92))
+* **spreadsheet:** scroller should have a higher z-index on touch devices ([3bfe713](https://github.com/telerik/kendo-themes/commit/3bfe713)), closes [telerik/kendo-ui-core#5303](https://github.com/telerik/kendo-ui-core/issues/5303) [telerik/kendo-ui-core#5300](https://github.com/telerik/kendo-ui-core/issues/5300)
+
+
+### Features
+
+* **editor:** add find and replace dialog styles ([4676a4d](https://github.com/telerik/kendo-themes/commit/4676a4d))
+* **gantt:** add styles for gantt with treelist rendering ([e9e9c9d](https://github.com/telerik/kendo-themes/commit/e9e9c9d))
+* **gantt:** add styles for Planned vs Actual telerik/kendo[#11149](https://github.com/telerik/kendo-themes/issues/11149) ([23a1ffa](https://github.com/telerik/kendo-themes/commit/23a1ffa))
+* **imageeditor:** add component styles ([00762f8](https://github.com/telerik/kendo-themes/commit/00762f8)), closes [#1801](https://github.com/telerik/kendo-themes/issues/1801)
+* **utils:** overflow classes ([025cdb5](https://github.com/telerik/kendo-themes/commit/025cdb5))
+
+
+
+
+<a name="4.21.0"></a>
+# 4.21.0 (2020-08-06)
+
+
+### Bug Fixes
+
+* **cards:** update styles to match latest design ([da77702](https://github.com/telerik/kendo-themes/commit/da77702))
+* **common:** expose utils into separate module ([1946a85](https://github.com/telerik/kendo-themes/commit/1946a85))
+* **editor:** add 100% height of the content ([1eb1a49](https://github.com/telerik/kendo-themes/commit/1eb1a49))
+* **grid:** remove double border in multi headers and sticky columns ([712b488](https://github.com/telerik/kendo-themes/commit/712b488))
+* **grid:** update locked columns styling ([b62d304](https://github.com/telerik/kendo-themes/commit/b62d304))
+* **grid:** update sticky borders ([ad14ba6](https://github.com/telerik/kendo-themes/commit/ad14ba6))
+* **textarea:** add resizing in both directions ([a9fa95f](https://github.com/telerik/kendo-themes/commit/a9fa95f))
+* add missing px units to 0 variables ([c6684bf](https://github.com/telerik/kendo-themes/commit/c6684bf))
+* always pass value to border-*-radius mixins ([efffbe8](https://github.com/telerik/kendo-themes/commit/efffbe8))
+* remove unused mixins ([cc024cf](https://github.com/telerik/kendo-themes/commit/cc024cf))
+
+
+### Features
+
+* **button:** add clear button styling ([a87a61e](https://github.com/telerik/kendo-themes/commit/a87a61e))
+* add TextArea styles ([cffdde6](https://github.com/telerik/kendo-themes/commit/cffdde6))
+* provide additional theme color classes ([6a91e68](https://github.com/telerik/kendo-themes/commit/6a91e68))
+* **badge:** rework badge styles to use stacked styles ([04c279f](https://github.com/telerik/kendo-themes/commit/04c279f))
+* provide styling for action buttons ([d852003](https://github.com/telerik/kendo-themes/commit/d852003))
+
+
+
+
+<a name="4.20.0"></a>
+# 4.20.0 (2020-07-22)
+
+
+### Bug Fixes
+
+* **treelist:** update treelist footer row styling ([eca6d82](https://github.com/telerik/kendo-themes/commit/eca6d82))
+* update alignment in rtl mode ([13a615a](https://github.com/telerik/kendo-themes/commit/13a615a))
+* **action-buttons:** unify action buttons appearance ([9020c4e](https://github.com/telerik/kendo-themes/commit/9020c4e))
+* **input:** remove box shadow on elements with k-input class in Firefox ([9f9139a](https://github.com/telerik/kendo-themes/commit/9f9139a))
+
+
+### Features
+
+* **editor:** add placeholder styles ([949806d](https://github.com/telerik/kendo-themes/commit/949806d))
+* update font icons ([386867a](https://github.com/telerik/kendo-themes/commit/386867a))
+
+
+
+
 <a name="4.19.0"></a>
 # [4.19.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.18.2...@progress/kendo-theme-default@4.19.0) (2020-06-09)
 

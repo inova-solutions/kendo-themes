@@ -7,6 +7,56 @@
         line-height: $form-line-height;
     }
 
+
+    // Fieldset
+    .k-fieldset {
+        margin: $fieldset-margin;
+        border-width: 1px 0 0;
+        border-style: solid;
+        padding: 25px 0 0;
+
+        > legend {
+            margin-left: 0;
+            padding: 0 $padding-x 0 0;
+            text-transform: uppercase;
+        }
+    }
+
+
+    // Label
+    kendo-label > .k-label {
+        margin: 0;
+    }
+
+    .k-label-optional {
+        margin-left: $label-optional-margin-x;
+        font-size: $label-optional-font-size;
+        font-style: $label-optional-font-style;
+        align-self: center;
+    }
+
+    .k-label-empty {
+        &::before {
+            content: "";
+            display: inline-block;
+        }
+    }
+
+    .k-input-label {
+        margin-right: $horizontal-form-label-margin-x;
+        z-index: 1;
+
+        &:dir(rtl),
+        .k-rtl &,
+        &.k-rtl,
+        [dir="rtl"] &,
+        &[dir="rtl"] {
+            margin-right: 0;
+            margin-left: $horizontal-form-label-margin-x;
+        }
+    }
+
+
     // Vertical Form
     .k-form {
         border: 0;
@@ -45,6 +95,12 @@
             text-transform: $form-legend-text-transform;
         }
 
+
+        // Form group
+        .k-form-group {
+            padding: 0;
+        }
+
         .k-form-field,
         .k-form-buttons,
         .k-daterangepicker .k-textbox-container {
@@ -58,7 +114,10 @@
             }
         }
 
-        .k-form-field {
+
+        // Form field
+        .k-form-field,
+        .k-form-field-wrap {
             display: block;
         }
 
@@ -117,6 +176,7 @@
     // Form Hint/Error Messages
     .k-form-hint,
     .k-form-error {
+        margin-top: $form-hint-margin-top;
         display: flex;
         font-size: $form-hint-font-size;
         font-style: $form-hint-font-style;
@@ -349,6 +409,7 @@
         width: 65%;
         float: right;
         clear: right;
+        position: relative;
 
         &.k-no-editor {
             padding: calc( #{$input-padding-y} + #{$input-border-width} ) 0;
@@ -358,7 +419,8 @@
     .k-edit-field {
 
         > .k-widget,
-        > .k-textbox {
+        > .k-textbox,
+        > .k-textarea {
             width: 100%;
             box-sizing: border-box;
         }
@@ -435,10 +497,6 @@
     .k-maskedtextbox.form-control .k-textbox,
     .k-textbox.form-control {
         width: 100%;
-    }
-
-    .k-autocomplete.form-control .k-input {
-        box-sizing: border-box;
     }
 
     .k-multiselect.form-control {

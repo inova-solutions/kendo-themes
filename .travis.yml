@@ -34,10 +34,12 @@ jobs:
   # Pull request
   - stage: Pull request
     install:
-      - npm install
-      - lerna bootstrap --concurrency=1
+      - npm ci
+      - npm run bootstrap
     script:
-      - npm run lint
+      - set -e
+      - npm run eslint
+      - npm run sasslint
       - npm run docs:check
       - npm run sass:flat
       - npm run dart:flat
@@ -48,26 +50,29 @@ jobs:
       chrome: stable
       firefox: latest
     install:
-      - npm installinova
-      - lerna bootstrap --concurrency=1
+      - npm ci
+      - npm run bootstrap
     script:
-      - npm run buildinova
+      - set -e
       - npm run sass:flat
-      - npm run karma-single
+      - npm run pre-tests
+      - npm run karma-travis
       - npm run visual-tests
 
   # Master and develop
   - stage: Master and develop
     install:
-      - npm install
-      - lerna bootstrap --concurrency=1
+      - npm ci
+      - npm run bootstrap
     script:
-      - npm run lint
+      - set -e
+      - npm run eslint
+      - npm run sasslint
       - npm run docs:check
-      - npm run sass:flat
-      - npm run sass:swatches
       - npm run dart:flat
       - npm run dart:swatches
+      - npm run sass:flat
+      - npm run sass:swatches
     after_success:
       - printf "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> ~/.npmrc
       - ./build/publish.sh

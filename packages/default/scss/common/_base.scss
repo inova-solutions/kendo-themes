@@ -22,22 +22,6 @@ $widget-border-width: 1px !default;
         list-style: none;
     }
 
-
-    // Layout
-    .k-widget {
-        border-width: $widget-border-width;
-        border-style: solid;
-        box-sizing: border-box;
-        outline: 0;
-        font-family: $font-family;
-        font-size: $font-size;
-        line-height: $line-height;
-        display: block;
-        -webkit-touch-callout: none;
-        -webkit-tap-highlight-color: $rgba-transparent;
-    }
-    table.k-widget { display: table; }
-
     kendo-sortable {
         display: block;
     }
@@ -119,21 +103,11 @@ $widget-border-width: 1px !default;
         }
     }
 
-    // Widget
-    .k-widget {
-        @extend .k-text-selection !optional;
-        @include fill(
-            $widget-text,
-            $widget-bg,
-            $widget-border
-        );
-    }
-
     // Panels
     .k-block,
     .k-panel {
         @extend .k-text-selection !optional;
-        @include border-radius();
+        @include border-radius( $border-radius );
         @include fill(
             $panel-text,
             $panel-bg,
@@ -145,7 +119,7 @@ $widget-border-width: 1px !default;
         box-sizing: border-box;
 
         > .k-header {
-            @include border-top-radius();
+            @include border-top-radius( $border-radius );
             @include fill(
                 $header-text,
                 $header-bg,
@@ -208,7 +182,7 @@ $widget-border-width: 1px !default;
     }
 
     // Horizontal rule
-    .k-hbox > .k-hr {
+    .k-d-flex-row > .k-hr {
         margin: 0;
         width: 0;
         height: auto;
@@ -217,7 +191,7 @@ $widget-border-width: 1px !default;
     }
 
     // Vertical rule
-    .k-vbox > .k-hr {
+    .k-d-flex-col > .k-hr {
         margin: 0;
         flex: 0 0 auto;
     }
@@ -260,4 +234,71 @@ $widget-border-width: 1px !default;
         background-color: $placeholder-bg;
         display: inline-block;
     }
+}
+
+@include exports( "common/drop-hint" ) {
+
+    .k-drop-hint {
+        display: flex;
+        gap: $drop-hint-arrow-spacing;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        z-index: 1000;
+        transform: translate(-50%, -50%);
+    }
+
+    .k-drop-hint-start,
+    .k-drop-hint-end {
+        flex-shrink: 0;
+        border-width: ($drop-hint-arrow-size / 2);
+        border-style: solid;
+        border-color: transparent;
+    }
+
+    .k-drop-hint-line {
+        flex-grow: 1;
+        background-color: $drop-hint-bg;
+    }
+
+    .k-drop-hint-h {
+        .k-drop-hint-start {
+            border-left-width: (($drop-hint-arrow-size / 2) * $equilateral-index);
+            border-left-color: $drop-hint-bg;
+            border-right-width: 0;
+        }
+
+        .k-drop-hint-line {
+            width: $drop-hint-line-h-width;
+            height: $drop-hint-line-h-height;
+        }
+
+        .k-drop-hint-end {
+            border-right-width: (($drop-hint-arrow-size / 2) * $equilateral-index);
+            border-right-color: $drop-hint-bg;
+            border-left-width: 0;
+        }
+    }
+
+    .k-drop-hint-v {
+        flex-direction: column;
+
+        .k-drop-hint-start {
+            border-top-width: (($drop-hint-arrow-size / 2) * $equilateral-index);
+            border-top-color: $drop-hint-bg;
+            border-bottom-width: 0;
+        }
+
+        .k-drop-hint-line {
+            width: $drop-hint-line-v-width;
+            height: $drop-hint-line-v-height;
+        }
+
+        .k-drop-hint-end {
+            border-bottom-width: (($drop-hint-arrow-size / 2) * $equilateral-index);
+            border-bottom-color: $drop-hint-bg;
+            border-top-width: 0;
+        }
+    }
+
 }
