@@ -1,4 +1,5 @@
-@import "functions/_index.scss";
+.theme-dark {
+        @import "functions/_index.scss";
 @import "_variables.scss";
 @import "mixins/_index.scss";
 
@@ -123,3 +124,5 @@
 // Dataviz
 @import "dataviz/_index.scss";
 @import "map/_index.scss";
+
+    }

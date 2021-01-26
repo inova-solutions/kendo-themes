@@ -5,10 +5,12 @@ const sass = require("node-sass");
 const CleanCSS = require("clean-css");
 const distPath = `dist`;
 const inovaIconsPath = `../icons/inovaicon.css`;
+const origAllScssPath = `../default/scss/all.scss`;
 const invoaFontPath = `../default/scss/_inova_font.scss`;
 const defaultVariables = `build\\_variables.scss`;
-let allScss = "";
+let allScc = "";
 let fontFace = null;
+let charset = null;
 let inovaIconsCss = "";
 const themes = ["Dark", "Light"];
 
@@ -30,50 +32,59 @@ themes.forEach((theme) => {
 
     const origThemeVars = `scss\\_variables_inova-${theme}.scss`;
     const tmpThemeVars = `scss\\_variables.scss`;
+    const tmpAllScssPath = `scss\\orig-all.scss`;
     // const bootstrapFile = `..\\bootstrap-library\\inova-bootstrap.${theme}.scss`;
     // const tmpBootstrapFile = `..\\bootstrap-library\\inova-bootstrap.Current.scss`;
 
     //rename theme file and start build
     fs.removeSync(tmpThemeVars);
     fs.copyFileSync(origThemeVars, tmpThemeVars);
-    // fs.removeSync(tmpBootstrapFile);
-    // fs.copyFileSync(origBootstrapFile, tmpBootstrapFile);
+
+    //Save original all.scss and wrap all.scss with .theme-dark { EVERYTHING } for the dark theme for example
+    fs.copyFileSync(origAllScssPath, tmpAllScssPath);
+    let origAllScssContent = fs.readFileSync(origAllScssPath).toString();
+    fs.writeFileSync(origAllScssPath, `.theme-${theme.toLowerCase()} {
+        ${origAllScssContent}
+    }`);
+
+    //Now, use original Kendo Build to compile Scss
     execSync(`npm run sass`, {
         stdio: "inherit",
     });
 
-    //delete unnecessary files
+    //delete temp files again
     fs.unlinkSync(tmpThemeVars);
-    // fs.unlinkSync(tmpBootstrapFile);
+    fs.copyFileSync(tmpAllScssPath, origAllScssPath);
+    fs.unlinkSync(tmpAllScssPath);
 
     //move generated css to theme output directory
     fs.removeSync(`${distPath}/${theme}`);
     fs.mkdirSync(`${distPath}/${theme}`);
     fs.renameSync(`${distPath}/all.css`, `${distPath}/${theme}/all.css`);
 
-    //Remove Font-Face definitions and add it only once (outside of theme wrapper)
     let css = fs.readFileSync(`${distPath}/${theme}/all.css`).toString();
+
+    //Extract @font-face and add it later so it is defined only once
     const ffStart = css.indexOf("@font-face");
     const ffEnd = css.indexOf("}", ffStart + 1);
     if (fontFace === null) {
         fontFace = css.slice(ffStart, ffEnd + 1);
+        // Remove .theme-dark from @font-face
+        const tStart = fontFace.indexOf(".theme-dark");
+        const tEnd = fontFace.indexOf("{", tStart + 1);
+        fontFace = fontFace.slice(0, tStart) + fontFace.slice(tEnd + 1);
     }
     css = css.slice(0, ffStart) + css.slice(ffEnd + 1);
 
-    const bootstrapPath = `..\\bootstrap-library`;
-    const bootstrapFile = `${bootstrapPath}\\inova-bootstrap.${theme}.scss`;
-    const bootstrapScss = fs.readFileSync(`${bootstrapFile}`).toString();
-    const bootstrapCSS = sass.renderSync({
-        data: bootstrapScss,
-        includePaths: [bootstrapPath],
-    }).css;
-    // To include Bootstrap include, uncomment the following line
-    // css += ' ' + bootstrapCSS;
+    //Extract @charset and add it later so it is defined only once
+    const ccStart = css.indexOf("@charset");
+    const ccEnd = css.indexOf(";", ccStart);
+    if(charset === null) {
+        charset = css.slice(ccStart, ccEnd + 1);
+    }
+    css = css.slice(0, ccStart) + css.slice(ccEnd + 1);
 
-    //wrap themes with a css class .theme-<themename> and concatenate all
-    allScss += `.theme-${theme.toLowerCase()} {
-      ${css}
-    }`;
+    allScc += css;
 
     //create _variables.scss per theme
     let origThemeVarsContent = fs.readFileSync(origThemeVars).toString();
@@ -99,16 +110,18 @@ fs.writeFileSync(
 // read font.scss
 const inovaFont = fs.readFileSync(invoaFontPath).toString();
 
-//compile css with all themes
-let allCss = sass.renderSync({
-    data: allScss,
-}).css;
-allCss = inovaFont + " " + fontFace + " " + allCss;
-allCss += " " + inovaIconsCss;
-fs.writeFileSync(`${distPath}/all.css`, allCss);
+fs.writeFileSync(
+    `${distPath}/test.scss`, allScc
+);
+
+let finalCss = allScc;
+
+finalCss = charset + `\n` + inovaFont + " " + fontFace + " " + finalCss;
+finalCss += " " + inovaIconsCss;
+fs.writeFileSync(`${distPath}/all.css`, finalCss);
 fs.writeFileSync(
     `${distPath}/all.min.css`,
-    new CleanCSS({}).minify(allCss).styles
+    new CleanCSS({}).minify(finalCss).styles
 );
 
 //create package.json

@@ -59,3 +59,5 @@ rules:
     no-empty-rulesets: 0
     url-quotes: 2
     zero-unit: 0
+    no-url-domains: 0
+    no-url-protocols: 0
