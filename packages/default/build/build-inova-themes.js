@@ -40,13 +40,21 @@ themes.forEach((theme) => {
     fs.removeSync(tmpThemeVars);
     fs.copyFileSync(origThemeVars, tmpThemeVars);
 
+    //Default Kendo Build first, to get the 64 Encoded Urls
+    execSync(`npm run sass`, {
+        stdio: "inherit",
+    });
+    const cssWithUrls = fs.readFileSync(`${distPath}/all.css`).toString();
+    const lines = cssWithUrls.split("\n");
+    const urls = lines.filter(l => l.indexOf('url(') >= 0);
+
+
     //Save original all.scss and wrap all.scss with .theme-dark { EVERYTHING } for the dark theme for example
     fs.copyFileSync(origAllScssPath, tmpAllScssPath);
     let origAllScssContent = fs.readFileSync(origAllScssPath).toString();
     fs.writeFileSync(origAllScssPath, `.theme-${theme.toLowerCase()} {
         ${origAllScssContent}
     }`);
-
     //Now, use original Kendo Build to compile Scss
     execSync(`npm run sass`, {
         stdio: "inherit",
@@ -63,17 +71,34 @@ themes.forEach((theme) => {
 
     let css = fs.readFileSync(`${distPath}/${theme}/all.css`).toString();
 
+    //Replace urls with original url because the urls get
+    //are deleted in the sass build, when it is wrapped with
+    //the inova theme wrapper class somehow...
+    let lineIdx = 0;
+    css = css.split("\n").map(l => {
+        if(l.indexOf('url(') >= 0) {
+            l = urls[lineIdx];
+            lineIdx++;
+        }
+        return l;
+    }).join("\n");
+    fs.writeFileSync(`${distPath}/${theme}/all.css`, css);
+
     //Extract @font-face and add it later so it is defined only once
     const ffStart = css.indexOf("@font-face");
-    const ffEnd = css.indexOf("}", ffStart + 1);
+    const ffEnd1 = css.indexOf("}", ffStart + 1);
+    const ffEnd2 = css.indexOf("}", ffEnd1 + 1);
     if (fontFace === null) {
-        fontFace = css.slice(ffStart, ffEnd + 1);
         // Remove .theme-dark from @font-face
-        const tStart = fontFace.indexOf(".theme-dark");
-        const tEnd = fontFace.indexOf("{", tStart + 1);
-        fontFace = fontFace.slice(0, tStart) + fontFace.slice(tEnd + 1);
+        // fontFace = css.slice(ffStart, ffEnd1 + 1);
+        const tStart = css.indexOf(`.theme-dark`, ffStart + 1);
+        const tEnd = css.indexOf("{", tStart + 1);
+        // fontFace = fontFace.slice(0, tStart) + fontFace.slice(tEnd + 1);
+        fontFace = `@font-face {
+            ${css.slice(tEnd + 1, ffEnd1)}
+        }`;
     }
-    css = css.slice(0, ffStart) + css.slice(ffEnd + 1);
+    css = css.slice(0, ffStart) + css.slice(ffEnd2 + 1);
 
     //Extract @charset and add it later so it is defined only once
     const ccStart = css.indexOf("@charset");
@@ -84,6 +109,7 @@ themes.forEach((theme) => {
     css = css.slice(0, ccStart) + css.slice(ccEnd + 1);
 
     allScc += css;
+
 
     //create _variables.scss per theme
     let origThemeVarsContent = fs.readFileSync(origThemeVars).toString();
@@ -109,14 +135,10 @@ fs.writeFileSync(
 // read font.scss
 const inovaFont = fs.readFileSync(invoaFontPath).toString();
 
-fs.writeFileSync(
-    `${distPath}/test.scss`, allScc
-);
-
 let finalCss = allScc;
 
-finalCss = charset + `\n` + inovaFont + " " + fontFace + " " + finalCss;
-finalCss += " " + inovaIconsCss;
+finalCss = charset + `\n` + inovaFont + `\n` + fontFace + `\n` + finalCss;
+finalCss += `\n` + inovaIconsCss;
 fs.writeFileSync(`${distPath}/all.css`, finalCss);
 fs.writeFileSync(
     `${distPath}/all.min.css`,
