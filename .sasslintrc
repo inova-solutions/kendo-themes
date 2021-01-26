@@ -21,10 +21,6 @@ rules:
         - 1
         - max-depth: 4
 
-    indentation:
-        - 2
-        - size: 4
-
     force-element-nesting: 0
     force-attribute-nesting: 0
     force-pseudo-nesting: 0
@@ -45,9 +41,6 @@ rules:
 
     pseudo-element: 2
 
-    final-newline:
-        - 2
-        - include: true
     empty-args: 0
     empty-line-between-blocks: 0
     placeholder-in-extend: 0
@@ -61,3 +54,7 @@ rules:
     zero-unit: 0
     no-url-domains: 0
     no-url-protocols: 0
+    leading-zero: 0
+    hex-notation: 0
+    indentation: 0
+    final-newline: 0
