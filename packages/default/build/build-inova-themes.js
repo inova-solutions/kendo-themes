@@ -53,7 +53,6 @@ themes.forEach((theme) => {
     });
 
     //delete temp files again
-    fs.unlinkSync(tmpThemeVars);
     fs.copyFileSync(tmpAllScssPath, origAllScssPath);
     fs.unlinkSync(tmpAllScssPath);
 
