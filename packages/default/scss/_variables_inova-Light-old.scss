@@ -1,0 +1,96 @@
+@import "functions/_index.scss";
+@import "_variables_inova_colors";
+@import "_variables_div";
+
+//Common
+$base-theme: Default;
+$border-radius: 2px;
+$skin-name: light;
+$accent: $inova-pink;
+$accent-contrast: contrast-wcag($accent);
+$info: $inova-blue;
+$success: $inova-green;
+$warning: $inova-yellow;
+$error: $inova-red;
+$text-color: $light-text-color;
+$bg-color: $light-bg-color;
+$base-text: $light-base-text;
+$base-bg: $light-base-bg;
+$base-border: $light-base-border;
+$base-gradient: $base-bg, darken($base-bg, 2%);
+$hovered-text: $light-base-text;
+$hovered-bg: #ebebeb;
+$hovered-border: rgba(black, 0.19);
+$hovered-gradient: $hovered-bg, darken($hovered-bg, 2%);
+$selected-text: #ffffff;
+$selected-bg: $accent;
+$selected-border: rgba(black, 0.14);
+$selected-gradient: none;
+
+//Buttons
+$button-text: $base-text;
+$button-bg: $base-bg;
+$button-border: $base-border;
+$button-gradient: $base-gradient;
+$button-hovered-text: $hovered-text;
+$button-hovered-bg: $hovered-bg;
+$button-hovered-border: $hovered-border;
+$button-hovered-gradient: $hovered-gradient;
+$button-pressed-text: $button-text;
+$button-pressed-bg: $button-bg;
+$button-pressed-border: $button-border;
+$button-pressed-gradient: none;
+$button-focused-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.06);
+
+//Charts
+$series-a: $inova-series-a;
+$series-b: $inova-series-b;
+$series-c: $inova-series-c;
+$series-d: $inova-series-d;
+$series-e: $inova-series-e;
+$series-f: $inova-series-f;
+$chart-major-lines: rgba(0, 0, 0, 0.08);
+$chart-minor-lines: rgba(0, 0, 0, 0.04);
+
+@import "_variables_inova_fonts";
+@import "_variables_original";
+
+$theme: (
+    k-accent: $accent,
+    k-accent-contrast: $accent-contrast,
+    k-info: $info,
+    k-success: $success,
+    k-warning: $warning,
+    k-error: $error,
+    k-text-color: $text-color,
+    k-bg-color: $bg-color,
+    k-base-text: $base-text,
+    k-base-bg: $base-bg,
+    k-base-border: $base-border,
+    k-base-gradient: $base-gradient,
+    k-hovered-text: $hovered-text,
+    k-hovered-bg: $hovered-bg,
+    k-hovered-border: $hovered-border,
+    k-hovered-gradient: $hovered-gradient,
+    k-selected-text: $selected-text,
+    k-selected-bg: $selected-bg,
+    k-selected-border: $selected-border,
+    inovaPink: $inova-pink,
+    inovaBlue: $inova-blue,
+    inovaGray: $inova-gray,
+    inovaGrayMedium: $inova-gray-medium,
+    inovaGrayLight: $inova-gray-light,
+    colorAccent: $accent,
+    colorBorder: #cccccc,
+    color1: #ffffff,
+    color2: $inova-gray-light,
+    color3: $inova-gray-medium,
+    colorFont: $text-color,
+    colorIcon1: $text-color,
+    colorIcon2: #ffffff,
+    colorWidgetInset: #ffffff,
+    colorErrorLight: #ffe0d9,
+    colorWarningLight: #fbeed5,
+    colorSuccessLight: #eaf7ec,
+    colorInfoLight: #e5f5fa,
+);
