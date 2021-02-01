@@ -526,7 +526,7 @@ const InovaTheme = (function () {
    * Basiert auf Base Theme
    */
   const loadLightTheme = function () {
-    const hoveredBg = "#efebe6",
+    const hoveredBg = "#ededed",
       accent = colors.inova_pink;
     loadBaseTheme(accent);
     themeWrapper.style.setProperty("--k-text-color", colors.light_text_color);
