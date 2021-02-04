@@ -25,6 +25,8 @@
     var icons;
     if (!supportsProperty('fontFeatureSettings')) {
         icons = {
+            'history2': '&#xe8e4;',
+            'archive4': '&#xe8e4;',
             'sort-alpha-asc': '&#xe9b5;',
             'sort': '&#xe9b5;',
             'sun': '&#xe647;',
