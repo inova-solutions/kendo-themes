@@ -43,6 +43,7 @@ const InovaTheme = (function () {
     light_text_color: "#222222",
     light_text_color_rgb: "34, 34, 34",
     light_text_color_inverse: "#ffffff",
+    light_text_color_inverse_rgb: "255, 255, 255",
     light_bg_color: "#ffffff",
     light_base_text: "#222222",
     light_base_text_soft: "#6e6e6e",
@@ -64,6 +65,7 @@ const InovaTheme = (function () {
     dark_text_color: "#f6f6f6",
     dark_text_color_rgb: "246, 246, 246",
     dark_text_color_inverse: "#f6f6f6",
+    dark_text_color_inverse_rgb: "246, 246, 246",
     dark_bg_color: "#333",
     dark_base_text: "#f6f6f6",
     dark_base_text_soft: "#adadad",
@@ -82,6 +84,8 @@ const InovaTheme = (function () {
     inova_series_a_light: "rgba(231,31,108,0.35)",
     inova_series_e_light: "rgba(45,115,245,0.3)",
   };
+
+  //#region SCSS Funktionen
 
   /**
    * Die folgenden Funktionen sind kopiert aus dem sass-Source-Code um dieselben Farbfunktionen abzubilden
@@ -329,6 +333,17 @@ const InovaTheme = (function () {
     return out;
   };
 
+  //#endregion SCSS Funktionen
+
+  const removeCurrentThemeClass = () => {
+    for (let i = 0; i < document.body.classList.length; i++) {
+      const c = document.body.classList[i];
+      if (c.match("^theme-")) {
+        document.body.classList.remove(c);
+      }
+    }
+  };
+
   const loadBaseTheme = function (accent: any) {
     themeWrapper.style.setProperty("--k-accent", accent);
     themeWrapper.style.setProperty("--k-accent-contrast", contrastWcag(accent));
@@ -390,6 +405,10 @@ const InovaTheme = (function () {
     themeWrapper.style.setProperty(
       "--color-font-rgb",
       colors.light_text_color_rgb
+    );
+    themeWrapper.style.setProperty(
+      "--color-font-inverse-rgb",
+      colors.light_text_color_inverse_rgb
     );
 
     themeWrapper.style.setProperty(
@@ -516,6 +535,10 @@ const InovaTheme = (function () {
       "--color-font-rgb",
       colors.dark_text_color_rgb
     );
+    themeWrapper.style.setProperty(
+      "--color-font-inverse-rgb",
+      colors.dark_text_color_inverse_rgb
+    );
 
     removeCurrentThemeClass();
     document.body.classList.add("theme-dark");
@@ -579,15 +602,6 @@ const InovaTheme = (function () {
     removeCurrentThemeClass();
     document.body.classList.add("theme-light");
     document.body.classList.add("theme-olivepink");
-  };
-
-  const removeCurrentThemeClass = () => {
-    for (let i = 0; i < document.body.classList.length; i++) {
-      const c = document.body.classList[i];
-      if (c.match("^theme-")) {
-        document.body.classList.remove(c);
-      }
-    }
   };
 
   /**
