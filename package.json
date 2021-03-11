@@ -63,7 +63,5 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "dependencies": {
-    "@progress/kendo-theme-tasks": "^0.7.8"
-  }
+  "dependencies": {}
 }
