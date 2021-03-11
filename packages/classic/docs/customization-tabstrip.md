@@ -285,6 +285,16 @@ The following table lists the available variables for customization.
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Border color of tabstrip content</div></div>
     </td>
 </tr>
+<tr>
+    <td>$tabstrip-content-border-focused</td>
+    <td></td>
+    <td>$component-text</td>
+    <td></td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Border color of tabstrip focused content</div></div>
+    </td>
+</tr>
 </tbody>
 </table>
 
