@@ -3,6 +3,94 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.34.0"></a>
+# [4.34.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.33.0...@progress/kendo-theme-default@4.34.0) (2021-03-04)
+
+
+### Bug Fixes
+
+* **breadcrumb:** update breadcrumb styling to match in material and bootstrap design ([5965c1d](https://github.com/telerik/kendo-themes/commit/5965c1d))
+* **calendar:** use subtle-text variable for calendar styles ([61099cd](https://github.com/telerik/kendo-themes/commit/61099cd))
+* **chart:** simplify chart variables ([10847f2](https://github.com/telerik/kendo-themes/commit/10847f2))
+* **colorpicker:** use correct styling for colorpicker interactive states ([0131f19](https://github.com/telerik/kendo-themes/commit/0131f19))
+* **colorpicker:** use subtle text variable in colorpicker styling ([e8df2cf](https://github.com/telerik/kendo-themes/commit/e8df2cf))
+* **combobox:** use correct styling for combobox interactive states ([9702a14](https://github.com/telerik/kendo-themes/commit/9702a14))
+* **datetime:** remove k-select focus outline ([b695631](https://github.com/telerik/kendo-themes/commit/b695631))
+* **datetime:** use correct styling for datetime buttons interactive states ([f9be1ba](https://github.com/telerik/kendo-themes/commit/f9be1ba))
+* **default-theme:** replace usages of darken with shade ([f6cf35c](https://github.com/telerik/kendo-themes/commit/f6cf35c))
+* **dragdrop:** remove duplicated drag drop styles ([560c8eb](https://github.com/telerik/kendo-themes/commit/560c8eb))
+* **dropdown:** use correct styling for dropdown interactive states ([1ed026a](https://github.com/telerik/kendo-themes/commit/1ed026a))
+* **expansion-panel:** apply correct RTL selectors ([efa9325](https://github.com/telerik/kendo-themes/commit/efa9325))
+* **forms:** apply max-width to form-field-wrap ([bee6f6d](https://github.com/telerik/kendo-themes/commit/bee6f6d))
+* **forms:** use subtle-text variable for form styling ([68dae9f](https://github.com/telerik/kendo-themes/commit/68dae9f))
+* **image-editor:** reduce colors used by image editor ([0860168](https://github.com/telerik/kendo-themes/commit/0860168))
+* **multiselect:** use corect colors for multiselect in material theme ([9999811](https://github.com/telerik/kendo-themes/commit/9999811))
+* **numeric:** use correct styling for numeric buttons interactive states ([1aa2a5d](https://github.com/telerik/kendo-themes/commit/1aa2a5d))
+* **numerictextbox:** apply correct min-width to spinner buttons ([0bf02b8](https://github.com/telerik/kendo-themes/commit/0bf02b8))
+* **rating:** use subtle-text variable for rating styling ([47f7a42](https://github.com/telerik/kendo-themes/commit/47f7a42))
+* **scheduler:** remove k-nav-current focus outline ([66ac6b9](https://github.com/telerik/kendo-themes/commit/66ac6b9))
+* **stepper:** use subtle-text and disabled-text variables for stepper styling ([0d140ad](https://github.com/telerik/kendo-themes/commit/0d140ad))
+* **switch:** move focus state styles after hover state styles ([4482a06](https://github.com/telerik/kendo-themes/commit/4482a06))
+* **switch:** update switch styles to match material and boostrap designs ([61129a3](https://github.com/telerik/kendo-themes/commit/61129a3))
+* **switch:** use current width for thumb left position ([4456d85](https://github.com/telerik/kendo-themes/commit/4456d85))
+* add styles for content focus TabStrip and Wizard telerik/kendo[#12197](https://github.com/telerik/kendo-themes/issues/12197) ([5f9d382](https://github.com/telerik/kendo-themes/commit/5f9d382))
+* ExpansionPanel with sibling has wrong top margin ([28e3a03](https://github.com/telerik/kendo-themes/commit/28e3a03))
+* reduce color complexity in slider and progressbar ([d586ce0](https://github.com/telerik/kendo-themes/commit/d586ce0))
+* spacer with fixed size wrong width ([f2d7cc3](https://github.com/telerik/kendo-themes/commit/f2d7cc3))
+* use correct color determination for app-bg ([102db3d](https://github.com/telerik/kendo-themes/commit/102db3d))
+* use correct color determination for popup-bg ([85edd9f](https://github.com/telerik/kendo-themes/commit/85edd9f))
+* **tabstrip:** use subtle-text variable for tabstrip styling ([eb2347b](https://github.com/telerik/kendo-themes/commit/eb2347b))
+* use subtle-text variable for forms and input styling ([0c49b7e](https://github.com/telerik/kendo-themes/commit/0c49b7e))
+* **scheduler:** use subtle-text variable in scheduler styling ([48be667](https://github.com/telerik/kendo-themes/commit/48be667))
+* **upload:** remove redundant color variables ([74cd4a5](https://github.com/telerik/kendo-themes/commit/74cd4a5))
+* **upload:** use subtle-text variable for upload styling ([8fa18b6](https://github.com/telerik/kendo-themes/commit/8fa18b6))
+* use subtle-text variable for styling cards and chat components ([1d2728b](https://github.com/telerik/kendo-themes/commit/1d2728b))
+* **utils:** add important flag to position utils ([ad9f24c](https://github.com/telerik/kendo-themes/commit/ad9f24c))
+
+
+### Features
+
+* add subtle text variable to be used as secondary text ([8b9322f](https://github.com/telerik/kendo-themes/commit/8b9322f))
+
+
+
+
+<a name="4.33.0"></a>
+# [4.33.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.32.0...@progress/kendo-theme-default@4.33.0) (2021-02-15)
+
+
+### Bug Fixes
+
+* changing step breaks the layout in iOS ([882a397](https://github.com/telerik/kendo-themes/commit/882a397))
+* incorrect behavior of autofitting in IE and Chrome ([1ac6348](https://github.com/telerik/kendo-themes/commit/1ac6348))
+* long content in item body overflows ([cbcbd98](https://github.com/telerik/kendo-themes/commit/cbcbd98))
+* missing spacing between k-label and radio button ([d3b29f1](https://github.com/telerik/kendo-themes/commit/d3b29f1))
+* progressbar doesn't end to the selected step in Safari ([34a7125](https://github.com/telerik/kendo-themes/commit/34a7125))
+* traling comma breaks build with WebCompiler VS addon ([e047fda](https://github.com/telerik/kendo-themes/commit/e047fda))
+* update drag hint font-size and line-height to match grouping indicator's ([3e7b253](https://github.com/telerik/kendo-themes/commit/3e7b253))
+* wrong border color around invalid files ([d2ac02e](https://github.com/telerik/kendo-themes/commit/d2ac02e))
+* **dialog:** some fonts overflowing window title vertically ([4db09b8](https://github.com/telerik/kendo-themes/commit/4db09b8))
+* **grid:** grid filter button cut off in IE11 ([a54cd27](https://github.com/telerik/kendo-themes/commit/a54cd27))
+* **stepper:** Stepper uses progressbar element but does not include the progressbar styling ([b1ece1c](https://github.com/telerik/kendo-themes/commit/b1ece1c))
+* **tabstrip:** remove at-root rule ([cc29841](https://github.com/telerik/kendo-themes/commit/cc29841))
+* **window:** resize handles overflow container ([093277f](https://github.com/telerik/kendo-themes/commit/093277f))
+
+
+### Features
+
+* **colorpicker:** add contrast color section ([337a644](https://github.com/telerik/kendo-themes/commit/337a644))
+* **notification:** generate notification-themes map dynamically ([485f9a3](https://github.com/telerik/kendo-themes/commit/485f9a3))
+* **overlay:** extract overlay as a separate component ([0e596ab](https://github.com/telerik/kendo-themes/commit/0e596ab))
+* **utils:** add border color utility classnames ([2568bd2](https://github.com/telerik/kendo-themes/commit/2568bd2))
+* **utils:** add border radius utility classnames ([961ba52](https://github.com/telerik/kendo-themes/commit/961ba52))
+* **utils:** add border style utility classnames ([7bbef55](https://github.com/telerik/kendo-themes/commit/7bbef55))
+* **utils:** add border width utility classnames ([69ac5c7](https://github.com/telerik/kendo-themes/commit/69ac5c7))
+* update styles to match the new design ([45b4abc](https://github.com/telerik/kendo-themes/commit/45b4abc))
+* **utils:** add font-size utils ([e608182](https://github.com/telerik/kendo-themes/commit/e608182))
+
+
+
+
 <a name="4.32.0"></a>
 # [4.32.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.31.0...@progress/kendo-theme-default@4.32.0) (2021-01-13)
 

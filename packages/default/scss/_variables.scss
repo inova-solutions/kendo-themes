@@ -220,7 +220,6 @@ $theme-colors: map-merge((
 ), $theme-colors);
 // sass-lint:enable indentation
 
-
 // Cursor utility classes
 $cursors: ( auto, default, none, context-menu, help, pointer, progress, wait, cell, crosshair, text,
     vertical-text, alias, copy, move, no-drop, not-allowed, e-resize, n-resize, ne-resize, nw-resize,
@@ -287,11 +286,19 @@ $disabled-opacity: .6 !default;
 
 // Generic styles
 
+// TODO: refactor once we extract drag drop as separate module
+$font-size: 14px !default;
+$font-family: inherit !default;
+$line-height: ( 20 / 14 ) !default;
+
 // Root styles
 $body-bg: $bg-color !default;
 $body-text: $text-color !default;
 
-$app-bg: lighten($base-bg, 1%) !default;
+$subtle-text: try-tint( $body-text, 3 );
+$disabled-text: try-tint( $body-text, 6 );
+
+$app-bg: try-shade( $body-bg, .25 ) !default;
 $app-text: $body-text !default;
 $app-border: $border-color !default;
 
@@ -351,7 +358,7 @@ $panel-border: $component-border !default;
 // Grouping
 $grouping-header-bg: $body-text !default;
 $grouping-header-text: $body-bg !default;
-$grouping-border: $border-color !default;
+$grouping-header-border: $border-color !default;
 $frozen-grouping-header-text: null !default;
 $frozen-grouping-header-border-width: null !default;
 
@@ -418,20 +425,28 @@ $invalid-border: rgba( $error, .5 ) !default;
 $invalid-shadow: null !default;
 
 
+// Drag clue
+$drag-clue-padding-x: $padding-x !default;
+$drag-clue-padding-y: $padding-y !default;
+$drag-clue-border-width: 1px !default;
+$drag-clue-border-radius: $border-radius !default;
+$drag-clue-font-size: $font-size !default;
+$drag-clue-font-family: $font-family !default;
+$drag-clue-line-height: $line-height !default;
+
+$drag-clue-bg: $base-bg !default;
+$drag-clue-text: $base-text !default;
+$drag-clue-border: $base-border !default;
+$drag-clue-gradient: null !default;
+$drag-clue-shadow: null !default;
+
 $drag-clue-opacity: null !default;
-$drag-clue-line-height: null !default;
-$drag-clue-border-radius: null !default;
 
 
 // Layout
 $grid-cols: 12 !default;
 $grid-rows: 10 !default;
 $grid-gap: 10px !default;
-
-
-// Backdrop (Overlay)
-$backdrop-bg: #000000 !default;
-$backdrop-opacity: .5 !default;
 
 
 // Disabled Styling maps
