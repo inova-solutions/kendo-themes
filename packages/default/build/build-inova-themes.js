@@ -48,6 +48,35 @@ const buildKendoSwatchThemes = () => {
     exec(`npm run sass:swatches`);
 }
 
+/** Function that count occurrences of a substring in a string;
+ * @param {String} string               The string
+ * @param {String} subString            The sub string to search for
+ * @param {Boolean} [allowOverlapping]  Optional. (Default:false)
+ *
+ * @author Vitim.us https://gist.github.com/victornpb/7736865
+ * @see Unit Test https://jsfiddle.net/Victornpb/5axuh96u/
+ * @see http://stackoverflow.com/questions/4009756/how-to-count-string-occurrence-in-string/7924240#7924240
+ */
+ const occurrences = (string, subString, allowOverlapping) => {
+
+    string += "";
+    subString += "";
+    if (subString.length <= 0) return (string.length + 1);
+
+    var n = 0,
+        pos = 0,
+        step = allowOverlapping ? 1 : subString.length;
+
+    while (true) {
+        pos = string.indexOf(subString, pos);
+        if (pos >= 0) {
+            ++n;
+            pos += step;
+        } else break;
+    }
+    return n;
+}
+
 /**
  * Extrahiert Charset Definition von Theme Css und gibt sie zurück
  * @param {string} theme
@@ -103,12 +132,23 @@ const interpolateMax = (theme) => {
 const wrapWithThemePrefix = (theme) => {
     writeLog('Wrap Css with theme prefix');
     const path = getDistForTheme(theme);
+    const themeClass = `.theme-${theme.toLowerCase()}`;
     const css = readFile(path);
-    const wrappedScss = `.theme-${theme.toLowerCase()} {
+    const wrappedScss = `${themeClass} {
         ${css}
     }`;
     const wrappedCss = sass.renderSync({ data: wrappedScss }).css;
-    writeFile(path, wrappedCss);
+
+    //Remove .theme-XXX from @font-face definition
+    const ffStart = wrappedCss.indexOf("@font-face");
+    const ffClassHeadStart = wrappedCss.indexOf(themeClass, ffStart + 1);
+    const ffClassHeadEnd = wrappedCss.indexOf('{', ffClassHeadStart + 1);
+    const ffClassTailStart = wrappedCss.indexOf('}', ffClassHeadEnd);
+    const finalCss = wrappedCss.slice(0,ffClassHeadStart)
+                    + wrappedCss.slice(ffClassHeadEnd + 2, ffClassTailStart)
+                    + wrappedCss.slice(ffClassTailStart + 2);
+
+    writeFile(path, finalCss);
 }
 
 /**
@@ -121,6 +161,15 @@ const combineThemes = () => {
     themes.forEach(theme => {
         css += "\n" + readFile(getDistForTheme(theme));
     });
+
+    //Remove duplicate Definition of @font-face
+    while(occurrences(css, '@font-face') > 1) {
+        const ffStart = css.indexOf("@font-face");
+        const ffEnd = css.indexOf('}', ffStart + 1);
+        css = css.slice(0, ffStart)
+            + css.slice(ffEnd + 2);
+    }
+
     return css;
 }
 
