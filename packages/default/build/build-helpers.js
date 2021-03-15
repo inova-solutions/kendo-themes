@@ -192,6 +192,7 @@ exports.createInovaThemeJs = (source, output) => {
      } catch (e) {}
      fs.copyFileSync(`${source}/InovaTheme.js`, output);
      fs.removeSync(`${source}/InovaTheme.js`);
+     fs.removeSync(`${source}/SassHelpers.js`);
  }
 
  /**
