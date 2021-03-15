@@ -18,6 +18,60 @@ const PATHS = {
 
 const themes = ['Light', 'Dark'];
 
+/**
+ * Build Ablauf
+ */
+const run = () => {
+
+    let charset = '';
+
+    cleanDir(PATHS.DIST);
+
+    buildKendoSwatchThemes();
+
+    themes.forEach(theme => {
+        writeInfo('Building Theme ' + theme);
+        charset = extractCharset(theme);
+        interpolateMax(theme);
+        wrapWithThemePrefix(theme);
+        charset = extractCharset(theme);
+    });
+
+    writeInfo('Finalize');
+
+    compileInovaIcons();
+
+    const inovaFont = readFile(PATHS.FONT);
+    const inovaIcons = readFile(PATHS.ICONS_OUTPUT);
+    const mainCss = combineThemes();
+
+    const finalCss = `
+        ${charset}
+        ${inovaFont}
+        ${mainCss}
+        ${inovaIcons}
+    `;
+
+    writeLog('Create Default Css');
+    writeFile(PATHS.OUTPUT_DEFAULT, finalCss);
+
+    writeLog('Create Minified Css');
+    const minifiedCss = new CleanCSS({}).minify(finalCss).styles;
+    writeFile(PATHS.OUTPUT_MINIFIED, minifiedCss);
+
+    createInovaThemeJs();
+
+    copyKendoSassFile(() => {
+        cleanUpDist();
+        createPackageJson();
+        writeSuccess('Build Successful! 🎉');
+        publishHelper();
+    });
+}
+
+/**
+ * Helper Functions
+ */
 const writeLog = (msg) => console.log(`\n${msg}`);
 const writeInfo = (msg) => console.log(`\n\x1b[45m\x1b[37m${msg}\x1b[0m`);
 const writeSuccess = (msg) => console.log(`\n\x1b[42m\x1b[37m${msg}\x1b[0m`);
@@ -25,12 +79,7 @@ const exec = (cmd, returnVal) => {
     if(returnVal === true) return execSync(cmd);
     else execSync(cmd, { stdio: "inherit"});
 };
-
-const deletePath = (path) => {
-    try {
-        fs.removeSync(path);
-    } catch (e) {}
-}
+const deletePath = (path) => { try { fs.removeSync(path); } catch (e) {} };
 const readFile = (path) => fs.readFileSync(path).toString();
 const writeFile = (path, content) => fs.writeFileSync(path, content);
 const getDistForTheme = (theme) => `${PATHS.DIST}/inova-${theme.toLowerCase()}.css`
@@ -259,51 +308,4 @@ const publishHelper = () => {
     });
 }
 
-/**
- * Build
- */
-
-let charset = '';
-
-cleanDir(PATHS.DIST);
-
-buildKendoSwatchThemes();
-
-themes.forEach(theme => {
-    writeInfo('Building Theme ' + theme);
-    charset = extractCharset(theme);
-    interpolateMax(theme);
-    wrapWithThemePrefix(theme);
-    charset = extractCharset(theme);
-});
-
-writeInfo('Finalize');
-
-compileInovaIcons();
-
-const inovaFont = readFile(PATHS.FONT);
-const inovaIcons = readFile(PATHS.ICONS_OUTPUT);
-const mainCss = combineThemes();
-
-const finalCss = `
-    ${charset}
-    ${inovaFont}
-    ${mainCss}
-    ${inovaIcons}
-`;
-
-writeLog('Create Default Css');
-writeFile(PATHS.OUTPUT_DEFAULT, finalCss);
-
-writeLog('Create Minified Css');
-const minifiedCss = new CleanCSS({}).minify(finalCss).styles;
-writeFile(PATHS.OUTPUT_MINIFIED, minifiedCss);
-
-createInovaThemeJs();
-
-copyKendoSassFile(() => {
-    cleanUpDist();
-    createPackageJson();
-    writeSuccess('Build Successful! 🎉');
-    publishHelper();
-});
+run();
