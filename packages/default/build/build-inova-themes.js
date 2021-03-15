@@ -10,7 +10,8 @@ const PATHS = {
     DIST: `dist`,
     SCRIPTS: `scripts`,
     FONT: `scss/_inova_font.scss`,
-    ICONS: `icons/inovaicon.css`,
+    ICON: `icons`,
+    ICONS_OUTPUT: `icons/inovaicon.css`,
     OUTPUT_DEFAULT: `dist/all.css`,
     OUTPUT_MINIFIED: `dist/all.min.css`
 }
@@ -174,6 +175,27 @@ const combineThemes = () => {
 }
 
 /**
+ * Fügt die Icon Font als Base64 Encoded String als source ein
+ */
+const compileInovaIcons = () => {
+    writeLog("Compile Inova Icon Css");
+    const font = fs.readFileSync(`${PATHS.ICON}/inovaicon/fonts/inovaicon.woff`);
+    const fontBase64 = font.toString('base64');
+    const ffTemplate = readFile(`${PATHS.ICON}/fontface_template`);
+    let css = readFile(`${PATHS.ICON}/inovaicon/style.css`);
+    let newSource = ffTemplate.replace('ENTER_BASE64_FONT_FILE_HERE', fontBase64);
+
+    //Remove FontFace Source
+    const startFfSource = css.indexOf('src:', 0);
+    const endFfSource = css.indexOf(';', startFfSource + 1);
+    css = css.slice(0, startFfSource)
+        + newSource
+        + css.slice(endFfSource + 2);
+
+    writeFile(`${PATHS.ICONS_OUTPUT}`, css);
+}
+
+/**
  * Erstellt das JS File zum wechseln der CSS Variablen für die Inova Styles
  */
 const createInovaThemeJs = () => {
@@ -257,8 +279,10 @@ themes.forEach(theme => {
 
 writeInfo('Finalize');
 
+compileInovaIcons();
+
 const inovaFont = readFile(PATHS.FONT);
-const inovaIcons = readFile(PATHS.ICONS);
+const inovaIcons = readFile(PATHS.ICONS_OUTPUT);
 const mainCss = combineThemes();
 
 const finalCss = `
