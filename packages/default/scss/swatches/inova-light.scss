@@ -1,0 +1,29 @@
+@import "../inova_variables_colors";
+@import "../inova_variables_fonts";
+
+$accent: $inova-pink !default;
+$secondary: $light-base-bg !default;
+$tertiary: $inova-blue !default;
+$info: $inova-blue !default;
+$success: $inova-green !default;
+$warning: $inova-yellow !default;
+$error: $inova-red !default;
+$dark: $light-base-color-dark !default;
+$light: $light-base-color-light !default;
+$bg-color: $light-bg-color !default;
+$text-color: $light-text-color !default;
+$base-bg: $light-base-bg !default;
+$base-text: $light-text-color !default;
+$hovered-bg: $light-base-hover !default;
+
+$series-a: $inova-series-a;
+$series-b: $inova-series-b;
+$series-c: $inova-series-c;
+$series-d: $inova-series-d;
+$series-e: $inova-series-e;
+$series-f: $inova-series-f;
+$series-1: $series-a;
+$chart-major-lines: rgba(0, 0, 0, .08);
+$chart-minor-lines: rgba(0, 0, 0, .04);
+
+@import "../all.scss";

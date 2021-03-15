@@ -1,4 +1,4 @@
 **/node_modules
-packages/icons
+packages/default/icons
 packages/default/dist
 packages/default/build

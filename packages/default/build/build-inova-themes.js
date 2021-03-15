@@ -1,173 +1,236 @@
-const execSync = require("child_process").execSync;
-const ncp = require("ncp").ncp;
+
 const fs = require("fs-extra");
+const execSync = require("child_process").execSync;
 const sass = require("node-sass");
 const CleanCSS = require("clean-css");
-const distPath = `dist`;
-const inovaIconsPath = `../icons/inovaicon.css`;
-const origAllScssPath = `../default/scss/all.scss`;
-const invoaFontPath = `../default/scss/_inova_font.scss`;
-const defaultVariables = `build\\_variables.scss`;
-let allScc = "";
-let fontFace = null;
-let charset = null;
-let inovaIconsCss = "";
-const themes = ["Dark", "Light"];
+const prompt = require('prompt');
+const ncp = require("ncp").ncp;
 
-try {
-    fs.removeSync(`${distPath}`);
-} catch (e) {}
-fs.mkdirSync(`${distPath}`);
+const PATHS = {
+    DIST: `dist`,
+    SCRIPTS: `scripts`,
+    FONT: `scss/_inova_font.scss`,
+    ICONS: `icons/inovaicon.css`,
+    OUTPUT_DEFAULT: `dist/all.css`,
+    OUTPUT_MINIFIED: `dist/all.min.css`
+}
 
-//Read inovaicons css
-inovaIconsCss = fs.readFileSync(`${inovaIconsPath}`).toString();
+const themes = ['Light', 'Dark'];
+
+const writeLog = (msg) => console.log(`\n${msg}`);
+const writeInfo = (msg) => console.log(`\n\x1b[45m\x1b[37m${msg}\x1b[0m`);
+const writeSuccess = (msg) => console.log(`\n\x1b[42m\x1b[37m${msg}\x1b[0m`);
+const exec = (cmd, returnVal) => {
+    if(returnVal === true) return execSync(cmd);
+    else execSync(cmd, { stdio: "inherit"});
+};
+
+const deletePath = (path) => {
+    try {
+        fs.removeSync(path);
+    } catch (e) {}
+}
+const readFile = (path) => fs.readFileSync(path).toString();
+const writeFile = (path, content) => fs.writeFileSync(path, content);
+const getDistForTheme = (theme) => `${PATHS.DIST}/inova-${theme.toLowerCase()}.css`
+const cleanDir = (path) => {
+    writeLog('clean dir: ' + path);
+    deletePath(path);
+    fs.mkdirSync(path);
+}
 
 /**
- * The file /scss/variables.css is used by kendo to define the variables per theme.
- * For each theme rename _variables_inova-<theme>.scss to _variables.scss and start
- * npm run build
+ * Buildet die Kendo Swatch Themes gemäss
+ * https://www.telerik.com/kendo-angular-ui/components/styling/custom-themes/#toc-using-the-build-process-of-the-themes
  */
-themes.forEach((theme) => {
-    console.log("\x1b[45m\x1b[37m", `Building Theme '${theme}'`, "\x1b[0m");
+const buildKendoSwatchThemes = () => {
+    writeLog('build kendo swatch themes');
+    exec(`npm run sass:swatches`);
+}
 
-    const origThemeVars = `scss\\_variables_inova-${theme}.scss`;
-    const tmpThemeVars = `scss\\_variables.scss`;
-    const tmpAllScssPath = `scss\\orig-all.scss`;
-    // const bootstrapFile = `..\\bootstrap-library\\inova-bootstrap.${theme}.scss`;
-    // const tmpBootstrapFile = `..\\bootstrap-library\\inova-bootstrap.Current.scss`;
+/**
+ * Extrahiert Charset Definition von Theme Css und gibt sie zurück
+ * @param {string} theme
+ * @returns charset definition
+ */
+const extractCharset = (theme) => {
+    writeLog('Extracting Charset');
+    const path = getDistForTheme(theme);
+    let css = readFile(path);
+    const charsetStart = css.indexOf("@charset");
+    const charsetEnd = css.indexOf(";", charsetStart);
+    const charset = css.slice(charsetStart, charsetEnd + 1);
+    css = css.slice(0, charsetStart) + css.slice(charsetEnd + 1);
+    writeFile(path, css);
+    return charset;
+}
 
-    //rename theme file and start build
-    fs.removeSync(tmpThemeVars);
-    fs.copyFileSync(origThemeVars, tmpThemeVars);
+/**
+ * Wrappt max-Funktionen in eine String-Interpolation, um einen Fehler in SASS zu vermeiden
+ * Beschreibung https://github.com/sass/node-sass/issues/2815#issuecomment-574038619
+ * @param {string} theme
+ */
+const interpolateMax = (theme) => {
+    const path = getDistForTheme(theme);
+    writeLog('Interpolate Max Functions');
+    let css = readFile(path);
+    css = css
+        .split("\n")
+        .map(line => {
+            if(line.indexOf(' max(') >= 0){
+                const maxStart = line.indexOf("max(");
+                const maxEnd = line.indexOf(")", maxStart);
+                const beforeMax = line.slice(0, maxStart);
+                const afterMax = line.slice(maxEnd + 1);
+                const maxContent = line.slice(maxStart, maxEnd + 1);
+                const interpolatedMaxContent = `#{"${maxContent}"}`;
+                const interpolatedLine = beforeMax + interpolatedMaxContent + afterMax;
+                return interpolatedLine;
+            } else {
+                return line;
+            }
+        })
+        .join("\n");
+    writeFile(path, css);
+}
 
-    //Default Kendo Build first, to get the 64 Encoded Urls
-    execSync(`npm run sass`, {
-        stdio: "inherit",
+/**
+ * Wrappt die Theme Css mit dem entsprechenden prefix des Themes
+ * z.B.: .theme-light { XXX }
+ * und buildet mit Sass ein neues Css
+ * @param {string} theme
+ */
+const wrapWithThemePrefix = (theme) => {
+    writeLog('Wrap Css with theme prefix');
+    const path = getDistForTheme(theme);
+    const css = readFile(path);
+    const wrappedScss = `.theme-${theme.toLowerCase()} {
+        ${css}
+    }`;
+    const wrappedCss = sass.renderSync({ data: wrappedScss }).css;
+    writeFile(path, wrappedCss);
+}
+
+/**
+ * Kombiniert die Theme Css zu einem
+ * @returns {string} das kombinierte css
+ */
+const combineThemes = () => {
+    writeLog('Combine themes');
+    let css = '';
+    themes.forEach(theme => {
+        css += "\n" + readFile(getDistForTheme(theme));
     });
-    const cssWithUrls = fs.readFileSync(`${distPath}/all.css`).toString();
-    const lines = cssWithUrls.split("\n");
-    const urls = lines.filter(l => l.indexOf('url(') >= 0);
+    return css;
+}
 
+/**
+ * Erstellt das JS File zum wechseln der CSS Variablen für die Inova Styles
+ */
+const createInovaThemeJs = () => {
+    writeInfo("Creating InovaTheme.js");
+    try {
+        execSync(`tsc ${PATHS.SCRIPTS}/InovaTheme.ts -m "system" -t "es5"`, {
+            stdio: "inherit",
+        });
+    } catch (e) {}
+    fs.copyFileSync(`${PATHS.SCRIPTS}/InovaTheme.js`, `${PATHS.DIST}/InovaTheme.js`);
+    fs.removeSync(`${PATHS.SCRIPTS}/InovaTheme.js`);
+}
 
-    //Save original all.scss and wrap all.scss with .theme-dark { EVERYTHING } for the dark theme for example
-    fs.copyFileSync(origAllScssPath, tmpAllScssPath);
-    let origAllScssContent = fs.readFileSync(origAllScssPath).toString();
-    fs.writeFileSync(origAllScssPath, `.theme-${theme.toLowerCase()} {
-        ${origAllScssContent}
-    }`);
-    //Now, use original Kendo Build to compile Scss
-    execSync(`npm run sass`, {
-        stdio: "inherit",
+/**
+ * Kopiert die zusätzlichen Kendo Sass Files ins Dist Verzeichnis
+ */
+const copyKendoSassFile = (done) => {
+    fs.mkdirSync(`${PATHS.DIST}/common`);
+    fs.mkdirSync(`${PATHS.DIST}/common/scss`);
+    ncp(`scss`, `${PATHS.DIST}/common/scss`, function (err) {
+        if(done) { done(); }
     });
+}
 
-    //delete temp files again
-    fs.copyFileSync(tmpAllScssPath, origAllScssPath);
-    fs.unlinkSync(tmpAllScssPath);
+/**
+ * Entfernt alle nicht benötigten Files
+ */
+const cleanUpDist = () => {
+    writeLog('Clean up dist directory');
+    themes.forEach(theme => deletePath(`${PATHS.DIST}/inova-${theme}.css`));
+    deletePath(`${PATHS.DIST}/all.scss`);
+}
 
-    //move generated css to theme output directory
-    fs.removeSync(`${distPath}/${theme}`);
-    fs.mkdirSync(`${distPath}/${theme}`);
-    fs.renameSync(`${distPath}/all.css`, `${distPath}/${theme}/all.css`);
+/**
+ * Erstellt das Package Json mit der nächsten Versionsnummer
+ */
+const createPackageJson = () => {
+    writeLog('Create package.json with next version number');
+    const path = `${PATHS.DIST}/package.json`;
+    fs.copyFileSync(`build/inova-themes-package.json`, path);
+    const json = JSON.parse(readFile(path));
+    let currentVersion = exec(`npm show ${json.name} version`, true).toString().split(".");
+    currentVersion[2] = parseInt(currentVersion[2]) + 1;
+    json.version = currentVersion.join(".");
+    writeFile(path, JSON.stringify(json, null, 2));
+}
 
-    let css = fs.readFileSync(`${distPath}/${theme}/all.css`).toString();
-
-    //Replace urls with original url because the urls get
-    //are deleted in the sass build, when it is wrapped with
-    //the inova theme wrapper class somehow...
-    let lineIdx = 0;
-    css = css.split("\n").map(l => {
-        if(l.indexOf('url(') >= 0) {
-            l = urls[lineIdx];
-            lineIdx++;
+/**
+ * Gibt infos zum Publish an und stellt die frage, ob man es gleich publishen will
+ */
+const publishHelper = () => {
+    prompt.start();
+    const question = 'Do you want to publish now? (y/n)';
+    prompt.get([question], function (err, result) {
+        if (err) { return 1; }
+        if(result[question].toLowerCase() === 'y'){
+            exec(`npm publish ${PATHS.DIST}`);
+        } else {
+            writeLog('To publish, run following command: \n\nnpm publish ' + process.cwd() + '\\' + PATHS.DIST + '\n');
         }
-        return l;
-    }).join("\n");
-    fs.writeFileSync(`${distPath}/${theme}/all.css`, css);
+    });
+}
 
-    //Extract @font-face and add it later so it is defined only once
-    const ffStart = css.indexOf("@font-face");
-    const ffEnd1 = css.indexOf("}", ffStart + 1);
-    const ffEnd2 = css.indexOf("}", ffEnd1 + 1);
-    if (fontFace === null) {
-        // Remove .theme-dark from @font-face
-        // fontFace = css.slice(ffStart, ffEnd1 + 1);
-        const tStart = css.indexOf(`.theme-dark`, ffStart + 1);
-        const tEnd = css.indexOf("{", tStart + 1);
-        // fontFace = fontFace.slice(0, tStart) + fontFace.slice(tEnd + 1);
-        fontFace = `@font-face {
-            ${css.slice(tEnd + 1, ffEnd1)}
-        }`;
-    }
-    css = css.slice(0, ffStart) + css.slice(ffEnd2 + 1);
+/**
+ * Build
+ */
 
-    //Extract @charset and add it later so it is defined only once
-    const ccStart = css.indexOf("@charset");
-    const ccEnd = css.indexOf(";", ccStart);
-    if(charset === null) {
-        charset = css.slice(ccStart, ccEnd + 1);
-    }
-    css = css.slice(0, ccStart) + css.slice(ccEnd + 1);
+let charset = '';
 
-    allScc += css;
+cleanDir(PATHS.DIST);
 
+buildKendoSwatchThemes();
 
-    //create _variables.scss per theme
-    let origThemeVarsContent = fs.readFileSync(origThemeVars).toString();
-    origThemeVarsContent = origThemeVarsContent.replace(
-        /@import '/g,
-        `@import '../common/scss/`
-    );
-    origThemeVarsContent = origThemeVarsContent.replace(
-        /@import "/g,
-        `@import "../common/scss/`
-    );
-    fs.writeFileSync(
-        `${distPath}/${theme}/_variables.scss`,
-        origThemeVarsContent
-    );
+themes.forEach(theme => {
+    writeInfo('Building Theme ' + theme);
+    charset = extractCharset(theme);
+    interpolateMax(theme);
+    wrapWithThemePrefix(theme);
+    charset = extractCharset(theme);
 });
 
-fs.writeFileSync(
-    `${distPath}/_variables.scss`,
-    fs.readFileSync(defaultVariables).toString()
-);
+writeInfo('Finalize');
 
-// read font.scss
-const inovaFont = fs.readFileSync(invoaFontPath).toString();
+const inovaFont = readFile(PATHS.FONT);
+const inovaIcons = readFile(PATHS.ICONS);
+const mainCss = combineThemes();
 
-let finalCss = allScc;
+const finalCss = `
+    ${charset}
+    ${inovaFont}
+    ${mainCss}
+    ${inovaIcons}
+`;
 
-finalCss = charset + `\n` + inovaFont + `\n` + fontFace + `\n` + finalCss;
-finalCss += `\n` + inovaIconsCss;
-fs.writeFileSync(`${distPath}/all.css`, finalCss);
-fs.writeFileSync(
-    `${distPath}/all.min.css`,
-    new CleanCSS({}).minify(finalCss).styles
-);
+writeLog('Create Default Css');
+writeFile(PATHS.OUTPUT_DEFAULT, finalCss);
 
-//create package.json
-fs.copyFileSync(`build/inova-themes-package.json`, `${distPath}/package.json`);
+writeLog('Create Minified Css');
+const minifiedCss = new CleanCSS({}).minify(finalCss).styles;
+writeFile(PATHS.OUTPUT_MINIFIED, minifiedCss);
 
-//build and copy InovaTheme js to dist
-try {
-    execSync(`tsc scripts/InovaTheme.ts -m "system" -t "es5"`, {
-        stdio: "inherit",
-    });
-} catch (e) {}
+createInovaThemeJs();
 
-fs.copyFileSync(`scripts/InovaTheme.js`, `${distPath}/InovaTheme.js`);
-fs.removeSync(`scripts/InovaTheme.js`);
-
-//copy all scss files to dist
-fs.removeSync(`${distPath}/common`);
-fs.mkdirSync(`${distPath}/common`);
-fs.mkdirSync(`${distPath}/common/scss`);
-ncp(`scss`, `${distPath}/common/scss`, function (err) {
-    //Create shortcut to themify.scss
-    fs.writeFileSync(
-        `${distPath}/themify.scss`,
-        `@import 'common/scss/themify';`
-    );
-
-    console.log("\n", "\x1b[42m\x1b[37m", `Build Successful!`, "\x1b[0m");
+copyKendoSassFile(() => {
+    cleanUpDist();
+    createPackageJson();
+    writeSuccess('Build Successful! 🎉');
+    publishHelper();
 });

@@ -228,6 +228,8 @@ const InovaTheme = (function () {
     }
   };
 
+  let chPow = undefined;
+
   const chNthRoot = function (num: any, n: any, prec: any) {
     if (n === undefined) {
       n = 2;
@@ -248,7 +250,7 @@ const InovaTheme = (function () {
     return x;
   };
 
-  const chPow = function (base: any, exponent: any, prec?: any) {
+  chPow = function (base: any, exponent: any, prec?: any) {
     // handles decimal exponents by trying to convert them into a fraction and then use a nthRoot-algorithm for parts of the calculation
     if (prec === undefined) {
       prec = 12;
