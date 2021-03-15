@@ -31,6 +31,7 @@ const run = () => {
 
     themes.forEach(theme => {
         writeInfo('Building Theme ' + theme);
+        createLegacyThemeOutput(theme);
         charset = extractCharset(theme);
         interpolateMax(theme);
         wrapWithThemePrefix(theme);
@@ -267,6 +268,25 @@ const copyKendoSassFile = (done) => {
     ncp(`scss`, `${PATHS.DIST}/common/scss`, function (err) {
         if(done) { done(); }
     });
+}
+
+/**
+ * Erstellt die Files für die Legacy Projekte (InovaFisWeb)
+ */
+ const createLegacyThemeOutput = (theme) => {
+    writeLog('Create Legacy Css');
+    let legacyThemeName  = '';
+    switch(theme) {
+        case 'Light': legacyThemeName = 'OlivePink'; break;
+        case 'Dark': legacyThemeName = 'DarkPink'; break;
+    }
+    const src = `${PATHS.DIST}/inova-${theme}.css`;
+    const destDir = `${PATHS.DIST}/${legacyThemeName}`;
+    const dest = `${destDir}/all.css`;
+    fs.mkdirSync(destDir);
+    const css = readFile(src);
+    const minifiedCss = new CleanCSS({}).minify(css).styles;
+    writeFile(dest, minifiedCss);
 }
 
 /**
