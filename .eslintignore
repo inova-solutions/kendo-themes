@@ -1,4 +1,5 @@
 **/node_modules
 packages/default/icons
+packages/default/scripts
 packages/default/dist
 packages/default/build

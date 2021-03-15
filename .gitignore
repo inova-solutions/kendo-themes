@@ -13,7 +13,7 @@ debug.log
 # System files
 .DS_Store
 
-packages/default/scripts/InovaTheme.js
+packages/default/scripts/*.js
 packages/default/icons/inovaicon.css
 # Lock files
 # package-lock.json

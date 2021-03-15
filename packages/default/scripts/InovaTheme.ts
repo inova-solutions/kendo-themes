@@ -1,3 +1,5 @@
+import Sass from "./SassHelpers";
+
 /**
  * Diese Klasse definiert alle InovaStyles
  * Diese werden als CSS Variablen auf den Body per JavaScript gesetzt
@@ -8,6 +10,9 @@ const InovaTheme = (function () {
    */
   const themeWrapper = document.getElementsByTagName("body")[0];
 
+  /**
+   * Farb Konstanten
+   */
   const colors = {
     inova_pink: "#e81e75",
     inova_pink_rgb: "232, 30, 117",
@@ -85,258 +90,9 @@ const InovaTheme = (function () {
     inova_series_e_light: "rgba(45,115,245,0.3)",
   };
 
-  //#region SCSS Funktionen
-
   /**
-   * Die folgenden Funktionen sind kopiert aus dem sass-Source-Code um dieselben Farbfunktionen abzubilden
-   * wie in den Kendo Themes verwendet werden
+   * Entfernt die Theme Klasse vom Body
    */
-
-  let pSBCr = undefined;
-
-  // lighten / darken a Color
-  // from: https://github.com/PimpTrizkit/PJs/wiki/12.-Shade,-Blend-and-Convert-a-Web-Color-(pSBC.js)
-  const pSBC = function (p: number, from: any, to?: any) {
-    // errorCheck
-    if (
-      typeof p !== "number" ||
-      p < -1 ||
-      p > 1 ||
-      typeof from !== "string" ||
-      (from[0] !== "r" && from[0] !== "#") ||
-      (to && typeof to !== "string")
-    ) {
-      return null;
-    }
-
-    let i = parseInt,
-      r = Math.round;
-
-    if (!pSBCr) {
-      pSBCr = (d) => {
-        const l = d.length,
-          RGB = {};
-        if (l > 9) {
-          d = d.split(",");
-          // errorCheck
-          if (d.length < 3 || d.length > 4) {
-            return null;
-          }
-          RGB[0] = i(d[0].split("(")[1]);
-          RGB[1] = i(d[1]);
-          RGB[2] = i(d[2]);
-          RGB[3] = d[3] ? parseFloat(d[3]) : -1;
-        } else {
-          if (l === 8 || l === 6 || l < 4) {
-            return null; // errorCheck
-          }
-          if (l < 6) {
-            d =
-              "#" +
-              d[1] +
-              d[1] +
-              d[2] +
-              d[2] +
-              d[3] +
-              d[3] +
-              (l > 4 ? d[4] + "" + d[4] : ""); // 3 or 4 digit
-          }
-          /* tslint:disable */
-          (d = i(d.slice(1), 16)),
-            (RGB[0] = (d >> 16) & 255),
-            (RGB[1] = (d >> 8) & 255),
-            (RGB[2] = d & 255),
-            (RGB[3] = -1);
-          if (l === 9 || l === 5) {
-            (RGB[3] = r((RGB[2] / 255) * 10000) / 10000),
-              (RGB[2] = RGB[1]),
-              (RGB[1] = RGB[0]),
-              (RGB[0] = (d >> 24) & 255);
-          }
-          /* tslint:enable */
-        }
-        return RGB;
-      };
-    }
-
-    let h = from.length > 9;
-    let b = p < 0;
-    to = to && to !== "c" ? to : b ? "#000000" : "#FFFFFF";
-    let f = pSBCr(from);
-    let t = pSBCr(to);
-
-    p = b ? p * -1 : p;
-    h =
-      typeof to === "string"
-        ? to.length > 9
-          ? true
-          : to === "c"
-          ? !h
-          : false
-        : h;
-
-    if (!f || !t) {
-      return null; // errorCheck
-    }
-    if (h) {
-      return (
-        "rgb" +
-        (f[3] > -1 || t[3] > -1 ? "a(" : "(") +
-        r((t[0] - f[0]) * p + f[0]) +
-        "," +
-        r((t[1] - f[1]) * p + f[1]) +
-        "," +
-        r((t[2] - f[2]) * p + f[2]) +
-        (f[3] < 0 && t[3] < 0
-          ? ")"
-          : "," +
-            (f[3] > -1 && t[3] > -1
-              ? r(((t[3] - f[3]) * p + f[3]) * 10000) / 10000
-              : t[3] < 0
-              ? f[3]
-              : t[3]) +
-            ")")
-      );
-    } else {
-      return (
-        "#" +
-        (
-          0x100000000 +
-          r((t[0] - f[0]) * p + f[0]) * 0x1000000 +
-          r((t[1] - f[1]) * p + f[1]) * 0x10000 +
-          r((t[2] - f[2]) * p + f[2]) * 0x100 +
-          (f[3] > -1 && t[3] > -1
-            ? r(((t[3] - f[3]) * p + f[3]) * 255)
-            : t[3] > -1
-            ? r(t[3] * 255)
-            : f[3] > -1
-            ? r(f[3] * 255)
-            : 255)
-        )
-          .toString(16)
-          .slice(1, f[3] > -1 || t[3] > -1 ? undefined : -2)
-      );
-    }
-  };
-
-  const chGcd = function (a: any, b: any) {
-    // from: http://rosettacode.org/wiki/Greatest_common_divisor#JavaScript
-    if (b !== 0) {
-      return chGcd(b, a % b);
-    } else {
-      return Math.abs(a);
-    }
-  };
-
-  let chPow = undefined;
-
-  const chNthRoot = function (num: any, n: any, prec: any) {
-    if (n === undefined) {
-      n = 2;
-    }
-    if (prec === undefined) {
-      prec = 12;
-    }
-
-    // from: http://rosettacode.org/wiki/Nth_root#JavaScript
-    let x = 1;
-
-    for (let i = 0; i <= prec; i++) {
-      /* tslint:disable */
-      x = (1 / n) * ((n - 1) * x + num / chPow(x, n - 1));
-      /* tslint:enable */
-    }
-
-    return x;
-  };
-
-  chPow = function (base: any, exponent: any, prec?: any) {
-    // handles decimal exponents by trying to convert them into a fraction and then use a nthRoot-algorithm for parts of the calculation
-    if (prec === undefined) {
-      prec = 12;
-    }
-    let prec2, denominator;
-
-    if (Math.floor(exponent) !== exponent) {
-      prec2 = chPow(10, prec, undefined);
-      exponent = Math.round(exponent * prec2);
-      denominator = chGcd(exponent, prec2);
-      return chNthRoot(
-        chPow(base, exponent / denominator, undefined),
-        prec2 / denominator,
-        prec
-      );
-    }
-
-    let value = base;
-
-    if (exponent > 1) {
-      for (let i = 2; i <= exponent; i++) {
-        value = value * base;
-      }
-    } else {
-      for (let i = 0; i >= exponent; i--) {
-        value = value / base;
-      }
-    }
-
-    return value;
-  };
-
-  const hexToRgb = function (hex: any) {
-    // from https://stackoverflow.com/a/5624139
-    // expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-    const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-    hex = hex.replace(
-      shorthandRegex,
-      function (m: any, r: any, g: any, b: any) {
-        m = m;
-        return r + r + g + g + b + b;
-      }
-    );
-
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result
-      ? {
-          r: parseInt(result[1], 16),
-          g: parseInt(result[2], 16),
-          b: parseInt(result[3], 16),
-        }
-      : null;
-  };
-
-  const chColorLuminance = function (color: any) {
-    // adapted from: https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/color.js
-    // formula: http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
-    let rgba = [];
-    if (color[0] === "#") {
-      const comp = hexToRgb(color);
-      rgba = [comp.r, comp.g, comp.b];
-    } else {
-      rgba = color.match(/\d+/g);
-    }
-    const rgba2 = [];
-
-    for (let i = 0; i < 3; i++) {
-      let rgb = rgba[i];
-      rgb = rgb / 255;
-      rgb = rgb < 0.03928 ? rgb / 12.92 : chPow((rgb + 0.055) / 1.055, 2.4, 16);
-      rgba2.push(rgb);
-    }
-
-    return 0.2126 * rgba2[0] + 0.7152 * rgba2[1] + 0.0722 * rgba2[2];
-  };
-
-  const contrastWcag = function (color: any) {
-    const dark = "#000000",
-      light = "#ffffff";
-    const luma = chColorLuminance(color);
-    const out = luma < 0.5 ? light : dark;
-    return out;
-  };
-
-  //#endregion SCSS Funktionen
-
   const removeCurrentThemeClass = () => {
     for (let i = 0; i < document.body.classList.length; i++) {
       const c = document.body.classList[i];
@@ -346,201 +102,104 @@ const InovaTheme = (function () {
     }
   };
 
+  /**
+   * Setzt eine CSS Variable im Dom
+   * @param varName Name der CSS Variable
+   * @param variable Wert
+   * @returns {void}
+   */
+  const setCssVar = (varName: string, variable: string) =>
+    themeWrapper.style.setProperty(varName, variable);
+
+  /**
+   * Lädt gemeinsame Basis von allen Themes
+   * @param accent Akzentfarbe
+   */
   const loadBaseTheme = function (accent: any) {
-    themeWrapper.style.setProperty("--k-accent", accent);
-    themeWrapper.style.setProperty("--k-accent-contrast", contrastWcag(accent));
-    themeWrapper.style.setProperty("--k-info", colors.inova_blue);
-    themeWrapper.style.setProperty("--k-success", colors.inova_green);
-    themeWrapper.style.setProperty("--k-warning", colors.inova_yellow);
-    themeWrapper.style.setProperty("--k-error", colors.inova_red);
-    themeWrapper.style.setProperty("--k-selected-bg", accent);
-    themeWrapper.style.setProperty(
-      "--k-selected-text",
-      colors.light_text_color_inverse
-    );
-    themeWrapper.style.setProperty("--color-accent", accent);
-    themeWrapper.style.setProperty("--inova-pink", colors.inova_pink);
-    themeWrapper.style.setProperty("--inova-blue", colors.inova_blue);
-    themeWrapper.style.setProperty("--inova-gray", colors.inova_gray);
-    themeWrapper.style.setProperty(
-      "--inova-gray-medium",
-      colors.inova_gray_medium
-    );
-    themeWrapper.style.setProperty(
-      "--inova-gray-light",
-      colors.inova_gray_light
-    );
-
-    themeWrapper.style.setProperty("--k-series-a", colors.inova_series_a);
-    themeWrapper.style.setProperty("--k-series-b", colors.inova_series_b);
-    themeWrapper.style.setProperty("--k-series-c", colors.inova_series_c);
-    themeWrapper.style.setProperty("--k-series-d", colors.inova_series_d);
-    themeWrapper.style.setProperty("--k-series-e", colors.inova_series_e);
-    themeWrapper.style.setProperty("--k-series-f", colors.inova_series_f);
-    themeWrapper.style.setProperty(
-      "--k-series-a-light",
-      colors.inova_series_a_light
-    );
-    themeWrapper.style.setProperty(
-      "--k-series-b-light",
-      colors.inova_series_b_light
-    );
-    themeWrapper.style.setProperty(
-      "--k-series-e-light",
-      colors.inova_series_e_light
-    );
-    themeWrapper.style.setProperty(
-      "--k-chart-major-lines",
-      "rgba(0, 0, 0, 0.08)"
-    );
-    themeWrapper.style.setProperty(
-      "--k-chart-minor-lines",
-      "rgba(0, 0, 0, 0.04)"
-    );
-
-    themeWrapper.style.setProperty("--color-error", colors.inova_red);
-    themeWrapper.style.setProperty("--color-warning", colors.inova_yellow);
-    themeWrapper.style.setProperty("--color-success", colors.inova_green);
-    themeWrapper.style.setProperty("--color-info", colors.inova_cyan);
-
-    themeWrapper.style.setProperty("--color-accent-rgb", colors.inova_pink_rgb);
-    themeWrapper.style.setProperty(
-      "--color-font-rgb",
-      colors.light_text_color_rgb
-    );
-    themeWrapper.style.setProperty(
-      "--color-font-inverse-rgb",
-      colors.light_text_color_inverse_rgb
-    );
-
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-red",
-      colors.inova_palette_faded_red
-    );
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-orange",
-      colors.inova_palette_faded_orange
-    );
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-yellow",
-      colors.inova_palette_faded_yellow
-    );
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-lime",
-      colors.inova_palette_faded_lime
-    );
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-green",
-      colors.inova_palette_faded_green
-    );
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-turquoise",
-      colors.inova_palette_faded_turquoise
-    );
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-pink",
-      colors.inova_palette_faded_pink
-    );
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-violet",
-      colors.inova_palette_faded_violet
-    );
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-purple",
-      colors.inova_palette_faded_purple
-    );
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-indigo",
-      colors.inova_palette_faded_indigo
-    );
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-blue",
-      colors.inova_palette_faded_blue
-    );
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-mint",
-      colors.inova_palette_faded_mint
-    );
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-white",
-      colors.inova_palette_faded_white
-    );
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-gray1",
-      colors.inova_palette_faded_gray1
-    );
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-gray2",
-      colors.inova_palette_faded_gray2
-    );
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-gray3",
-      colors.inova_palette_faded_gray3
-    );
-    themeWrapper.style.setProperty(
-      "--i-palette-faded-font",
-      colors.inova_palette_faded_font
-    );
+    setCssVar("--k-accent", accent);
+    setCssVar("--k-accent-contrast", Sass.contrastWcag(accent));
+    setCssVar("--k-info", colors.inova_blue);
+    setCssVar("--k-success", colors.inova_green);
+    setCssVar("--k-warning", colors.inova_yellow);
+    setCssVar("--k-error", colors.inova_red);
+    setCssVar("--k-selected-bg", accent);
+    setCssVar("--k-selected-text", colors.light_text_color_inverse);
+    setCssVar("--color-accent", accent);
+    setCssVar("--inova-pink", colors.inova_pink);
+    setCssVar("--inova-blue", colors.inova_blue);
+    setCssVar("--inova-gray", colors.inova_gray);
+    setCssVar("--inova-gray-medium", colors.inova_gray_medium);
+    setCssVar("--inova-gray-light", colors.inova_gray_light);
+    setCssVar("--k-series-a", colors.inova_series_a);
+    setCssVar("--k-series-b", colors.inova_series_b);
+    setCssVar("--k-series-c", colors.inova_series_c);
+    setCssVar("--k-series-d", colors.inova_series_d);
+    setCssVar("--k-series-e", colors.inova_series_e);
+    setCssVar("--k-series-f", colors.inova_series_f);
+    setCssVar("--k-series-a-light", colors.inova_series_a_light);
+    setCssVar("--k-series-b-light", colors.inova_series_b_light);
+    setCssVar("--k-series-e-light", colors.inova_series_e_light);
+    setCssVar("--k-chart-major-lines", "rgba(0, 0, 0, 0.08)");
+    setCssVar("--k-chart-minor-lines", "rgba(0, 0, 0, 0.04)");
+    setCssVar("--color-error", colors.inova_red);
+    setCssVar("--color-warning", colors.inova_yellow);
+    setCssVar("--color-success", colors.inova_green);
+    setCssVar("--color-info", colors.inova_cyan);
+    setCssVar("--color-accent-rgb", colors.inova_pink_rgb);
+    setCssVar("--color-font-rgb", colors.light_text_color_rgb);
+    setCssVar("--color-font-inverse-rgb", colors.light_text_color_inverse_rgb);
+    setCssVar("--i-palette-faded-red", colors.inova_palette_faded_red);
+    setCssVar("--i-palette-faded-orange", colors.inova_palette_faded_orange);
+    setCssVar("--i-palette-faded-yellow", colors.inova_palette_faded_yellow);
+    setCssVar("--i-palette-faded-lime", colors.inova_palette_faded_lime);
+    setCssVar("--i-palette-faded-green", colors.inova_palette_faded_green);
+    setCssVar("--i-palette-faded-turquoise", colors.inova_palette_faded_turquoise);
+    setCssVar("--i-palette-faded-pink", colors.inova_palette_faded_pink);
+    setCssVar("--i-palette-faded-violet", colors.inova_palette_faded_violet);
+    setCssVar("--i-palette-faded-purple", colors.inova_palette_faded_purple);
+    setCssVar("--i-palette-faded-indigo", colors.inova_palette_faded_indigo);
+    setCssVar("--i-palette-faded-blue", colors.inova_palette_faded_blue);
+    setCssVar("--i-palette-faded-mint", colors.inova_palette_faded_mint);
+    setCssVar("--i-palette-faded-white", colors.inova_palette_faded_white);
+    setCssVar("--i-palette-faded-gray1", colors.inova_palette_faded_gray1);
+    setCssVar("--i-palette-faded-gray2", colors.inova_palette_faded_gray2);
+    setCssVar("--i-palette-faded-gray3", colors.inova_palette_faded_gray3);
+    setCssVar("--i-palette-faded-font", colors.inova_palette_faded_font);
   };
 
   /**
    * Basiert auf Base Theme
    */
   const loadDarkTheme = function () {
-    const hoveredBg = "#555555",
-      accent = colors.inova_pink;
-    loadBaseTheme(accent);
-    themeWrapper.style.setProperty("--k-text-color", colors.dark_base_text);
-    themeWrapper.style.setProperty("--k-bg-color", colors.dark_bg_color);
-    themeWrapper.style.setProperty("--k-base-text", colors.dark_base_text);
-    themeWrapper.style.setProperty("--k-base-bg", colors.dark_base_bg);
-    themeWrapper.style.setProperty(
-      "--k-base-bg-darker",
-      colors.dark_base_bg_darker
-    );
-    themeWrapper.style.setProperty(
-      "--k-base-bg-lighter",
-      colors.dark_base_bg_lighter
-    );
-    themeWrapper.style.setProperty("--k-base-border", colors.dark_base_border);
-    themeWrapper.style.setProperty(
-      "--k-base-gradient",
-      colors.dark_base_bg + "," + pSBC(-0.02, colors.dark_base_bg)
-    );
-    themeWrapper.style.setProperty("--k-hovered-text", "#ffffff");
-    themeWrapper.style.setProperty("--k-hovered-bg", hoveredBg);
-    themeWrapper.style.setProperty("--k-hovered-border", "rgba(0,0,0,0.15)");
-    themeWrapper.style.setProperty(
-      "--k-hovered-gradient",
-      hoveredBg,
-      pSBC(-0.02, hoveredBg)
-    );
-    themeWrapper.style.setProperty("--k-selected-border", "rgba(0,0,0,0.1)");
-    themeWrapper.style.setProperty("--color-border", colors.dark_base_border);
-    themeWrapper.style.setProperty("--color1", colors.dark_base_bg);
-    themeWrapper.style.setProperty("--color2", colors.dark_base_bg);
-    themeWrapper.style.setProperty("--color3", colors.dark_base_bg);
-    themeWrapper.style.setProperty("--color-font", colors.dark_base_text);
-    themeWrapper.style.setProperty(
-      "--color-font-soft",
-      colors.dark_base_text_soft
-    );
-    themeWrapper.style.setProperty("--color-icon1", colors.dark_base_text);
-    themeWrapper.style.setProperty("--color-icon2", colors.dark_base_text);
-    themeWrapper.style.setProperty(
-      "--color-widget-inset",
-      colors.dark_bg_color
-    );
-    themeWrapper.style.setProperty("--color-shadow", colors.dark_shadow_color);
+    const hoveredBg = "#555555";
+    const accent = colors.inova_pink;
 
-    themeWrapper.style.setProperty(
-      "--color-font-rgb",
-      colors.dark_text_color_rgb
-    );
-    themeWrapper.style.setProperty(
-      "--color-font-inverse-rgb",
-      colors.dark_text_color_inverse_rgb
-    );
+    loadBaseTheme(accent);
+    setCssVar("--k-text-color", colors.dark_base_text);
+    setCssVar("--k-bg-color", colors.dark_bg_color);
+    setCssVar("--k-base-text", colors.dark_base_text);
+    setCssVar("--k-base-bg", colors.dark_base_bg);
+    setCssVar( "--k-base-bg-darker", colors.dark_base_bg_darker);
+    setCssVar("--k-base-bg-lighter", colors.dark_base_bg_lighter);
+    setCssVar("--k-base-border", colors.dark_base_border);
+    setCssVar("--k-base-gradient", colors.dark_base_bg + "," + Sass.pSBC(-0.02, colors.dark_base_bg));
+    setCssVar("--k-hovered-text", "#ffffff");
+    setCssVar("--k-hovered-bg", hoveredBg);
+    setCssVar("--k-hovered-border", "rgba(0,0,0,0.15)");
+    setCssVar("--k-hovered-gradient", hoveredBg + "," + Sass.pSBC(-0.02, hoveredBg));
+    setCssVar("--k-selected-border", "rgba(0,0,0,0.1)");
+    setCssVar("--color-border", colors.dark_base_border);
+    setCssVar("--color1", colors.dark_base_bg);
+    setCssVar("--color2", colors.dark_base_bg);
+    setCssVar("--color3", colors.dark_base_bg);
+    setCssVar("--color-font", colors.dark_base_text);
+    setCssVar("--color-font-soft", colors.dark_base_text_soft);
+    setCssVar("--color-icon1", colors.dark_base_text);
+    setCssVar("--color-icon2", colors.dark_base_text);
+    setCssVar("--color-widget-inset", colors.dark_bg_color);
+    setCssVar("--color-shadow", colors.dark_shadow_color);
+    setCssVar("--color-font-rgb", colors.dark_text_color_rgb);
+    setCssVar("--color-font-inverse-rgb", colors.dark_text_color_inverse_rgb);
 
     removeCurrentThemeClass();
     document.body.classList.add("theme-dark");
@@ -551,55 +210,37 @@ const InovaTheme = (function () {
    * Basiert auf Base Theme
    */
   const loadLightTheme = function () {
-    const hoveredBg = "#ededed",
-      accent = colors.inova_pink;
+    const hoveredBg = "#ededed";
+    const accent = colors.inova_pink;
+
     loadBaseTheme(accent);
-    themeWrapper.style.setProperty("--k-text-color", colors.light_text_color);
-    themeWrapper.style.setProperty("--k-bg-color", colors.light_bg_color);
-    themeWrapper.style.setProperty("--k-base-text", colors.light_base_text);
-    themeWrapper.style.setProperty("--k-base-bg", colors.light_base_bg);
-    themeWrapper.style.setProperty(
-      "--k-base-bg-darker",
-      colors.light_base_bg_darker
-    );
-    themeWrapper.style.setProperty(
-      "--k-base-bg-lighter",
-      colors.light_base_bg_lighter
-    );
-    themeWrapper.style.setProperty("--k-base-border", colors.light_base_border);
-    themeWrapper.style.setProperty(
-      "--k-base-gradient",
-      colors.light_base_bg + "," + pSBC(-0.02, colors.light_base_bg)
-    );
-    themeWrapper.style.setProperty("--k-hovered-text", "#222222");
-    themeWrapper.style.setProperty("--k-hovered-bg", hoveredBg);
-    themeWrapper.style.setProperty("--k-hovered-border", "rgba(0,0,0,0.19)");
-    themeWrapper.style.setProperty(
-      "--k-hovered-gradient",
-      hoveredBg,
-      pSBC(-0.02, hoveredBg)
-    );
-    themeWrapper.style.setProperty("--k-selected-border", "rgba(0,0,0,0.14)");
-    themeWrapper.style.setProperty("--color-border", "#cccccc");
-    themeWrapper.style.setProperty("--color1", colors.light_bg_color);
-    themeWrapper.style.setProperty("--color2", colors.inova_gray_light);
-    themeWrapper.style.setProperty("--color3", colors.inova_gray_medium);
-    themeWrapper.style.setProperty("--color-font", colors.light_text_color);
-    themeWrapper.style.setProperty(
-      "--color-font-soft",
-      colors.light_base_text_soft
-    );
-    themeWrapper.style.setProperty("--color-icon1", colors.light_text_color);
-    themeWrapper.style.setProperty(
-      "--color-icon2",
-      colors.light_text_color_inverse
-    );
-    themeWrapper.style.setProperty("--color-widget-inset", "#ffffff");
-    themeWrapper.style.setProperty("--color-error-light", "#ffe0d9");
-    themeWrapper.style.setProperty("--color-warning-light", "#fbeed5");
-    themeWrapper.style.setProperty("--color-success-light", "#eaf7ec");
-    themeWrapper.style.setProperty("--color-info-light", "#e5f5fa");
-    themeWrapper.style.setProperty("--color-shadow", colors.light_shadow_color);
+    setCssVar("--k-text-color", colors.light_text_color);
+    setCssVar("--k-bg-color", colors.light_bg_color);
+    setCssVar("--k-base-text", colors.light_base_text);
+    setCssVar("--k-base-bg", colors.light_base_bg);
+    setCssVar("--k-base-bg-darker", colors.light_base_bg_darker);
+    setCssVar("--k-base-bg-lighter", colors.light_base_bg_lighter);
+    setCssVar("--k-base-border", colors.light_base_border);
+    setCssVar("--k-base-gradient", colors.light_base_bg + "," + Sass.pSBC(-0.02, colors.light_base_bg));
+    setCssVar("--k-hovered-text", "#222222");
+    setCssVar("--k-hovered-bg", hoveredBg);
+    setCssVar("--k-hovered-border", "rgba(0,0,0,0.19)");
+    setCssVar("--k-hovered-gradient", hoveredBg + "," + Sass.pSBC(-0.02, hoveredBg));
+    setCssVar("--k-selected-border", "rgba(0,0,0,0.14)");
+    setCssVar("--color-border", "#cccccc");
+    setCssVar("--color1", colors.light_bg_color);
+    setCssVar("--color2", colors.inova_gray_light);
+    setCssVar("--color3", colors.inova_gray_medium);
+    setCssVar("--color-font", colors.light_text_color);
+    setCssVar("--color-font-soft", colors.light_base_text_soft);
+    setCssVar("--color-icon1", colors.light_text_color);
+    setCssVar("--color-icon2", colors.light_text_color_inverse);
+    setCssVar("--color-widget-inset", "#ffffff");
+    setCssVar("--color-error-light", "#ffe0d9");
+    setCssVar("--color-warning-light", "#fbeed5");
+    setCssVar("--color-success-light", "#eaf7ec");
+    setCssVar("--color-info-light", "#e5f5fa");
+    setCssVar("--color-shadow", colors.light_shadow_color);
 
     removeCurrentThemeClass();
     document.body.classList.add("theme-light");
@@ -627,7 +268,7 @@ const InovaTheme = (function () {
 (<any>window).InovaTheme = InovaTheme;
 
 /**
- * Falls innerhalb des alten inova-Desktops (d.h. wenn inovaGlobal.theme gesetzt ist)
+ * Falls innerhalb des alten FIS WEB Desktops (d.h. wenn inovaGlobal.theme gesetzt ist)
  * wird die entsprechende Theme Funktion aufgerufen.
  * Ansonsten wird das Light theme aufgerufen.
  */
