@@ -186,13 +186,12 @@ exports.compileInovaIcons = (source, output) => {
 exports.createInovaThemeJs = (source, output) => {
      this.writeInfo("Creating InovaTheme.js");
      try {
-         execSync(`tsc ${source}/InovaTheme.ts -m "system" -t "es5"`, {
+         execSync(`tsc ${source}/InovaTheme.ts -m "umd" -t "es5"`, {
              stdio: "inherit",
          });
      } catch (e) {}
      fs.copyFileSync(`${source}/InovaTheme.js`, output);
      fs.removeSync(`${source}/InovaTheme.js`);
-     fs.removeSync(`${source}/SassHelpers.js`);
  }
 
  /**
