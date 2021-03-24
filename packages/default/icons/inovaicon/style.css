@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'inovaicon';
   src:
-    url('fonts/inovaicon.ttf?jzilqy') format('truetype'),
-    url('fonts/inovaicon.woff?jzilqy') format('woff'),
-    url('fonts/inovaicon.svg?jzilqy#inovaicon') format('svg');
+    url('fonts/inovaicon.ttf?v4aqow') format('truetype'),
+    url('fonts/inovaicon.woff?v4aqow') format('woff'),
+    url('fonts/inovaicon.svg?v4aqow#inovaicon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -342,6 +342,15 @@
 }
 .i-i-calendar-text:before {
   content: "\e78b";
+}
+.i-i-calendar-empty:before {
+  content: "\e78d";
+}
+.i-i-calendar-t:before {
+  content: "\e78e";
+}
+.i-i-calendar-important:before {
+  content: "\e78f";
 }
 .i-i-bubble:before {
   content: "\e7d6";
