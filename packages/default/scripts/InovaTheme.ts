@@ -318,15 +318,18 @@ const InovaTheme = (function (Sass: any) {
     dark_base_bg_lighter: "#3b3b3b",
     dark_base_border: "rgba(0,0,0,0.08)",
     dark_shadow_color: "#0a0a0a",
-    inova_series_a: "#e81e75",
-    inova_series_b: "#ffd246",
-    inova_series_c: "#78d237",
-    inova_series_d: "#28b4c8",
-    inova_series_e: "#2d73f5",
-    inova_series_f: "#aa46be",
-    inova_series_b_light: "rgba(255,210,70,0.45)",
-    inova_series_a_light: "rgba(231,31,108,0.35)",
-    inova_series_e_light: "rgba(45,115,245,0.3)",
+    inova_series_a: "#E81E75",
+    inova_series_b: "#5B99F5",
+    inova_series_c: "#00AB84",
+    inova_series_d: "#794DBF",
+    inova_series_e: "#FA6423",
+    inova_series_f: "#FCCD40",
+    inova_series_a_light: "rgba(232, 30, 117, 0.35)",
+    inova_series_b_light: "rgba(91, 153, 245, 0.35)",
+    inova_series_c_light: "rgba(0, 171, 132, 0.35)",
+    inova_series_d_light: "rgba(121, 77, 191, 0.35) ",
+    inova_series_e_light: "rgba(250, 100, 35, 0.35)",
+    inova_series_f_light: "rgba(252, 205, 64, 0.35)",
   };
 
   /**
@@ -377,7 +380,10 @@ const InovaTheme = (function (Sass: any) {
     setCssVar("--k-series-f", colors.inova_series_f);
     setCssVar("--k-series-a-light", colors.inova_series_a_light);
     setCssVar("--k-series-b-light", colors.inova_series_b_light);
+    setCssVar("--k-series-c-light", colors.inova_series_c_light);
+    setCssVar("--k-series-d-light", colors.inova_series_d_light);
     setCssVar("--k-series-e-light", colors.inova_series_e_light);
+    setCssVar("--k-series-f-light", colors.inova_series_f_light);
     setCssVar("--k-chart-major-lines", "rgba(0, 0, 0, 0.08)");
     setCssVar("--k-chart-minor-lines", "rgba(0, 0, 0, 0.04)");
     setCssVar("--color-error", colors.inova_red);
