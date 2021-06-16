@@ -368,6 +368,7 @@ const InovaTheme = (function (Sass: any) {
     setCssVar("--k-selected-text", colors.light_text_color_inverse);
     setCssVar("--color-accent", accent);
     setCssVar("--inova-pink", colors.inova_pink);
+    setCssVar("--inova-pink-lighter", colors.inova_pink_lighter);
     setCssVar("--inova-blue", colors.inova_blue);
     setCssVar("--inova-gray", colors.inova_gray);
     setCssVar("--inova-gray-medium", colors.inova_gray_medium);
