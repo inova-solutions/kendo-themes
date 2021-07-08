@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'inovaicon';
   src:
-    url('fonts/inovaicon.ttf?iin7p6') format('truetype'),
-    url('fonts/inovaicon.woff?iin7p6') format('woff'),
-    url('fonts/inovaicon.svg?iin7p6#inovaicon') format('svg');
+    url('fonts/inovaicon.ttf?axy2n') format('truetype'),
+    url('fonts/inovaicon.woff?axy2n') format('woff'),
+    url('fonts/inovaicon.svg?axy2n#inovaicon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -34,20 +34,98 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.i-i-month:before {
+.i-i-task-abwesenheitsrubriken:before {
   content: "\e916";
 }
-.i-i-week:before {
+.i-i-task-anstellungsgruppen:before {
   content: "\e917";
 }
-.i-i-history2:before {
-  content: "\e8e4";
+.i-i-task-arbeitszeit:before {
+  content: "\e918";
 }
-.i-i-sort-alpha-asc:before {
-  content: "\e9b5";
+.i-i-task-arbeitszeitmodell:before {
+  content: "\e919";
 }
-.i-i-sort-alpha-desc:before {
-  content: "\e9b7";
+.i-i-task-benutzer:before {
+  content: "\e91a";
+}
+.i-i-task-berechtigungsverwaltung:before {
+  content: "\e91d";
+}
+.i-i-task-canvas:before {
+  content: "\e91e";
+}
+.i-i-task-cockpit:before {
+  content: "\e91f";
+}
+.i-i-task-dashboard:before {
+  content: "\e920";
+}
+.i-i-task-data:before {
+  content: "\e921";
+}
+.i-i-task-dimensionen:before {
+  content: "\e923";
+}
+.i-i-task-fachrollen:before {
+  content: "\e924";
+}
+.i-i-task-ferienmodell:before {
+  content: "\e925";
+}
+.i-i-task-indicator:before {
+  content: "\e926";
+}
+.i-i-task-kontenrahmenelemente:before {
+  content: "\e927";
+}
+.i-i-task-kostenstellen:before {
+  content: "\e928";
+}
+.i-i-task-kostentrger:before {
+  content: "\e929";
+}
+.i-i-task-leistungen:before {
+  content: "\e92e";
+}
+.i-i-task-organisationsstruktur:before {
+  content: "\e92f";
+}
+.i-i-task-organisationsstruktur-1:before {
+  content: "\e930";
+}
+.i-i-task-prozesssteuerung:before {
+  content: "\e931";
+}
+.i-i-task-reporting:before {
+  content: "\e932";
+}
+.i-i-task-reporting-1:before {
+  content: "\e935";
+}
+.i-i-task-rubriken-zuweisen:before {
+  content: "\e938";
+}
+.i-i-task-score:before {
+  content: "\e939";
+}
+.i-i-task-spesen:before {
+  content: "\e93a";
+}
+.i-i-task-strategy:before {
+  content: "\e93b";
+}
+.i-i-task-taskboard:before {
+  content: "\e93c";
+}
+.i-i-task-ttigkeiten:before {
+  content: "\e93d";
+}
+.i-i-task-time:before {
+  content: "\e93e";
+}
+.i-i-task-user:before {
+  content: "\e93f";
 }
 .i-i-sun:before {
   content: "\e647";
@@ -167,10 +245,10 @@
   content: "\e68d";
 }
 .i-i-eye:before {
-  content: "\e648";
+  content: "\e6a5";
 }
 .i-i-eye-crossed:before {
-  content: "\e649";
+  content: "\e6a6";
 }
 .i-i-network:before {
   content: "\e886";
@@ -349,15 +427,6 @@
 .i-i-calendar-text:before {
   content: "\e78b";
 }
-.i-i-calendar-empty:before {
-  content: "\e78d";
-}
-.i-i-calendar-t:before {
-  content: "\e78e";
-}
-.i-i-calendar-important:before {
-  content: "\e78f";
-}
 .i-i-bubble:before {
   content: "\e7d6";
 }
@@ -453,13 +522,4 @@
 }
 .i-i-split-window:before {
   content: "\e685";
-}
-.i-i-snippet:before {
-  content: "\e686";
-}
-.i-i-snippet-add-v2:before {
-  content: "\e687";
-}
-.i-i-snippet-add:before {
-  content: "\e688";
 }

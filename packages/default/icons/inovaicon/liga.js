@@ -25,10 +25,6 @@
     var icons;
     if (!supportsProperty('fontFeatureSettings')) {
         icons = {
-            'history2': '&#xe8e4;',
-            'archive4': '&#xe8e4;',
-            'sort-alpha-asc': '&#xe9b5;',
-            'sort': '&#xe9b5;',
             'sun': '&#xe647;',
             'brightness2': '&#xe647;',
             'presentation': '&#xe6f6;',
@@ -104,6 +100,10 @@
             'lock2': '&#xe66d;',
             'star': '&#xe68d;',
             'rating': '&#xe68d;',
+            'eye': '&#xe6a5;',
+            'vision': '&#xe6a5;',
+            'eye-crossed': '&#xe6a6;',
+            'eye2': '&#xe6a6;',
             'network': '&#xe886;',
             'globe2': '&#xe886;',
             'thumbs-up2': '&#xe91b;',
