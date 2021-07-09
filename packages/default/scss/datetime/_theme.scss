@@ -54,7 +54,6 @@
         }
     }
 
-
     .k-datepicker,
     .k-timepicker {
 
@@ -104,7 +103,7 @@
     .k-time-header {
 
         .k-time-now {
-            color: $primary;
+            color: $link-text;
             background: transparent;
 
             &:hover,
@@ -117,23 +116,14 @@
 
     // Timepicker content
     .k-time-list-wrapper {
-        background-color: $popup-bg;
 
         .k-title {
-            @include fill(
-                $header-text,
-                $header-bg,
-                $header-border,
-                $header-gradient
-            );
-            background: $popup-bg;
-            opacity: $disabled-opacity;
+            color: $time-list-title-text;
         }
 
         &.k-state-focused {
             .k-title {
-                color: $time-list-title-focus;
-                opacity: 1;
+                color: $time-list-title-focus-text;
             }
 
             &::before,
@@ -160,8 +150,10 @@
     }
 
     .k-time-highlight {
-        background-color: $component-bg;
-        border-color: $time-list-highlight-color;
+        @include fill(
+            $bg: $time-list-highlight-bg,
+            $border: $time-list-highlight-border
+        );
     }
 
     .k-datetime-container {
@@ -227,6 +219,78 @@
                 &.k-state-focused {
                     @include box-shadow($invalid-shadow);
                 }
+            }
+        }
+    }
+
+    //Universal rendering
+    .k-datepicker {
+        &.k-state-hover {
+            .k-picker-wrap {
+                @include fill(
+                    $datetime-hovered-text,
+                    $datetime-hovered-bg,
+                    $datetime-hovered-border
+                );
+            }
+        }
+
+        &.k-state-focus {
+            .k-picker-wrap {
+                @include fill(
+                    $datetime-focused-text,
+                    $datetime-focused-bg,
+                    $datetime-focused-border
+                );
+                @include box-shadow($datetime-focused-shadow);
+            }
+        }
+
+        &.k-invalid {
+            .k-picker-wrap {
+                border-color: $invalid-border;
+            }
+        }
+
+        &.k-invalid.k-state-focus {
+            .k-picker-wrap {
+                @include box-shadow($invalid-shadow);
+            }
+        }
+    }
+
+    .k-dateinput,
+    .k-daterangepicker {
+        &.k-state-hover {
+            .k-dateinput-wrap {
+                @include fill(
+                    $datetime-hovered-text,
+                    $datetime-hovered-bg,
+                    $datetime-hovered-border
+                );
+            }
+        }
+
+        &.k-state-focus {
+            .k-dateinput-wrap {
+                @include fill(
+                    $datetime-focused-text,
+                    $datetime-focused-bg,
+                    $datetime-focused-border
+                );
+                @include box-shadow($datetime-focused-shadow);
+            }
+        }
+
+        &.k-invalid {
+            .k-dateinput-wrap {
+                border-color: $invalid-border;
+            }
+        }
+
+        &.k-invalid.k-state-focus {
+            .k-dateinput-wrap {
+                @include box-shadow($invalid-shadow);
             }
         }
     }

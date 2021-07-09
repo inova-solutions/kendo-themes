@@ -1,7 +1,7 @@
 {
   "name": "@progress/kendo-theme-default",
   "description": "SASS resources for the default Kendo UI theme",
-  "version": "4.35.0",
+  "version": "4.39.0",
   "author": "Progress",
   "license": "Apache-2.0",
   "keywords": [
@@ -13,7 +13,8 @@
   "files": [
     "dist/",
     "scss/",
-    "modules/"
+    "modules/",
+    "lib/"
   ],
   "repository": {
     "type": "git",
@@ -21,6 +22,14 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "kendo": {
+    "themebuilder": {
+      "swatches": {
+        "path": "lib/themebuilder",
+        "default": "default.json"
+      }
+    }
   },
   "scripts": {
     "sass": "gulp sass",

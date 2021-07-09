@@ -263,8 +263,8 @@ The following table lists the available variables for customizing the Material t
 <tr>
     <td>$button-hovered-bg</td>
     <td></td>
-    <td>true-mix( $button-text, $button-bg, 12%)</td>
-    <td>true-mix( $button-text, $button-bg, 12%)</td>
+    <td>null</td>
+    <td>null</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The background of hovered buttons.</div></div>
@@ -283,8 +283,8 @@ The following table lists the available variables for customizing the Material t
 <tr>
     <td>$button-hovered-border</td>
     <td></td>
-    <td>$button-hovered-bg</td>
-    <td>true-mix( $button-text, $button-bg, 12%)</td>
+    <td>null</td>
+    <td>null</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The border color of hovered buttons.</div></div>
@@ -301,43 +301,83 @@ The following table lists the available variables for customizing the Material t
     </td>
 </tr>
 <tr>
-    <td>$button-pressed-bg</td>
+    <td>$button-active-bg</td>
     <td></td>
-    <td>true-mix( $button-text, $button-bg, 12%)</td>
-    <td>true-mix( $button-text, $button-bg, 12%)</td>
+    <td>null</td>
+    <td>null</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The background color of pressed buttons.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The background color of active buttons.</div></div>
     </td>
 </tr>
 <tr>
-    <td>$button-pressed-text</td>
+    <td>$button-active-text</td>
     <td></td>
     <td>null</td>
     <td>null</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The text color of pressed buttons.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The text color of active buttons.</div></div>
     </td>
 </tr>
 <tr>
-    <td>$button-pressed-border</td>
+    <td>$button-active-border</td>
     <td></td>
-    <td>$button-pressed-bg</td>
-    <td>true-mix( $button-text, $button-bg, 12%)</td>
+    <td>null</td>
+    <td>null</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The border color of pressed buttons.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The border color of active buttons.</div></div>
     </td>
 </tr>
 <tr>
-    <td>$button-pressed-gradient</td>
+    <td>$button-active-gradient</td>
     <td></td>
     <td>null</td>
     <td>null</td>
 </tr>
 <tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The background gradient of pressed buttons.</div></div>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The background gradient of active buttons.</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$button-selected-bg</td>
+    <td></td>
+    <td>$button-active-bg</td>
+    <td>null</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The background color of selected buttons.</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$button-selected-text</td>
+    <td></td>
+    <td>$button-active-text</td>
+    <td>null</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The text color of selected buttons.</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$button-selected-border</td>
+    <td></td>
+    <td>$button-active-bg</td>
+    <td>null</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The border color of selected buttons.</div></div>
+    </td>
+</tr>
+<tr>
+    <td>$button-selected-gradient</td>
+    <td></td>
+    <td>null</td>
+    <td>null</td>
+</tr>
+<tr>
+    <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The background gradient of selected buttons.</div></div>
     </td>
 </tr>
 <tr>
@@ -374,8 +414,8 @@ The following table lists the available variables for customizing the Material t
         <tr>
     <td>$series-a</td>
     <td></td>
-    <td>get-base-hue( teal, 500 )</td>
-    <td>get-base-hue( teal, 500 )</td>
+    <td><span class="color-preview" style="background-color: #3f51b5"></span>#3f51b5</td>
+    <td><span class="color-preview" style="background-color: #3f51b5"></span>#3f51b5</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The first base series color and its light and dark shades.</div></div>
@@ -384,8 +424,8 @@ The following table lists the available variables for customizing the Material t
 <tr>
     <td>$series-b</td>
     <td></td>
-    <td>get-base-hue( blue, 500 )</td>
-    <td>get-base-hue( blue, 500 )</td>
+    <td><span class="color-preview" style="background-color: #2196f3"></span>#2196f3</td>
+    <td><span class="color-preview" style="background-color: #2196f3"></span>#2196f3</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The second base series color and its light and dark shades.</div></div>
@@ -394,8 +434,8 @@ The following table lists the available variables for customizing the Material t
 <tr>
     <td>$series-c</td>
     <td></td>
-    <td>get-base-hue( purple, 500 )</td>
-    <td>get-base-hue( purple, 500 )</td>
+    <td><span class="color-preview" style="background-color: #43a047"></span>#43a047</td>
+    <td><span class="color-preview" style="background-color: #43a047"></span>#43a047</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The third base series color and its light and dark shades.</div></div>
@@ -404,8 +444,8 @@ The following table lists the available variables for customizing the Material t
 <tr>
     <td>$series-d</td>
     <td></td>
-    <td>get-base-hue( red, 500 )</td>
-    <td>get-base-hue( red, 500 )</td>
+    <td><span class="color-preview" style="background-color: #ffc107"></span>#ffc107</td>
+    <td><span class="color-preview" style="background-color: #ffc107"></span>#ffc107</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The fourth base series color and its light and dark shades.</div></div>
@@ -414,8 +454,8 @@ The following table lists the available variables for customizing the Material t
 <tr>
     <td>$series-e</td>
     <td></td>
-    <td>get-base-hue( yellow, 500 )</td>
-    <td>get-base-hue( yellow, 500 )</td>
+    <td><span class="color-preview" style="background-color: #ff5722"></span>#ff5722</td>
+    <td><span class="color-preview" style="background-color: #ff5722"></span>#ff5722</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The fifth base series color and its light and dark shades.</div></div>
@@ -424,8 +464,8 @@ The following table lists the available variables for customizing the Material t
 <tr>
     <td>$series-f</td>
     <td></td>
-    <td>get-base-hue( green, 500 )</td>
-    <td>get-base-hue( green, 500 )</td>
+    <td><span class="color-preview" style="background-color: #e91e63"></span>#e91e63</td>
+    <td><span class="color-preview" style="background-color: #e91e63"></span>#e91e63</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The sixth base series color and its light and dark shades.</div></div>
@@ -435,7 +475,7 @@ The following table lists the available variables for customizing the Material t
     <td>$series-1</td>
     <td></td>
     <td>$series-a</td>
-    <td>get-base-hue( teal, 500 )</td>
+    <td><span class="color-preview" style="background-color: #3f51b5"></span>#3f51b5</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The series colors in order:<br />base, light, dark, lighter, darker</div></div>
@@ -585,8 +625,8 @@ The following table lists the available variables for customizing the Material t
 <tr>
     <td>$dark</td>
     <td>Color</td>
-    <td>get-base-hue( grey, 800 )</td>
-    <td>get-base-hue( grey, 800 )</td>
+    <td>get-base-hue( gray, 800 )</td>
+    <td>get-base-hue( gray, 800 )</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The dark color of the theme.</div></div>
@@ -595,8 +635,8 @@ The following table lists the available variables for customizing the Material t
 <tr>
     <td>$light</td>
     <td>Color</td>
-    <td>get-base-hue( grey, 100 )</td>
-    <td>get-base-hue( grey, 100 )</td>
+    <td>get-base-hue( gray, 100 )</td>
+    <td>get-base-hue( gray, 100 )</td>
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">The light color of the theme.</div></div>
@@ -661,36 +701,6 @@ The following table lists the available variables for customizing the Material t
 </tr>
 <tr>
     <td colspan="4" class="theme-variables-description-container"><div><b>Description</b><div class="theme-variables-description">Border color of a component.<br />Note: do not use this variable directly. Instead derive it as `$component-name-border` e.g. `$grid-border: component-border !default;`.</div></div>
-    </td>
-</tr>
-<tr>
-    <td>$widget-bg</td>
-    <td></td>
-    <td>$component-bg</td>
-    <td>map-get($theme, component-bg)</td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Deprecated</b><div class="theme-variables-description">Will be removed in v5. Use `$component-bg` variable instead.</div></div><div><b>Description</b><div class="theme-variables-description">Background color of a component.</div></div>
-    </td>
-</tr>
-<tr>
-    <td>$widget-text</td>
-    <td></td>
-    <td>$component-text</td>
-    <td>map-get($theme, component-text)</td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Deprecated</b><div class="theme-variables-description">Will be removed in v5. Use `$component-text` variable instead.</div></div><div><b>Description</b><div class="theme-variables-description">Text color of a component.</div></div>
-    </td>
-</tr>
-<tr>
-    <td>$widget-border</td>
-    <td></td>
-    <td>$component-border</td>
-    <td>map-get($theme, component-border)</td>
-</tr>
-<tr>
-    <td colspan="4" class="theme-variables-description-container"><div><b>Deprecated</b><div class="theme-variables-description">Will be removed in v5. Use `$component-border` variable instead.</div></div><div><b>Description</b><div class="theme-variables-description">Border color of a component.</div></div>
     </td>
 </tr>
 </tbody>

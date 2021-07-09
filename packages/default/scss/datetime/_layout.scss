@@ -87,6 +87,7 @@
             transform: translateY(-50%);
             overflow: visible;
         }
+        &.k-invalid .k-i-warning,
         &.k-state-invalid .k-i-warning {
             display: inline-block;
         }
@@ -120,6 +121,14 @@
                 border-width: 0;
                 box-shadow: none !important; // sass-lint:disable-line no-important
             }
+
+            [dir="rtl"] &,
+            .k-rtl & {
+                .k-dateinput-wrap {
+                    @include border-right-radius-only( $input-border-radius );
+                }
+            }
+
         }
     }
 

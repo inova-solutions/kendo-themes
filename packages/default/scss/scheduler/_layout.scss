@@ -217,11 +217,8 @@
             display: inline-flex;
             flex-flow: row nowrap;
             align-items: center;
+            gap: $icon-spacing;
             cursor: pointer;
-
-            .k-icon {
-                margin-right: $icon-spacing;
-            }
 
             .k-sm-date-format,
             .k-lg-date-format {
@@ -329,6 +326,11 @@
         .k-nav-current {
             border: 0;
             margin-left: 0;
+            gap: 0;
+
+            > .k-link {
+                gap: $icon-spacing;
+            }
         }
         .k-nav-today { @include border-left-radius-only( $border-radius ); }
         .k-nav-next { @include border-right-radius-only( $border-radius ); }
@@ -458,6 +460,7 @@
             align-items: center;
             align-content: center;
             justify-content: center;
+            gap: $icon-spacing;
         }
 
         li {
@@ -473,11 +476,6 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-    }
-    .k-scheduler-fullday {
-        .k-icon {
-            margin-right: $icon-spacing;
-        }
     }
 
 
@@ -956,7 +954,8 @@
         }
         .k-state-hover .k-task > .k-event-delete,
         .k-scheduler-content tr:hover .k-event-delete,
-        .k-scheduler-content .k-scheduler-row:hover .k-event-delete {
+        .k-scheduler-content .k-scheduler-row:hover .k-event-delete,
+        .k-scheduler-content .k-scheduler-row.k-state-hover .k-event-delete {
             visibility: visible;
         }
     }
@@ -1002,6 +1001,106 @@
     .k-scheduler-pane .k-scheduler-content {
         flex: 1 1 auto;
     }
+
+
+    // Year view
+    .k-scheduler-yearview {
+        .k-scheduler-body {
+            padding: $scheduler-yearview-padding-y $scheduler-yearview-padding-x;
+            justify-content: center;
+        }
+
+        .k-calendar {
+            width: 100%;
+            border-width: 0;
+
+            .k-calendar-view {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: $scheduler-yearview-calendar-gap;
+            }
+
+            .k-content {
+                flex: 0;
+            }
+
+            .k-month-header {
+                font-size: $scheduler-yearview-month-header-font-size;
+                font-weight: $scheduler-yearview-month-header-font-weight;
+                opacity: $scheduler-yearview-month-header-opacity;
+            }
+
+            .k-link {
+                position: relative;
+            }
+
+            td.k-state-selected {
+                background-color: inherit;
+            }
+        }
+
+        .k-day-indicator {
+            margin-top: $scheduler-yearview-indicator-calc-offset-top;
+            width: $scheduler-yearview-indicator-size;
+            height: $scheduler-yearview-indicator-size;
+            border-radius: $scheduler-yearview-indicator-border-radius;
+            position: absolute;
+            left: $scheduler-yearview-indicator-calc-offset-left;
+        }
+    }
+
+}
+
+
+@include exports("scheduler-tooltip/layout") {
+
+    .k-scheduler-tooltip {
+        padding: $scheduler-tooltip-padding-y $scheduler-tooltip-padding-x;
+        border-width: $scheduler-tooltip-border-width;
+        color: inherit;
+
+        .k-tooltip-title {
+            margin-bottom: $scheduler-tooltip-title-margin-y;
+
+            .k-month {
+                font-size: $scheduler-tooltip-month-font-size;
+                text-transform: uppercase;
+            }
+
+            .k-day {
+                font-size: $scheduler-tooltip-day-font-size;
+            }
+        }
+
+        .k-tooltip-events-container {
+            overflow: auto;
+        }
+
+        .k-tooltip-events {
+            max-height: $scheduler-tooltip-events-max-height;
+            display: flex;
+            flex-direction: column;
+            gap: $scheduler-tooltip-events-gap;
+        }
+
+        .k-tooltip-event {
+            padding: $scheduler-tooltip-event-padding-y $scheduler-tooltip-event-padding-x;
+            border-radius: $scheduler-tooltip-event-border-radius;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-shrink: 0;
+            position: relative;
+            gap: $scheduler-tooltip-event-gap;
+        }
+        .k-tooltip-event .k-event-time {
+            display: flex;
+            flex-shrink: 0;
+            font-size: inherit;
+        }
+    }
+
 }
 
 
@@ -1136,19 +1235,6 @@
             }
         }
 
-        .k-nav-current .k-icon {
-            margin-right: 0;
-            margin-left: .4ex;
-        }
-
-
-        .k-scheduler-fullday {
-            .k-icon {
-                margin-right: 0;
-                margin-left: $icon-spacing;
-            }
-        }
-
         .k-scheduler-marquee .k-label-top {
             left: auto;
             right: 4px;
@@ -1197,3 +1283,20 @@
     }
 }
 
+
+
+
+@include exports("scheduler/layout/compatibility") {
+
+    .k-ie,
+    .k-safari {
+        .k-scheduler-tooltip .k-tooltip-event:not(:last-child) {
+            margin-bottom: $scheduler-tooltip-event-gap;
+        }
+
+        .k-scheduler-yearview .k-calendar-view .k-month {
+            margin: 0 ($scheduler-yearview-calendar-gap / 2);
+        }
+    }
+
+}

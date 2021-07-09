@@ -1,6 +1,10 @@
-@import "functions/_index.scss";
+@import "core/functions/_index.scss";
+@import "core/mixins/_index.scss";
 @import "_variables.scss";
-@import "mixins/_index.scss";
+
+
+// Core
+// @import "core/_index.scss";
 
 
 // Dependencies
@@ -83,6 +87,7 @@
 @import "responsivepanel/_index.scss";
 @import "tooltip/_index.scss";
 @import "window/_index.scss";
+@import "action-sheet/_index.scss";
 
 
 // Navigation
@@ -111,6 +116,7 @@
 @import "treelist/_index.scss";
 @import "filter/_index.scss";
 @import "filemanager/_index.scss";
+@import "taskboard/_index.scss";
 
 
 // Editor
@@ -133,6 +139,7 @@
 @import "pdf-viewer/_index.scss";
 @import "scroller/_index.scss";
 @import "scrollview/_index.scss";
+@import "skeleton/_index.scss";
 
 
 // Dataviz

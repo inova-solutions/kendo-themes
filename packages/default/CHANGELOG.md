@@ -3,6 +3,159 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.39.0"></a>
+# [4.39.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.38.1...@progress/kendo-theme-default@4.39.0) (2021-06-14)
+
+
+### Bug Fixes
+
+* **window:** add missing titlebar gradient variable ([b1a334d](https://github.com/telerik/kendo-themes/commit/b1a334d))
+* add styles for emulating justify content stretch ([d2f5580](https://github.com/telerik/kendo-themes/commit/d2f5580))
+* modify chip shadow to match design ([4bbb886](https://github.com/telerik/kendo-themes/commit/4bbb886))
+* **dateinputs:** vertically align week number with other dates ([944341f](https://github.com/telerik/kendo-themes/commit/944341f))
+* **datetime:** apply opposite border-radius in RTL for Default and Bootstrap themes ([66c3abb](https://github.com/telerik/kendo-themes/commit/66c3abb))
+* **expansionpanel:** import missing dependencies ([a4164ad](https://github.com/telerik/kendo-themes/commit/a4164ad))
+* **form:** fix the layout of the editor in form ([ba3f99a](https://github.com/telerik/kendo-themes/commit/ba3f99a))
+* **grid:** add pager focus styles ([2c1d642](https://github.com/telerik/kendo-themes/commit/2c1d642))
+* **grid:** apply correct selected and hover styles on sticky cells in React Grid ([1a9268f](https://github.com/telerik/kendo-themes/commit/1a9268f))
+* **grid:** do not apply pager focus styles on non-navigable grid ([b0f4b8b](https://github.com/telerik/kendo-themes/commit/b0f4b8b))
+* **grid:** import missing spacer dependency ([93b8d75](https://github.com/telerik/kendo-themes/commit/93b8d75))
+* **panelbar:** apply correct focus styles in Material theme ([6e655aa](https://github.com/telerik/kendo-themes/commit/6e655aa))
+* traling commas break builds ([d1c30c7](https://github.com/telerik/kendo-themes/commit/d1c30c7)), closes [telerik/kendo-themes#2480](https://github.com/telerik/kendo-themes/issues/2480)
+* **panelbar:** the arrow icons are not aligned correctly in IE ([3d9c3e9](https://github.com/telerik/kendo-themes/commit/3d9c3e9))
+* **scheduler:** add selector for adgenda view rows hover via class name ([29f6abf](https://github.com/telerik/kendo-themes/commit/29f6abf))
+* update draghandle focus state ([4dc5fd9](https://github.com/telerik/kendo-themes/commit/4dc5fd9))
+* **scrollview:** add missing px units for height calc ([0fdc4d5](https://github.com/telerik/kendo-themes/commit/0fdc4d5))
+
+
+### Features
+
+* **core:** add styles for stack and grid layout ([171e9ae](https://github.com/telerik/kendo-themes/commit/171e9ae))
+* **core:** extract extra scss file with common styles ([7697789](https://github.com/telerik/kendo-themes/commit/7697789))
+* **grid:** add k-grid-toolbar-bottom styles ([65c18f2](https://github.com/telerik/kendo-themes/commit/65c18f2))
+* extract core module ([4d0cfda](https://github.com/telerik/kendo-themes/commit/4d0cfda))
+
+
+
+
+<a name="4.38.1"></a>
+## [4.38.1](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.38.0...@progress/kendo-theme-default@4.38.1) (2021-05-04)
+
+
+### Bug Fixes
+
+* revert fix for virtual scrolling container ([d096e68](https://github.com/telerik/kendo-themes/commit/d096e68))
+
+
+
+
+<a name="4.38.0"></a>
+# [4.38.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.37.0...@progress/kendo-theme-default@4.38.0) (2021-05-04)
+
+
+### Bug Fixes
+
+* various fixes for content with virtualization ([a71c12b](https://github.com/telerik/kendo-themes/commit/a71c12b))
+* **action-sheet:** add z-index to actionsheet container ([d6aca3b](https://github.com/telerik/kendo-themes/commit/d6aca3b))
+* wrong border color ([5c12855](https://github.com/telerik/kendo-themes/commit/5c12855))
+* **actionsheet:** reset position of action sheet in popup ([e331c6b](https://github.com/telerik/kendo-themes/commit/e331c6b))
+* **grid:** non sticky header cells should slide below sticky cells ([be74a9e](https://github.com/telerik/kendo-themes/commit/be74a9e))
+* **taskboard:** scope category border selector in rtl ([1f021e3](https://github.com/telerik/kendo-themes/commit/1f021e3))
+
+
+### Features
+
+* expose certain swatches to theme builder ([9f75bc5](https://github.com/telerik/kendo-themes/commit/9f75bc5))
+
+
+
+
+<a name="4.37.0"></a>
+# [4.37.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.36.0...@progress/kendo-theme-default@4.37.0) (2021-04-16)
+
+
+### Bug Fixes
+
+* add focus state for draghandle ([7339d40](https://github.com/telerik/kendo-themes/commit/7339d40))
+* missing border between expand/collapse column ([528acf7](https://github.com/telerik/kendo-themes/commit/528acf7))
+* remove active styles ([3b48598](https://github.com/telerik/kendo-themes/commit/3b48598))
+* set zIndex ([01d0024](https://github.com/telerik/kendo-themes/commit/01d0024))
+* **adaptive:** use component and app colors for adaptive styling ([b38436e](https://github.com/telerik/kendo-themes/commit/b38436e))
+* **appbar:** use light and dark colors for light and dark appbar ([3346deb](https://github.com/telerik/kendo-themes/commit/3346deb))
+* **button:** update button colors to match latest design spec ([26415a5](https://github.com/telerik/kendo-themes/commit/26415a5))
+* **calendar:** update calendar colors to match latest design spec ([fdfc48c](https://github.com/telerik/kendo-themes/commit/fdfc48c))
+* **chip:** update chip colors in default theme to match design spec ([20cdd16](https://github.com/telerik/kendo-themes/commit/20cdd16))
+* **color-system:** update selected hover colors ([d2daeaa](https://github.com/telerik/kendo-themes/commit/d2daeaa))
+* **dataviz:** use linked chart colors for crosshair ([a7a9313](https://github.com/telerik/kendo-themes/commit/a7a9313))
+* **drawer:** use component- variables for drawer styles ([60d11b6](https://github.com/telerik/kendo-themes/commit/60d11b6))
+* **dropdownlist:** filter input size with no content ([720f58e](https://github.com/telerik/kendo-themes/commit/720f58e))
+* **editor:** use correct color for editor focused outline ([311b21b](https://github.com/telerik/kendo-themes/commit/311b21b))
+* **filter:** use subtle text variable for filter styling ([2eba3f6](https://github.com/telerik/kendo-themes/commit/2eba3f6))
+* **gantt:** use body-bg for striped gradients ([211e7a4](https://github.com/telerik/kendo-themes/commit/211e7a4))
+* **grid:** dirty cell overflow ([f0d78bf](https://github.com/telerik/kendo-themes/commit/f0d78bf))
+* **grid:** use correct colors for grid colum menu styles ([fc1f85c](https://github.com/telerik/kendo-themes/commit/fc1f85c))
+* **loader:** use component- variables for loader styles ([d2a9808](https://github.com/telerik/kendo-themes/commit/d2a9808))
+* **spreadsheet:** use component- variables for spreadsheet styles ([fb20ad7](https://github.com/telerik/kendo-themes/commit/fb20ad7))
+* **tilelayout:** hide the header of an overlapped item ([606bcfd](https://github.com/telerik/kendo-themes/commit/606bcfd))
+* sticky column border color when filter row is used ([aadd838](https://github.com/telerik/kendo-themes/commit/aadd838))
+* validate swatches json files against schema ([82853d1](https://github.com/telerik/kendo-themes/commit/82853d1))
+* **grid:** filter menu items spacings ([02e2f54](https://github.com/telerik/kendo-themes/commit/02e2f54))
+* **panelbar:** change panelbar-bg to white ([f27f218](https://github.com/telerik/kendo-themes/commit/f27f218))
+* **pivotgrid:** use correct colors for pivotgrid ([4dd2df2](https://github.com/telerik/kendo-themes/commit/4dd2df2))
+* **popup:** use component border for popup styling ([e8818f3](https://github.com/telerik/kendo-themes/commit/e8818f3))
+* **rating:** prevent pointer events to readonly mode ([fb7fe93](https://github.com/telerik/kendo-themes/commit/fb7fe93))
+* **scheduler:** use scheduler- variables for styling ([075ed1e](https://github.com/telerik/kendo-themes/commit/075ed1e))
+* **splitter:** tweak splitbar colors ([9b978ef](https://github.com/telerik/kendo-themes/commit/9b978ef))
+* **timepicker:** align timepicker colors to design spec ([ec115cc](https://github.com/telerik/kendo-themes/commit/ec115cc))
+* **treeview:** focus should be on root and not on wrapper ([d1c3312](https://github.com/telerik/kendo-themes/commit/d1c3312)), closes [telerik/kendo-ui-core#6321](https://github.com/telerik/kendo-ui-core/issues/6321)
+* **upload:** use component- variables for upload styles ([b814610](https://github.com/telerik/kendo-themes/commit/b814610))
+
+
+### Features
+
+* add new icons to font ([c6578f2](https://github.com/telerik/kendo-themes/commit/c6578f2))
+* **action-sheet:** add styles for action sheet ([a6fc80c](https://github.com/telerik/kendo-themes/commit/a6fc80c))
+* **button:** align button colors to design specification ([1d40910](https://github.com/telerik/kendo-themes/commit/1d40910))
+* **button:** update button spacing ([b539940](https://github.com/telerik/kendo-themes/commit/b539940))
+* **color-system:** add gray palette in default theme ([c2c8918](https://github.com/telerik/kendo-themes/commit/c2c8918))
+* **drawer:** hierarchical items ([e86f93b](https://github.com/telerik/kendo-themes/commit/e86f93b))
+* **panelbar:** styles update ([613d2a3](https://github.com/telerik/kendo-themes/commit/613d2a3))
+* **popup:** update popup-bg to white ([86c1297](https://github.com/telerik/kendo-themes/commit/86c1297))
+* **scheduler:** add year view styles ([96647f1](https://github.com/telerik/kendo-themes/commit/96647f1)), closes [#2229](https://github.com/telerik/kendo-themes/issues/2229)
+* **skeleton:** component styles ([3a31ce0](https://github.com/telerik/kendo-themes/commit/3a31ce0))
+* add styles for drag cell ([35c043b](https://github.com/telerik/kendo-themes/commit/35c043b))
+* add styles for k-bottom-nav-link ([1d97726](https://github.com/telerik/kendo-themes/commit/1d97726))
+* add TaskBoard styles ([fe98511](https://github.com/telerik/kendo-themes/commit/fe98511))
+* increase contrast of textual colors ([da847d9](https://github.com/telerik/kendo-themes/commit/da847d9))
+* ligthen base-bg in default theme ([256a23d](https://github.com/telerik/kendo-themes/commit/256a23d))
+
+
+
+
+<a name="4.36.0"></a>
+# [4.36.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.35.0...@progress/kendo-theme-default@4.36.0) (2021-03-29)
+
+
+### Bug Fixes
+
+* update grid sticky columns/rows styling ([4e86821](https://github.com/telerik/kendo-themes/commit/4e86821))
+* **grid:** apply correct styles for filer menu that is part of the popup content ([01e10c0](https://github.com/telerik/kendo-themes/commit/01e10c0))
+* update focus state ([89d9020](https://github.com/telerik/kendo-themes/commit/89d9020))
+
+
+### Features
+
+* add interaction states for calendar ([3ec6113](https://github.com/telerik/kendo-themes/commit/3ec6113))
+* add interaction states for combobox, autocomplete and multiselect ([9a07a6a](https://github.com/telerik/kendo-themes/commit/9a07a6a))
+* add interaction states for date pickers ([d1479f5](https://github.com/telerik/kendo-themes/commit/d1479f5))
+* **dataviz:** add Gauge styles ([f6ae7ce](https://github.com/telerik/kendo-themes/commit/f6ae7ce))
+* add interaction states for checkboxes ([bef52c6](https://github.com/telerik/kendo-themes/commit/bef52c6))
+* add interaction states for dateinput ([5d4a3a3](https://github.com/telerik/kendo-themes/commit/5d4a3a3))
+* add interaction states for radio buttons ([97aad9b](https://github.com/telerik/kendo-themes/commit/97aad9b))
+
+
+
+
 <a name="4.35.0"></a>
 # [4.35.0](https://github.com/telerik/kendo-themes/compare/@progress/kendo-theme-default@4.34.0...@progress/kendo-theme-default@4.35.0) (2021-03-15)
 

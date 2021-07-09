@@ -73,9 +73,9 @@
     .k-flatcolorpicker {
         @extend .k-text-selection !optional;
         @include fill(
-            $panel-text,
-            $panel-bg,
-            $panel-border
+            $component-text,
+            $component-bg,
+            $component-border
         );
 
         .k-color-value {
@@ -96,7 +96,7 @@
 
             // Draghandle
             .k-draghandle {
-                box-shadow: 0 1px 4px rgba(0, 0, 0, .9);
+                box-shadow: $colorpicker-draghandle-shadow;
                 // sass-lint:enable no-color-literals no-color-keywords
                 background-color: transparent;
             }
@@ -104,11 +104,16 @@
             .k-draghandle:focus {
                 // sass-lint:disable no-color-literals no-color-keywords
                 border-color: white;
-                box-shadow: 0 1px 4px black;
+                box-shadow: $colorpicker-draghandle-focused-shadow;
                 // sass-lint:enable no-color-literals no-color-keywords
                 background-color: transparent;
             }
 
+            &.k-state-focused {
+                .k-draghandle {
+                    box-shadow: $colorpicker-draghandle-focused-shadow;
+                }
+            }
         }
 
 
@@ -134,7 +139,11 @@
 
         .k-draghandle {
             border-color: rgba(255, 255, 255, .8);
-            box-shadow: 0 1px 4px rgba(0, 0, 0, .21);
+            box-shadow: $colorpicker-draghandle-shadow;
+
+            &.k-state-focus {
+                box-shadow: $colorpicker-draghandle-focused-shadow;
+            }
         }
 
         // Color contrast

@@ -21,8 +21,8 @@ $window-action-hover-opacity: .75 !default;
 $window-inner-padding-x: $modal-inner-padding !default;
 $window-inner-padding-y: $modal-inner-padding !default;
 
-$window-buttongroup-padding-x: $window-inner-padding-x !default;
-$window-buttongroup-padding-y: $window-inner-padding-y !default;
+$window-buttongroup-padding-x: $actions-padding-x !default;
+$window-buttongroup-padding-y: $actions-padding-y !default;
 $window-buttongroup-border-width: 1px !default;
 
 $window-bg: $modal-content-bg !default;
@@ -32,6 +32,7 @@ $window-border: $modal-content-border-color !default;
 $window-titlebar-bg: null !default;
 $window-titlebar-text: null !default;
 $window-titlebar-border: $modal-header-border-color !default;
+$window-titlebar-gradient: null !default;
 
 $window-shadow: null !default;
 $window-focused-shadow: null !default;

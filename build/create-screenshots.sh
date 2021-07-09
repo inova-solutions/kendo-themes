@@ -1,23 +1,30 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 set -e
+shopt -s extglob
 
-dir=$(pwd);
-theme=${1-default}
-test_dir="$dir/tests/.tmp/visual/$theme"
+THEME="${1:-default}"
+TEMP_DIR="./tests/.tmp/visual"
+THEME_DIR="$TEMP_DIR/$THEME"
+SRC_DIR="$THEME_DIR/src"
 
-mkdir -p $test_dir
+if [ -z "$THEME" ]; then
+    echo "Usage: create-screenshots <default|bootstrap|material>"
+    exit
+else
+    echo "Creating screenshots for theme '$THEME'"
+fi
 
-cp $dir/tests/visual/*.html $test_dir
-cp $dir/tests/visual/assets -r $test_dir
-cp $dir/packages/$theme/dist -r $test_dir
+mkdir -p "$THEME_DIR"
+cp -r ./tests/visual/!(output) "$THEME_DIR"
 
 # replace theme reference
-find $test_dir -name '*.html'  | xargs sed -i -e 's#../../packages/default/dist#dist#'
-
-cd tests
+find "$SRC_DIR" -name '*.html' -print0 | xargs -0 sed -i -E \
+    -e "s#/packages/default/dist/#/../../../packages/$THEME/dist/#"
 
 # capture screenshots. see .pastshotsrc for config options
-npx pastshots --serve ".tmp/visual/$theme/*.html" --port $((RANDOM % 1000 + 8000)) --output visual/output/$theme
+npm install --no-save pastshots@1.6 optipng
 
-rm -rf $dir/tests/.tmp/visual/$theme
+npx pastshots \
+    --serve "$SRC_DIR/**/*.html" \
+    --port $((RANDOM % 1000 + 8000)) \
+    --output "./tests/visual/output/$THEME"

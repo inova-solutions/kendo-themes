@@ -1,5 +1,4 @@
-@import "../_variables.scss";
-@import "../mixins/_index.scss";
+@import "../core/_index.scss";
 
 
 // Dependencies
@@ -7,7 +6,6 @@
 
 
 // Component
-@import "_aria.scss";
 @import "_border.scss";
 @import "_display.scss";
 @import "_flex.scss";

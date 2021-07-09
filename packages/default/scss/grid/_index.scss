@@ -1,5 +1,4 @@
-@import "../_variables.scss";
-@import "../mixins/_index.scss";
+@import "../core/_index.scss";
 
 
 // Dependencies
@@ -22,6 +21,7 @@
 @import "../dialog/_index.scss";
 @import "../pager/_index.scss";
 @import "../utils/_float.scss";
+@import "../utils/_spacer.scss";
 
 
 // Component
