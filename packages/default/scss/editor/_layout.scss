@@ -150,7 +150,6 @@
                 content: attr(data-placeholder);
                 height: 0;
                 color: $editor-placeholder-text;
-                font-style: italic;
                 float: left;
                 opacity: $editor-placeholder-opacity;
                 cursor: text;
@@ -260,7 +259,7 @@
             }
         }
 
-        .k-action-buttons {
+        .k-actions {
             padding: 0;
         }
 
@@ -576,7 +575,7 @@
             }
         }
 
-        .k-table-resize-handle-wrapper {
+        .k-element-resize-handle-wrapper {
             position: absolute;
             width: 5px;
             height: 5px;
@@ -584,7 +583,7 @@
             border-style: solid;
             z-index: 100;
 
-            .k-table-resize-handle {
+            .k-element-resize-handle {
                 width: 100%;
                 height: 100%;
 

@@ -40,17 +40,13 @@
 
         // Clear value
         .k-clear-value {
-            opacity: .5;
             visibility: hidden;
-
-            &:hover {
-                opacity: 1;
-            }
         }
         &:hover,
         // &:focus-within,
         &.k-state-hover,
         &.k-state-focused,
+        &.k-state-focus,
         .k-dropdown-wrap.k-state-hover,
         .k-dropdown-wrap.k-state-focused {
             .k-clear-value {
@@ -67,7 +63,7 @@
         .k-select {
             @include border-right-radius-only( $input-border-radius );
             padding: $combobox-select-padding-y $combobox-select-padding-x;
-            width: if($use-picker-select-width, $combobox-select-width, auto);
+            width: if( $use-picker-select-width, $combobox-select-width, null );
             border-width: 0 0 0 $combobox-select-border-width;
             box-sizing: border-box;
             border-style: solid;

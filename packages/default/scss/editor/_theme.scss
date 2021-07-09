@@ -1,18 +1,17 @@
 @include exports("editor/theme") {
 
-
     .k-editor {
         @include fill(
-            $panel-text,
-            $panel-bg,
-            $panel-border
+            $component-text,
+            $component-bg,
+            $component-border
         );
     }
 
     kendo-editor {
         &.k-readonly {
             .k-editor-content.k-state-focused {
-                outline-color: $text-color;
+                outline-color: $body-text;
             }
         }
     }
@@ -27,7 +26,7 @@
             }
         }
 
-        .k-table-resize-handle-wrapper {
+        .k-element-resize-handle-wrapper {
             background-color: #ffffff;
             border-color: #000000;
         }
@@ -78,16 +77,6 @@
                 $bg: $editor-highlighted-bg
             );
         }
-    }
-
-    // Find and replace dialog
-    .k-editor-find-replace {
-        .k-matches-container {
-            @include fill (
-                $bg: $editor-find-line-bg
-            );
-        }
-
     }
 
 }

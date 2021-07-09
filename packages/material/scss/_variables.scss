@@ -1,5 +1,5 @@
-@import "functions/_index.scss";
-@import "common/material/_themeing.scss";
+@import "core/functions/_index.scss";
+@import "core/_color-system.scss";
 
 
 // Options
@@ -103,7 +103,7 @@ $box-shadow-depth-5: 0 11px 15px -7px rgba( $elevation, .2 ), 0 24px 38px 3px rg
 // Icons
 $icon-size: 16px !default;
 $icon-size-lg: 32px !default;
-$icon-spacing: 4px !default;
+$icon-spacing: map-get( $spacing, 2 ) !default;
 
 /// The URL to the icon font that will be used by the theme
 /// The default value of `null` embeds the package font with a `data:` URL
@@ -224,12 +224,12 @@ $error-darker: shade( $error, 2 ) !default;
 /// The dark color of the theme.
 /// @group color-system
 /// @type Color
-$dark: get-base-hue( grey, 800 ) !default;
+$dark: get-base-hue( gray, 800 ) !default;
 
 /// The light color of the theme.
 /// @group color-system
 /// @type Color
-$light: get-base-hue( grey, 100 ) !default;
+$light: get-base-hue( gray, 100 ) !default;
 
 /// Inverse color of the theme. Depending on the theme luminance dark or lught, it will be light or dark
 /// @group color-system
@@ -252,7 +252,6 @@ $theme-colors: map-merge((
 ), $theme-colors);
 // sass-lint:enable indentation
 
-
 // Cursor utility classes
 $cursors: ( auto, default, none, context-menu, help, pointer, progress, wait, cell, crosshair, text,
     vertical-text, alias, copy, move, no-drop, not-allowed, e-resize, n-resize, ne-resize, nw-resize,
@@ -270,10 +269,6 @@ $gradient-white-to-transparent: white, rgba( white, 0);
 
 $gradient-rainbow: #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000;
 
-
-$text-color: rgba(black, .87) !default;
-$bg-color: #ffffff !default;
-$border-color: rgba( black, .12 ) !default;
 
 /// The background of the components' chrome area.
 $base-bg: map-get( $theme, base-bg ) !default;
@@ -302,8 +297,10 @@ $selected-border: rgba( if($theme-type == dark, white, black), .1 ) !default;
 /// The gradient background of selected items.
 $selected-gradient: null !default;
 
-$selected-hover-bg: try-shade( $selected-bg ) !default;
+$selected-hover-bg: try-shade( $selected-bg, .5 ) !default;
 $selected-hover-text: $selected-text !default;
+$selected-hover-border: rgba( if($theme-type == dark, white, black), .1 ) !default;
+$selected-hover-gradient: null !default;
 
 $transition: color .2s ease-in-out, background-color .2s ease-in-out, border-color .2s ease-in-out, box-shadow .2s ease-in-out !default;
 
@@ -315,9 +312,17 @@ $disabled-opacity: .6 !default;
 
 // Generic styles
 
+// TODO: refactor once we extract drag drop as separate module
+$font-size: 14px !default;
+$font-family: Roboto, "Helvetica Neue", sans-serif !default;
+$line-height: 2 !default;
+
 // Root styles
 $body-bg: map-get($theme, body-bg) !default;
 $body-text: map-get($theme, body-text) !default;
+
+$subtle-text: map-get($theme, subtle-text) !default;
+$disabled-text: map-get($theme, disabled-text) !default;
 
 $app-bg: $body-bg !default;
 $app-text: $body-text !default;
@@ -339,21 +344,6 @@ $component-text: map-get($theme, component-text) !default;
 /// Note: do not use this variable directly. Instead derive it as `$component-name-border` e.g. `$grid-border: component-border !default;`.
 /// @group component
 $component-border: map-get($theme, component-border) !default;
-
-
-// Widget
-/// Background color of a component.
-/// @deprecated Will be removed in v5. Use `$component-bg` variable instead.
-/// @group component
-$widget-bg: $component-bg !default;
-/// Text color of a component.
-/// @deprecated Will be removed in v5. Use `$component-text` variable instead.
-/// @group component
-$widget-text: $component-text !default;
-/// Border color of a component.
-/// @deprecated Will be removed in v5. Use `$component-border` variable instead.
-/// @group component
-$widget-border: $component-border !default;
 
 
 // Drop Hint
@@ -378,8 +368,8 @@ $panel-border: $component-border !default;
 
 // Grouping
 $grouping-header-bg: $component-border !default;
-$grouping-header-text: rgba($base-text, .54) !default;
-$grouping-border: $grouping-header-bg !default;
+$grouping-header-text: $subtle-text !default;
+$grouping-header-border: $grouping-header-bg !default;
 $frozen-grouping-header-text: null !default;
 $frozen-grouping-header-border-width: null !default;
 
@@ -460,20 +450,28 @@ $icon-hovered-opacity: .87 !default;
 $icon-focused-opacity: .87 !default;
 
 
-$drag-clue-opacity: .9 !default;
-$drag-clue-line-height: (20 / 14) !default;
-$drag-clue-border-radius: calc( ( #{$drag-clue-line-height} * ( 14px + #{$padding-y} ) ) / 2 ) !default;
+// Drag clue
+$drag-clue-padding-x: $padding-x !default;
+$drag-clue-padding-y: ($padding-x / 2) !default;
+$drag-clue-border-width: null !default;
+$drag-clue-border-radius: 9999px !default;
+$drag-clue-font-size: $font-size !default;
+$drag-clue-font-family: $font-family !default;
+$drag-clue-line-height: ( 20 / 14 ) !default;
+
+$drag-clue-bg: mix( $black, $white, 8%) !default;
+$drag-clue-text: map-get( $theme, body-text ) !default;
+$drag-clue-border: null !default;
+$drag-clue-gradient: null !default;
+$drag-clue-shadow: $box-shadow-depth-3 !default;
+
+$drag-clue-opacity: null !default;
 
 
 // Layout
 $grid-cols: 12 !default;
 $grid-rows: 10 !default;
 $grid-gap: 10px !default;
-
-
-// Backdrop (Overlay)
-$backdrop-bg: #000000 !default;
-$backdrop-opacity: .32 !default;
 
 
 // Disabled Styling maps

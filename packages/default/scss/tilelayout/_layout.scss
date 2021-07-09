@@ -27,4 +27,12 @@
         }
     }
 
+    .k-tilelayout-item-header.k-card-header {
+        z-index: 0;
+    }
+
+    .k-tilelayout-item-body {
+        min-height: 0;
+    }
+
 }

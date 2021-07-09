@@ -1,7 +1,6 @@
 @include exports("combobox/theme") {
 
     .k-combobox {
-        @extend .k-text-selection !optional;
 
         // Normal state
         .k-dropdown-wrap {
@@ -33,7 +32,7 @@
             );
         }
 
-        // Hovered state
+        // Hover state
         > :hover,
         .k-state-hover {
             @include fill(
@@ -52,17 +51,26 @@
             }
         }
 
-        // Selected state
-        > .k-state-focused,
-        .k-state-active {
+        // Focus state
+        > .k-state-focused {
             @include fill(
                 $combobox-focused-text,
                 $combobox-focused-bg,
                 $combobox-focused-border
             );
             @include box-shadow($combobox-focused-shadow);
+        }
 
-            .k-select {}
+        // Active state
+        .k-state-active {
+            .k-select {
+                @include fill(
+                    $combobox-select-pressed-text,
+                    $combobox-select-pressed-bg,
+                    $combobox-select-pressed-border,
+                    $combobox-select-pressed-gradient
+                );
+            }
         }
 
         // Invalid
@@ -76,6 +84,42 @@
                 &.k-state-focused {
                     @include box-shadow($invalid-shadow);
                 }
+            }
+        }
+    }
+
+    //Universal rendering
+    .k-combobox {
+        &.k-state-hover {
+            .k-dropdown-wrap {
+                @include fill(
+                    $combobox-hovered-text,
+                    $combobox-hovered-bg,
+                    $combobox-hovered-border
+                );
+            }
+        }
+
+        &.k-state-focus {
+            .k-dropdown-wrap {
+                @include fill(
+                    $combobox-focused-text,
+                    $combobox-focused-bg,
+                    $combobox-focused-border
+                );
+                @include box-shadow($combobox-focused-shadow);
+            }
+        }
+
+        &.k-invalid {
+            .k-dropdown-wrap {
+                border-color: $invalid-border;
+            }
+        }
+
+        &.k-invalid.k-state-focus {
+            .k-dropdown-wrap {
+                @include box-shadow($invalid-shadow);
             }
         }
     }

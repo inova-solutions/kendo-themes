@@ -21,7 +21,7 @@
             padding: $button-padding-y;
             width: $button-inner-calc-size;
             height: $button-inner-calc-size;
-            border-width: 0 $colorpicker-select-border-width 0 0;
+            border-width: 0;
             border-style: solid;
             border-color: inherit;
             box-sizing: border-box;
@@ -48,7 +48,7 @@
             padding: $button-padding-y;
             width: $button-inner-calc-size;
             height: $button-inner-calc-size;
-            border-width: 0 $colorpicker-select-border-width 0 0;
+            border-width: 0;
             border-style: solid;
             border-color: inherit;
             box-sizing: border-box;
@@ -99,8 +99,8 @@
         .k-select {
             @include border-right-radius-only( $input-border-radius );
             padding: $picker-select-padding-y $picker-select-padding-x;
-            width: if($use-picker-select-width, $button-inner-calc-size, null);
-            border-width: 0;
+            width: if( $use-picker-select-width, $button-inner-calc-size, null );
+            border-width: 0 0 0 $colorpicker-select-border-width;
             border-style: solid;
             border-color: inherit;
             box-sizing: border-box;
@@ -116,14 +116,10 @@
 
         .k-rtl &,
         &[dir="rtl"] {
-            .k-selected-color,
-            .k-tool-icon {
-                border-width: 0 0 0 $colorpicker-select-border-width;
-            }
-
             .k-picker-wrap {
                 .k-select {
                     @include border-left-radius-only( $input-border-radius );
+                    border-width: 0 $colorpicker-select-border-width 0 0;
                 }
             }
         }
@@ -315,6 +311,43 @@
         }
 
 
+        // Color contrast
+        .k-color-contrast {
+            .k-separator {
+                margin: map-get( $spacing, 2 ) 0;
+                border-width: 0;
+                border-top-width: 1px;
+                border-style: solid;
+                border-color: inherit;
+                display: block;
+                flex: 0 0 auto;
+                align-self: stretch;
+            }
+
+            .k-contrast-ratio {
+                margin-bottom: map-get( $spacing, 2 );
+            }
+
+            .k-contrast-ratio-text {
+                font-weight: $font-weight-bold;
+            }
+
+            .k-contrast-validation {
+                margin-left: map-get( $spacing, 2 );
+
+                .k-icon {
+                    vertical-align: middle;
+                }
+
+                // Needed for the double check icons.
+                // Once we have double check icon, this can be removed.
+                .k-i-check + .k-i-check {
+                    margin-left: -14px;
+                }
+            }
+        }
+
+
         // Selected color
         .k-selected-color {
             border-width: 0 0 1px;
@@ -333,9 +366,9 @@
             width: 100%;
             border: 0;
             box-sizing: border-box;
-            font-size: inherit;
+            font-size: $input-font-size;
             line-height: $input-line-height;
-            font-family: $font-family-monospace;
+            font-family: $input-font-family;
             outline: 0;
             flex: 1;
         }

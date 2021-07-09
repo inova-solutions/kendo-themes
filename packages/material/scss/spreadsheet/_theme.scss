@@ -2,7 +2,6 @@
 
     // Spreadsheet
     .k-spreadsheet {
-        @extend .k-text-selection !optional;
         @include fill(
             $spreadsheet-text,
             $spreadsheet-bg,
@@ -47,14 +46,11 @@
 
 
     // Row / column headers
-    .k-spreadsheet-top-corner {
-        border-color: $panel-border;
-        background-color: darken( $panel-bg, 4 );
-    }
+    .k-spreadsheet-top-corner,
     .k-spreadsheet-row-header,
-    .k-spreadsheet-column-header {
-        border-color: $panel-border;
-        background-color: darken( $panel-bg, 4 );
+    .k-spreadsheet-column-header  {
+        border-color: $component-border;
+        background-color: try-shade( $component-bg, 1 );
     }
 
 
@@ -70,14 +66,14 @@
 
     // Cell editor
     .k-spreadsheet-cell-editor {
-        color: $panel-text;
-        background-color: $panel-bg;
+        color: $component-text;
+        background-color: $component-bg;
     }
 
 
     // Cells
     .k-spreadsheet-merged-cell {
-        background-color: $panel-bg;
+        background-color: $component-bg;
     }
 
 
@@ -97,12 +93,12 @@
     }
 
     .k-spreadsheet .k-single-selection::after {
-        border-color: $panel-bg;
+        border-color: $component-bg;
         background-color: $primary;
     }
     .k-spreadsheet-active-cell {
         box-shadow: inset 0 0 0 1px $primary;
-        background-color: $panel-bg;
+        background-color: $component-bg;
 
         &.k-right {
             box-shadow: inset 0 0 0 1px $primary, inset -1px 0 0 1px $primary;
@@ -123,7 +119,7 @@
         box-shadow: inset 0 0 0 1px $primary;
     }
     .k-spreadsheet .k-auto-fill-punch {
-        background-color: rgba( $panel-bg, .5 );
+        background-color: rgba( $component-bg, .5 );
     }
 
 
@@ -166,12 +162,12 @@
 
         &.k-state-active {
             @include fill(
-                $button-pressed-text,
-                $button-pressed-bg,
-                $button-pressed-border,
-                $button-pressed-gradient
+                $button-active-text,
+                $button-active-bg,
+                $button-active-border,
+                $button-active-gradient
             );
-            @include box-shadow( $button-pressed-shadow );
+            @include box-shadow( $button-active-shadow );
         }
 
         &:hover {
@@ -190,9 +186,9 @@
 
         .k-spreadsheet-value-treeview-wrapper {
             @include fill(
-                $panel-text,
-                $panel-bg,
-                $panel-border
+                $component-text,
+                $component-bg,
+                $component-border
             );
         }
     }

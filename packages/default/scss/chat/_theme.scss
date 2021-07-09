@@ -2,7 +2,6 @@
 
     // Chat
     .k-chat {
-        @extend .k-text-selection !optional;
         @include fill(
             $chat-text,
             $chat-bg,
@@ -12,8 +11,10 @@
 
         // Message meta
         .k-timestamp {
-            text-transform: uppercase;
-            opacity: .7;
+            @include fill(
+                $chat-timestamp-text,
+                $chat-timestamp-bg
+            )
         }
         .k-author {
             font-weight: bold;

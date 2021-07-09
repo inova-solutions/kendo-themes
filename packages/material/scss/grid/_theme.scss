@@ -62,6 +62,10 @@
             }
 
         }
+        .k-grid-pager.k-state-focused,
+        .k-grid-pager:focus {
+            background-color: $grid-sticky-hovered-bg;
+        }
 
         th,
         td {
@@ -127,6 +131,17 @@
                 border-top-color: $grid-sticky-border;
                 border-bottom-color: $grid-sticky-border;
             }
+        }
+    }
+
+    kendo-grid {
+        .k-grid-content-sticky {
+            border-color: $grid-sticky-border;
+            border-bottom-color: $grid-header-border;
+        }
+        .k-grid-row-sticky td {
+            border-top-color: $grid-sticky-border;
+            border-bottom-color: $grid-sticky-border;
         }
     }
 
@@ -201,13 +216,6 @@
         }
     }
 
-    .k-drag-clue,
-    .k-grid-drag-clue {
-        background-color: $grid-group-drag-clue-bg;
-        color: $grid-group-drag-clue-text;
-        box-shadow: $popup-shadow;
-    }
-
     .k-grouping-dropclue,
     .k-reorder-cue {
         border-color: $primary;
@@ -232,15 +240,6 @@
 
     .k-reorder-cue {
         background-color: $primary;
-    }
-
-    .k-grid-edit-row > td {
-
-        > .k-textbox,
-        > .k-textarea,
-        > .k-widget {
-            background-color: $text-field-bg;
-        }
     }
 
     .k-columnmenu-item {

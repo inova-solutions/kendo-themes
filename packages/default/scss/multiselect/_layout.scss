@@ -75,13 +75,13 @@
                 display: inline-flex;
                 flex-direction: row;
                 align-items: center;
+                gap: $icon-spacing;
                 line-height: inherit;
                 white-space: normal;
 
                 .k-select {
                     display: flex;
                     cursor: pointer;
-                    margin-left: $padding-x;
                     align-self: stretch;
                 }
 
@@ -109,16 +109,12 @@
                 right: 0;
             }
 
+            // Clear value
             .k-clear-value {
-                opacity: .5;
                 visibility: hidden;
                 position: absolute;
                 top: 0;
                 right: 0;
-
-                &:hover {
-                    opacity: 1;
-                }
             }
             &:hover,
             &.k-state-hover,
@@ -131,7 +127,8 @@
 
 
         &.k-state-hover,
-        &.k-state-focused {
+        &.k-state-focused,
+        &.k-state-focus {
             > .k-multiselect-wrap {
                 .k-clear-value {
                     visibility: visible;
@@ -166,11 +163,6 @@
                     width: auto;
                     margin-right: $padding-y-sm;
                     margin-left: 0;
-
-                    .k-select {
-                        margin-left: 0;
-                        margin-right: $padding-x;
-                    }
                 }
             }
 

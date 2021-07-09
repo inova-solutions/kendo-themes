@@ -1,7 +1,6 @@
 @include exports("window/layout") {
 
     .k-window {
-        @include use-background-clip();
         @include border-radius( $window-border-radius );
         padding: 0;
         border-width: $window-border-width;
@@ -39,7 +38,6 @@
 
     // Title bar
     .k-window-titlebar {
-        @include use-background-clip();
         @include border-top-radius( $window-border-radius );
         padding: $window-titlebar-padding-y $window-titlebar-padding-x;
         border-width: $window-titlebar-border-width;
@@ -57,7 +55,8 @@
 
     // Title bar title text
     .k-window-title {
-        margin: 0;
+        padding: .5em 0;
+        margin: -.5em 0;
         font-size: $window-title-font-size;
         line-height: $window-title-line-height;
         text-overflow: ellipsis;
@@ -130,6 +129,20 @@
         }
     }
 
+    // Buttons Layout
+    .k-window-buttongroup {
+        @include border-bottom-radius( $window-border-radius );
+        padding: $window-buttongroup-padding-y $window-buttongroup-padding-x;
+        border-width: $window-buttongroup-border-width 0 0;
+        border-style: solid;
+        border-color: inherit;
+        flex: 0 0 auto;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        overflow: hidden;
+    }
+
 
     // Prompt
     .k-prompt-container {
@@ -139,5 +152,13 @@
             width: 100%;
         }
 
+    }
+
+    // Resize Handles
+    .k-window {
+        .k-resize-n { top: 0; }
+        .k-resize-e { right: 0; }
+        .k-resize-s { bottom: 0; }
+        .k-resize-w { left: 0; }
     }
 }

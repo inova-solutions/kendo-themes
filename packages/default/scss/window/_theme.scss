@@ -2,7 +2,6 @@
 
     // Window
     .k-window {
-        @extend .k-text-selection !optional;
         @include fill(
             $window-text,
             $window-bg,
@@ -24,7 +23,8 @@
         @include fill(
             $window-titlebar-text,
             $window-titlebar-bg,
-            $window-titlebar-border
+            $window-titlebar-border,
+            $window-titlebar-gradient
         );
     }
 

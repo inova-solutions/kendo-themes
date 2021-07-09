@@ -1,8 +1,6 @@
 @include exports("action-buttons/theme") {
 
-    .k-actions,
-    .k-action-buttons,
-    .k-columnmenu-actions {
+    .k-actions {
         @include fill(
             $actions-text,
             $actions-bg,
@@ -11,7 +9,4 @@
         );
     }
 
-    .k-actions-stretched {
-        border-color: $actions-stretched-border;
-    }
 }

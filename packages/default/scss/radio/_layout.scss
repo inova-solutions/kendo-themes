@@ -31,19 +31,23 @@
     }
 
     // Hover state
-    .k-radio:hover {
+    .k-radio:hover,
+    .k-radio.k-state-hover {
         cursor: pointer;
     }
 
     // Checked state
-    .k-radio:checked::before {
+    .k-radio:checked::before,
+    .k-radio.k-checked::before {
         @include border-radius( $radio-radius );
         transform: scale(1) translate(-50%, -50%);
     }
 
     // Disabled state
     .k-radio:disabled,
-    .k-radio:disabled + .k-radio-label {
+    .k-radio.k-disabled,
+    .k-radio:disabled + .k-radio-label,
+    .k-radio.k-disabled + .k-radio-label {
         @include disabled( $disabled-styling );
     }
 
@@ -96,23 +100,17 @@
     }
 
     .k-radio + .k-radio-label,
-    .k-radio-label + .k-radio {
+    .k-radio-label + .k-radio,
+    .k-label + .k-radio {
         margin-left: $radio-label-margin-x;
     }
     .k-radio-label > .k-radio {
         margin-right: $radio-label-margin-x;
         flex-shrink: 0;
     }
-    kendo-label.k-radio-label > .k-radio:last-child {
-        margin-right: 0;
-    }
-    kendo-label.k-radio-label > .k-label:first-child {
-        margin-right: $radio-label-margin-x;
-    }
     kendo-label.k-radio-label > .k-label {
         display: inline;
     }
-
 
     // Radio list
     .k-radio-list {
@@ -140,7 +138,8 @@
     .k-rtl,
     [dir="rtl"] {
         .k-radio + .k-radio-label,
-        .k-radio-label + .k-radio {
+        .k-radio-label + .k-radio,
+        .k-label + .k-radio {
             margin-left: 0;
             margin-right: $radio-label-margin-x;
         }
@@ -184,7 +183,8 @@
             transform: scale(0);
         }
 
-        .k-radio:disabled::after {
+        .k-radio:disabled::after,
+        .k-radio.k-disabled::after {
             display: none;
         }
     }

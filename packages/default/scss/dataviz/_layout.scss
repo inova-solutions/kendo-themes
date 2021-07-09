@@ -180,12 +180,6 @@
         height: 100%;
     }
 
-    .k-border {
-        width: 1px;
-        height: 100%;
-        position: absolute;
-    }
-
     .k-marquee {
         position: absolute;
         z-index: 100000;
@@ -384,11 +378,18 @@
 
 @include exports("dataviz/gauge/layout") {
 
-    .k-arcgauge {
+    .k-gauge {
+        text-align: left;
+        position: relative;
+    }
+
+    .k-arcgauge,
+    .k-circulargauge {
         display: inline-block;
     }
 
-    .k-arcgauge-label {
+    .k-arcgauge-label,
+    .k-circulargauge-label {
         position: absolute;
         text-align: center;
         padding: 0;
@@ -475,7 +476,7 @@
         series-30: $series-30,
 
         gauge-pointer: $primary,
-        gauge-track: darken($chart-bg, 10%)
+        gauge-track: try-shade( $chart-bg )
     );
 
     @each $name, $value in $exported {

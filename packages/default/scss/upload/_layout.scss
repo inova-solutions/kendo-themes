@@ -94,7 +94,6 @@
                 padding: $upload-item-padding-y $upload-item-padding-x calc(#{$upload-item-padding-y} + #{$upload-progress-thickness});
                 border-width: 0 0 1px;
                 border-style: solid;
-                border-color: inherit;
                 outline: none;
                 display: flex;
                 align-items: flex-start;
@@ -167,7 +166,7 @@
                 height: 34px;
                 border-width: 2px;
                 border-style: solid;
-                font-size: $font-size * .57;
+                font-size: ($font-size * .57);
                 text-transform: uppercase;
                 box-sizing: content-box;
                 position: absolute;
@@ -363,8 +362,7 @@
 
 
         // Action buttons
-        .k-actions,
-        .k-action-buttons {
+        .k-actions {
             border-top-width: 1px;
         }
 
@@ -409,7 +407,8 @@
             font: 170px monospace !important; // sass-lint:disable-block no-important
             margin: 0;
             padding: 0;
-            filter: alpha(opacity=0);
+            width: 100%;
+            height: 100%;
             opacity: 0;
             cursor: pointer;
             position: absolute;
@@ -477,8 +476,9 @@
             .k-dropzone-hint,
             .k-upload-status-total {
                 position: absolute;
-                top: calc(#{$upload-dropzone-padding-y} + (#{$button-padding-x} / 2));
+                top: 50%;
                 right: $upload-dropzone-padding-x;
+                transform: translateY(-50%);
             }
         }
 

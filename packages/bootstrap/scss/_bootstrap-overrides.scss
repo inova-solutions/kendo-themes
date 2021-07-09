@@ -24,8 +24,7 @@ $theme-colors: () !default;
     $yellow:   #ffc107 !default;
     $red:      #dc3545 !default;
 
-    $accent: $blue !default;
-    $primary: $accent !default;
+    $primary: $blue !default;
     $secondary: #e4e7eb !default;
     $info: $cyan !default;
     $success: $green !default;
@@ -49,8 +48,6 @@ $theme-colors: () !default;
     $body-bg: $white !default;
     $body-color: contrast-yiq( $body-bg, $gray-900, $gray-100 ) !default;
 
-    $border-color: contrast-yiq( $body-bg, $gray-300, $gray-700 ) !default;
-
     $component-bg: $body-bg !default;
     $component-color: contrast-yiq( $component-bg, $gray-900, $gray-100 ) !default;
     $component-border-color: contrast-yiq( $component-bg, $gray-300, $gray-700 ) !default;
@@ -60,13 +57,6 @@ $theme-colors: () !default;
     $breadcrumb-padding-x: 0px !default;
     $breadcrumb-padding-y: 0px !default;
     $breadcrumb-bg: $component-bg !default;
-
-    $card-bg: $component-bg !default;
-    $card-color: $component-color !default;
-    $card-border-color: rgba( contrast-yiq( $card-bg, $black, $white ), .125 ) !default;
-    $card-cap-bg: rgba( contrast-yiq( $card-bg, $black, $white ), .03 ) !default;
-    $card-cap-color: $card-color !default;
-    $card-cap-border-color: rgba( contrast-yiq( $card-bg, $black, $white ), .125 ) !default;
 
     $input-bg: $component-bg !default;
     $input-color: contrast-yiq( $input-bg, $gray-700, $gray-300 ) !default;
@@ -99,7 +89,7 @@ $theme-colors: () !default;
     $nav-tabs-link-active-border-color: $component-border-color !default;
 
     $pagination-bg: $component-bg !default;
-    $pagination-color: $accent !default;
+    $pagination-color: $primary !default;
     $pagination-border-color: $component-border-color !default;
     $pagination-hover-bg: darken( $pagination-bg, 8% ) !default;
     $pagination-hover-border-color: $pagination-border-color !default;
