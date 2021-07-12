@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'inovaicon';
   src:
-    url('fonts/inovaicon.ttf?qdfphf') format('truetype'),
-    url('fonts/inovaicon.woff?qdfphf') format('woff'),
-    url('fonts/inovaicon.svg?qdfphf#inovaicon') format('svg');
+    url('fonts/inovaicon.ttf?4jnfb0') format('truetype'),
+    url('fonts/inovaicon.woff?4jnfb0') format('woff'),
+    url('fonts/inovaicon.svg?4jnfb0#inovaicon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -34,6 +34,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.i-i-task-schnittstellen:before {
+  content: "\e940";
+}
 .i-i-task-abwesenheitsrubriken:before {
   content: "\e916";
 }
